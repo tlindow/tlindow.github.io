@@ -1,1 +1,3 @@
-introJs().start();
+function myFunction() {
+  introJs().start();
+}
