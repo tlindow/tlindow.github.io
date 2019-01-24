@@ -1,0 +1,265 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+  padding-top: 20px;
+}
+
+navbar {
+  display: block;
+  height: 120px;
+  background: #285172;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+}
+
+.navbar-left {}
+
+.fab {
+  display: inline-block;
+  position: relative;
+  top: 25%;
+}
+
+.far {
+  display: inline-block;
+  position: relative;
+  top: 25%;
+}
+
+.fas {
+  display: inline-block;
+  position: relative;
+  top: 25%;
+  color: white;
+}
+
+.btn-social {
+  border: 2px solid #fff;
+  border-radius: 100%;
+  width: 32px;
+  height: 32px;
+  margin-top: 15px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-left: 20px;
+  margin-top: 30px;
+}
+
+.navbar-links {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  font-size: 1em;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  float: right;
+}
+
+.btn-menu {
+  /* float: right;
+  background: transparent;
+  width: 40px;
+  height: 40px;
+  border: solid black 1px;
+  border-radius: 5px;
+  margin-top: 12px;
+  margin-right: 20px;
+  font-size: 2em; */
+  background-color: #3498DB;
+  margin-right: 20px;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-content {
+  display: none;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.menu-content a {
+  width: 30%;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.show {
+  display: flex;
+  width: 100%;
+}
+
+h1 {
+  float: left;
+  margin-left: 20px;
+  font-size: 2.5em;
+}
+
+li {
+  float: right;
+}
+
+a:hover {
+  color: #2196F3;
+  cursor: pointer;
+}
+
+li a {
+  text-align: center;
+  font-size: 24px;
+  padding: 28px 28px;
+  width: 130px;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+}
+
+.profile {
+  background: #2196F3;
+  height: 600px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  font-size: 34px;
+  text-align: center;
+}
+
+.profile-image {
+  background: white;
+  border-radius: 500px;
+  height: 300px;
+  top: 70px;
+  position: relative;
+  margin: auto;
+  width: 300px;
+  background-image: url("profile.jpg");
+  background-position: center;
+  background-size: cover;
+  border: 0.4em solid rgba(255, 255, 255, 0.75);
+}
+
+.profile-name {
+  top: 70px;
+  position: relative;
+  width: 80%;
+  margin: 20px auto;
+}
+
+.profile-title {
+  text-transform: none;
+  font-size: 20px;
+  margin: auto;
+}
+
+/* .profile-description {
+  width: 100%;
+  text-transform: none;
+  margin: auto 50px;
+  font-size: 20px;
+  line-height: 35px;
+} */
+
+hr {
+  width: 50%;
+  height: 3px;
+  background: white;
+  position: relative;
+  /* top: 70px; */
+}
+
+.about hr {
+  background: #285172;
+}
+
+.about {
+  background: white;
+  font-weight: 700;
+  color: #285172;
+  font-size: 34px;
+  text-align: center;
+  height: 50%;
+  padding-top: 50px;
+}
+
+.about-title {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.about-description {
+  text-transform: none;
+  margin: auto 50px;
+  font-size: 20px;
+  line-height: 35px;
+}
+
+.contact {
+  background: #eaf1f1;
+  height: 600px;
+  font-weight: 700;
+  color: #285172;
+  font-size: 34px;
+  text-align: center;
+}
+
+.contact-title {
+  width: 40%;
+  margin: 50px auto;
+  padding-top: 50px;
+}
+
+.contact hr {
+  background: #285172;
+}
+
+.contact-description {
+  text-align: center;
+  text-transform: none;
+  margin: auto 10%;
+  font-size: 20px;
+  line-height: 35px;
+  width: 70%;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  font-family: sans-serif;
+}
+
+@media only screen and (max-width: 768px) {
+  navbar {
+    height: 100px;
+    font-size: .65em;
+  }
+  .navbar-links, .btn-social {
+    display: none;
+  }
+}

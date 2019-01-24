@@ -1,73 +1,87 @@
-<!doctype html>
-<html class="no-js" lang="">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>tlindow</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
-  <!-- Place favicon.ico in the root directory -->
-
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/introjs.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tyler Lindow</title>
+  <link rel="icon" href="favicon-coffee.ico" />
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
 
 <body>
-  <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
+  <navbar>
+    <div class="container">
+      <!-- <div class="navbar-left"> -->
+      <h1><a>Tyler Lindow</a></h1>
+      <div class="btn-social">
+        <a><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <div class="btn-social">
+        <a><i class="far fa-envelope"></i></a>
+      </div>
+      <!-- </div> -->
 
-  <!-- Add your site or application content here -->
-  <h1 data-intro="Nice to meet you!" onclick="myFunction()">Hello, my name is Tyler</h1>
-  <h3 data-step="2" data-intro="From personal experience, I know how difficult it can be sometimes to express yourself with technical tools">I inspire people to see science and engineering as tools for creative thinking.</h3>
+      <ul class="navbar-links">
+        <li><a href="#">About Me</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Home</a></li>
+      </ul>
+      <div class="dropdown">
+        <button class="btn-menu">
+          <i class="fas fa-bars"></i>
+        </button>
 
-  <div id="sketch_holder">
+      </div>
+
+    </div>
+  </navbar>
+  <div class="menu-content">
+    <a href="#profile">Profile</a>
+    <a href="#about">About Me</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="profile">
+    <div class="profile-image" id="profile">
+
+    </div>
+    <div class="profile-name">
+      Tyler Lindow
+      <hr />
+      <div class="profile-title">
+        Software Engineer in San Francisco, CA
+      </div>
+    </div>
 
   </div>
-
-  <img class="work_image" src="img/cities.png" />
-  <p>
-    An exhibit prototype for our upcoming Technology + Sustainability gallery.
-  </p>
-  <img class="work_image" src="img/toy_tops.jpg" />
-  <p>
-    <a href="https://sciencejournal.withgoogle.com/">Google's Science Journal</a> activity exploring the motion of spinning tops.
-  </p>
-  <img class="work_image" src="img/nano.jpg" />
-  <p>
-    A microscopic view of a nano-dendritic copper alloy.
-  </p>
-
-  <script src="js/vendor/modernizr-3.5.0.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script>
-    window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')
-  </script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/lib/p5.js"></script>
-  <script src="js/lib/p5.dom.js"></script>
-  <script type="text/javascript" src="js/p5_self_portrait/Turtle.js"></script>
-  <script type="text/javascript" src="js/intro.js"></script>
-  <script src="js/p5_self_portrait/sketch.js"></script>
-
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-    window.ga = function() {
-      ga.q.push(arguments)
-    };
-    ga.q = [];
-    ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto');
-    ga('send', 'pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+  <div class="about" id="about">
+    <div class="about-title">
+      About Me
+      <hr />
+    </div>
+    <div class="about-description">
+      I am a Filipino American from San Bruno, CA with a background in NanoEngineering and Learning Sciences. As a former science museum professional, I designed professional development workshops and exhibit prototypes to help reduce the intimidation of technology
+      felt by staff and young people alike. My goal as a professional software engineer is to create developer tools that both strengthen industry practices and help advance software literacy for developers of all skill-levels and backgrounds. I strongly
+      believes that it is a software engineer’s responsibility to be a leader in both technology and sharing technology with others.
+    </div>
+  </div>
+  <div class="contact" id="contact">
+    <div class="contact-title">
+      Contact
+      <hr />
+    </div>
+    <div class="contact-description">
+      <form>
+        <input type="text" placeholder="Name" />
+        <input type="text" placeholder="Email Adress" />
+        <textarea type="text" placeholder="Message" style="height:200px"></textarea>
+      </form>
+    </div>
+  </div>
+  <script src="dropdown.js"></script>
 </body>
 
 </html>
