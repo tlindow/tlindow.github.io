@@ -227,7 +227,7 @@ hr {
 
 .contact {
   background: #eaf1f1;
-  height: 600px;
+  height: 700px;
   font-weight: 700;
   color: #285172;
   font-size: 34px;
@@ -250,11 +250,11 @@ hr {
   margin: auto 10%;
   font-size: 20px;
   line-height: 35px;
-  width: 70%;
+  width: 75%;
 }
 
 input, textarea {
-  width: 100%;
+  width: 93%;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
