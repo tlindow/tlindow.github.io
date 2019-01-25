@@ -22,22 +22,11 @@ navbar {
 
 .navbar-left {}
 
-.fab {
+.fab, .far, .fas {
   display: inline-block;
   position: relative;
   top: 25%;
-}
-
-.far {
-  display: inline-block;
-  position: relative;
-  top: 25%;
-}
-
-.fas {
-  display: inline-block;
-  position: relative;
-  top: 25%;
+  text-decoration: none;
   color: white;
 }
 
@@ -129,7 +118,7 @@ li {
   float: right;
 }
 
-a:hover {
+a:hover, .fab:hover, .fas:hover, .far:hover {
   color: #2196F3;
   cursor: pointer;
 }
@@ -263,7 +252,7 @@ input, textarea {
   font-family: sans-serif;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1100px) {
   navbar {
     height: 100px;
     font-size: .65em;
@@ -271,10 +260,9 @@ input, textarea {
   .navbar-links, .btn-social {
     display: none;
   }
-  .btn-menu {}
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1100px) {
   .dropdown {
     display: none;
   }
