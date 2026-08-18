@@ -27,31 +27,31 @@ export default function About() {
               of seeing something come to life in a browser.
             </p>
             <p>
-              I&rsquo;m drawn to projects at the intersection of technology and
-              creativity &mdash; whether that&rsquo;s an interactive booking
-              system, a generative art sketch, or a tool that makes
-              someone&rsquo;s workflow easier. I&rsquo;m passionate about AI in
-              software and always looking to learn more about what people are
-              building.
+              Based in San Diego (Stockton &amp; Golden Hill 92102), I&rsquo;m fascinated by
+              how technology can genuinely connect and elevate local communities.
+              As the founder of <strong>beginner</strong> and creator of{" "}
+              <strong>tinker</strong> and <strong>h&amacr;pi</strong>, I build tools that
+              empower diverse makers, healers, and builders to share their craft,
+              mint web applications, and build sustainable independence.
             </p>
             <p>
-              Outside of code, I&rsquo;m curious about storytelling, design,
-              and how technology brings people together. Right now I&rsquo;m
-              focused on building in public, mentoring other developers, and
-              creating content.
+              I&rsquo;m deeply interested in the intersection of human learning and
+              artificial intelligence &mdash; exploring how cognitive models inform
+              autonomous agent architecture, speaking at events like DEVx San Diego,
+              and mentoring developers 1:1 to help them break through in their careers.
             </p>
           </div>
         </ScrollReveal>
 
         <StaggerContainer className="mt-10 sm:mt-12 grid grid-cols-3 gap-4 sm:gap-8" staggerDelay={0.15}>
           <StaggerItem>
-            <Stat label="GitHub Repos" value="45+" color="bg-rose-light" />
+            <Stat label="Ventures Shipped" value="3+" color="bg-rose-light" />
           </StaggerItem>
           <StaggerItem>
-            <Stat label="Primary Stack" value="React / TS" color="bg-sky-light" />
+            <Stat label="Primary Stack" value="Next.js / TS" color="bg-sky-light" />
           </StaggerItem>
           <StaggerItem>
-            <Stat label="Focus" value="Mentoring" color="bg-mint-light" />
+            <Stat label="Focus" value="Founder & Mentor" color="bg-mint-light" />
           </StaggerItem>
         </StaggerContainer>
       </div>

@@ -7,6 +7,7 @@ import FloatingOrbs from "@/components/animations/FloatingOrbs";
 import GradientBeam from "@/components/animations/GradientBeam";
 import AnimatedText from "@/components/animations/AnimatedText";
 import MagneticButton from "@/components/animations/MagneticButton";
+import AISearchBar from "@/components/AISearchBar";
 
 export default function Hero() {
   return (
@@ -46,7 +47,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          Software Developer &middot; Builder &middot; Mentor
+          Founder &middot; Software Developer &middot; Mentor
         </motion.p>
 
         <AnimatedText
@@ -62,8 +63,9 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.9 }}
         >
-          I build things for the web, mentor developers, and love sharing what
-          I learn along the way. Based in San Diego.
+          I build products for the web, mentor developers, and explore where
+          human creativity meets artificial intelligence. Founder of beginner
+          and maker of hāpi. Based in San Diego.
         </motion.p>
 
         <motion.div
@@ -107,9 +109,18 @@ export default function Hero() {
           </div>
         </motion.div>
 
+        {/* AI Search Assistant Bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 1.25 }}
+        >
+          <AISearchBar />
+        </motion.div>
+
         <motion.a
           href="#about"
-          className="inline-flex items-center gap-2 mt-12 sm:mt-16 text-sm text-muted hover:text-foreground transition-colors"
+          className="inline-flex items-center gap-2 mt-8 sm:mt-12 text-sm text-muted hover:text-foreground transition-colors"
           aria-label="Scroll down"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, y: [0, 6, 0] }}

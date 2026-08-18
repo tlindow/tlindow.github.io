@@ -1,64 +1,101 @@
 "use client";
 
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Sparkles, Layers } from "lucide-react";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
+import { BeginnerSeedMark, TinkerGlobeMark, HapiCupMark } from "@/components/brand/BeginnerMarks";
 
-const projects = [
+const ventures = [
   {
-    title: "Dreaming with Marisól",
-    description: "My wife's business website.",
-    tech: ["TypeScript"],
-    url: "https://github.com/tlindow/dreamingwithmarisol",
-    accent: "group-hover:border-rose/40",
-    hover: "group-hover:text-rose",
-    glow: "group-hover:shadow-rose/10",
-  },
-  {
-    title: "Booking Module",
+    title: "beginner",
+    tagline: "Everyone is a founder",
     description:
-      "Component-as-a-service handling date selection, price calculation, and reservation booking.",
-    tech: ["JavaScript", "React"],
-    url: "https://github.com/tlindow/booking-module",
-    accent: "group-hover:border-peach/40",
-    hover: "group-hover:text-peach",
-    glow: "group-hover:shadow-peach/10",
+      "A founder platform and installable PWA App Store where diverse makers, healers, and builders mint their own web apps and receive direct community funding.",
+    tech: ["Next.js", "TypeScript", "PWA", "Stripe Connect", "PostgreSQL"],
+    url: "https://www.beginner.work",
+    github: "https://github.com/tlindow",
+    icon: BeginnerSeedMark,
+    accent: "group-hover:border-forest/40 border-forest/20",
+    badge: "Company & Platform",
+    badgeColor: "bg-forest/10 text-forest",
+    hover: "group-hover:text-forest",
+    glow: "group-hover:shadow-forest/10",
   },
   {
-    title: "Dog Breed Search",
-    description: "A React app for searching and browsing dog breeds by name.",
-    tech: ["React", "JavaScript"],
-    url: "https://github.com/tlindow/dogbreed_search_react",
-    accent: "group-hover:border-mint/40",
-    hover: "group-hover:text-mint",
+    title: "tinker",
+    tagline: "A quiet place to be on the web",
+    description:
+      "An ad-free, distraction-free web shell powered by Claude on the search edge. Features phone/PIN auth, plain-language interview flows, and direct answer synthesis.",
+    tech: ["Anthropic Claude", "TypeScript", "Serverless", "PWA"],
+    url: "https://www.beginner.work",
+    github: "https://github.com/tlindow",
+    icon: TinkerGlobeMark,
+    accent: "group-hover:border-violet/40",
+    badge: "AI Product",
+    badgeColor: "bg-violet-light text-violet",
+    hover: "group-hover:text-violet",
+    glow: "group-hover:shadow-violet/10",
+  },
+  {
+    title: "hāpi",
+    tagline: "A night cafe serving hop elixirs",
+    description:
+      "A San Diego craft beverage brand and mobile ordering PWA. Hop-based botanicals, community events, and frictionless tap-to-order experiences.",
+    tech: ["TypeScript", "PWA", "Design System", "Mobile-First"],
+    url: "https://www.beginner.work/hapi",
+    github: "https://github.com/tlindow",
+    icon: HapiCupMark,
+    accent: "group-hover:border-leaf/40",
+    badge: "Craft & Commerce",
+    badgeColor: "bg-mint-light text-forest",
+    hover: "group-hover:text-leaf",
     glow: "group-hover:shadow-mint/10",
   },
   {
-    title: "Memory Game",
-    description: "A browser-based card-matching memory game.",
-    tech: ["CSS", "JavaScript"],
-    url: "https://github.com/tlindow/Memory-Game-fend",
+    title: "Dreaming with Marisól",
+    tagline: "Spiritual guidance & herbal medicine",
+    description:
+      "Full digital experience and custom booking portal for a spiritual practitioner, herbalist, and community healer.",
+    tech: ["TypeScript", "React", "Next.js", "Tailwind CSS"],
+    url: "https://github.com/tlindow/dreamingwithmarisol",
+    github: "https://github.com/tlindow/dreamingwithmarisol",
+    accent: "group-hover:border-rose/40",
+    badge: "Client Experience",
+    badgeColor: "bg-rose-light text-rose",
+    hover: "group-hover:text-rose",
+    glow: "group-hover:shadow-rose/10",
+  },
+];
+
+const experiments = [
+  {
+    title: "p5.js Creative Coding",
+    description:
+      "Generative art sketches, spiraling circle algorithms, and visual math experiments in the browser.",
+    tech: ["p5.js", "Canvas", "JavaScript"],
+    url: "https://github.com/tlindow/p5jstest",
+    accent: "group-hover:border-violet/40",
+    hover: "group-hover:text-violet",
+    glow: "group-hover:shadow-violet/10",
+  },
+  {
+    title: "Greywater Projection",
+    description:
+      "Interactive data visualization and resource projection tool calculating sustainable water reuse.",
+    tech: ["D3.js", "JavaScript", "SVG"],
+    url: "https://github.com/tlindow/greywater_projection",
     accent: "group-hover:border-sky/40",
     hover: "group-hover:text-sky",
     glow: "group-hover:shadow-sky/10",
   },
   {
-    title: "Greywater Projection",
-    description: "Data visualization and projection tool.",
-    tech: ["JavaScript", "D3"],
-    url: "https://github.com/tlindow/greywater_projection",
-    accent: "group-hover:border-indigo/40",
-    hover: "group-hover:text-indigo",
-    glow: "group-hover:shadow-indigo/10",
-  },
-  {
-    title: "p5.js Experiments",
+    title: "Booking Module Service",
     description:
-      "Creative coding — spiraling circles and generative art sketches.",
-    tech: ["p5.js", "JavaScript"],
-    url: "https://github.com/tlindow/p5jstest",
-    accent: "group-hover:border-violet/40",
-    hover: "group-hover:text-violet",
-    glow: "group-hover:shadow-violet/10",
+      "Component-as-a-service handling date picker logic, pricing tiers, and calendar reservations.",
+    tech: ["React", "JavaScript", "CSS"],
+    url: "https://github.com/tlindow/booking-module",
+    accent: "group-hover:border-peach/40",
+    hover: "group-hover:text-peach",
+    glow: "group-hover:shadow-peach/10",
   },
 ];
 
@@ -67,12 +104,15 @@ export default function Portfolio() {
     <section id="portfolio" className="py-16 sm:py-24 px-4 sm:px-6">
       <div className="mx-auto max-w-5xl">
         <ScrollReveal>
-          <h2 className="font-display text-3xl sm:text-4xl tracking-tight text-foreground">
-            Portfolio
-          </h2>
+          <div className="flex items-center gap-3">
+            <h2 className="font-display text-3xl sm:text-4xl tracking-tight text-foreground">
+              Ventures &amp; Work
+            </h2>
+          </div>
           <div className="mt-2 h-1 w-16 rounded-full bg-peach" />
-          <p className="mt-3 sm:mt-4 text-muted text-[15px] sm:text-lg max-w-xl">
-            A selection of projects I&rsquo;ve built. More on{" "}
+          <p className="mt-3 sm:mt-4 text-muted text-[15px] sm:text-lg max-w-2xl">
+            A look at the companies, software products, and creative systems I&rsquo;m
+            building. More on{" "}
             <a
               href="https://github.com/tlindow?tab=repositories"
               target="_blank"
@@ -85,43 +125,124 @@ export default function Portfolio() {
           </p>
         </ScrollReveal>
 
-        <StaggerContainer className="mt-8 sm:mt-12 grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3" staggerDelay={0.08}>
-          {projects.map((p) => (
-            <StaggerItem key={p.title}>
-              <a
-                href={p.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`group flex flex-col justify-between rounded-2xl bg-surface border border-border p-5 sm:p-6 hover:shadow-xl ${p.accent} ${p.glow} transition-all duration-300 hover:-translate-y-1`}
-              >
-                <div>
-                  <div className="flex items-start justify-between">
-                    <h3 className={`text-base sm:text-lg font-semibold text-foreground ${p.hover} transition-colors`}>
-                      {p.title}
-                    </h3>
-                    <ExternalLink
-                      size={15}
-                      className="mt-0.5 shrink-0 text-muted opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    />
+        {/* Featured Ventures Grid */}
+        <div className="mt-10 sm:mt-12">
+          <ScrollReveal>
+            <div className="flex items-center gap-2 mb-6">
+              <Sparkles size={16} className="text-amber" />
+              <h3 className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-muted">
+                Featured Products &amp; Ventures
+              </h3>
+            </div>
+          </ScrollReveal>
+
+          <StaggerContainer className="grid gap-6 sm:grid-cols-2" staggerDelay={0.1}>
+            {ventures.map((v) => {
+              const Icon = v.icon;
+              return (
+                <StaggerItem key={v.title}>
+                  <a
+                    href={v.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`group flex flex-col justify-between rounded-3xl bg-surface border border-border p-6 sm:p-7 hover:shadow-xl ${v.accent} ${v.glow} transition-all duration-300 hover:-translate-y-1 h-full`}
+                  >
+                    <div>
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="flex items-center gap-3">
+                          {Icon ? (
+                            <Icon className="w-10 h-10 rounded-xl flex-shrink-0 shadow-sm" />
+                          ) : null}
+                          <div>
+                            <span className={`inline-block rounded-full px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider mb-1 ${v.badgeColor}`}>
+                              {v.badge}
+                            </span>
+                            <h4 className={`text-xl sm:text-2xl font-bold text-foreground ${v.hover} transition-colors`}>
+                              {v.title}
+                            </h4>
+                          </div>
+                        </div>
+                        <ExternalLink
+                          size={18}
+                          className="mt-1 shrink-0 text-muted opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                        />
+                      </div>
+
+                      <p className="mt-3 text-sm font-medium text-foreground/80 italic">
+                        &ldquo;{v.tagline}&rdquo;
+                      </p>
+
+                      <p className="mt-2 text-sm text-muted leading-relaxed">
+                        {v.description}
+                      </p>
+                    </div>
+
+                    <div className="mt-6 pt-4 border-t border-border/70 flex flex-wrap gap-1.5">
+                      {v.tech.map((t) => (
+                        <span
+                          key={t}
+                          className="rounded-full bg-surface-alt px-2.5 py-0.5 text-xs font-medium text-muted"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </a>
+                </StaggerItem>
+              );
+            })}
+          </StaggerContainer>
+        </div>
+
+        {/* Experiments & Open Source */}
+        <div className="mt-14 sm:mt-18">
+          <ScrollReveal>
+            <div className="flex items-center gap-2 mb-6">
+              <Layers size={16} className="text-sky" />
+              <h3 className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-muted">
+                Creative Code &amp; Open Source
+              </h3>
+            </div>
+          </ScrollReveal>
+
+          <StaggerContainer className="grid gap-4 sm:gap-6 sm:grid-cols-3" staggerDelay={0.08}>
+            {experiments.map((p) => (
+              <StaggerItem key={p.title}>
+                <a
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group flex flex-col justify-between rounded-2xl bg-surface border border-border p-5 sm:p-6 hover:shadow-md ${p.accent} ${p.glow} transition-all duration-300 hover:-translate-y-0.5 h-full`}
+                >
+                  <div>
+                    <div className="flex items-start justify-between">
+                      <h4 className={`text-base sm:text-lg font-semibold text-foreground ${p.hover} transition-colors`}>
+                        {p.title}
+                      </h4>
+                      <ExternalLink
+                        size={14}
+                        className="mt-0.5 shrink-0 text-muted opacity-0 group-hover:opacity-100 transition-all duration-300"
+                      />
+                    </div>
+                    <p className="mt-1.5 text-xs sm:text-sm text-muted leading-relaxed">
+                      {p.description}
+                    </p>
                   </div>
-                  <p className="mt-1.5 text-sm text-muted leading-relaxed">
-                    {p.description}
-                  </p>
-                </div>
-                <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5">
-                  {p.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="rounded-full bg-surface-alt px-2.5 py-0.5 text-xs font-medium text-muted"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </a>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {p.tech.map((t) => (
+                      <span
+                        key={t}
+                        className="rounded-full bg-surface-alt px-2 py-0.5 text-[11px] font-medium text-muted"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </a>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
       </div>
     </section>
   );

@@ -1,8 +1,8 @@
 # Hey, I'm Tyler Lindow
 
-**Software Developer · Builder · Creator**
+**Founder · Software Developer · Mentor**
 
-I build things for the web and love sharing what I learn along the way. This repo powers my [GitHub profile](https://github.com/tlindow) and contains the source code for my personal website.
+Founder of **beginner**, maker of **h&amacr;pi**, and builder of **tinker**. I build products for the web, mentor developers, and explore where human creativity meets AI. This repo powers my [GitHub profile](https://github.com/tlindow) and contains the source code for my personal website.
 
 ---
 

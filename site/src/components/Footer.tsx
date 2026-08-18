@@ -24,7 +24,7 @@ const socials = [
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Work With Me", href: "#mentoring" },
-  { label: "Portfolio", href: "#portfolio" },
+  { label: "Ventures", href: "#portfolio" },
   { label: "Speaking", href: "#speaking" },
   { label: "Content", href: "#content" },
 ];

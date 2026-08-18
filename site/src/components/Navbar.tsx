@@ -7,7 +7,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 const links = [
   { label: "About", href: "#about" },
   { label: "Work With Me", href: "#mentoring" },
-  { label: "Portfolio", href: "#portfolio" },
+  { label: "Ventures", href: "#portfolio" },
   { label: "Speaking", href: "#speaking" },
   { label: "Content", href: "#content" },
   { label: "Connect", href: "#connect" },
