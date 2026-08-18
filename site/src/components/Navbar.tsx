@@ -24,9 +24,20 @@ export default function Navbar() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 flex items-center justify-between h-14 sm:h-16">
           <a
             href="#"
-            className="font-display font-semibold text-lg sm:text-xl tracking-tight text-foreground"
+            className="flex items-center gap-2.5 sm:gap-3 group shrink-0"
           >
-            Tyler Lindow
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/IMG_0548.jpeg`}
+              alt="Tyler Lindow"
+              width={36}
+              height={36}
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full object-cover object-[center_20%] ring-2 ring-violet/20 group-hover:ring-violet/50 transition-all shrink-0"
+              loading="eager"
+            />
+            <span className="font-display font-semibold text-lg sm:text-xl tracking-tight text-foreground group-hover:text-violet transition-colors">
+              Tyler Lindow
+            </span>
           </a>
 
           <ul className="hidden md:flex items-center gap-6 lg:gap-8">

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { ArrowDown, Linkedin, Github, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import FloatingOrbs from "@/components/animations/FloatingOrbs";
@@ -16,36 +15,11 @@ export default function Hero() {
       <GradientBeam />
 
       <div className="max-w-3xl text-center">
-        <motion.div
-          className="mb-6 sm:mb-8 flex justify-center"
-          initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-        >
-          <div className="relative group">
-            <motion.div
-              className="absolute -inset-3 rounded-full bg-gradient-to-br from-violet/30 via-indigo/20 to-sky/30 blur-xl"
-              animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.8, 0.5] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden ring-4 ring-violet/20 ring-offset-4 ring-offset-background shadow-lg">
-              <Image
-                src="/IMG_0548.jpeg"
-                alt="Tyler Lindow"
-                fill
-                sizes="(max-width: 640px) 128px, 160px"
-                className="object-cover object-[center_20%]"
-                priority
-              />
-            </div>
-          </div>
-        </motion.div>
-
         <motion.p
           className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-violet mb-3 sm:mb-4"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
           Founder &middot; Software Developer &middot; Mentor
         </motion.p>
@@ -54,14 +28,14 @@ export default function Hero() {
           text="Hey, I'm Tyler."
           as="h1"
           className="font-display text-4xl sm:text-6xl md:text-7xl leading-tight tracking-tight text-foreground"
-          delay={0.5}
+          delay={0.35}
         />
 
         <motion.p
           className="mt-4 sm:mt-6 text-base sm:text-xl leading-relaxed text-muted max-w-2xl mx-auto px-2"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.9 }}
+          transition={{ duration: 0.7, delay: 0.6 }}
         >
           I build products for the web, mentor developers, and explore where
           human creativity meets artificial intelligence. Founder of{" "}
@@ -73,7 +47,7 @@ export default function Hero() {
           className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1.1 }}
+          transition={{ duration: 0.7, delay: 0.8 }}
         >
           <MagneticButton
             href="#mentoring"
@@ -114,7 +88,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1.25 }}
+          transition={{ duration: 0.7, delay: 0.95 }}
         >
           <AISearchBar />
         </motion.div>
@@ -126,8 +100,8 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, y: [0, 6, 0] }}
           transition={{
-            opacity: { duration: 0.5, delay: 1.5 },
-            y: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1.5 },
+            opacity: { duration: 0.5, delay: 1.15 },
+            y: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1.15 },
           }}
         >
           <ArrowDown size={20} />
