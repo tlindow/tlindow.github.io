@@ -13,8 +13,11 @@ const topics = [
   },
   {
     title: "Building in Public & Founder Journeys",
-    description:
-      "Lessons from starting beginner, bootstrapping in San Diego, and turning real-world community needs into software.",
+    description: (
+      <>
+        Lessons from starting <em className="italic">beginner</em>, bootstrapping in San Diego, and turning real-world community needs into software.
+      </>
+    ),
     bg: "bg-rose-light",
     tag: "Startups & Product",
   },

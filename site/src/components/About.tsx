@@ -29,8 +29,8 @@ export default function About() {
             <p>
               Based in San Diego (Stockton &amp; Golden Hill 92102), I&rsquo;m fascinated by
               how technology can genuinely connect and elevate local communities.
-              As the founder of <strong>beginner</strong> and creator of{" "}
-              <strong>tinker</strong> and <strong>h&amacr;pi</strong>, I build tools that
+              As the founder of <em className="italic font-bold">beginner</em> and creator of{" "}
+              <strong>tinker</strong> and <strong>hāpi</strong>, I build tools that
               empower diverse makers, healers, and builders to share their craft,
               mint web applications, and build sustainable independence.
             </p>

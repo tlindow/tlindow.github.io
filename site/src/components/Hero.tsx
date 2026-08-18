@@ -64,8 +64,9 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.9 }}
         >
           I build products for the web, mentor developers, and explore where
-          human creativity meets artificial intelligence. Founder of beginner
-          and maker of hāpi. Based in San Diego.
+          human creativity meets artificial intelligence. Founder of{" "}
+          <em className="italic">beginner</em> and maker of hāpi. Based in San
+          Diego.
         </motion.p>
 
         <motion.div
