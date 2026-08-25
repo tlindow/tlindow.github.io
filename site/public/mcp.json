@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "name": "tyler-lindow-profile",
+  "version": "1.0.0",
+  "description": "MCP Resource & Structured Context for Tyler Lindow (Founder, Software Developer, Mentor)",
+  "author": {
+    "name": "Tyler Lindow",
+    "email": "tyler.lindow@gmail.com",
+    "location": "San Diego, CA",
+    "url": "https://tlindow.github.io"
+  },
+  "resources": {
+    "llms_summary": "https://tlindow.github.io/llms.txt",
+    "llms_full": "https://tlindow.github.io/llms-full.txt",
+    "linkedin": "https://www.linkedin.com/in/tlindow",
+    "github": "https://github.com/tlindow",
+    "calendly": "https://calendly.com/tylerlindow/elevate"
+  },
+  "topics": [
+    {
+      "id": "origin",
+      "title": "Field Museum & Origins",
+      "year": 2019,
+      "location": "Chicago, IL",
+      "description": "Transition from evolutionary biology research at Chicago's Field Museum to full-stack web software development."
+    },
+    {
+      "id": "beginner",
+      "title": "beginner (Company & App Store)",
+      "year": 2024,
+      "url": "https://www.beginner.work",
+      "tagline": "Everyone is a founder",
+      "description": "Founder platform and installable PWA App Store where diverse creators, healers, and makers mint apps."
+    },
+    {
+      "id": "tinker",
+      "title": "tinker (Claude AI Web Shell)",
+      "year": 2025,
+      "url": "https://www.beginner.work",
+      "tagline": "A quiet place to be on the web",
+      "description": "Ad-free, privacy-first web shell powered by Claude on the search edge."
+    },
+    {
+      "id": "hapi",
+      "title": "hāpi (Botanical Hop Elixirs)",
+      "year": 2024,
+      "url": "https://www.beginner.work/hapi",
+      "location": "San Diego, CA (92102)",
+      "description": "Craft botanical beverage brand and mobile ordering PWA serving cold-pressed hop elixirs."
+    },
+    {
+      "id": "speaking",
+      "title": "DEVx Keynote: Human Minds & AI Models",
+      "year": 2026,
+      "date": "2026-04-18",
+      "url": "https://www.youtube.com/watch?v=STI5pw5F5Lo&t=631s",
+      "description": "Featured keynote exploring structural parallels between biological cognition and autonomous AI agent design."
+    },
+    {
+      "id": "mentoring",
+      "title": "1:1 Developer Mentoring",
+      "year": 2021,
+      "url": "https://calendly.com/tylerlindow/elevate",
+      "description": "Live pair programming, architectural code reviews, and career pivot guidance."
+    }
+  ]
+}

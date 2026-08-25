@@ -179,7 +179,7 @@ const streamTimer = setInterval(() => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full max-w-2xl mx-auto mt-6 sm:mt-8 text-left z-20"
+      className="relative w-full max-w-2xl mx-auto text-left z-20"
     >
       {/* Search Input Bar Container */}
       <form

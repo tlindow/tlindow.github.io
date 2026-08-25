@@ -6,7 +6,7 @@ const isRootPages = !repo || repo.endsWith(".github.io");
 const basePath = isGithubActions && !isRootPages ? `/${repo}` : "";
 
 const nextConfig: NextConfig = {
-  output: "export",
+  output: process.env.NODE_ENV === "production" ? "export" : undefined,
   basePath: basePath || undefined,
   assetPrefix: basePath || undefined,
   env: {
@@ -15,9 +15,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  reactStrictMode: true,
 };
 
-
 export default nextConfig;
-
-

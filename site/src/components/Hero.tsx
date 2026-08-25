@@ -1,115 +1,184 @@
 "use client";
 
-import { ArrowDown, Linkedin, Github, Mail } from "lucide-react";
+import { useState } from "react";
+import {
+  Copy,
+  Check,
+  Printer,
+  Linkedin,
+  Github,
+  Mail,
+  Phone,
+  MapPin,
+  ArrowDown,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import FloatingOrbs from "@/components/animations/FloatingOrbs";
 import GradientBeam from "@/components/animations/GradientBeam";
-import AnimatedText from "@/components/animations/AnimatedText";
-import MagneticButton from "@/components/animations/MagneticButton";
-import AISearchBar from "@/components/AISearchBar";
+import { resumeContact } from "@/data/resumeData";
 
 export default function Hero() {
+  const [copiedContact, setCopiedContact] = useState(false);
+
+  const handleCopyContact = async () => {
+    const contactString = `${resumeContact.name}\n${resumeContact.title}\n${resumeContact.location} | ${resumeContact.phone} | ${resumeContact.email}\nLinkedIn: ${resumeContact.linkedin}\nGitHub: ${resumeContact.github}`;
+    try {
+      await navigator.clipboard.writeText(contactString);
+      setCopiedContact(true);
+      setTimeout(() => setCopiedContact(false), 2500);
+    } catch {
+      setCopiedContact(true);
+      setTimeout(() => setCopiedContact(false), 2500);
+    }
+  };
+
+  const handlePrint = () => {
+    if (typeof window !== "undefined") {
+      window.print();
+    }
+  };
+
   return (
-    <section className="relative min-h-[100dvh] flex items-center justify-center px-4 sm:px-6 pt-14 sm:pt-16 overflow-hidden">
-      <FloatingOrbs />
-      <GradientBeam />
-
-      <div className="max-w-3xl text-center">
-        <motion.p
-          className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-violet mb-3 sm:mb-4"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          Founder &middot; Software Developer &middot; Mentor
-        </motion.p>
-
-        <AnimatedText
-          text="Hey, I'm Tyler."
-          as="h1"
-          className="font-display text-4xl sm:text-6xl md:text-7xl leading-tight tracking-tight text-foreground"
-          delay={0.35}
-        />
-
-        <motion.p
-          className="mt-4 sm:mt-6 text-base sm:text-xl leading-relaxed text-muted max-w-2xl mx-auto px-2"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.6 }}
-        >
-          I build products for the web, mentor developers, and explore where
-          human creativity meets artificial intelligence. Founder of{" "}
-          <em className="italic">beginner</em> and maker of hāpi. Based in San
-          Diego.
-        </motion.p>
-
-        <motion.div
-          className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.8 }}
-        >
-          <MagneticButton
-            href="#mentoring"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-violet px-6 py-3 text-sm font-medium text-white hover:bg-indigo transition-colors hover:shadow-lg hover:shadow-violet/25"
-          >
-            Work With Me
-          </MagneticButton>
-          <div className="flex gap-3 w-full sm:w-auto">
-            <MagneticButton
-              href="https://www.linkedin.com/in/tlindow"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-full border border-border glass px-5 py-3 text-sm font-medium text-foreground hover:border-violet/30 transition-all"
-            >
-              <Linkedin size={16} />
-              <span className="sm:inline">LinkedIn</span>
-            </MagneticButton>
-            <MagneticButton
-              href="https://github.com/tlindow"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-full border border-border glass px-5 py-3 text-sm font-medium text-foreground hover:border-violet/30 transition-all"
-            >
-              <Github size={16} />
-              <span className="sm:inline">GitHub</span>
-            </MagneticButton>
-            <MagneticButton
-              href="mailto:tyler.lindow@gmail.com"
-              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 rounded-full border border-border glass px-5 py-3 text-sm font-medium text-foreground hover:border-violet/30 transition-all"
-            >
-              <Mail size={16} />
-              <span className="sm:inline">Email</span>
-            </MagneticButton>
-          </div>
-        </motion.div>
-
-        {/* AI Search Assistant Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.95 }}
-        >
-          <AISearchBar />
-        </motion.div>
-
-        <motion.a
-          href="#about"
-          className="inline-flex items-center gap-2 mt-8 sm:mt-12 text-sm text-muted hover:text-foreground transition-colors"
-          aria-label="Scroll down"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, y: [0, 6, 0] }}
-          transition={{
-            opacity: { duration: 0.5, delay: 1.15 },
-            y: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1.15 },
-          }}
-        >
-          <ArrowDown size={20} />
-        </motion.a>
+    <section className="relative pt-24 pb-12 sm:pt-28 sm:pb-16 px-4 sm:px-6 overflow-hidden border-b border-border/70">
+      <div className="no-print">
+        <FloatingOrbs />
+        <GradientBeam />
       </div>
 
-      {/* Gradient fade into the next section for a seamless scroll */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none bg-gradient-to-b from-transparent to-background" />
+      <div className="w-full max-w-4xl mx-auto z-10 relative flex flex-col items-center text-center">
+        {/* Avatar & Availability Badge */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9, y: -10 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-6 relative flex items-center justify-center"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/IMG_0548.jpeg`}
+            alt="Tyler Lindow"
+            width={96}
+            height={96}
+            className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover object-[center_20%] ring-4 ring-forest/20 shadow-md"
+            loading="eager"
+          />
+          <span className="absolute bottom-0 right-1 inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-mono font-medium bg-forest text-sand border-2 border-surface shadow-sm">
+            Resume
+          </span>
+        </motion.div>
+
+        {/* Full Name */}
+        <motion.h1
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="font-serif text-4xl sm:text-5xl md:text-6xl text-foreground font-normal tracking-tight"
+        >
+          {resumeContact.name}
+        </motion.h1>
+
+        {/* Title / Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
+          className="mt-3 text-base sm:text-lg md:text-xl font-sans font-medium text-forest max-w-2xl"
+        >
+          {resumeContact.title}
+        </motion.p>
+
+        {/* Contact Info Pills / Links */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.35 }}
+          className="mt-5 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-mono text-muted"
+        >
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-surface px-3 py-1 border border-border">
+            <MapPin size={13} className="text-forest" />
+            <span>{resumeContact.location}</span>
+          </span>
+
+          <a
+            href={`tel:${resumeContact.phone.replace(/[^0-9]/g, "")}`}
+            className="inline-flex items-center gap-1.5 rounded-full bg-surface hover:bg-surface-alt px-3 py-1 border border-border hover:border-forest/40 transition-colors"
+          >
+            <Phone size={13} className="text-sprout" />
+            <span>{resumeContact.phone}</span>
+          </a>
+
+          <a
+            href={`mailto:${resumeContact.email}`}
+            className="inline-flex items-center gap-1.5 rounded-full bg-surface hover:bg-surface-alt px-3 py-1 border border-border hover:border-forest/40 transition-colors"
+          >
+            <Mail size={13} className="text-violet" />
+            <span>{resumeContact.email}</span>
+          </a>
+
+          <a
+            href={resumeContact.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full bg-surface hover:bg-surface-alt px-3 py-1 border border-border hover:border-forest/40 transition-colors"
+          >
+            <Linkedin size={13} className="text-[#0A66C2]" />
+            <span>{resumeContact.linkedinDisplay}</span>
+          </a>
+
+          <a
+            href={resumeContact.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full bg-surface hover:bg-surface-alt px-3 py-1 border border-border hover:border-forest/40 transition-colors"
+          >
+            <Github size={13} className="text-foreground" />
+            <span>{resumeContact.githubDisplay}</span>
+          </a>
+        </motion.div>
+
+        {/* Primary Action Button Group */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.45 }}
+          className="mt-8 flex flex-wrap items-center justify-center gap-3 no-print"
+        >
+          <button
+            type="button"
+            onClick={handlePrint}
+            className="inline-flex items-center gap-2 rounded-full bg-forest text-sand hover:bg-forest-dark px-5 py-2.5 text-xs sm:text-sm font-mono font-medium shadow-sm transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
+          >
+            <Printer size={15} />
+            <span>Print / Save PDF</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={handleCopyContact}
+            className="inline-flex items-center gap-2 rounded-full bg-surface text-foreground hover:bg-surface-alt px-4 py-2.5 text-xs sm:text-sm font-mono font-medium border border-border hover:border-forest/40 shadow-sm transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
+          >
+            {copiedContact ? (
+              <>
+                <Check size={15} className="text-sprout" />
+                <span>Contact Copied!</span>
+              </>
+            ) : (
+              <>
+                <Copy size={15} className="text-muted" />
+                <span>Copy Contact</span>
+              </>
+            )}
+          </button>
+
+          <a
+            href="#experience"
+            className="inline-flex items-center gap-2 rounded-full bg-surface text-foreground hover:bg-surface-alt px-4 py-2.5 text-xs sm:text-sm font-mono font-medium border border-border hover:border-forest/40 shadow-sm transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
+          >
+            <span>Experience</span>
+            <ArrowDown size={14} className="text-muted" />
+          </a>
+        </motion.div>
+      </div>
     </section>
   );
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Inter, Space_Mono, Silkscreen } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -8,23 +8,68 @@ const inter = Inter({
   display: "swap",
 });
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-plus-jakarta-sans",
+const spaceMono = Space_Mono({
+  variable: "--font-space-mono",
+  weight: ["400", "700"],
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const silkscreen = Silkscreen({
+  variable: "--font-pixel",
+  weight: ["400", "700"],
+  subsets: ["latin"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Tyler Lindow — Founder, Developer, Mentor",
+  title: "Tyler Lindow — Staff B2B Product Manager",
   description:
-    "Personal website of Tyler Lindow. Founder of beginner, maker of hāpi, developer, and mentor building for the web in San Diego.",
+    "Portfolio & Resume for Tyler Lindow. Staff B2B Product Manager — B2B at B2C scale. $1B+ partner portfolio scale, and developer paved paths.",
   openGraph: {
-    title: "Tyler Lindow — Founder, Developer, Mentor",
+    title: "Tyler Lindow — Staff B2B Product Manager",
     description:
-      "Founder of beginner, maker of hāpi, software developer, and mentor building for the web in San Diego.",
-    type: "website",
+      "Portfolio & Resume for Tyler Lindow. Staff B2B Product Manager — B2B at B2C scale. $1B+ partner portfolio scale, and developer paved paths.",
+    type: "profile",
   },
+  alternates: {
+    types: {
+      "text/plain": "/llms.txt",
+    },
+  },
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: "/apple-icon.png",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://tlindow.github.io/#person",
+      "name": "Tyler Lindow",
+      "jobTitle": "Staff B2B Product Manager",
+      "telephone": "(650) 580-5788",
+      "email": "tlindow.invest@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "San Diego",
+        "addressRegion": "CA",
+        "postalCode": "92102",
+        "addressCountry": "US"
+      },
+      "url": "https://tlindow.github.io",
+      "sameAs": [
+        "https://www.linkedin.com/in/tlindow",
+        "https://github.com/tlindow"
+      ]
+    }
+  ]
 };
 
 export default function RootLayout({
@@ -34,7 +79,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${plusJakartaSans.variable} antialiased`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs.txt" />
+      </head>
+      <body
+        className={`${inter.variable} ${spaceMono.variable} ${silkscreen.variable} font-mono antialiased bg-background text-foreground selection:bg-sprout-light selection:text-forest`}
+      >
         {children}
       </body>
     </html>

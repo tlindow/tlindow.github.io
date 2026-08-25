@@ -1,91 +1,65 @@
 "use client";
 
-import { Linkedin, Github, Mail } from "lucide-react";
-import ScrollReveal from "@/components/animations/ScrollReveal";
-
-const socials = [
-  {
-    icon: Linkedin,
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/tlindow",
-  },
-  {
-    icon: Github,
-    label: "GitHub",
-    href: "https://github.com/tlindow",
-  },
-  {
-    icon: Mail,
-    label: "Email",
-    href: "mailto:tyler.lindow@gmail.com",
-  },
-];
-
-const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Work With Me", href: "#mentoring" },
-  { label: "Ventures", href: "#portfolio" },
-  { label: "Speaking", href: "#speaking" },
-  { label: "Content", href: "#content" },
-];
+import { FileText, Cpu } from "lucide-react";
+import { resumeContact } from "@/data/resumeData";
 
 export default function Footer() {
   return (
-    <footer id="connect" className="py-12 sm:py-16 px-4 sm:px-6 border-t border-border">
-      <div className="mx-auto max-w-5xl">
-        <ScrollReveal>
-          <div className="flex flex-col sm:flex-row items-start justify-between gap-10 sm:gap-12">
-            <div>
-              <p className="font-display font-semibold text-xl sm:text-2xl text-foreground">
-                Tyler Lindow
-              </p>
-              <p className="mt-2 text-sm text-muted max-w-xs">
-                Developer, builder, mentor. Always open to a good conversation.
-              </p>
-              <div className="mt-5 flex gap-3">
-                {socials.map((s) => {
-                  const Icon = s.icon;
-                  return (
-                    <a
-                      key={s.label}
-                      href={s.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={s.label}
-                      className="inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border text-muted hover:text-violet hover:border-violet/30 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
-                    >
-                      <Icon size={16} />
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
-
-            <div>
-              <p className="text-xs font-semibold text-foreground uppercase tracking-wider">
-                Navigation
-              </p>
-              <ul className="mt-3 space-y-1.5">
-                {navLinks.map((l) => (
-                  <li key={l.href}>
-                    <a
-                      href={l.href}
-                      className="text-sm text-muted hover:text-foreground transition-colors"
-                    >
-                      {l.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+    <footer className="py-10 sm:py-12 px-4 sm:px-6 border-t border-border bg-surface-alt/70 no-print">
+      <div className="mx-auto max-w-4xl space-y-6">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-muted">
+          {/* Contact summary */}
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3">
+            <span className="text-foreground font-medium">{resumeContact.name}</span>
+            <span>&bull;</span>
+            <span>{resumeContact.location}</span>
+            <span>&bull;</span>
+            <a href={`mailto:${resumeContact.email}`} className="hover:text-foreground underline underline-offset-2">
+              {resumeContact.email}
+            </a>
+            <span>&bull;</span>
+            <a href={`tel:${resumeContact.phone.replace(/[^0-9]/g, "")}`} className="hover:text-foreground underline underline-offset-2">
+              {resumeContact.phone}
+            </a>
           </div>
-        </ScrollReveal>
 
-        <div className="mt-10 pt-6 border-t border-border text-center">
-          <p className="text-xs text-muted">
-            &copy; {new Date().getFullYear()} Tyler Lindow. Built with Next.js
-            and Tailwind CSS.
-          </p>
+          {/* Machine knowledge endpoints */}
+          <div className="flex flex-wrap items-center gap-3">
+            <a
+              href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/llms.txt`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 hover:text-foreground underline underline-offset-2 transition-colors"
+            >
+              <FileText size={12} className="text-forest" />
+              <span>llms.txt</span>
+            </a>
+            <span>&bull;</span>
+            <a
+              href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/llms-full.txt`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 hover:text-foreground underline underline-offset-2 transition-colors"
+            >
+              <FileText size={12} className="text-sprout" />
+              <span>llms-full.txt</span>
+            </a>
+            <span>&bull;</span>
+            <a
+              href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/mcp.json`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 hover:text-foreground underline underline-offset-2 transition-colors"
+            >
+              <Cpu size={12} className="text-sky" />
+              <span>mcp.json</span>
+            </a>
+          </div>
+        </div>
+
+        <div className="pt-4 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] font-mono text-muted/80">
+          <p>&copy; {new Date().getFullYear()} Tyler Lindow &middot; Senior Technical Leader &middot; Engineering Management &amp; DevRel</p>
+          <p>San Diego, CA &middot; Built with Next.js, React, Tailwind CSS &amp; Framer Motion</p>
         </div>
       </div>
     </footer>

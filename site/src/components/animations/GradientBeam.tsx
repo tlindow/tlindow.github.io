@@ -11,7 +11,7 @@ export default function GradientBeam() {
         animate={{ rotate: 360 }}
         transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
       >
-        <div className="absolute inset-0 rounded-full bg-gradient-conic from-violet/15 via-transparent via-30% to-transparent" />
+        <div className="absolute inset-0 rounded-full bg-gradient-conic from-violet/20 via-rose/10 via-30% to-transparent" />
       </motion.div>
 
       <motion.div
@@ -22,7 +22,7 @@ export default function GradientBeam() {
           opacity: 0.06,
           willChange: "transform, opacity",
         }}
-        animate={{ scale: [1, 1.3, 1], opacity: [0.06, 0.1, 0.06] }}
+        animate={{ scale: [1, 1.2, 1], opacity: [0.05, 0.09, 0.05] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
     </div>

@@ -1,53 +1,82 @@
 # Tyler Lindow
-**Senior Technical Leader | Engineering Management & Developer Relations**
-San Diego, CA | (650) 580-5788 | tyler.lindow@icloud.com | [linkedin.com/in/tlindow](https://linkedin.com/in/tlindow)[span_3](start_span)[span_3](end_span)
+
+**Staff Developer Product Manager**  
+*Specializing in small business (SMB) developer partnerships, $1B+ platform scale, and developer paved paths*  
+San Diego, CA (Relocating to Seattle, WA) · (650) 580-5788 · [tlindow.invest@gmail.com](mailto:tlindow.invest@gmail.com) · [linkedin.com/in/tlindow](https://www.linkedin.com/in/tlindow) · [github.com/tlindow](https://github.com/tlindow)
 
 ---
 
-## Vision Statement
-Strategic Technical Leader and DevRel professional with over 10 years of comprehensive experience—encompassing nearly 7 years driving software engineering and merchant-facing web products, and 4 years dedicated to technical education and mentorship[span_4](start_span)[span_4](end_span). Proven track record of bridging the gap between engineering teams and external developers, managing high-stakes stakeholder relationships, and driving adoption of cutting-edge developer tooling[span_5](start_span)[span_5](end_span).
+## Vision
 
-**Technical Toolkit:** DevRel, DX, LLMs & RAG, Agentic Coding, Snowflake, JavaScript, Python, React, Node.js, Flask[span_6](start_span)[span_6](end_span).
-
----
-
-## Professional Experience
-
-### Beginner Work | Founder
-*San Diego, CA (Hybrid) | Mar 2026 – Jul 2026 (5 mos)*[span_7](start_span)[span_7](end_span)
-* **Developer Engagement:** Built and launched a progressive web app enabling technical founders to refine pitches and streamline fundraising workflows on-the-go, successfully acquiring initial paying users[span_8](start_span)[span_8](end_span).
-* **Community Architecture:** Established a local technical network by hosting targeted networking events for product-focused tech professionals and engineers in the San Diego ecosystem[span_9](start_span)[span_9](end_span).
-* **Market Advocacy:** Traveled across major tech hubs (NYC, SF, LA) to conduct user research, gather developer feedback, and evangelize the product framework directly to target audiences[span_10](start_span)[span_10](end_span).
-
-### Affirm | Manager, Software Engineering (L7)
-*San Francisco, CA (Remote) | Mar 2025 – Feb 2026*[span_11](start_span)[span_11](end_span)
-* **Program Orchestration:** Directed a high-pressure, 5-week strategic website revamp (affirm.com), unifying engineering, design, and product content to successfully unlock critical GMV attribution features[span_12](start_span)[span_12](end_span).
-* **Stakeholder Alignment:** Mediated and resolved complex technical conflicts across Manager, Director, and Staff+ levels to unblock a critical platform re-architecture and secure final technical sign-off[span_13](start_span)[span_13](end_span).
-* **Cross-Functional Performance:** Facilitated engineering trade-offs to optimize mobile performance, driving an incremental **$.5M GMV** during key promotional windows[span_14](start_span)[span_14](end_span).
-* **Technology Evangelism:** Championed organization-wide adoption of LLM code-generation utilities, upskilling engineering teams to accelerate high-risk project deliverables ahead of Black Friday/Cyber Monday deadlines[span_15](start_span)[span_15](end_span).
-
-### Affirm | Manager, Developer Support Engineering (L6/L7)
-*Jul 2021 – Mar 2025*[span_16](start_span)[span_16](end_span)
-* **Strategic DX Transition:** Transformed a global support operation into a proactive development and developer experience (DX) function, systemizing 80% of operational workflows and scaling the team from 1 to 6[span_17](start_span)[span_17](end_span).
-* **Ecosystem Expansion:** Architected a technical enablement strategy that eliminated legacy engineering debt, freeing 10+ core engineers to seed and scale new European development teams[span_18](start_span)[span_18](end_span).
-* **Data-Driven Advocacy:** Developed a full-stack reporting and analytics suite (Python, Flask, Snowflake) removing 16 hours of manual overhead monthly and supporting the retention of **$1B+** strategic partner portfolios[span_19](start_span)[span_19](end_span).
-
-### Affirm | Developer Support Engineer (L4/L5)
-*Sept 2019 – Jul 2021*[span_20](start_span)[span_20](end_span)
-* **Technical Translation & Liaison:** Served as the primary technical point of contact for enterprise merchants; diagnosed complex B2B integration bugs and translated them into actionable platform solutions to eliminate partner churn[span_21](start_span)[span_21](end_span).
+To elevate the creative and financial position of software developers through education, in-person connection, and creating safe spaces to build business ideas.
 
 ---
 
-## Technical Mentorship & Education
-* **Galvanize** | Lead SWE Immersive Resident | San Francisco, CA | *2019*[span_22](start_span)[span_22](end_span)
-* **The Tech Interactive** | Dev. & Programs Spec. | San Jose, CA | *2017–2019*[span_23](start_span)[span_23](end_span)
-* **Computer History Museum** | Code Instructor | Mountain View, CA | *2017–2018*[span_24](start_span)[span_24](end_span)
-* **UC San Diego** | Chemistry Facilitator | San Diego, CA | *2014–2015*[span_25](start_span)[span_25](end_span)
+## Experience Snapshot
+
+### Beginner | Founder, Developer Product Management
+*San Diego, CA (Hybrid) | Mar 2026 – Jul 2026 (5 mos)*
+- Built and launched a progressive web app enabling technical founders to refine pitches and practice fundraising in-person with potential customers, successfully acquiring initial paying users.
+- Established a local technical network by hosting targeted networking events for product-focused tech professionals and engineers in San Diego.
+- Traveled across major tech hubs (NYC, SF)—including weekly trips to LA over a 2-month period—to conduct user research, gather developer feedback, and evangelize the product framework directly to target audiences.
+
+### Affirm | Software Engineering Manager (L7), Merchant Advocacy
+*San Diego, CA (Remote) | Mar 2025 – Feb 2026 (1 yr)*
+- Directed a high-pressure, 5-week strategic website revamp (affirm.com), unifying engineering, design, and product content to successfully unlock critical GMV attribution features.
+- Facilitated engineering trade-offs throughout the revamp to optimize mobile performance, driving an incremental $500K GMV during pre-BFCM 2025 promotional window.
+- Spearheaded organizational adoption of LLM code-generation utilities and agentic frameworks via team workshops and one-on-one's. Overcame engineer skepticism to accelerate high-risk project deliverables ahead of Black Friday/Cyber Monday deadlines.
+- Mediated and resolved complex technical conflicts across Manager, Director, and Staff+ levels to unblock a critical platform re-architecture and secure final technical sign-off.
+
+### Affirm | Developer Support Engineering Manager (L6 → L7), Partner Engineering
+*San Diego, CA (Remote) | Jul 2021 – Mar 2025 (3 yrs 9 mos)*
+- Transformed a global support operation into a proactive development and SRE support function, systemizing 80% of operational workflows and scaling the team from 1 to 6 engineers to protect high-volume GMV.
+- Advocated for enterprise merchant needs across a $1B+ strategic partner portfolio, synthesizing integration bugs into systemic root causes. Translated developer friction into the language of revenue to secure product prioritization.
+- Developed a full-stack reporting and analytics suite (Python, Flask, Snowflake) removing 16 hours of manual overhead monthly and shifting to a proactive integration strategy.
+
+### Affirm | Developer Support Engineer (L4 → L5), Partner Engineering
+*San Francisco (On-site) & San Diego (Remote) | Sept 2019 – Jul 2021 (1 yr 11 mos)*
+
+- **Galvanize Inc** — Lead Software Engineering Immersive Resident *(May 2019 – Aug 2019 · 4 mos)*
+- **The Tech Interactive** — Gallery Programs Specialist → Experience Development Specialist & Prototyping Studio Coordinator *(May 2017 – Jan 2019 · 1 yr 9 mos)*
+- **Computer History Museum** — Workshop Instructor, Education Programs → Design Code Build Instructor *(Mar 2017 – Nov 2018 · 1 yr 9 mos)*
+
+## Education
+- **Deep Atlas** — Residency, Applied AI and Machine Learning
+- **Northwestern University** — Graduate Coursework, Learning Sciences
+- **University of California, San Diego** — B.S. NanoEngineering – Cum Laude
 
 ---
 
-## Education & Academic Foundations
-* **Deep Atlas** | Machine Learning Intensive[span_26](start_span)[span_26](end_span)
-* **Hack Reactor** | Software Engineering Immersive[span_27](start_span)[span_27](end_span)
-* **Northwestern University** | Grad. Studies, Learning Sci.[span_28](start_span)[span_28](end_span)
-* **UC San Diego** | B.S. NanoEngineering -- *Cum Laude*[span_29](start_span)[span_29](end_span)
+## Personal Website & Interactive Resume
+
+The `site/` directory contains a full Next.js application powering [tlindow.github.io](https://tlindow.github.io) — an on-brand, interactive, and print-optimized resume.
+
+### Quick Start
+
+```bash
+cd site
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view the site.
+
+### Build for Production
+
+```bash
+cd site
+npm run build
+npm start
+```
+
+### Resume PDF Export & Google Drive Auto-Sync
+
+- **Local PDF Export**: `npm run export:pdf` (renders high-fidelity PDF to `site/public/Tyler_Lindow_Resume.pdf`)
+- **Google Drive Sync**: `npm run sync:gdrive`
+- **Automated CI/CD**: Automatically triggered in GitHub Actions upon successful deployment of the live production site to GitHub Pages.
+- **Setup Guide**: See [`site/docs/GOOGLE_DRIVE_SYNC_SETUP.md`](site/docs/GOOGLE_DRIVE_SYNC_SETUP.md) for Google Cloud Service Account and GitHub Secrets configuration.
+
+### Machine Context & LLM RAG
+- Summary: [`/llms.txt`](site/public/llms.txt)
+- Full Context: [`/llms-full.txt`](site/public/llms-full.txt)
+- MCP Resource: [`/context.json`](site/public/context.json)
