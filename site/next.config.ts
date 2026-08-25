@@ -1,9 +1,7 @@
 import type { NextConfig } from "next";
 
-const isGithubActions = !!process.env.GITHUB_ACTIONS;
-const repo = process.env.GITHUB_REPOSITORY ? process.env.GITHUB_REPOSITORY.split("/")[1] : "";
-const isRootPages = !repo || repo.endsWith(".github.io");
-const basePath = isGithubActions && !isRootPages ? `/${repo}` : "";
+// Root domain mapping for https://tlindow.github.io/
+const basePath = process.env.BASE_PATH || "";
 
 const nextConfig: NextConfig = {
   output: process.env.NODE_ENV === "production" ? "export" : undefined,
