@@ -14,8 +14,6 @@ import Navbar from "@/components/Navbar";
 import {
   TrustedPartnersBar,
   AffirmLogo,
-  BeginnerLogo,
-  TheTechLogo,
 } from "@/components/brand/PartnerLogos";
 import { resumeContact } from "@/data/resumeData";
 
@@ -25,47 +23,47 @@ export default function Home() {
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
 
-  // Base card configurations with numeric GMV attribution, user validation, and solid Tinker colors
+  // Base card configurations strictly aligned with resume records and metrics
   const cardsData = [
     {
-      title: "Strategic Growth & Advisory",
+      title: "Mobile Performance & Checkout Optimization",
       gmvValue: 500000,
       gmv: "$500,000 GMV",
-      users: "50,000+ Users",
+      users: "Pre-BFCM 2025 Window",
       colorClass: "bg-rose",
-      employer: <BeginnerLogo className="h-4 sm:h-5 text-xs" />,
+      employer: <AffirmLogo className="h-4 sm:h-5 w-auto" />,
       description:
-        "Zero-resource merchant growth loops, high-pressure mobile checkout performance revamps, and strategic fintech thesis formulation.",
+        "Facilitated engineering trade-offs throughout website revamps to optimize mobile checkout performance, driving an incremental $500K GMV ahead of BFCM 2025.",
     },
     {
-      title: "Developer Paved Paths",
+      title: "Developer Paved Paths & Self-Service",
       gmvValue: 50000000,
       gmv: "$50,000,000 GMV",
-      users: "150,000+ Users",
+      users: "Thousands of Merchants",
       colorClass: "bg-peach",
-      employer: <TheTechLogo className="h-4 sm:h-5 w-auto" />,
+      employer: <AffirmLogo className="h-4 sm:h-5 w-auto" />,
       description:
-        "Zero-touch merchant onboarding, self-service developer portals, and SDK reference architectures supporting thousands of active integrations.",
+        "Maintained and scaled self-service onboarding pipelines, SDK integration tooling, and paved-path documentation supporting thousands of active merchants with zero-touch integration.",
     },
     {
-      title: "Enterprise SLA & Telemetry",
+      title: "Enterprise SLA & Telemetry Pipelines",
       gmvValue: 100000000,
-      gmv: "$100,000,000 GMV",
-      users: "1,000,000+ Users",
+      gmv: "$100,000,000+ GMV",
+      users: "16 hrs/mo Saved",
       colorClass: "bg-mint",
       employer: <AffirmLogo className="h-4 sm:h-5 w-auto" />,
       description:
-        "Automated root-cause clustering and Python/Flask/Snowflake SLA telemetry pipelines defending $1B+ in merchant GMV.",
+        "Architected automated SLA reporting pipelines and root-cause summaries (Python, Flask, Snowflake) for strategic enterprise merchants ($100M+ GMV), eliminating 16 hours of monthly manual overhead.",
     },
     {
-      title: "Product Leadership",
+      title: "Flagship Partner Scale & Engineering Leadership",
       gmvValue: 1000000000,
-      gmv: "$1,000,000,000 GMV",
-      users: "10,000,000+ Users",
+      gmv: "$1,000,000,000+ GMV",
+      users: "1 → 6 Team Scale",
       colorClass: "bg-sky",
       employer: <AffirmLogo className="h-4 sm:h-5 w-auto" />,
       description:
-        "End-to-end B2B platform ownership, SMB developer partnership roadmaps, and 1 → 6 engineering team capacity multiplication.",
+        "Architected automated SLA reporting and root-cause telemetry securing 100% executive alignment for a flagship $1B+ GMV partner (Amazon) while scaling engineering capacity from 1 to 6.",
     },
   ];
 
@@ -246,7 +244,7 @@ export default function Home() {
 
                       <div className="space-y-0.5 border-l border-border/60 pl-2.5">
                         <span className="text-[10px] font-bold text-muted uppercase tracking-wider block font-mono">
-                          Number of Users
+                          Scale & Scope
                         </span>
                         <span className="text-sm sm:text-base font-black text-foreground font-mono tracking-tight block">
                           {card.users}
