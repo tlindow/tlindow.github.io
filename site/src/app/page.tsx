@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 
 import Navbar from "@/components/Navbar";
+import CheckoutDrawer from "@/components/CheckoutDrawer";
 import ExperimentPreviewBar from "@/components/ExperimentPreviewBar";
 import TractionTimeline from "@/components/TractionTimeline";
 import {
@@ -19,7 +20,6 @@ export default function Home() {
   const {
     logRecruitClick,
     logResumeView,
-    logOutboundClick,
   } = useAnalytics();
 
   const {
@@ -118,7 +118,10 @@ export default function Home() {
           {/* ======================================================= */}
           {/* 3. COMPANY DEBIT CARD WALLET SECTION */}
           {/* ======================================================= */}
-          <section className="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 pt-8 sm:pt-10 pb-24 space-y-6">
+          <section
+            id="launch-wallet"
+            className="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 pt-8 sm:pt-10 pb-28 sm:pb-36 space-y-6"
+          >
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
               Launch Wallet
             </h2>
@@ -127,51 +130,10 @@ export default function Home() {
         </main>
       </div>
 
-      {/* Bottom Footer */}
-      <footer className="w-full max-w-4xl mx-auto px-4 sm:px-6 pt-6 pb-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted">
-        <div className="flex items-center gap-2">
-          <span className="font-bold text-foreground">Tyler Lindow</span>
-          <span>·</span>
-          <span>Staff B2B Product Manager</span>
-        </div>
+      {/* Persistent Checkout-Style Bottom Drawer (Docked & Expandable) */}
+      <CheckoutDrawer />
 
-        <div className="flex items-center gap-4">
-          <a
-            href={resumeContact.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() =>
-              logRecruitClick({
-                location: "footer",
-                label: "LinkedIn",
-              })
-            }
-            className="hover:text-indigo-dark transition-colors"
-          >
-            LinkedIn
-          </a>
-          <span>&bull;</span>
-          <a
-            href={resumeContact.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => logOutboundClick("github", resumeContact.github)}
-            className="hover:text-indigo-dark transition-colors"
-          >
-            GitHub
-          </a>
-          <span>&bull;</span>
-          <a
-            href={`mailto:${resumeContact.email}`}
-            onClick={() => logOutboundClick("email", resumeContact.email)}
-            className="hover:text-indigo-dark transition-colors"
-          >
-            Email
-          </a>
-        </div>
-      </footer>
-
-      {/* Sticky Bottom Runtime Environment Inspector Bar (No-Print) */}
+      {/* Sticky Runtime Environment Inspector Bar (No-Print) */}
       <ExperimentPreviewBar />
     </div>
   );

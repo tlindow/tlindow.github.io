@@ -28,7 +28,7 @@ export default function ExperimentPreviewBar() {
   ];
 
   return (
-    <aside aria-label="A/B Testing Preview Bar" className="fixed bottom-4 left-4 z-50 no-print font-mono text-xs">
+    <aside aria-label="A/B Testing Preview Bar" className="fixed bottom-16 sm:bottom-18 left-4 z-50 no-print font-mono text-xs">
       <div className="bg-background/95 backdrop-blur-md border border-border rounded-2xl shadow-xl overflow-hidden transition-all max-w-xs">
         {/* Header Toggle */}
         <button

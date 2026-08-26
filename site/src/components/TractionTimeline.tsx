@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { Linkedin } from "lucide-react";
 import {
   AffirmLogo,
   GalvanizeLogo,
@@ -9,8 +8,6 @@ import {
   CHMLogo,
 } from "@/components/brand/PartnerLogos";
 import { BeginnerSeedMark } from "@/components/brand/BeginnerMarks";
-import { useAnalytics } from "@/context/AnalyticsProvider";
-import { resumeContact } from "@/data/resumeData";
 
 export interface GMVLineItem {
   id: string;
@@ -241,20 +238,18 @@ export const companyCards: BeginnerStyleCard[] = [
 ];
 
 export default function TractionTimeline() {
-  const { logRecruitClick } = useAnalytics();
-
   return (
     <div className="w-full select-none space-y-12 py-4">
       {/* ========================================================= */}
-      {/* ALL COMPANY CARDS WITH GMV CONTENT INLINE                  */}
+      {/* ALL COMPANY CARDS WITH GMV LINE ITEMS                      */}
       {/* ========================================================= */}
       {companyCards.map((card) => (
         <div
           key={card.id}
           className="flex flex-col md:flex-row md:items-start gap-6 md:gap-10"
         >
-          {/* Card (full width on mobile matching content margins, fixed w-80 on desktop) */}
-          <div className="w-full md:w-80 md:shrink-0">
+          {/* Card (consistent w-80 sizing across viewports, responsive max-w-full on small mobile) */}
+          <div className="w-80 max-w-full shrink-0">
             <div className="w-full aspect-[1.586/1] rounded-[20px]">
               <CardFace card={card} />
             </div>
@@ -296,37 +291,6 @@ export default function TractionTimeline() {
           </div>
         </div>
       ))}
-
-      {/* ========================================================= */}
-      {/* TOTAL GMV & RECRUIT ME BUTTON — bottom                     */}
-      {/* ========================================================= */}
-      <div className="flex flex-row flex-wrap items-center justify-end gap-3 sm:gap-6 pt-6 border-t border-border/60">
-        <div className="flex items-baseline gap-1.5 sm:gap-2">
-          <span className="text-[11px] sm:text-xs font-mono font-bold text-muted uppercase tracking-wider">
-            Attributed GMV:
-          </span>
-          <span className="text-sm sm:text-lg font-black font-mono text-indigo-dark tracking-tight">
-            $1.11B+ GMV
-          </span>
-        </div>
-
-        <a
-          href={resumeContact.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() =>
-            logRecruitClick({
-              location: "launch_wallet",
-              label: "Recruit me",
-            })
-          }
-          className="inline-flex items-center gap-2 rounded-xl bg-indigo-dark hover:bg-labs-primary-dark text-sand px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
-          title="Recruit Tyler — connect on LinkedIn"
-        >
-          <Linkedin size={15} />
-          <span>Recruit me</span>
-        </a>
-      </div>
     </div>
   );
 }
