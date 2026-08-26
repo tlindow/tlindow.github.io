@@ -1,29 +1,11 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Github, Mail, Linkedin } from "lucide-react";
+import { Github } from "lucide-react";
 import { resumeContact } from "@/data/resumeData";
-import { useAnalytics, useExperiment } from "@/context/AnalyticsProvider";
+import { useAnalytics } from "@/context/AnalyticsProvider";
 
 export default function Navbar() {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
-  const { logRecruitClick, logOutboundClick } = useAnalytics();
-  const { recruit_cta_label, recruit_cta_style } = useExperiment();
-
-  const getCtaStyleClass = () => {
-    switch (recruit_cta_style) {
-      case "pulse_accent":
-        return "bg-indigo-dark text-sand hover:bg-labs-primary-dark ring-2 ring-indigo/40 animate-pulse hover:animate-none shadow-sm";
-      case "sprout_glow":
-        return "bg-indigo-dark text-sand hover:bg-labs-primary-dark ring-2 ring-sky/60 shadow-md shadow-indigo/20";
-      case "high_contrast":
-        return "bg-foreground text-background hover:bg-foreground/90 ring-1 ring-foreground/20";
-      case "forest_solid":
-      default:
-        return "bg-indigo-dark text-sand hover:bg-labs-primary-dark";
-    }
-  };
+  const { logRecruitClick } = useAnalytics();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 no-print">
@@ -53,83 +35,27 @@ export default function Navbar() {
             </div>
           </a>
 
-          {/* Right: Persistent Deploy Button & Quick Links */}
+          {/* Right: Persistent Deploy Button */}
           <div className="flex items-center gap-3 sm:gap-4">
+
+            {/* Persistent Build CTA Button linking to GitHub */}
             <a
               href={resumeContact.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => logOutboundClick("github", resumeContact.github)}
-              aria-label="GitHub Profile"
-              className="p-1 text-muted hover:text-indigo-dark transition-colors"
-              title="GitHub Profile"
-            >
-              <Github size={15} />
-            </a>
-
-            <a
-              href={`mailto:${resumeContact.email}`}
-              onClick={() => logOutboundClick("email", `mailto:${resumeContact.email}`)}
-              aria-label="Email Tyler"
-              className="p-1 text-muted hover:text-indigo-dark transition-colors"
-              title={`Email Tyler (${resumeContact.email})`}
-            >
-              <Mail size={15} />
-            </a>
-
-            {/* Persistent Recruit Me Button linking to LinkedIn (A/B Instrumented) */}
-            <a
-              href={resumeContact.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() =>
                 logRecruitClick({
                   location: "navbar",
-                  label: recruit_cta_label,
-                  variant: `${recruit_cta_style}:${recruit_cta_label}`,
+                  label: "Build with me",
+                  variant: "beginner_green:Build with me",
                 })
               }
-              className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-mono font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98] ${getCtaStyleClass()}`}
-              title={`${recruit_cta_label} (Connect on LinkedIn)`}
+              className="inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-mono font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98] bg-[#2d5a3d] text-[#f5f3ef] hover:bg-[#234731] ring-1 ring-[#2d5a3d]/30"
+              title="Build with me (Tyler's GitHub)"
             >
-              <Linkedin size={13} />
-              <span>{recruit_cta_label}</span>
+              <Github size={13} />
+              <span>Build with me</span>
             </a>
-          </div>
-        </div>
-
-        {/* Lindow Labs Signature Cool Spectrum Bar with Minimalist GMV Milestones */}
-        <div className="relative w-full h-[2px] bg-border/25 group/spectrum">
-          <motion.div
-            className="h-[2px] labs-rainbow-gradient origin-left opacity-90"
-            style={{ scaleX }}
-          />
-
-          {/* Minimalist Milestone Ticks Along the Progress Bar */}
-          <div className="absolute inset-0 flex justify-between pointer-events-none px-2 sm:px-6 -top-[2px]">
-            {[
-              { label: "$1M", year: "2017", company: "CHM", pos: "8%" },
-              { label: "$5M", year: "2017", company: "The Tech", pos: "18%" },
-              { label: "$8M", year: "2018", company: "The Tech", pos: "28%" },
-              { label: "$400K", year: "2019", company: "Galvanize", pos: "38%" },
-              { label: "$10M+", year: "2019", company: "Affirm", pos: "50%" },
-              { label: "$50M", year: "2021", company: "Affirm", pos: "62%" },
-              { label: "$100M+", year: "2023", company: "Affirm", pos: "74%" },
-              { label: "$1B+", year: "2024", company: "Affirm", pos: "86%" },
-              { label: "$750K", year: "2026", company: "Beginner", pos: "97%" },
-            ].map((m, idx) => (
-              <div
-                key={idx}
-                className="group/tick relative flex flex-col items-center pointer-events-auto cursor-default"
-                style={{ left: m.pos }}
-                title={`${m.year} · ${m.company} (${m.label} GMV)`}
-              >
-                <div className="w-1.5 h-1.5 rounded-full bg-border/70 group-hover/tick:bg-indigo-dark group-hover/tick:scale-125 transition-all shadow-2xs" />
-                <span className="opacity-0 group-hover/tick:opacity-100 transition-opacity absolute top-2 text-[9px] font-mono font-bold text-foreground bg-surface/95 border border-border/80 px-1.5 py-0.5 rounded-md shadow-xs whitespace-nowrap z-50 pointer-events-none">
-                  {m.year} · {m.label}
-                </span>
-              </div>
-            ))}
           </div>
         </div>
       </div>

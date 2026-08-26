@@ -1,7 +1,7 @@
 "use client";
 
 import {
-  Linkedin,
+  Rocket,
   FileText,
 } from "lucide-react";
 
@@ -13,7 +13,6 @@ import {
   TrustedPartnersBar,
   EducationInstitutionsBar,
 } from "@/components/brand/PartnerLogos";
-import { resumeContact } from "@/data/resumeData";
 import { useAnalytics, useExperiment } from "@/context/AnalyticsProvider";
 
 export default function Home() {
@@ -23,7 +22,6 @@ export default function Home() {
   } = useAnalytics();
 
   const {
-    recruit_cta_label,
     recruit_cta_style,
     hero_headline_variant,
     hero_subtitle_variant,
@@ -74,23 +72,21 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Primary Pipeline Actions (A/B Instrumented) */}
+            {/* Primary Pipeline Actions */}
             <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
               <a
-                href={resumeContact.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#launch-wallet"
                 onClick={() =>
                   logRecruitClick({
                     location: "hero",
-                    label: recruit_cta_label,
-                    variant: `${recruit_cta_style}:${recruit_cta_label}`,
+                    label: "View Launch Credits",
+                    variant: `${recruit_cta_style}:View Launch Credits`,
                   })
                 }
                 className={`inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-xs sm:text-sm font-bold shadow-xs transition-all hover:scale-[1.01] active:scale-[0.99] ${getCtaStyleClass()}`}
               >
-                <Linkedin size={15} />
-                <span>{recruit_cta_label}</span>
+                <Rocket size={15} />
+                <span>View Launch Credits</span>
               </a>
 
               <a

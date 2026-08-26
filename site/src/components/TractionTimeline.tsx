@@ -57,7 +57,7 @@ export const companyCards: BeginnerStyleCard[] = [
         id: "chm-1",
         year: "2017",
         title: "Design Code Build & Physical Computing Event Support",
-        users: "500+ Students",
+        users: "500+ DEVs",
         ownership: "Workshop Instructor",
         description:
           "Taught software engineering and physical computing triggers (Rube Goldberg machines) to ~500 Silicon Valley students and Title I school cohorts.",
@@ -85,7 +85,7 @@ export const companyCards: BeginnerStyleCard[] = [
         id: "tech-1",
         year: "2018",
         title: "Sustainability Exhibit Prototyping & Generative Signage",
-        users: "150K+ Museum Guests",
+        users: "STAFF DEVs",
         ownership: "Studio Coordinator & UX Research",
         description:
           "Prototyped sustainability city exhibits with 3D projection mapping and p5.js generative signage with staff engineers.",
@@ -94,7 +94,7 @@ export const companyCards: BeginnerStyleCard[] = [
         id: "tech-2",
         year: "2017",
         title: "Google Data Literacy Curriculum and Workshops",
-        users: "1,000+ Students",
+        users: "1,000+ DEVs",
         ownership: "Curriculum Specialist",
         description:
           "Co-designed and launched hands-on data literacy workshops with Google utilizing mobile accelerometers.",
@@ -123,7 +123,7 @@ export const companyCards: BeginnerStyleCard[] = [
         year: "2019",
         title: "Developer Onboarding & Immersive Mentorship",
         gmv: "$400K GMV",
-        users: "~20 Engineers ($20K Tuition)",
+        users: "20+ DEVs",
         ownership: "Lead Immersive Resident",
         description:
           "Mentored incoming Hack Reactor engineers through full-stack software development, code reviews, and multi-repo grading.",
@@ -152,7 +152,7 @@ export const companyCards: BeginnerStyleCard[] = [
         year: "2024",
         title: "Flagship Partner Scale ($1B+ Amazon Portfolio)",
         gmv: "$1B+ GMV",
-        users: "1 → 6 SRE Scale",
+        users: "6 DEVs",
         ownership: "Engineering Lead, Flagship SRE",
         description:
           "Oversaw site reliability engineering for Affirm's largest enterprise partner ($1B+ annual GMV volume) with 99.99% SLAs.",
@@ -162,7 +162,7 @@ export const companyCards: BeginnerStyleCard[] = [
         year: "2023",
         title: "Enterprise SLA & Telemetry Pipelines",
         gmv: "$100M+ GMV",
-        users: "16 hrs/mo Saved",
+        users: "PARTNER DEVs",
         ownership: "Site Reliability Lead",
         description:
           "Founded merchant reliability squad (1 → 6 engineers) with automated Python/Snowflake reporting pipelines.",
@@ -171,7 +171,7 @@ export const companyCards: BeginnerStyleCard[] = [
         id: "aff-3",
         year: "2021",
         title: "Introductory AI Developer Paved Paths",
-        users: "Thousands of Merchants",
+        users: "1,000+ DEVs",
         ownership: "Developer Productivity Lead",
         description:
           "Scaled self-service onboarding pipelines and CLI developer tools, cutting onboarding time by ~50%.",
@@ -181,7 +181,7 @@ export const companyCards: BeginnerStyleCard[] = [
         year: "2019",
         title: "Merchant Integration Triage & ETL Advocacy",
         gmv: "$10M+ GMV",
-        users: "SMB E-Commerce Merchants",
+        users: "300+ DEVs",
         ownership: "Technical Partner Liaison",
         description:
           "Primary technical liaison diagnosing e-commerce integration bugs and establishing ETL partner telemetry.",
@@ -191,7 +191,7 @@ export const companyCards: BeginnerStyleCard[] = [
         year: "2025",
         title: "Affirm.com site Re-launch",
         gmv: "$500K GMV",
-        users: "Pre-BFCM 2025 Window",
+        users: "TECH LEADs",
         ownership: "Mobile SRE / Observability",
         description:
           "Facilitated engineering trade-offs during affirm.com revamp, delivering $500K incremental GMV before BFCM.",
@@ -219,7 +219,7 @@ export const companyCards: BeginnerStyleCard[] = [
         id: "beg-1",
         year: "Early 2026",
         title: "0-to-1 Founder PWA & Pitch Engine",
-        users: "Paying Founders",
+        users: "FOUNDER DEVs",
         ownership: "Founder & Product Lead",
         description:
           "Built and launched progressive web app enabling founders to practice pitches and validate fundraising in-person.",
@@ -228,7 +228,7 @@ export const companyCards: BeginnerStyleCard[] = [
         id: "beg-2",
         year: "Mid 2026",
         title: "Technical Community & Product Network",
-        users: "San Diego Tech Hub",
+        users: "250+ DEVs",
         ownership: "Community Architecture",
         description:
           "Architected and hosted high-trust technical forums for product-focused engineers and leaders in San Diego.",
@@ -246,6 +246,7 @@ export default function TractionTimeline() {
       {companyCards.map((card) => (
         <div
           key={card.id}
+          id={`wallet-card-${card.id}`}
           className="flex flex-col md:flex-row md:items-start gap-6 md:gap-10"
         >
           {/* Card (consistent w-80 sizing across viewports, responsive max-w-full on small mobile) */}
@@ -275,16 +276,22 @@ export default function TractionTimeline() {
               {card.lineItems.map((item) => (
                 <div
                   key={item.id}
-                  className="flex items-center justify-between gap-4 py-3"
+                  className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 py-3"
                 >
                   <span className="text-sm text-foreground truncate">
                     {item.title}
                   </span>
-                  {item.gmv && (
-                    <span className="text-sm font-bold font-mono text-foreground shrink-0">
-                      {item.gmv}
-                    </span>
-                  )}
+                  <div className="flex items-center gap-3 sm:gap-4 shrink-0 self-start sm:self-auto">
+                    {item.gmv ? (
+                      <span className="text-sm font-bold font-mono text-foreground shrink-0 whitespace-nowrap">
+                        {item.gmv}
+                      </span>
+                    ) : item.users ? (
+                      <span className="text-sm font-bold font-mono text-foreground shrink-0 whitespace-nowrap">
+                        {item.users}
+                      </span>
+                    ) : null}
+                  </div>
                 </div>
               ))}
             </div>

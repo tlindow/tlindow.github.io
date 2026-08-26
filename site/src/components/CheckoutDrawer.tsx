@@ -9,6 +9,8 @@ import { useAnalytics, useExperiment } from "@/context/AnalyticsProvider";
 export default function CheckoutDrawer() {
   const [isSectionInView, setIsSectionInView] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [devCountText, setDevCountText] = useState("500+ DEVs");
+  const [gmvText, setGmvText] = useState("$400K GMV");
 
   const { logRecruitClick } = useAnalytics();
   const { recruit_cta_label, recruit_cta_style } = useExperiment();
@@ -27,7 +29,7 @@ export default function CheckoutDrawer() {
       const inView = rect.top <= windowHeight * 0.7 && rect.bottom >= 120;
       setIsSectionInView(inView);
 
-      // Compute scroll progress through the launch wallet section
+      // Compute scroll progress through the launch wallet section for rainbow bar
       const sectionTop = rect.top + window.scrollY;
       const sectionHeight = rect.height;
       const currentScroll = window.scrollY + windowHeight;
@@ -37,6 +39,49 @@ export default function CheckoutDrawer() {
       const rawProgress = (currentScroll - startOffset) / totalScrollable;
       const clamped = Math.max(0, Math.min(1, rawProgress));
       setScrollProgress(clamped);
+
+      // Increment DEVs and GMV right when each card comes into view (top crosses bottom 85% of viewport)
+      const isInView = (el: HTMLElement | null, ratio = 0.85) => {
+        if (!el) return false;
+        const r = el.getBoundingClientRect();
+        return r.top <= windowHeight * ratio;
+      };
+
+      const techEl = document.getElementById("wallet-card-tech-interactive");
+      const galvEl = document.getElementById("wallet-card-galvanize");
+      const affirmEl = document.getElementById("wallet-card-affirm");
+      const begEl = document.getElementById("wallet-card-beginner");
+
+      // Developer relationships increment right when each card enters view
+      if (isInView(begEl)) {
+        setDevCountText("2,750+ DEVs");
+      } else if (isInView(affirmEl)) {
+        setDevCountText("2,500+ DEVs");
+      } else if (isInView(techEl)) {
+        setDevCountText("1,500+ DEVs");
+      } else {
+        setDevCountText("500+ DEVs");
+      }
+
+      // GMV accumulates right when each card / milestone enters view
+      if (isInView(begEl)) {
+        setGmvText("$1.11B+ GMV");
+      } else if (isInView(affirmEl)) {
+        const affRect = affirmEl!.getBoundingClientRect();
+        const viewLine = windowHeight * 0.85;
+        const progressInAffirm = (viewLine - affRect.top) / Math.max(1, affRect.height);
+        if (progressInAffirm >= 0.6) {
+          setGmvText("$1.11B+ GMV");
+        } else if (progressInAffirm >= 0.3) {
+          setGmvText("$110.4M+ GMV");
+        } else {
+          setGmvText("$10.4M+ GMV");
+        }
+      } else if (isInView(galvEl)) {
+        setGmvText("$400K GMV");
+      } else {
+        setGmvText("$400K GMV");
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -44,14 +89,6 @@ export default function CheckoutDrawer() {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // Format dynamic GMV tally based on scroll progress
-  const getAccumulatedGMVText = (progress: number) => {
-    if (progress < 0.15) return "$400K GMV";
-    if (progress < 0.4) return "$10.4M+ GMV";
-    if (progress < 0.7) return "$110.4M+ GMV";
-    return "$1.11B+ GMV";
-  };
 
   const getCtaStyleClass = () => {
     switch (recruit_cta_style) {
@@ -86,42 +123,60 @@ export default function CheckoutDrawer() {
               />
             </div>
 
-            <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 flex items-center justify-end gap-3 sm:gap-4">
-              {/* Dynamic Accumulating GMV & Primary CTA in Final Right Corner */}
-              <div className="flex items-center gap-2.5 sm:gap-4 shrink-0">
-                <div className="flex items-baseline gap-1 sm:gap-1.5 text-right">
-                  <span className="text-[10px] sm:text-xs font-bold text-muted uppercase tracking-wider hidden sm:inline">
+            <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 flex flex-wrap items-center justify-between sm:justify-end gap-3 sm:gap-6">
+              {/* Dynamic Accumulating Subtotal Amounts */}
+              <div className="flex items-center gap-3 sm:gap-5 divide-x divide-border/60">
+                {/* Developer Relationships Subtotal */}
+                <div className="flex items-baseline gap-1 sm:gap-1.5">
+                  <span className="text-[10px] sm:text-xs font-bold text-muted uppercase tracking-wider">
+                    Dev Relationships:
+                  </span>
+                  <motion.span
+                    key={devCountText}
+                    initial={{ scale: 1.08 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-xs sm:text-sm md:text-base font-bold font-mono text-[#2d5a3d] tracking-tight whitespace-nowrap"
+                  >
+                    {devCountText}
+                  </motion.span>
+                </div>
+
+                {/* Attributed GMV Subtotal */}
+                <div className="pl-3 sm:pl-5 flex items-baseline gap-1 sm:gap-1.5">
+                  <span className="text-[10px] sm:text-xs font-bold text-muted uppercase tracking-wider">
                     Attributed GMV:
                   </span>
                   <motion.span
-                    key={getAccumulatedGMVText(scrollProgress)}
+                    key={gmvText}
                     initial={{ scale: 1.08 }}
                     animate={{ scale: 1 }}
                     transition={{ duration: 0.2 }}
                     className="text-xs sm:text-base md:text-lg font-black font-mono text-indigo-dark tracking-tight whitespace-nowrap"
                   >
-                    {getAccumulatedGMVText(scrollProgress)}
+                    {gmvText}
                   </motion.span>
                 </div>
-
-                <a
-                  href={resumeContact.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() =>
-                    logRecruitClick({
-                      location: "checkout_drawer",
-                      label: recruit_cta_label,
-                      variant: `${recruit_cta_style}:${recruit_cta_label}`,
-                    })
-                  }
-                  className={`inline-flex items-center gap-1.5 sm:gap-2 rounded-xl px-3.5 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer whitespace-nowrap ${getCtaStyleClass()}`}
-                  title="Recruit Tyler — connect on LinkedIn"
-                >
-                  <Linkedin size={15} />
-                  <span>{recruit_cta_label}</span>
-                </a>
               </div>
+
+              {/* Primary CTA in Final Right Corner */}
+              <a
+                href={resumeContact.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  logRecruitClick({
+                    location: "checkout_drawer",
+                    label: recruit_cta_label,
+                    variant: `${recruit_cta_style}:${recruit_cta_label}`,
+                  })
+                }
+                className={`inline-flex items-center gap-1.5 sm:gap-2 rounded-xl px-3.5 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer whitespace-nowrap shrink-0 ${getCtaStyleClass()}`}
+                title="Recruit Tyler — connect on LinkedIn"
+              >
+                <Linkedin size={15} />
+                <span>{recruit_cta_label}</span>
+              </a>
             </div>
           </div>
         </motion.div>
