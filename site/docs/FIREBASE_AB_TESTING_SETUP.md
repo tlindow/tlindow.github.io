@@ -47,7 +47,7 @@ Create the following parameters with default values:
 | `recruit_cta_label` | String | `Recruit Me` | CTA button text across navbar, hero, and floating trigger |
 | `recruit_cta_style` | String | `forest_solid` | Visual style (`forest_solid`, `pulse_accent`, `sprout_glow`, `high_contrast`) |
 | `hero_headline_variant` | String | `Staff B2B Product Manager` | Main hero H1 text |
-| `hero_subtitle_variant` | String | `B2B at B2C scale · $0 – $1B+ GMV enterprises` | Hero subtitle text |
+| `hero_subtitle_variant` | String | `B2B at B2C scale · $0 – $10B+ GMV enterprises` | Hero subtitle text |
 
 ---
 
@@ -59,25 +59,25 @@ The codebase includes 4 tested content variation presets ready for A/B testing:
 - **`recruit_cta_label`**: `"Recruit Me"`
 - **`recruit_cta_style`**: `"forest_solid"`
 - **`hero_headline_variant`**: `"Staff B2B Product Manager"`
-- **`hero_subtitle_variant`**: `"B2B at B2C scale · $0 – $1B+ GMV enterprises"`
+- **`hero_subtitle_variant`**: `"B2B at B2C scale · $0 – $10B+ GMV enterprises"`
 
 ### Preset 2: Action-Oriented (Developer Framing)
 - **`recruit_cta_label`**: `"Deploy Tyler"`
 - **`recruit_cta_style`**: `"pulse_accent"` *(Pulsing glowing ring)*
 - **`hero_headline_variant`**: `"Staff Developer Product Manager"`
-- **`hero_subtitle_variant`**: `"Software Engineering Manager → Staff PM · $1B+ Scale"`
+- **`hero_subtitle_variant`**: `"Software Engineering Manager → Staff PM · $10B+ Scale"`
 
 ### Preset 3: Low-Friction (Approachability & Networking)
 - **`recruit_cta_label`**: `"Connect on LinkedIn"`
 - **`recruit_cta_style`**: `"sprout_glow"` *(Soft green glow with shadow)*
 - **`hero_headline_variant`**: `"Staff B2B Product Manager"`
-- **`hero_subtitle_variant`**: `"Building high-leverage developer paved paths & $1B+ partner scale"`
+- **`hero_subtitle_variant`**: `"Building high-leverage developer paved paths & $10B+ partner scale"`
 
 ### Preset 4: Executive Authority (High Track Record)
 - **`recruit_cta_label`**: `"Hire Staff PM"`
 - **`recruit_cta_style`**: `"high_contrast"` *(Bold monochrome dark badge)*
 - **`hero_headline_variant`**: `"Staff Product Manager & EM"`
-- **`hero_subtitle_variant`**: `"Directing high-stakes revamps, $1B+ partner telemetry & SRE support"`
+- **`hero_subtitle_variant`**: `"Directing high-stakes revamps, $10B+ partner telemetry & SRE support"`
 
 ---
 

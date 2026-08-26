@@ -68,13 +68,13 @@ export default function CheckoutDrawer() {
 
       // GMV accumulates right when each card / milestone enters view
       if (isInView(begEl)) {
-        setGmvText("$1.11B+ GMV");
+        setGmvText("$10.11B+ GMV");
       } else if (isInView(affirmEl)) {
         const affRect = affirmEl!.getBoundingClientRect();
         const viewLine = windowHeight * 0.85;
         const progressInAffirm = (viewLine - affRect.top) / Math.max(1, affRect.height);
         if (progressInAffirm >= 0.6) {
-          setGmvText("$1.11B+ GMV");
+          setGmvText("$10.11B+ GMV");
         } else if (progressInAffirm >= 0.3) {
           setGmvText("$110.4M+ GMV");
         } else {

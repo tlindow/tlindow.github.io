@@ -1,5 +1,5 @@
 # Tyler Lindow — Staff B2B Product Manager
-*B2B at B2C scale · Specializing in $1B+ platform scale, partner SLA infrastructure, and developer paved paths*
+*B2B at B2C scale · Specializing in $10B+ platform scale, partner SLA infrastructure, and developer paved paths*
 
 > San Diego, CA (Relocating to Seattle, WA) | (650) 580-5788 | tlindow.invest@gmail.com | https://www.linkedin.com/in/tlindow | https://github.com/tlindow
 
@@ -9,7 +9,7 @@ To elevate the creative and financial position of software developers through ed
 ## Engineering & Operational Scale Funnel
 - **Stage 01 (Triage & Resolution):** Resolved over 300 B2B merchant integration issue tickets, diagnosing edge cases and establishing data-driven advocacy foundation.
 - **Stage 02 (Team Scale & Delegation):** Hired and scaled developer support from 1 to 6 engineers, systemized 80% of workflows, and distributed Tier-1 load to operations to focus engineering on reliability.
-- **Stage 03 (Enterprise SLA Pipelines):** Architected automated service level agreement (SLA) reporting and technical root-cause pipelines for multiple $100M+ GMV partners and a flagship $1B+ GMV partner (Amazon).
+- **Stage 03 (Enterprise SLA Pipelines):** Architected automated service level agreement (SLA) reporting and technical root-cause pipelines for multiple $100M+ GMV partners and a flagship $10B+ GMV partner (Amazon).
 - **Stage 04 (Self-Service Automation):** Maintained and scaled self-service developer onboarding pipelines, SDK tooling, and paved paths supporting thousands of active merchants with zero-touch integration.
 
 ## Key Metrics & Strategic Timeline
@@ -20,7 +20,7 @@ To elevate the creative and financial position of software developers through ed
 
 ## Core Numbers
 - 8+ Years Experience in Technical Leadership, Software Engineering & Partner Enablement
-- $1B+ Strategic Partner Portfolio Managed (Amazon & Enterprise)
+- $10B+ Strategic Partner Portfolio Managed (Amazon & Enterprise)
 - $500K Incremental GMV Driven via Mobile Performance Optimization
 - 1 → 6 Engineers Scaled in Developer Support / SRE Operations
 - 1,000s of Merchants Supported in Self-Service Onboarding Pipelines
@@ -43,7 +43,7 @@ To elevate the creative and financial position of software developers through ed
 ### Affirm | Developer Support Engineering Manager (L6 → L7), Partner Engineering
 *San Diego, CA (Remote) | Jul 2021 – Mar 2025 (3 yrs 9 mos)*
 - Transformed a global support operation into a proactive development and SRE support function, systemizing 80% of operational workflows and scaling the team from 1 to 6 engineers to protect high-volume GMV.
-- Advocated for enterprise merchant needs across a $1B+ strategic partner portfolio, synthesizing integration bugs into systemic root causes. Translated developer friction into the language of revenue to secure product prioritization.
+- Advocated for enterprise merchant needs across a $10B+ strategic partner portfolio, synthesizing integration bugs into systemic root causes. Translated developer friction into the language of revenue to secure product prioritization.
 - Developed a full-stack reporting and analytics suite (Python, Flask, Snowflake) removing 16 hours of manual overhead monthly and shifting to a proactive integration strategy.
 
 ### Affirm | Developer Support Engineer (L4 → L5), Partner Engineering

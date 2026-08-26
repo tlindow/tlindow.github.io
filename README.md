@@ -1,7 +1,7 @@
 # Tyler Lindow
 
 **Staff Developer Product Manager**  
-*Specializing in small business (SMB) developer partnerships, $1B+ platform scale, and developer paved paths*  
+*Specializing in small business (SMB) developer partnerships, $10B+ platform scale, and developer paved paths*  
 San Diego, CA (Relocating to Seattle, WA) · (650) 580-5788 · [tlindow.invest@gmail.com](mailto:tlindow.invest@gmail.com) · [linkedin.com/in/tlindow](https://www.linkedin.com/in/tlindow) · [github.com/tlindow](https://github.com/tlindow)
 
 ---
@@ -30,7 +30,7 @@ To elevate the creative and financial position of software developers through ed
 ### Affirm | Developer Support Engineering Manager (L6 → L7), Partner Engineering
 *San Diego, CA (Remote) | Jul 2021 – Mar 2025 (3 yrs 9 mos)*
 - Transformed a global support operation into a proactive development and SRE support function, systemizing 80% of operational workflows and scaling the team from 1 to 6 engineers to protect high-volume GMV.
-- Advocated for enterprise merchant needs across a $1B+ strategic partner portfolio, synthesizing integration bugs into systemic root causes. Translated developer friction into the language of revenue to secure product prioritization.
+- Advocated for enterprise merchant needs across a $10B+ strategic partner portfolio, synthesizing integration bugs into systemic root causes. Translated developer friction into the language of revenue to secure product prioritization.
 - Developed a full-stack reporting and analytics suite (Python, Flask, Snowflake) removing 16 hours of manual overhead monthly and shifting to a proactive integration strategy.
 
 ### Affirm | Developer Support Engineer (L4 → L5), Partner Engineering

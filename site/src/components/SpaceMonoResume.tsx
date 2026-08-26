@@ -34,7 +34,7 @@ To elevate the creative and financial position of software developers through ed
 
 **Technical Toolkit:** Python, PyTorch, JavaScript, React, Node.js, Flask, LLMs & RAG, Agentic Coding Frameworks, Snowflake, Vercel, Cursor, IntelliJ IDEA, VS Code, SRE Support, Expo, Jules, Antigravity, Luma.
 
-**Business & GTM Toolkit:** Developer Advocacy & Evangelism, Partner Engineering, Enterprise Merchant Integrations ($1B+ Portfolio), GMV Attribution & Revenue Acceleration, Go-To-Market (GTM) Strategy, Developer Paved Paths & Enablement, Cross-Functional Stakeholder Alignment, Voice of the Developer Synthesis, Multi-City Field Research & Customer Discovery, Technical Community Architecture.
+**Business & GTM Toolkit:** Developer Advocacy & Evangelism, Partner Engineering, Enterprise Merchant Integrations ($10B+ Portfolio), GMV Attribution & Revenue Acceleration, Go-To-Market (GTM) Strategy, Developer Paved Paths & Enablement, Cross-Functional Stakeholder Alignment, Voice of the Developer Synthesis, Multi-City Field Research & Customer Discovery, Technical Community Architecture.
 
 ---
 
@@ -56,7 +56,7 @@ To elevate the creative and financial position of software developers through ed
 ### Affirm | Developer Support Engineering Manager (L6/L7), Partner Engineering
 *San Francisco, CA (Remote) | Jul 2021 – Mar 2025*
 * **Developer Empathy & SRE Transition:** Transformed a global support operation into a proactive development and SRE support function, systemizing 80% of operational workflows and scaling the team from 1 to 6 engineers to protect high-volume GMV.
-* **Voice of the Developer:** Advocated for enterprise merchant needs across a **$1B+** strategic partner portfolio, synthesizing integration bugs into systemic root causes. Translated developer friction into the language of revenue to secure product prioritization.
+* **Voice of the Developer:** Advocated for enterprise merchant needs across a **$10B+** strategic partner portfolio, synthesizing integration bugs into systemic root causes. Translated developer friction into the language of revenue to secure product prioritization.
 * **Data-Driven Advocacy:** Developed a full-stack reporting and analytics suite (Python, Flask, Snowflake) removing 16 hours of manual overhead monthly and shifting to a proactive integration strategy.
 
 ### Affirm | Developer Support Engineer (L4/L5), Partner Engineering

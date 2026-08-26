@@ -92,8 +92,8 @@ export const professionalSummary = {
       bg: "bg-indigo-light",
     },
     {
-      number: "$1B+",
-      value: "$1B+",
+      number: "$10B+",
+      value: "$10B+",
       label: "Partner Portfolio",
       context: "Enterprise integration strategy & developer advocacy",
       description: "Enterprise integration strategy & developer advocacy",
@@ -186,7 +186,7 @@ export const allToolkitSkills: string[] = [
 export const allBusinessToolkitSkills: string[] = [
   "Developer Advocacy & Evangelism",
   "Partner Engineering",
-  "Enterprise Merchant Integrations ($1B+ Portfolio)",
+  "Enterprise Merchant Integrations ($10B+ Portfolio)",
   "GMV Attribution & Revenue Acceleration",
   "Go-To-Market (GTM) Strategy",
   "Developer Paved Paths & Enablement",
@@ -274,8 +274,8 @@ export const experiences: ExperienceEntry[] = [
         text: "Hired and scaled the developer support engineering team from 1 to 6 engineers (eventually 9 after re-org), systemized 80% of workflows, and successfully distributed Tier-1 operational load to the operations team to focus engineering bandwidth on platform reliability and root-cause resolution.",
       },
       {
-        tag: "Enterprise SLA Telemetry ($100M+ & $1B+ Amazon GMV):",
-        text: "Architected automated service level agreement (SLA) reporting pipelines and technical root-cause summaries (Python, Flask, Snowflake) for strategic enterprise merchants ($100M+ GMV) and a flagship $1B+ GMV partner (Amazon), eliminating 16 hours of monthly manual overhead and securing 100% executive stakeholder alignment.",
+        tag: "Enterprise SLA Telemetry ($100M+ & $10B+ Amazon GMV):",
+        text: "Architected automated service level agreement (SLA) reporting pipelines and technical root-cause summaries (Python, Flask, Snowflake) for strategic enterprise merchants ($100M+ GMV) and a flagship $10B+ GMV partner (Amazon), eliminating 16 hours of monthly manual overhead and securing 100% executive stakeholder alignment.",
       },
       {
         tag: "Self-Service Merchant Onboarding:",
@@ -468,7 +468,7 @@ export const deckSections: Record<string, DeckSectionData> = {
     id: "deck-section-scale",
     slideNumber: "03",
     category: "SCALE & PLATFORM GOVERNANCE",
-    headline: "Engineering Leadership & $1B+ Scale",
+    headline: "Engineering Leadership & $10B+ Scale",
     summary:
       "Directing high-pressure website revamps (+$500K GMV), scaling SRE support teams 1→6, and securing 99.99% platform reliability.",
     theme: "blue",
@@ -479,7 +479,7 @@ export const deckSections: Record<string, DeckSectionData> = {
     category: "ECOSYSTEM & ADVOCACY",
     headline: "Developer Relations & Paved Paths",
     summary:
-      "Enterprise merchant advocacy across $1B+ partner portfolios, Google IoT workshops, immersive coding mentorship, and community architecture.",
+      "Enterprise merchant advocacy across $10B+ partner portfolios, Google IoT workshops, immersive coding mentorship, and community architecture.",
     theme: "red",
   },
   "deck-section-foundations": {

@@ -1,7 +1,7 @@
 # Full Profile & Professional Context: Tyler Lindow
 
 **Staff Developer Product Manager**  
-*Specializing in small business (SMB) developer partnerships, $1B+ platform scale, and developer paved paths*  
+*Specializing in small business (SMB) developer partnerships, $10B+ platform scale, and developer paved paths*  
 Location: San Diego, CA (Relocating to Seattle, WA) | Contact: (650) 580-5788 | Email: tlindow.invest@gmail.com  
 LinkedIn: https://www.linkedin.com/in/tlindow | GitHub: https://github.com/tlindow | Portfolio: https://tlindow.github.io
 
@@ -15,7 +15,7 @@ To elevate the creative and financial position of software developers through ed
 ## 2. Engineering & Operational Scale Funnel
 - **Stage 01 (Triage & Resolution):** Resolved over 300 B2B merchant integration issue tickets, diagnosing edge cases and establishing data-driven advocacy foundation.
 - **Stage 02 (Team Scale & Delegation):** Hired and scaled developer support from 1 to 6 engineers, systemized 80% of workflows, and distributed Tier-1 load to operations to focus engineering on reliability.
-- **Stage 03 (Enterprise SLA Pipelines):** Architected automated service level agreement (SLA) reporting and technical root-cause pipelines for multiple $100M+ GMV partners and a flagship $1B+ GMV partner (Amazon).
+- **Stage 03 (Enterprise SLA Pipelines):** Architected automated service level agreement (SLA) reporting and technical root-cause pipelines for multiple $100M+ GMV partners and a flagship $10B+ GMV partner (Amazon).
 - **Stage 04 (Self-Service Automation):** Maintained and scaled self-service developer onboarding pipelines, SDK tooling, and paved paths supporting thousands of active merchants with zero-touch integration.
 
 ---
@@ -27,7 +27,7 @@ To elevate the creative and financial position of software developers through ed
 - **2026 & Beyond (Beginner & Strategic Product Thesis):** *Product management at Affirm is incorrectly assuming to expand the partnerships side of merchant growth — Affirm will become acquired by Stripe*
 
 - **8+ Years Experience:** Driving engineering excellence, product strategies, and developer enablement.
-- **$1B+ Portfolio Scale:** Strategic partner integrations managed across high-volume enterprise merchants (Amazon & $100M+ accounts).
+- **$10B+ Portfolio Scale:** Strategic partner integrations managed across high-volume enterprise merchants (Amazon & $100M+ accounts).
 - **$500K Incremental GMV:** Generated via mobile performance optimization during key promotional windows.
 - **1 → 6 Engineers Scaled:** Scaled developer support into proactive development and SRE functions with operations offloading.
 - **1,000s of Merchants:** Supported via automated self-service onboarding pipelines.
@@ -52,9 +52,9 @@ To elevate the creative and financial position of software developers through ed
 ### Affirm | Developer Support Engineering Manager (L6 → L7), Partner Engineering
 *San Diego, CA (Remote) | Jul 2021 – Mar 2025 (3 yrs 9 mos)*
 - **Engineering Scaling & Operations Distribution:** Hired and scaled developer support from 1 to 6 engineers, systemized 80% of workflows, and distributed Tier-1 operational load to the operations team to focus engineering bandwidth on platform architecture.
-- **Enterprise SLA Telemetry ($100M+ & $1B+ Amazon GMV):** Architected automated service level agreement (SLA) reporting pipelines and technical root-cause summaries (Python, Flask, Snowflake) for strategic enterprise merchants ($100M+ GMV) and a flagship $1B+ GMV partner (Amazon), eliminating 16 hours of monthly manual overhead.
+- **Enterprise SLA Telemetry ($100M+ & $10B+ Amazon GMV):** Architected automated service level agreement (SLA) reporting pipelines and technical root-cause summaries (Python, Flask, Snowflake) for strategic enterprise merchants ($100M+ GMV) and a flagship $10B+ GMV partner (Amazon), eliminating 16 hours of monthly manual overhead.
 - **Self-Service Merchant Onboarding:** Maintained and scaled self-service onboarding pipelines, SDK integration tooling, and paved-path documentation supporting thousands of active merchants with zero-touch developer integration.
-- **Voice of the Developer:** Advocated for enterprise merchant needs across a **$1B+** strategic partner portfolio, synthesizing integration bugs into systemic root causes. Translated developer friction into the language of revenue to secure product prioritization.
+- **Voice of the Developer:** Advocated for enterprise merchant needs across a **$10B+** strategic partner portfolio, synthesizing integration bugs into systemic root causes. Translated developer friction into the language of revenue to secure product prioritization.
 - **Data-Driven Advocacy:** Developed a full-stack reporting and analytics suite (Python, Flask, Snowflake) removing 16 hours of manual overhead monthly and shifting to a proactive integration strategy.
 
 ### Affirm | Developer Support Engineer (L4 → L5), Partner Engineering

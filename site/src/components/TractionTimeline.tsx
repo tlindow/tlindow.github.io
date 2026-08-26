@@ -154,17 +154,17 @@ export const companyCards: BeginnerStyleCard[] = [
     trimColor: "#6EE7B7",
     brandMark: <AffirmLogo className="h-5 sm:h-6 w-auto" />,
     linkedinUrl: "https://www.linkedin.com/in/tlindow/details/experience/",
-    totalVolumeSummary: "$1.11B+ GMV Handled",
+    totalVolumeSummary: "$10.11B+ GMV Handled",
     lineItems: [
       {
         id: "aff-1",
         year: "2024",
-        title: "Flagship Partner Scale ($1B+ Amazon Portfolio)",
-        gmv: "$1B+ GMV",
+        title: "Flagship Partner Scale ($10B+ Amazon Portfolio)",
+        gmv: "$10B+ GMV",
         users: "6 DEVs",
         ownership: "Engineering Lead, Flagship SRE",
         description:
-          "Oversaw site reliability engineering for Affirm's largest enterprise partner ($1B+ annual GMV volume) with 99.99% SLAs.",
+          "Oversaw site reliability engineering for Affirm's largest enterprise partner ($10B+ annual GMV volume) with 99.99% SLAs.",
       },
       {
         id: "aff-2",

@@ -21,10 +21,10 @@ export default function ExperimentPreviewBar() {
   }
 
   const presets = [
-    { key: "baseline", title: "1. Baseline / Control", desc: "'Recruit Me' · $0–$1B+ GMV Scale" },
+    { key: "baseline", title: "1. Baseline / Control", desc: "'Recruit Me' · $0–$10B+ GMV Scale" },
     { key: "action_oriented", title: "2. Action-Oriented", desc: "'Deploy Tyler' · Staff Dev PM" },
     { key: "low_friction", title: "3. Low-Friction", desc: "'Connect on LinkedIn' · Networking" },
-    { key: "executive_authority", title: "4. Executive Authority", desc: "'Hire Staff PM' · $1B+ Scale" },
+    { key: "executive_authority", title: "4. Executive Authority", desc: "'Hire Staff PM' · $10B+ Scale" },
   ];
 
   return (

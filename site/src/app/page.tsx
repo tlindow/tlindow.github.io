@@ -31,7 +31,7 @@ export default function Home() {
     !hero_subtitle_variant ||
     hero_subtitle_variant.includes("B2B at B2C scale") ||
     hero_subtitle_variant.includes("B2B at B2B scale")
-      ? "B2B Fintech on Developer Rails · $0 – $1B+ GMV enterprises"
+      ? "B2B Fintech on Developer Rails · $0 – $10B+ GMV enterprises"
       : hero_subtitle_variant;
 
   const getCtaStyleClass = () => {

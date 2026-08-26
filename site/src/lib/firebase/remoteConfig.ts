@@ -24,25 +24,25 @@ export const VARIANT_PRESETS: Record<string, RemoteConfigValues> = {
     recruit_cta_label: "Recruit Me",
     recruit_cta_style: "forest_solid",
     hero_headline_variant: "Staff B2B Product Manager",
-    hero_subtitle_variant: "B2B Fintech on Developer Rails · $0 – $1B+ GMV enterprises",
+    hero_subtitle_variant: "B2B Fintech on Developer Rails · $0 – $10B+ GMV enterprises",
   },
   action_oriented: {
     recruit_cta_label: "Deploy Tyler",
     recruit_cta_style: "pulse_accent",
     hero_headline_variant: "Staff Developer Product Manager",
-    hero_subtitle_variant: "Software Engineering Manager → Staff PM · $1B+ Scale",
+    hero_subtitle_variant: "Software Engineering Manager → Staff PM · $10B+ Scale",
   },
   low_friction: {
     recruit_cta_label: "Connect on LinkedIn",
     recruit_cta_style: "sprout_glow",
     hero_headline_variant: "Staff B2B Product Manager",
-    hero_subtitle_variant: "Building high-leverage developer paved paths & $1B+ partner scale",
+    hero_subtitle_variant: "Building high-leverage developer paved paths & $10B+ partner scale",
   },
   executive_authority: {
     recruit_cta_label: "Hire Staff PM",
     recruit_cta_style: "high_contrast",
     hero_headline_variant: "Staff Product Manager & EM",
-    hero_subtitle_variant: "Directing high-stakes revamps, $1B+ partner telemetry & SRE support",
+    hero_subtitle_variant: "Directing high-stakes revamps, $10B+ partner telemetry & SRE support",
   },
 };
 
