@@ -56,6 +56,7 @@ export interface ContactInfo {
   location: string;
   relocation?: string;
   phone: string;
+  phoneObscured?: string;
   email: string;
   linkedin: string;
   linkedinDisplay: string;
@@ -70,6 +71,7 @@ export const resumeContact: ContactInfo = {
   location: "San Diego, CA",
   relocation: "Relocating to Seattle, WA",
   phone: "(650) 580-5788",
+  phoneObscured: "(650) •••-••••",
   email: "tlindow.invest@gmail.com",
   linkedin: "https://www.linkedin.com/in/tlindow",
   linkedinDisplay: "linkedin.com/in/tlindow",

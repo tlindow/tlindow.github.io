@@ -22,8 +22,6 @@ import {
 } from "@/data/resumeData";
 import { useAnalytics } from "@/context/AnalyticsProvider";
 
-import ResumePage from "@/components/ResumePage";
-
 const RAW_MARKDOWN = `# Tyler Lindow
 **Staff B2B Product Manager**
 San Diego, CA | (650) 580-5788 | tlindow.invest@gmail.com
@@ -91,10 +89,8 @@ To elevate the creative and financial position of software developers through ed
 
 export default function SpaceMonoResume() {
   const [copiedMd, setCopiedMd] = useState(false);
+  const [revealPhone, setRevealPhone] = useState(false);
   const { logResumeView, logOutboundClick, trackEvent } = useAnalytics();
-
-  const page1Experiences = professionalExperience.slice(0, 3);
-  const page2Experiences = professionalExperience.slice(3);
 
   const handleCopyMarkdown = async () => {
     trackEvent("resume_copy_markdown", {
@@ -119,18 +115,9 @@ export default function SpaceMonoResume() {
 
   return (
     <div className="min-h-screen bg-background text-foreground py-8 sm:py-16 px-3 sm:px-6 print:py-0 print:px-0 print:min-h-0">
-      {/* Main Resume Document Canvas */}
+      {/* Main Single Resume Document Canvas */}
       <main className="max-w-4xl mx-auto print:max-w-none print:m-0 print:p-0">
-
-        {/* PAGE 1 */}
-        <ResumePage
-          pageNumber={1}
-          totalPages={2}
-          footerHint="Scroll down for Page 2"
-          topOffsetRem={1.5}
-          bottomOffsetRem={1.5}
-          zIndex={10}
-        >
+        <article className="resume-paper rounded-3xl bg-surface border border-border p-6 sm:p-16 font-mono text-foreground leading-relaxed selection:bg-indigo-light shadow-md hover:shadow-lg relative overflow-visible print:p-0 print:m-0 print:border-none print:shadow-none print:rounded-none">
           {/* Header: Name, Title, Contact */}
           <header className="resume-section pb-3.5">
             <div>
@@ -152,13 +139,33 @@ export default function SpaceMonoResume() {
                 </span>
                 <span className="text-border select-none">|</span>
 
-                <a
-                  href={`tel:${resumeContact.phone.replace(/[^0-9]/g, "")}`}
-                  className="inline-flex items-center gap-1 text-foreground hover:text-indigo-dark transition-colors"
-                >
+                <div className="inline-flex items-center gap-1 text-foreground">
                   <Phone size={12} className="text-indigo-dark" />
-                  {resumeContact.phone}
-                </a>
+                  {/* Web view: Obscured / click-to-reveal */}
+                  <span className="print:hidden">
+                    {revealPhone ? (
+                      <a
+                        href={`tel:${resumeContact.phone.replace(/[^0-9]/g, "")}`}
+                        className="text-foreground hover:text-indigo-dark transition-colors"
+                      >
+                        {resumeContact.phone}
+                      </a>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => setRevealPhone(true)}
+                        className="text-foreground hover:text-indigo-dark transition-colors cursor-pointer text-left font-mono"
+                        title="Click to reveal phone number"
+                      >
+                        {resumeContact.phoneObscured || "(650) •••-••••"}
+                      </button>
+                    )}
+                  </span>
+                  {/* Print view: Always full un-obscured number */}
+                  <span className="hidden print:inline text-foreground">
+                    {resumeContact.phone}
+                  </span>
+                </div>
                 <span className="text-border select-none">|</span>
 
                 <a
@@ -233,65 +240,14 @@ export default function SpaceMonoResume() {
 
           <hr className="rainbow-divider my-4 h-[2px] w-full border-0 labs-rainbow-gradient rounded-full opacity-85" />
 
-          {/* Section 2: Professional Experience (Page 1) */}
+          {/* Section 2: Professional Experience (Complete Linear List) */}
           <section className="resume-section my-5">
             <h2 className="text-lg sm:text-xl font-bold tracking-tight text-foreground mb-5">
               Professional Experience
             </h2>
 
             <div className="space-y-9 sm:space-y-11">
-              {page1Experiences.map((item) => (
-                <div key={item.id} className="resume-experience-item">
-                  {/* Role Header */}
-                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-                    <h3 className="text-sm sm:text-base font-bold text-foreground flex flex-wrap items-baseline gap-2">
-                      <span className="text-foreground">{item.company}</span>
-                      <span className="text-muted font-normal">|</span>
-                      <span className="text-indigo-dark">{item.role}</span>
-                    </h3>
-                  </div>
-
-                  {/* Location & Period Subtext */}
-                  <p className="mt-1 text-xs sm:text-sm text-muted italic font-mono flex flex-wrap items-center gap-2">
-                    <span>{item.location} | {item.period}{item.duration ? ` (${item.duration})` : ""}</span>
-                  </p>
-
-                  {/* Bullets */}
-                  <ul className="mt-2.5 space-y-2 text-xs sm:text-sm text-foreground/90 font-mono leading-relaxed pl-1">
-                    {item.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2.5 text-xs sm:text-sm">
-                        <span className="text-indigo-dark select-none font-bold text-xs sm:text-sm shrink-0 mt-0.5">•</span>
-                        <div className="text-xs sm:text-sm">
-                          {bullet.category && (
-                            <strong className="font-bold text-foreground mr-1">
-                              {bullet.category}:
-                            </strong>
-                          )}
-                          <span>{bullet.text}</span>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </section>
-        </ResumePage>
-
-        {/* PAGE 2 */}
-        <ResumePage
-          pageNumber={2}
-          totalPages={2}
-          headerTitle="Tyler Lindow • Experience (Cont.) & Education"
-          headerSubtitle="Staff B2B Product Manager"
-          topOffsetRem={2.5}
-          bottomOffsetRem={1.5}
-          zIndex={20}
-        >
-          {/* Section 2: Professional Experience (Page 2) */}
-          <section className="resume-section mb-5 print:mt-0">
-            <div className="space-y-9 sm:space-y-11">
-              {page2Experiences.map((item) => (
+              {professionalExperience.map((item) => (
                 <div key={item.id} className="resume-experience-item">
                   {/* Role Header */}
                   <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
@@ -351,7 +307,7 @@ export default function SpaceMonoResume() {
               ))}
             </ul>
           </section>
-        </ResumePage>
+        </article>
       </main>
 
       {/* Bottom Download as PDF Button & Actions (Outside of Resume Section, No-Print) */}

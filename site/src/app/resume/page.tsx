@@ -20,7 +20,7 @@ export default function ResumePageRoute() {
           className="inline-flex items-center gap-2 text-xs font-bold text-muted hover:text-indigo-dark transition-colors py-2"
         >
           <ArrowLeft size={14} />
-          <span>&larr; Back to Product Overview</span>
+          <span>Back to Product Overview</span>
         </a>
       </div>
       <div className="pt-2">

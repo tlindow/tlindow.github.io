@@ -146,38 +146,6 @@ body {
     overflow: visible !important;
   }
 
-  .resume-page-wrapper {
-    position: static !important;
-    top: auto !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    z-index: auto !important;
-    transform: none !important;
-  }
-
-  .resume-page-wrapper:not(:last-child),
-  .resume-page-wrapper:first-child {
-    break-after: page !important;
-    page-break-after: always !important;
-    margin-bottom: 0 !important;
-  }
-
-  .resume-page-wrapper:last-child {
-    break-before: page !important;
-    page-break-before: always !important;
-    margin-top: 0 !important;
-  }
-
-  .resume-page-sheet {
-    border: none !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    border-radius: 0 !important;
-    background: transparent !important;
-    overflow: visible !important;
-  }
-
   header.resume-section {
     margin-top: 0 !important;
     padding-top: 0 !important;

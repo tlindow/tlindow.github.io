@@ -19,6 +19,7 @@ import { resumeContact } from "@/data/resumeData";
 
 export default function Hero() {
   const [copiedContact, setCopiedContact] = useState(false);
+  const [revealPhone, setRevealPhone] = useState(false);
 
   const handleCopyContact = async () => {
     const contactString = `${resumeContact.name}\n${resumeContact.title}\n${resumeContact.location} | ${resumeContact.phone} | ${resumeContact.email}\nLinkedIn: ${resumeContact.linkedin}\nGitHub: ${resumeContact.github}`;
@@ -99,13 +100,31 @@ export default function Hero() {
             <span>{resumeContact.location}</span>
           </span>
 
-          <a
-            href={`tel:${resumeContact.phone.replace(/[^0-9]/g, "")}`}
-            className="inline-flex items-center gap-1.5 rounded-full bg-surface hover:bg-surface-alt px-3 py-1 border border-border hover:border-indigo/40 transition-colors"
-          >
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-surface hover:bg-surface-alt px-3 py-1 border border-border hover:border-indigo/40 transition-colors">
             <Phone size={13} className="text-sky" />
-            <span>{resumeContact.phone}</span>
-          </a>
+            <span className="print:hidden">
+              {revealPhone ? (
+                <a
+                  href={`tel:${resumeContact.phone.replace(/[^0-9]/g, "")}`}
+                  className="hover:text-foreground transition-colors"
+                >
+                  {resumeContact.phone}
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setRevealPhone(true)}
+                  className="hover:text-foreground transition-colors cursor-pointer"
+                  title="Click to reveal phone number"
+                >
+                  {resumeContact.phoneObscured || "(650) •••-••••"}
+                </button>
+              )}
+            </span>
+            <span className="hidden print:inline">
+              {resumeContact.phone}
+            </span>
+          </span>
 
           <a
             href={`mailto:${resumeContact.email}`}

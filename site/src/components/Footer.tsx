@@ -1,9 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import { FileText, Cpu } from "lucide-react";
 import { resumeContact } from "@/data/resumeData";
 
 export default function Footer() {
+  const [revealPhone, setRevealPhone] = useState(false);
+
   return (
     <footer className="py-10 sm:py-12 px-4 sm:px-6 border-t border-border bg-surface-alt/70 no-print">
       <div className="mx-auto max-w-4xl space-y-6">
@@ -18,9 +21,20 @@ export default function Footer() {
               {resumeContact.email}
             </a>
             <span>&bull;</span>
-            <a href={`tel:${resumeContact.phone.replace(/[^0-9]/g, "")}`} className="hover:text-foreground underline underline-offset-2">
-              {resumeContact.phone}
-            </a>
+            {revealPhone ? (
+              <a href={`tel:${resumeContact.phone.replace(/[^0-9]/g, "")}`} className="hover:text-foreground underline underline-offset-2">
+                {resumeContact.phone}
+              </a>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setRevealPhone(true)}
+                className="hover:text-foreground underline underline-offset-2 cursor-pointer font-mono"
+                title="Click to reveal phone number"
+              >
+                {resumeContact.phoneObscured || "(650) •••-••••"}
+              </button>
+            )}
           </div>
 
           {/* Machine knowledge endpoints */}
