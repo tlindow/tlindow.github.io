@@ -1,7 +1,7 @@
 "use client";
 
 import {
-  Rocket,
+  Wallet,
   FileText,
 } from "lucide-react";
 
@@ -86,14 +86,14 @@ export default function Home() {
                 onClick={() =>
                   logRecruitClick({
                     location: "hero",
-                    label: "View Launch Credits",
-                    variant: `${recruit_cta_style}:View Launch Credits`,
+                    label: "View Launch Wallet",
+                    variant: `${recruit_cta_style}:View Launch Wallet`,
                   })
                 }
                 className={`inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-xs sm:text-sm font-bold shadow-xs transition-all hover:scale-[1.01] active:scale-[0.99] ${getCtaStyleClass()}`}
               >
-                <Rocket size={15} />
-                <span>View Launch Credits</span>
+                <Wallet size={15} />
+                <span>View Launch Wallet</span>
               </a>
 
               <a
