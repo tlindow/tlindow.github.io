@@ -3,7 +3,6 @@
 import {
   Linkedin,
   FileText,
-  ChevronDown,
 } from "lucide-react";
 
 import Navbar from "@/components/Navbar";
@@ -110,11 +109,6 @@ export default function Home() {
 
             {/* Educational Institutions */}
             <EducationInstitutionsBar />
-
-            {/* Subtle Down Scroll Cue */}
-            <div className="absolute bottom-6 flex flex-col items-center gap-1 text-muted/60 text-[10px] font-mono pointer-events-none">
-              <ChevronDown size={16} className="animate-bounce" />
-            </div>
           </header>
 
           <div className="max-w-4xl mx-auto w-full px-4 mb-4">
