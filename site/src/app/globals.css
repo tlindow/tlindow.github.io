@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* beginner & tinker warm paper surfaces */
+  /* Lindow Labs warm paper surfaces */
   --color-background: #FFFDF7;
   --color-foreground: #1F1D1A;
 
@@ -13,34 +13,49 @@
   --color-border: #E6E2D8;
   --color-border-subtle: #EFECE6;
 
-  /* beginner botanical tokens */
-  --color-forest: #2D5A3D;
-  --color-forest-dark: #1F3E2A;
-  --color-forest-light: #EAF4ED;
-  --color-sprout: #7BC47A;
-  --color-sprout-light: #F0FDF4;
-  --color-leaf: #5AAD58;
+  /* Lindow Labs brand tokens */
+  --color-labs-primary: #4F46E5;
+  --color-labs-primary-dark: #3730A3;
+  --color-labs-primary-light: #EEF2FF;
+  --color-labs-ink: #1F1D1A;
+  --color-labs-charcoal: #2D2A26;
 
-  /* tinker signature 7-color pastel rainbow spectrum */
-  --color-violet: #C8B6E2;
+  /* Lindow Labs cool palette spectrum */
+  --color-violet: #C4B5FD;
   --color-violet-light: #F5F3FF;
-  --color-rose: #F9A8D4;
-  --color-rose-light: #FDF2F8;
-  --color-peach: #FDBA74;
-  --color-peach-light: #FFF7ED;
-  --color-amber: #FDE68A;
-  --color-amber-light: #FFFBEB;
+  --color-indigo: #A5B4FC;
+  --color-indigo-dark: #4F46E5;
+  --color-indigo-light: #EEF2FF;
   --color-sky: #7DD3FC;
+  --color-sky-dark: #0284C7;
   --color-sky-light: #F0F9FF;
   --color-mint: #6EE7B7;
+  --color-mint-dark: #059669;
   --color-mint-light: #ECFDF5;
-  --color-indigo: #A5B4FC;
-  --color-indigo-light: #EEF2FF;
+
+  /* Lindow Labs warm palette spectrum */
+  --color-peach: #FDBA74;
+  --color-peach-light: #FFF7ED;
+  --color-rose: #F9A8D4;
+  --color-rose-light: #FDF2F8;
+  --color-amber: #FDE68A;
+  --color-amber-light: #FFFBEB;
+
+  /* Botanical tokens remapped to Lindow Labs palette */
+  --color-forest: #4F46E5;
+  --color-forest-dark: #3730A3;
+  --color-forest-light: #EEF2FF;
+  --color-sprout: #7DD3FC;
+  --color-sprout-light: #F0F9FF;
+  --color-leaf: #6EE7B7;
 
   --font-mono: var(--font-space-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-display: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-space-mono: var(--font-space-mono), monospace;
   --font-pixel: var(--font-pixel), "Silkscreen", monospace;
+  --font-fraunces: var(--font-fraunces), serif;
 }
 
 html {
@@ -56,32 +71,31 @@ body {
 }
 
 ::selection {
-  background-color: #7BC47A35;
-  color: #1F3E2A;
+  background-color: #C4B5FD45;
+  color: #1E1B4B;
 }
 
+.labs-rainbow-gradient,
 .tinker-rainbow-gradient {
   background: linear-gradient(
     90deg,
-    #C8B6E2 0%,
-    #F9A8D4 18%,
-    #FDBA74 36%,
-    #FDE68A 54%,
-    #7BC47A 72%,
-    #7DD3FC 88%,
-    #6EE7B7 100%
+    #C4B5FD 0%,
+    #A5B4FC 25%,
+    #7DD3FC 50%,
+    #6EE7B7 75%,
+    #FDBA74 100%
   );
 }
 
+.labs-rainbow-bar,
 .tinker-rainbow-bar {
   background: linear-gradient(
     90deg,
-    #2D5A3D 0%,
-    #7BC47A 20%,
-    #7DD3FC 40%,
-    #C8B6E2 60%,
-    #F9A8D4 80%,
-    #FDBA74 100%
+    #4F46E5 0%,
+    #A5B4FC 25%,
+    #7DD3FC 50%,
+    #6EE7B7 75%,
+    #C4B5FD 100%
   );
 }
 
@@ -215,6 +229,7 @@ body {
 
   hr,
   .rainbow-divider,
+  .labs-rainbow-gradient,
   .tinker-rainbow-gradient {
     display: block !important;
     border: none !important;
@@ -222,13 +237,11 @@ body {
     border-radius: 9999px !important;
     background: linear-gradient(
       90deg,
-      #C8B6E2 0%,
-      #F9A8D4 18%,
-      #FDBA74 36%,
-      #FDE68A 54%,
-      #7BC47A 72%,
-      #7DD3FC 88%,
-      #6EE7B7 100%
+      #C4B5FD 0%,
+      #A5B4FC 25%,
+      #7DD3FC 50%,
+      #6EE7B7 75%,
+      #FDBA74 100%
     ) !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;

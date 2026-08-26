@@ -90,8 +90,8 @@ async function run() {
   fs.writeFileSync("./public/favicon.ico", icoBuffer);
   fs.writeFileSync("./src/app/apple-icon.png", png180);
   fs.writeFileSync("./public/apple-touch-icon.png", png180);
-  fs.writeFileSync("./public/brand/tinker-globe-512.png", png512);
-  fs.writeFileSync("./public/brand/tinker-globe.svg", svgContent);
+  fs.writeFileSync("./public/brand/lindow-labs-icon-512.png", png512);
+  fs.writeFileSync("./public/brand/lindow-labs-icon.svg", svgContent);
 
   console.log("Favicons and icons successfully generated!");
   await browser.close();

@@ -86,8 +86,8 @@ export const professionalSummary = {
       label: "Years Experience",
       context: "Technical leadership, software engineering & partner enablement",
       description: "Technical leadership, software engineering & partner enablement",
-      accent: "text-forest",
-      bg: "bg-forest-light",
+      accent: "text-indigo-dark",
+      bg: "bg-indigo-light",
     },
     {
       number: "$1B+",
@@ -104,8 +104,8 @@ export const professionalSummary = {
       label: "Incremental GMV",
       context: "Generated via mobile perf optimization during promo windows",
       description: "Generated via mobile perf optimization during promo windows",
-      accent: "text-sprout",
-      bg: "bg-sprout-light",
+      accent: "text-sky",
+      bg: "bg-sky-light",
     },
     {
       number: "1 → 6",
@@ -362,6 +362,10 @@ export const education: EducationEntry[] = [
     detail: "Graduate Coursework, Learning Sciences",
   },
   {
+    institution: "Hack Reactor",
+    detail: "Advanced Software Engineering Immersive",
+  },
+  {
     institution: "University of California, San Diego",
     detail: "B.S. NanoEngineering – Cum Laude",
   },
@@ -372,8 +376,8 @@ export const educationList: EducationItem[] = [
     institution: "Deep Atlas",
     degree: "Residency, Applied AI and Machine Learning",
     location: "San Francisco, CA & Remote",
-    accentColor: "text-forest",
-    accentBg: "bg-forest-light",
+    accentColor: "text-indigo-dark",
+    accentBg: "bg-indigo-light",
   },
   {
     institution: "Northwestern University",
@@ -383,6 +387,15 @@ export const educationList: EducationItem[] = [
       "Deep exploration of constructionist pedagogy, cognitive modeling, and how human learning dynamics shape intuitive technical systems.",
     accentColor: "text-violet",
     accentBg: "bg-violet-light",
+  },
+  {
+    institution: "Hack Reactor",
+    degree: "Advanced Software Engineering Immersive",
+    location: "San Francisco, CA",
+    description:
+      "Intensive full-stack software engineering, distributed systems, and modern web application architecture.",
+    accentColor: "text-peach",
+    accentBg: "bg-peach-light",
   },
   {
     institution: "University of California, San Diego",

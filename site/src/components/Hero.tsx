@@ -59,10 +59,10 @@ export default function Hero() {
             alt="Tyler Lindow"
             width={96}
             height={96}
-            className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover object-[center_20%] ring-4 ring-forest/20 shadow-md"
+            className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover object-[center_20%] ring-4 ring-indigo/25 shadow-md"
             loading="eager"
           />
-          <span className="absolute bottom-0 right-1 inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-mono font-medium bg-forest text-sand border-2 border-surface shadow-sm">
+          <span className="absolute bottom-0 right-1 inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-mono font-medium bg-indigo-dark text-sand border-2 border-surface shadow-sm">
             Resume
           </span>
         </motion.div>
@@ -82,7 +82,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.25 }}
-          className="mt-3 text-base sm:text-lg md:text-xl font-sans font-medium text-forest max-w-2xl"
+          className="mt-3 text-base sm:text-lg md:text-xl font-sans font-medium text-indigo-dark max-w-2xl"
         >
           {resumeContact.title}
         </motion.p>
@@ -95,21 +95,21 @@ export default function Hero() {
           className="mt-5 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-mono text-muted"
         >
           <span className="inline-flex items-center gap-1.5 rounded-full bg-surface px-3 py-1 border border-border">
-            <MapPin size={13} className="text-forest" />
+            <MapPin size={13} className="text-indigo-dark" />
             <span>{resumeContact.location}</span>
           </span>
 
           <a
             href={`tel:${resumeContact.phone.replace(/[^0-9]/g, "")}`}
-            className="inline-flex items-center gap-1.5 rounded-full bg-surface hover:bg-surface-alt px-3 py-1 border border-border hover:border-forest/40 transition-colors"
+            className="inline-flex items-center gap-1.5 rounded-full bg-surface hover:bg-surface-alt px-3 py-1 border border-border hover:border-indigo/40 transition-colors"
           >
-            <Phone size={13} className="text-sprout" />
+            <Phone size={13} className="text-sky" />
             <span>{resumeContact.phone}</span>
           </a>
 
           <a
             href={`mailto:${resumeContact.email}`}
-            className="inline-flex items-center gap-1.5 rounded-full bg-surface hover:bg-surface-alt px-3 py-1 border border-border hover:border-forest/40 transition-colors"
+            className="inline-flex items-center gap-1.5 rounded-full bg-surface hover:bg-surface-alt px-3 py-1 border border-border hover:border-indigo/40 transition-colors"
           >
             <Mail size={13} className="text-violet" />
             <span>{resumeContact.email}</span>
@@ -119,7 +119,7 @@ export default function Hero() {
             href={resumeContact.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full bg-surface hover:bg-surface-alt px-3 py-1 border border-border hover:border-forest/40 transition-colors"
+            className="inline-flex items-center gap-1.5 rounded-full bg-surface hover:bg-surface-alt px-3 py-1 border border-border hover:border-indigo/40 transition-colors"
           >
             <Linkedin size={13} className="text-[#0A66C2]" />
             <span>{resumeContact.linkedinDisplay}</span>
@@ -129,7 +129,7 @@ export default function Hero() {
             href={resumeContact.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full bg-surface hover:bg-surface-alt px-3 py-1 border border-border hover:border-forest/40 transition-colors"
+            className="inline-flex items-center gap-1.5 rounded-full bg-surface hover:bg-surface-alt px-3 py-1 border border-border hover:border-indigo/40 transition-colors"
           >
             <Github size={13} className="text-foreground" />
             <span>{resumeContact.githubDisplay}</span>
@@ -146,7 +146,7 @@ export default function Hero() {
           <button
             type="button"
             onClick={handlePrint}
-            className="inline-flex items-center gap-2 rounded-full bg-forest text-sand hover:bg-forest-dark px-5 py-2.5 text-xs sm:text-sm font-mono font-medium shadow-sm transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
+            className="inline-flex items-center gap-2 rounded-full bg-indigo-dark text-sand hover:bg-labs-primary-dark px-5 py-2.5 text-xs sm:text-sm font-mono font-medium shadow-sm transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
           >
             <Printer size={15} />
             <span>Print / Save PDF</span>
@@ -155,11 +155,11 @@ export default function Hero() {
           <button
             type="button"
             onClick={handleCopyContact}
-            className="inline-flex items-center gap-2 rounded-full bg-surface text-foreground hover:bg-surface-alt px-4 py-2.5 text-xs sm:text-sm font-mono font-medium border border-border hover:border-forest/40 shadow-sm transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
+            className="inline-flex items-center gap-2 rounded-full bg-surface text-foreground hover:bg-surface-alt px-4 py-2.5 text-xs sm:text-sm font-mono font-medium border border-border hover:border-indigo/40 shadow-sm transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
           >
             {copiedContact ? (
               <>
-                <Check size={15} className="text-sprout" />
+                <Check size={15} className="text-sky" />
                 <span>Contact Copied!</span>
               </>
             ) : (
@@ -172,7 +172,7 @@ export default function Hero() {
 
           <a
             href="#experience"
-            className="inline-flex items-center gap-2 rounded-full bg-surface text-foreground hover:bg-surface-alt px-4 py-2.5 text-xs sm:text-sm font-mono font-medium border border-border hover:border-forest/40 shadow-sm transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
+            className="inline-flex items-center gap-2 rounded-full bg-surface text-foreground hover:bg-surface-alt px-4 py-2.5 text-xs sm:text-sm font-mono font-medium border border-border hover:border-indigo/40 shadow-sm transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
           >
             <span>Experience</span>
             <ArrowDown size={14} className="text-muted" />

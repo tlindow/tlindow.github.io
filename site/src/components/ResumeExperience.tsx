@@ -31,7 +31,7 @@ export default function ResumeExperience() {
         <ScrollReveal>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-3">
             <div className="flex items-center gap-2.5">
-              <span className="p-1.5 rounded-lg bg-forest-light text-forest">
+              <span className="p-1.5 rounded-lg bg-indigo-light text-indigo-dark">
                 <Briefcase size={16} />
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl text-foreground font-normal tracking-tight">
@@ -46,7 +46,7 @@ export default function ResumeExperience() {
                 onClick={() => setSelectedFilter("all")}
                 className={`px-3 py-1 rounded-full transition-colors cursor-pointer ${
                   selectedFilter === "all"
-                    ? "bg-forest text-sand font-medium"
+                    ? "bg-indigo-dark text-sand font-medium"
                     : "bg-surface-alt text-muted hover:text-foreground border border-border"
                 }`}
               >
@@ -58,7 +58,7 @@ export default function ResumeExperience() {
                 onClick={() => setSelectedFilter("leadership")}
                 className={`px-3 py-1 rounded-full transition-colors cursor-pointer ${
                   selectedFilter === "leadership"
-                    ? "bg-forest text-sand font-medium"
+                    ? "bg-indigo-dark text-sand font-medium"
                     : "bg-surface-alt text-muted hover:text-foreground border border-border"
                 }`}
               >
@@ -70,7 +70,7 @@ export default function ResumeExperience() {
                 onClick={() => setSelectedFilter("devrel")}
                 className={`px-3 py-1 rounded-full transition-colors cursor-pointer ${
                   selectedFilter === "devrel"
-                    ? "bg-forest text-sand font-medium"
+                    ? "bg-indigo-dark text-sand font-medium"
                     : "bg-surface-alt text-muted hover:text-foreground border border-border"
                 }`}
               >
@@ -82,7 +82,7 @@ export default function ResumeExperience() {
                 onClick={() => setSelectedFilter("mentorship")}
                 className={`px-3 py-1 rounded-full transition-colors cursor-pointer ${
                   selectedFilter === "mentorship"
-                    ? "bg-forest text-sand font-medium"
+                    ? "bg-indigo-dark text-sand font-medium"
                     : "bg-surface-alt text-muted hover:text-foreground border border-border"
                 }`}
               >
@@ -90,7 +90,7 @@ export default function ResumeExperience() {
               </button>
             </div>
           </div>
-          <div className="h-0.5 w-12 bg-forest/40 rounded-full mb-8" />
+          <div className="h-0.5 w-12 bg-indigo/40 rounded-full mb-8" />
         </ScrollReveal>
 
         {/* Experience Timeline / Cards */}
@@ -98,7 +98,7 @@ export default function ResumeExperience() {
           {filteredExperience.map((item, idx) => (
             <ScrollReveal key={item.id} delay={idx * 0.06}>
               <div
-                className="resume-experience-card rounded-3xl bg-surface border border-border p-6 sm:p-8 shadow-sm hover:border-forest/30 transition-all duration-200"
+                className="resume-experience-card rounded-3xl bg-surface border border-border p-6 sm:p-8 shadow-sm hover:border-indigo/30 transition-all duration-200"
               >
                 {/* Header: Company, Role, Level, Period */}
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 pb-4 border-b border-border/70">
@@ -112,7 +112,7 @@ export default function ResumeExperience() {
                         {item.role}
                       </span>
                       {item.level && (
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-surface-alt text-forest border border-border">
+                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-surface-alt text-indigo-dark border border-border">
                           {item.level}
                         </span>
                       )}
@@ -120,7 +120,7 @@ export default function ResumeExperience() {
 
                     <div className="mt-1.5 flex flex-wrap items-center gap-3 text-xs font-mono text-muted">
                       <span className="inline-flex items-center gap-1">
-                        <MapPin size={12} className="text-forest/70" />
+                        <MapPin size={12} className="text-indigo-dark/70" />
                         {item.location}
                       </span>
                     </div>
@@ -128,7 +128,7 @@ export default function ResumeExperience() {
 
                   <div className="flex sm:flex-col sm:items-end items-center gap-1.5 text-xs font-mono text-muted shrink-0">
                     <span className="inline-flex items-center gap-1 font-medium text-foreground/80 bg-surface-alt px-2.5 py-1 rounded-md border border-border/80">
-                      <Calendar size={12} className="text-forest" />
+                      <Calendar size={12} className="text-indigo-dark" />
                       {item.period}
                     </span>
                     {item.duration && (
@@ -143,14 +143,14 @@ export default function ResumeExperience() {
                 <ul className="mt-5 space-y-3.5 text-sm sm:text-[15px] font-sans text-muted leading-relaxed">
                   {item.bullets.map((bullet, bIdx) => (
                     <li key={bIdx} className="flex items-start gap-3">
-                      <span className="w-1.5 h-1.5 rounded-full bg-forest mt-2 shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-indigo-dark mt-2 shrink-0" />
                       <div>
                         <strong className="font-semibold text-foreground mr-1.5">
                           {bullet.category}:
                         </strong>
                         <span className="text-foreground/85">{bullet.text}</span>
                         {bullet.highlightMetric && (
-                          <span className="ml-2 inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-mono font-medium bg-sprout-light text-forest border border-sprout/20 no-print">
+                          <span className="ml-2 inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-mono font-medium bg-indigo-light text-indigo-dark border border-indigo/20 no-print">
                             <TrendingUp size={11} />
                             {bullet.highlightMetric}
                           </span>

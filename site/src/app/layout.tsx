@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Inter, Space_Mono, Silkscreen } from "next/font/google";
+import { Inter, Space_Mono, Silkscreen, Fraunces } from "next/font/google";
+import { AnalyticsProvider } from "@/context/AnalyticsProvider";
 import "./globals.css";
 
 const inter = Inter({
@@ -19,6 +20,13 @@ const silkscreen = Silkscreen({
   variable: "--font-pixel",
   weight: ["400", "700"],
   subsets: ["latin"],
+  display: "swap",
+});
+
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  axes: ["SOFT", "opsz", "WONK"],
   display: "swap",
 });
 
@@ -87,9 +95,9 @@ export default function RootLayout({
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs.txt" />
       </head>
       <body
-        className={`${inter.variable} ${spaceMono.variable} ${silkscreen.variable} font-mono antialiased bg-background text-foreground selection:bg-sprout-light selection:text-forest`}
+        className={`${inter.variable} ${spaceMono.variable} ${silkscreen.variable} ${fraunces.variable} font-mono antialiased bg-background text-foreground selection:bg-indigo-light selection:text-indigo-dark`}
       >
-        {children}
+        <AnalyticsProvider>{children}</AnalyticsProvider>
       </body>
     </html>
   );

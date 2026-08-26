@@ -11,14 +11,14 @@ export default function ResumeSummary() {
       <div className="mx-auto max-w-4xl">
         <ScrollReveal>
           <div className="flex items-center gap-2.5 mb-3">
-            <span className="p-1.5 rounded-lg bg-forest-light text-forest">
+            <span className="p-1.5 rounded-lg bg-indigo-light text-indigo-dark">
               <Compass size={16} />
             </span>
             <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
               Vision
             </h2>
           </div>
-          <div className="h-0.5 w-12 bg-forest/40 rounded-full mb-6" />
+          <div className="h-0.5 w-12 bg-indigo/40 rounded-full mb-6" />
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>

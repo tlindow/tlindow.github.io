@@ -12,12 +12,12 @@ export const metadata: Metadata = {
 export default function ResumePageRoute() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-sprout-light selection:text-forest font-mono">
+    <div className="min-h-screen bg-background text-foreground selection:bg-indigo-light selection:text-indigo-dark font-mono">
       <Navbar />
       <div className="pt-20 sm:pt-24 max-w-4xl mx-auto px-4 sm:px-6 no-print">
         <a
           href={`${basePath}/`}
-          className="inline-flex items-center gap-2 text-xs font-bold text-muted hover:text-forest transition-colors py-2"
+          className="inline-flex items-center gap-2 text-xs font-bold text-muted hover:text-indigo-dark transition-colors py-2"
         >
           <ArrowLeft size={14} />
           <span>&larr; Back to Product Overview</span>

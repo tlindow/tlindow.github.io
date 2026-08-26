@@ -41,7 +41,7 @@ export default function ResumeVentures() {
                 href="https://www.youtube.com/watch?v=STI5pw5F5Lo&t=631s"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-forest hover:text-forest-dark underline underline-offset-4"
+                className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-indigo-dark hover:text-labs-primary-dark underline underline-offset-4"
               >
                 <span>Watch on YouTube (10:31)</span>
                 <ExternalLink size={12} />
@@ -64,15 +64,15 @@ export default function ResumeVentures() {
               href="https://www.beginner.work"
               target="_blank"
               rel="noopener noreferrer"
-              className="group block rounded-2xl bg-surface border border-border p-5 hover:border-forest/40 hover:shadow-md transition-all duration-200 h-full"
+              className="group block rounded-2xl bg-surface border border-border p-5 hover:border-indigo/40 hover:shadow-md transition-all duration-200 h-full"
             >
               <div className="flex items-center justify-between mb-3">
-                <div className="p-1.5 rounded-xl bg-forest-light text-forest">
+                <div className="p-1.5 rounded-xl bg-indigo-light text-indigo-dark">
                   <BeginnerSeedMark className="w-5 h-5" />
                 </div>
-                <ExternalLink size={13} className="text-muted group-hover:text-forest transition-colors" />
+                <ExternalLink size={13} className="text-muted group-hover:text-indigo-dark transition-colors" />
               </div>
-              <h4 className="font-serif text-base font-normal text-foreground group-hover:text-forest transition-colors">
+              <h4 className="font-serif text-base font-normal text-foreground group-hover:text-indigo-dark transition-colors">
                 beginner
               </h4>
               <p className="text-xs text-muted font-sans mt-1 leading-snug">
@@ -86,15 +86,15 @@ export default function ResumeVentures() {
               href="https://www.beginner.work"
               target="_blank"
               rel="noopener noreferrer"
-              className="group block rounded-2xl bg-surface border border-border p-5 hover:border-forest/40 hover:shadow-md transition-all duration-200 h-full"
+              className="group block rounded-2xl bg-surface border border-border p-5 hover:border-indigo/40 hover:shadow-md transition-all duration-200 h-full"
             >
               <div className="flex items-center justify-between mb-3">
                 <div className="p-1.5 rounded-xl bg-violet-light text-violet">
                   <TinkerGlobeMark className="w-5 h-5" />
                 </div>
-                <ExternalLink size={13} className="text-muted group-hover:text-forest transition-colors" />
+                <ExternalLink size={13} className="text-muted group-hover:text-indigo-dark transition-colors" />
               </div>
-              <h4 className="font-serif text-base font-normal text-foreground group-hover:text-forest transition-colors">
+              <h4 className="font-serif text-base font-normal text-foreground group-hover:text-indigo-dark transition-colors">
                 tinker
               </h4>
               <p className="text-xs text-muted font-sans mt-1 leading-snug">
@@ -108,15 +108,15 @@ export default function ResumeVentures() {
               href="https://www.beginner.work/hapi"
               target="_blank"
               rel="noopener noreferrer"
-              className="group block rounded-2xl bg-surface border border-border p-5 hover:border-forest/40 hover:shadow-md transition-all duration-200 h-full"
+              className="group block rounded-2xl bg-surface border border-border p-5 hover:border-indigo/40 hover:shadow-md transition-all duration-200 h-full"
             >
               <div className="flex items-center justify-between mb-3">
                 <div className="p-1.5 rounded-xl bg-amber-light text-amber-800">
                   <HapiCupMark className="w-5 h-5" />
                 </div>
-                <ExternalLink size={13} className="text-muted group-hover:text-forest transition-colors" />
+                <ExternalLink size={13} className="text-muted group-hover:text-indigo-dark transition-colors" />
               </div>
-              <h4 className="font-serif text-base font-normal text-foreground group-hover:text-forest transition-colors">
+              <h4 className="font-serif text-base font-normal text-foreground group-hover:text-indigo-dark transition-colors">
                 hāpi
               </h4>
               <p className="text-xs text-muted font-sans mt-1 leading-snug">

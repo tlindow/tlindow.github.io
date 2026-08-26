@@ -31,7 +31,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 hover:text-foreground underline underline-offset-2 transition-colors"
             >
-              <FileText size={12} className="text-forest" />
+              <FileText size={12} className="text-indigo-dark" />
               <span>llms.txt</span>
             </a>
             <span>&bull;</span>
@@ -41,7 +41,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 hover:text-foreground underline underline-offset-2 transition-colors"
             >
-              <FileText size={12} className="text-sprout" />
+              <FileText size={12} className="text-sky" />
               <span>llms-full.txt</span>
             </a>
             <span>&bull;</span>

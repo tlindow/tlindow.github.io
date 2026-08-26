@@ -74,7 +74,7 @@ export default function ResumePage({
       data-page-number={pageNumber}
     >
       <article
-        className={`resume-page-sheet resume-paper rounded-3xl bg-surface border border-border p-6 sm:p-16 font-mono text-foreground leading-relaxed selection:bg-forest-light relative overflow-visible print:p-0 print:m-0 print:border-none print:shadow-none print:rounded-none ${
+        className={`resume-page-sheet resume-paper rounded-3xl bg-surface border border-border p-6 sm:p-16 font-mono text-foreground leading-relaxed selection:bg-indigo-light relative overflow-visible print:p-0 print:m-0 print:border-none print:shadow-none print:rounded-none ${
           pageNumber > 1
             ? "shadow-[0_-12px_36px_rgba(0,0,0,0.09),0_20px_40px_rgba(0,0,0,0.06)] ring-1 ring-border/60"
             : "shadow-md hover:shadow-lg"
@@ -84,7 +84,7 @@ export default function ResumePage({
         {showHeaderBadge && (
           <div className="no-print mb-4 pb-3 border-b border-border-subtle flex items-center justify-between text-xs font-mono select-none">
             <div className="flex items-center gap-2 text-muted">
-              <span className="w-2 h-2 rounded-full bg-forest shrink-0" />
+              <span className="w-2 h-2 rounded-full bg-indigo-dark shrink-0" />
               <span className="font-bold text-foreground tracking-tight">
                 {headerTitle || "Tyler Lindow"}
               </span>
@@ -95,7 +95,7 @@ export default function ResumePage({
                 </>
               )}
             </div>
-            <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-forest-light text-forest font-semibold text-[11px] border border-forest/15">
+            <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-indigo-light text-indigo-dark font-semibold text-[11px] border border-indigo/15">
               <FileText size={11} />
               <span>
                 Page {pageNumber} of {totalPages}
@@ -117,17 +117,17 @@ export default function ResumePage({
             </div>
 
             {isFirstPage ? (
-              <div className="flex items-center gap-1.5 text-forest font-semibold text-[11px] animate-pulse">
+              <div className="flex items-center gap-1.5 text-indigo-dark font-semibold text-[11px] animate-pulse">
                 <span>{footerHint || "Scroll down for Page 2"}</span>
-                <ChevronDown size={13} className="text-forest animate-bounce" />
+                <ChevronDown size={13} className="text-indigo-dark animate-bounce" />
               </div>
             ) : isLastPage ? (
-              <div className="flex items-center gap-1 text-forest font-medium text-[11px]">
-                <CheckCircle2 size={12} className="text-sprout" />
+              <div className="flex items-center gap-1 text-indigo-dark font-medium text-[11px]">
+                <CheckCircle2 size={12} className="text-sky" />
                 <span>End of Resume</span>
               </div>
             ) : (
-              <div className="flex items-center gap-1 text-forest font-semibold text-[11px]">
+              <div className="flex items-center gap-1 text-indigo-dark font-semibold text-[11px]">
                 <span>Scroll for Next Page</span>
                 <ChevronDown size={13} />
               </div>

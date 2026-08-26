@@ -20,6 +20,7 @@ import {
   professionalExperience,
   educationList,
 } from "@/data/resumeData";
+import { useAnalytics } from "@/context/AnalyticsProvider";
 
 import ResumePage from "@/components/ResumePage";
 
@@ -90,11 +91,15 @@ To elevate the creative and financial position of software developers through ed
 
 export default function SpaceMonoResume() {
   const [copiedMd, setCopiedMd] = useState(false);
+  const { logResumeView, logOutboundClick, trackEvent } = useAnalytics();
 
   const page1Experiences = professionalExperience.slice(0, 3);
   const page2Experiences = professionalExperience.slice(3);
 
   const handleCopyMarkdown = async () => {
+    trackEvent("resume_copy_markdown", {
+      event_category: "resume_interaction",
+    });
     try {
       await navigator.clipboard.writeText(RAW_MARKDOWN);
       setCopiedMd(true);
@@ -106,6 +111,7 @@ export default function SpaceMonoResume() {
   };
 
   const handlePrint = () => {
+    logResumeView("download_pdf");
     if (typeof window !== "undefined") {
       window.print();
     }
@@ -131,7 +137,7 @@ export default function SpaceMonoResume() {
               <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-foreground pl-0.5">
                 {resumeContact.name}
               </h1>
-              <p className="mt-1.5 text-sm sm:text-base font-bold text-forest">
+              <p className="mt-1.5 text-sm sm:text-base font-bold text-indigo-dark">
                 {resumeContact.title}
               </p>
             </div>
@@ -141,25 +147,25 @@ export default function SpaceMonoResume() {
               {/* Line 1: Location | Phone | Email */}
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
                 <span className="inline-flex items-center gap-1 text-foreground">
-                  <MapPin size={12} className="text-forest" />
+                  <MapPin size={12} className="text-indigo-dark" />
                   {resumeContact.location}
                 </span>
                 <span className="text-border select-none">|</span>
 
                 <a
                   href={`tel:${resumeContact.phone.replace(/[^0-9]/g, "")}`}
-                  className="inline-flex items-center gap-1 text-foreground hover:text-forest transition-colors"
+                  className="inline-flex items-center gap-1 text-foreground hover:text-indigo-dark transition-colors"
                 >
-                  <Phone size={12} className="text-forest" />
+                  <Phone size={12} className="text-indigo-dark" />
                   {resumeContact.phone}
                 </a>
                 <span className="text-border select-none">|</span>
 
                 <a
                   href={`mailto:${resumeContact.email}`}
-                  className="inline-flex items-center gap-1 text-foreground hover:text-forest transition-colors underline underline-offset-2"
+                  className="inline-flex items-center gap-1 text-foreground hover:text-indigo-dark transition-colors underline underline-offset-2"
                 >
-                  <Mail size={12} className="text-forest" />
+                  <Mail size={12} className="text-indigo-dark" />
                   {resumeContact.email}
                 </a>
               </div>
@@ -170,7 +176,7 @@ export default function SpaceMonoResume() {
                   href={resumeContact.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-foreground hover:text-forest transition-colors underline underline-offset-2"
+                  className="inline-flex items-center gap-1 text-foreground hover:text-indigo-dark transition-colors underline underline-offset-2"
                 >
                   <Linkedin size={12} />
                   <span>{resumeContact.linkedinDisplay}</span>
@@ -182,7 +188,7 @@ export default function SpaceMonoResume() {
                   href={resumeContact.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-foreground hover:text-forest transition-colors underline underline-offset-2"
+                  className="inline-flex items-center gap-1 text-foreground hover:text-indigo-dark transition-colors underline underline-offset-2"
                 >
                   <Github size={12} />
                   <span>{resumeContact.githubDisplay}</span>
@@ -192,7 +198,7 @@ export default function SpaceMonoResume() {
             </div>
           </header>
 
-          <hr className="rainbow-divider my-3.5 h-[2px] w-full border-0 tinker-rainbow-gradient rounded-full opacity-85" />
+          <hr className="rainbow-divider my-3.5 h-[2px] w-full border-0 labs-rainbow-gradient rounded-full opacity-85" />
 
           {/* Section 1: Vision */}
           <section className="resume-section mt-3 mb-5">
@@ -215,7 +221,7 @@ export default function SpaceMonoResume() {
               </p>
 
               <p>
-                <strong className="font-bold text-forest mr-1.5">
+                <strong className="font-bold text-indigo-dark mr-1.5">
                   Business &amp; GTM Toolkit:
                 </strong>
                 <span>
@@ -225,7 +231,7 @@ export default function SpaceMonoResume() {
             </div>
           </section>
 
-          <hr className="rainbow-divider my-4 h-[2px] w-full border-0 tinker-rainbow-gradient rounded-full opacity-85" />
+          <hr className="rainbow-divider my-4 h-[2px] w-full border-0 labs-rainbow-gradient rounded-full opacity-85" />
 
           {/* Section 2: Professional Experience (Page 1) */}
           <section className="resume-section my-5">
@@ -241,7 +247,7 @@ export default function SpaceMonoResume() {
                     <h3 className="text-sm sm:text-base font-bold text-foreground flex flex-wrap items-baseline gap-2">
                       <span className="text-foreground">{item.company}</span>
                       <span className="text-muted font-normal">|</span>
-                      <span className="text-forest">{item.role}</span>
+                      <span className="text-indigo-dark">{item.role}</span>
                     </h3>
                   </div>
 
@@ -254,7 +260,7 @@ export default function SpaceMonoResume() {
                   <ul className="mt-2.5 space-y-2 text-xs sm:text-sm text-foreground/90 font-mono leading-relaxed pl-1">
                     {item.bullets.map((bullet, bIdx) => (
                       <li key={bIdx} className="flex items-start gap-2.5 text-xs sm:text-sm">
-                        <span className="text-forest select-none font-bold text-xs sm:text-sm shrink-0 mt-0.5">•</span>
+                        <span className="text-indigo-dark select-none font-bold text-xs sm:text-sm shrink-0 mt-0.5">•</span>
                         <div className="text-xs sm:text-sm">
                           {bullet.category && (
                             <strong className="font-bold text-foreground mr-1">
@@ -292,7 +298,7 @@ export default function SpaceMonoResume() {
                     <h3 className="text-sm sm:text-base font-bold text-foreground flex flex-wrap items-baseline gap-2">
                       <span className="text-foreground">{item.company}</span>
                       <span className="text-muted font-normal">|</span>
-                      <span className="text-forest">{item.role}</span>
+                      <span className="text-indigo-dark">{item.role}</span>
                     </h3>
                   </div>
 
@@ -305,7 +311,7 @@ export default function SpaceMonoResume() {
                   <ul className="mt-2.5 space-y-2 text-xs sm:text-sm text-foreground/90 font-mono leading-relaxed pl-1">
                     {item.bullets.map((bullet, bIdx) => (
                       <li key={bIdx} className="flex items-start gap-2.5 text-xs sm:text-sm">
-                        <span className="text-forest select-none font-bold text-xs sm:text-sm shrink-0 mt-0.5">•</span>
+                        <span className="text-indigo-dark select-none font-bold text-xs sm:text-sm shrink-0 mt-0.5">•</span>
                         <div className="text-xs sm:text-sm">
                           {bullet.category && (
                             <strong className="font-bold text-foreground mr-1">
@@ -322,7 +328,7 @@ export default function SpaceMonoResume() {
             </div>
           </section>
 
-          <hr className="rainbow-divider my-4 h-[2px] w-full border-0 tinker-rainbow-gradient rounded-full opacity-85" />
+          <hr className="rainbow-divider my-4 h-[2px] w-full border-0 labs-rainbow-gradient rounded-full opacity-85" />
 
           {/* Section 3: Education */}
           <section className="resume-section my-5">
@@ -333,7 +339,7 @@ export default function SpaceMonoResume() {
             <ul className="space-y-2.5 text-xs sm:text-sm text-foreground/90 font-mono">
               {educationList.map((edu) => (
                 <li key={edu.institution} className="flex items-start gap-2.5 text-xs sm:text-sm">
-                  <span className="text-forest select-none font-bold text-xs sm:text-sm shrink-0 mt-0.5">•</span>
+                  <span className="text-indigo-dark select-none font-bold text-xs sm:text-sm shrink-0 mt-0.5">•</span>
                   <div className="text-xs sm:text-sm">
                     <strong className="font-bold text-foreground mr-1.5">
                       {edu.institution}
@@ -355,7 +361,7 @@ export default function SpaceMonoResume() {
           <button
             type="button"
             onClick={handlePrint}
-            className="inline-flex items-center gap-2 rounded-2xl bg-forest text-cream hover:bg-forest-dark px-6 py-3 text-xs sm:text-sm font-mono font-bold shadow-sm transition-all cursor-pointer border border-forest-dark/20 hover:scale-[1.02] active:scale-[0.98]"
+            className="inline-flex items-center gap-2 rounded-2xl bg-indigo-dark text-cream hover:bg-labs-primary-dark px-6 py-3 text-xs sm:text-sm font-mono font-bold shadow-sm transition-all cursor-pointer border border-indigo-dark/20 hover:scale-[1.02] active:scale-[0.98]"
             title="Download or print resume as PDF"
           >
             <Download size={15} />
@@ -371,7 +377,7 @@ export default function SpaceMonoResume() {
           >
             {copiedMd ? (
               <>
-                <Check size={13} className="text-sprout" />
+                <Check size={13} className="text-sky" />
                 <span>Copied .md</span>
               </>
             ) : (
@@ -388,7 +394,7 @@ export default function SpaceMonoResume() {
             href={resumeContact.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-forest transition-colors"
+            className="hover:text-indigo-dark transition-colors"
           >
             LinkedIn
           </a>
@@ -397,7 +403,7 @@ export default function SpaceMonoResume() {
             href={resumeContact.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-forest transition-colors"
+            className="hover:text-indigo-dark transition-colors"
           >
             GitHub
           </a>
@@ -406,7 +412,10 @@ export default function SpaceMonoResume() {
             href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/llms.txt`}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-forest transition-colors"
+            onClick={() =>
+              logOutboundClick("llms_txt", `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/llms.txt`)
+            }
+            className="hover:text-indigo-dark transition-colors"
           >
             /llms.txt
           </a>
