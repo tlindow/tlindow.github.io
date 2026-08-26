@@ -60,7 +60,7 @@ export const companyCards: BeginnerStyleCard[] = [
       {
         id: "chm-1",
         year: "2017",
-        title: "Design Code Build & Physical Computing",
+        title: "Design Code Build & Physical Computing Event Support",
         users: "500+ Students",
         ownership: "Workshop Instructor",
         description:
@@ -88,7 +88,7 @@ export const companyCards: BeginnerStyleCard[] = [
       {
         id: "tech-1",
         year: "2018",
-        title: "Projection-Mapped Exhibit & Generative Signage",
+        title: "Sustainability Exhibit Prototyping & Generative Signage",
         users: "150K+ Museum Guests",
         ownership: "Studio Coordinator & UX Research",
         description:
@@ -97,7 +97,7 @@ export const companyCards: BeginnerStyleCard[] = [
       {
         id: "tech-2",
         year: "2017",
-        title: "Google IoT Curriculum & Sensor APIs",
+        title: "Google Data Literacy Curriculum and Workshops",
         users: "1,000+ Students",
         ownership: "Curriculum Specialist",
         description:
@@ -174,7 +174,7 @@ export const companyCards: BeginnerStyleCard[] = [
       {
         id: "aff-3",
         year: "2021",
-        title: "Developer Paved Paths & Self-Service",
+        title: "Introductory AI Developer Paved Paths",
         users: "Thousands of Merchants",
         ownership: "Developer Productivity Lead",
         description:
@@ -193,7 +193,7 @@ export const companyCards: BeginnerStyleCard[] = [
       {
         id: "aff-5",
         year: "2025",
-        title: "Mobile Performance & Checkout Optimization",
+        title: "Affirm.com site Re-launch",
         gmv: "$500K GMV",
         users: "Pre-BFCM 2025 Window",
         ownership: "Mobile SRE / Observability",
