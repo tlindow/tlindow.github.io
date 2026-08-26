@@ -49,7 +49,7 @@ export const blogPosts: BlogPost[] = [
       "Product Strategy",
     ],
     summary:
-      "I think it's product sense. When I was managing engineering teams at Affirm, the most revealing question I could ask a developer was simply: 'What would you build?'",
+      "I think it's product sense. There have been so many times working with engineers where having a strong point of view on the product is what truly sets someone apart.",
     slides: [
       {
         id: 1,
@@ -76,11 +76,11 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     content: [
-      `I think it's it's product sense. I think there's so been so many times in working with with engineers that you know, I I Yeah, I I tend to be maybe overly empathetic if that's possible. Um at least in the context of building a company. But but this is one that um that I it's kind of uh like I would be a little frustrated if if if someone um said like, oh, I just that like if they were like, I don't have an opinion about the product, right?`,
-      `And I think that's I asked my engineers when I was working at a firm like, what's your uh opinion? Uh like what what would you build, you know? And maybe that seems counterintuitive in a corporate context of like, no, you just tell me what to build.`,
-      `But I think there's like our the the last piece a lot that that last piece of the process that that we've relied on so much in in this industry pre pre AI uh is that of like someone's someone's creative energy and it's the most costly thing, you know, it can it can get us into rabbit holes, it can get us into dark places at times because we've we give so much of ourselves. But it is I think very important for us to tap into that safely and and safely. Uh and use that tool to our advantage in this market.`,
-      `And um, you know, I think I think one maybe question to ask your ask our ask yourself is um, uh, yeah, like, what what is that, what does it mean to tap into my creative energy safely? And what does it mean for me to have an opinion about a product? And I would maybe place a start is like, look at the products that you software products that you already love, and and figure out why you love them. Um kind of dissect them, maybe kind of reverse, reverse engineer the product a bit.`,
-      `Uh and I think that is going to be a a a critical must master skill uh to survive in in this transition uh in the AI world where where um where, yeah, the survive in this transition of the AI world where the only thing we really have left is, you know, what makes us human, what makes us understand when something feels right, uh because that's because, yeah, that's that's that's one of the most valuable things that we have left, and so we need to over index on that and bring that to the forefront uh as as engineers.`,
+      `I think it's product sense. There have been so many times in working with engineers where I tend to be maybe overly empathetic, if that's possible—at least in the context of building a company. But this is one area where I would feel a little frustrated if someone said, "I don't have an opinion about the product."`,
+      `When I was managing engineering teams at Affirm, I would ask my engineers: **"What's your opinion? What would you build?"** Maybe that seems counterintuitive in a corporate context of, *"Just tell me what to build."*`,
+      `That last piece of the process we've relied on so much in this industry pre-AI is someone's creative energy. It's the most costly thing—it can get us into rabbit holes, and it can get us into dark places at times because we give so much of ourselves. But it is very important for us to tap into that safely, and use that tool to our advantage in this market.`,
+      `One question to ask yourself is: *What does it mean to tap into my creative energy safely? And what does it mean for me to have an opinion about a product?* A great place to start is to look at the software products you already love, and figure out why you love them. Dissect them, and reverse engineer the product a bit.`,
+      `I think that is going to be a critical, must-master skill to survive in this transition into an AI world where the only thing we really have left is what makes us human—what makes us understand when something feels right. That is one of the most valuable things we have left, and so we need to over-index on that and bring that to the forefront as engineers.`,
     ],
   },
 ];
