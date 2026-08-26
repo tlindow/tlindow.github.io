@@ -66,7 +66,7 @@ export interface ContactInfo {
 
 export const resumeContact: ContactInfo = {
   name: "Tyler Lindow",
-  title: "Fintech Eng-Product Manager",
+  title: "Fintech Product-Eng Manager",
   subtitle: "B2B SaaS on GenAI Rails",
   location: "San Diego, CA",
   relocation: "Relocating to Seattle, WA",

@@ -23,25 +23,25 @@ export const VARIANT_PRESETS: Record<string, RemoteConfigValues> = {
   baseline: {
     recruit_cta_label: "Recruit Me",
     recruit_cta_style: "forest_solid",
-    hero_headline_variant: "Fintech Eng-Product Manager",
+    hero_headline_variant: "Fintech Product-Eng Manager",
     hero_subtitle_variant: "B2B SaaS on GenAI Rails · $0 – $10B+ GMV enterprises",
   },
   action_oriented: {
     recruit_cta_label: "Deploy Tyler",
     recruit_cta_style: "pulse_accent",
-    hero_headline_variant: "Fintech Eng-Product Manager",
+    hero_headline_variant: "Fintech Product-Eng Manager",
     hero_subtitle_variant: "Software Engineering Manager <> PM · $10B+ Scale",
   },
   low_friction: {
     recruit_cta_label: "Connect on LinkedIn",
     recruit_cta_style: "sprout_glow",
-    hero_headline_variant: "Fintech Eng-Product Manager",
+    hero_headline_variant: "Fintech Product-Eng Manager",
     hero_subtitle_variant: "Building high-leverage developer paved paths & $10B+ partner scale",
   },
   executive_authority: {
-    recruit_cta_label: "Hire Fintech Eng-Product PM",
+    recruit_cta_label: "Hire Fintech Product-Eng PM",
     recruit_cta_style: "high_contrast",
-    hero_headline_variant: "Fintech Eng-Product Manager",
+    hero_headline_variant: "Fintech Product-Eng Manager",
     hero_subtitle_variant: "Directing high-stakes revamps, $10B+ partner telemetry & SRE support",
   },
 };
@@ -120,7 +120,9 @@ export function getRemoteConfigValues(): RemoteConfigValues {
       rawHeadline.includes("Staff B2B Product Manager") ||
       rawHeadline.includes("Staff Developer Product Manager") ||
       rawHeadline.includes("Staff Product Manager") ||
-      rawHeadline === "Fintech Eng Product Manager"
+      rawHeadline === "Fintech Eng Product Manager" ||
+      rawHeadline === "Fintech Eng-Product Manager" ||
+      rawHeadline === "Fintech Product Eng Manager"
         ? DEFAULT_REMOTE_CONFIG.hero_headline_variant
         : rawHeadline;
 

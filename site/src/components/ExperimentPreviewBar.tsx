@@ -22,9 +22,9 @@ export default function ExperimentPreviewBar() {
 
   const presets = [
     { key: "baseline", title: "1. Baseline / Control", desc: "'Recruit Me' · $0–$10B+ GMV Scale" },
-    { key: "action_oriented", title: "2. Action-Oriented", desc: "'Deploy Tyler' · Fintech Eng-Product PM" },
+    { key: "action_oriented", title: "2. Action-Oriented", desc: "'Deploy Tyler' · Fintech Product-Eng PM" },
     { key: "low_friction", title: "3. Low-Friction", desc: "'Connect on LinkedIn' · Networking" },
-    { key: "executive_authority", title: "4. Executive Authority", desc: "'Hire Fintech Eng-Product PM' · $10B+ Scale" },
+    { key: "executive_authority", title: "4. Executive Authority", desc: "'Hire Fintech Product-Eng PM' · $10B+ Scale" },
   ];
 
   return (

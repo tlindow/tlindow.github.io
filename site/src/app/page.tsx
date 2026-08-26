@@ -30,8 +30,10 @@ export default function Home() {
   const displayHeadline =
     !hero_headline_variant ||
     hero_headline_variant.includes("Staff") ||
-    hero_headline_variant === "Fintech Eng Product Manager"
-      ? "Fintech Eng-Product Manager"
+    hero_headline_variant === "Fintech Eng Product Manager" ||
+    hero_headline_variant === "Fintech Eng-Product Manager" ||
+    hero_headline_variant === "Fintech Product Eng Manager"
+      ? "Fintech Product-Eng Manager"
       : hero_headline_variant;
 
   const displaySubtitle =

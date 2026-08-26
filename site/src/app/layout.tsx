@@ -31,13 +31,13 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Tyler Lindow — Fintech Eng-Product Manager",
+  title: "Tyler Lindow — Fintech Product-Eng Manager",
   description:
-    "Portfolio & Resume for Tyler Lindow. Fintech Eng-Product Manager — B2B SaaS on GenAI Rails. $10B+ partner portfolio scale, and developer paved paths.",
+    "Portfolio & Resume for Tyler Lindow. Fintech Product-Eng Manager — B2B SaaS on GenAI Rails. $10B+ partner portfolio scale, and developer paved paths.",
   openGraph: {
-    title: "Tyler Lindow — Fintech Eng-Product Manager",
+    title: "Tyler Lindow — Fintech Product-Eng Manager",
     description:
-      "Portfolio & Resume for Tyler Lindow. Fintech Eng-Product Manager — B2B SaaS on GenAI Rails. $10B+ partner portfolio scale, and developer paved paths.",
+      "Portfolio & Resume for Tyler Lindow. Fintech Product-Eng Manager — B2B SaaS on GenAI Rails. $10B+ partner portfolio scale, and developer paved paths.",
     type: "profile",
   },
   alternates: {
@@ -61,7 +61,7 @@ const jsonLd = {
       "@type": "Person",
       "@id": "https://tlindow.github.io/#person",
       "name": "Tyler Lindow",
-      "jobTitle": "Fintech Eng-Product Manager",
+      "jobTitle": "Fintech Product-Eng Manager",
       "telephone": "(650) 580-5788",
       "email": "tlindow.invest@gmail.com",
       "address": {

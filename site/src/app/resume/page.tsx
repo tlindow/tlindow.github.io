@@ -4,9 +4,9 @@ import SpaceMonoResume from "@/components/SpaceMonoResume";
 import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
-  title: "Resume — Tyler Lindow (Fintech Eng-Product Manager)",
+  title: "Resume — Tyler Lindow (Fintech Product-Eng Manager)",
   description:
-    "Web-based and printable resume for Tyler Lindow. Fintech Eng-Product Manager — B2B SaaS on GenAI Rails. $10B+ partner portfolio scale, Affirm, and developer paved paths.",
+    "Web-based and printable resume for Tyler Lindow. Fintech Product-Eng Manager — B2B SaaS on GenAI Rails. $10B+ partner portfolio scale, Affirm, and developer paved paths.",
 };
 
 export default function ResumePageRoute() {
