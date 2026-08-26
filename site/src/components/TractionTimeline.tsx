@@ -300,12 +300,12 @@ export default function TractionTimeline() {
       {/* ========================================================= */}
       {/* TOTAL GMV & RECRUIT ME BUTTON — bottom                     */}
       {/* ========================================================= */}
-      <div className="flex flex-col sm:flex-row items-center sm:justify-end gap-4 sm:gap-6 pt-6 border-t border-border/60">
-        <div className="flex items-baseline gap-2">
-          <span className="text-xs font-mono font-bold text-muted uppercase tracking-wider">
+      <div className="flex flex-row flex-wrap items-center justify-end gap-3 sm:gap-6 pt-6 border-t border-border/60">
+        <div className="flex items-baseline gap-1.5 sm:gap-2">
+          <span className="text-[11px] sm:text-xs font-mono font-bold text-muted uppercase tracking-wider">
             Attributed GMV:
           </span>
-          <span className="text-base sm:text-lg font-black font-mono text-indigo-dark tracking-tight">
+          <span className="text-sm sm:text-lg font-black font-mono text-indigo-dark tracking-tight">
             $1.11B+ GMV
           </span>
         </div>
@@ -320,10 +320,10 @@ export default function TractionTimeline() {
               label: "Recruit me",
             })
           }
-          className="inline-flex items-center gap-2 rounded-xl bg-indigo-dark hover:bg-labs-primary-dark text-sand px-5 py-2.5 text-sm font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+          className="inline-flex items-center gap-2 rounded-xl bg-indigo-dark hover:bg-labs-primary-dark text-sand px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
           title="Recruit Tyler — connect on LinkedIn"
         >
-          <Linkedin size={16} />
+          <Linkedin size={15} />
           <span>Recruit me</span>
         </a>
       </div>
