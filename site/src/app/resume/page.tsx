@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 export const metadata: Metadata = {
   title: "Resume — Tyler Lindow (Staff B2B Product Manager)",
   description:
-    "Web-based and printable resume for Tyler Lindow. Staff B2B Product Manager — B2B at B2C scale. $1B+ partner portfolio scale, Affirm, and developer paved paths.",
+    "Web-based and printable resume for Tyler Lindow. Staff B2B Product Manager — B2B Fintech on Developer Rails. $1B+ partner portfolio scale, Affirm, and developer paved paths.",
 };
 
 export default function ResumePageRoute() {

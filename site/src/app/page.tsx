@@ -27,6 +27,13 @@ export default function Home() {
     hero_subtitle_variant,
   } = useExperiment();
 
+  const displaySubtitle =
+    !hero_subtitle_variant ||
+    hero_subtitle_variant.includes("B2B at B2C scale") ||
+    hero_subtitle_variant.includes("B2B at B2B scale")
+      ? "B2B Fintech on Developer Rails · $0 – $1B+ GMV enterprises"
+      : hero_subtitle_variant;
+
   const getCtaStyleClass = () => {
     switch (recruit_cta_style) {
       case "pulse_accent":
@@ -63,7 +70,7 @@ export default function Home() {
 
               <div className="space-y-2 sm:space-y-2.5">
                 <p className="text-base sm:text-xl md:text-2xl font-medium text-foreground/85 leading-relaxed [text-wrap:balance] mx-auto">
-                  {hero_subtitle_variant}
+                  {displaySubtitle}
                 </p>
 
                 <p className="text-sm sm:text-base md:text-lg font-bold text-indigo-dark font-mono tracking-tight">

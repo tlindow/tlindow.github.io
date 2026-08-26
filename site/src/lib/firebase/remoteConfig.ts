@@ -24,7 +24,7 @@ export const VARIANT_PRESETS: Record<string, RemoteConfigValues> = {
     recruit_cta_label: "Recruit Me",
     recruit_cta_style: "forest_solid",
     hero_headline_variant: "Staff B2B Product Manager",
-    hero_subtitle_variant: "B2B at B2C scale · $0 – $1B+ GMV enterprises",
+    hero_subtitle_variant: "B2B Fintech on Developer Rails · $0 – $1B+ GMV enterprises",
   },
   action_oriented: {
     recruit_cta_label: "Deploy Tyler",
@@ -101,6 +101,17 @@ export function getRemoteConfigValues(): RemoteConfigValues {
   }
 
   try {
+    const rawSubtitle = getValue(remoteConfigInstance, "hero_subtitle_variant").asString();
+    const cleanSubtitle =
+      !rawSubtitle ||
+      rawSubtitle.includes("B2B at B2C scale") ||
+      rawSubtitle.includes("B2B at B2B scale")
+        ? DEFAULT_REMOTE_CONFIG.hero_subtitle_variant
+        : rawSubtitle;
+
+    const rawHeadline = getValue(remoteConfigInstance, "hero_headline_variant").asString();
+    const cleanHeadline = rawHeadline || DEFAULT_REMOTE_CONFIG.hero_headline_variant;
+
     return {
       recruit_cta_label:
         getValue(remoteConfigInstance, "recruit_cta_label").asString() ||
@@ -108,12 +119,8 @@ export function getRemoteConfigValues(): RemoteConfigValues {
       recruit_cta_style:
         (getValue(remoteConfigInstance, "recruit_cta_style").asString() as CtaStyle) ||
         DEFAULT_REMOTE_CONFIG.recruit_cta_style,
-      hero_headline_variant:
-        getValue(remoteConfigInstance, "hero_headline_variant").asString() ||
-        DEFAULT_REMOTE_CONFIG.hero_headline_variant,
-      hero_subtitle_variant:
-        getValue(remoteConfigInstance, "hero_subtitle_variant").asString() ||
-        DEFAULT_REMOTE_CONFIG.hero_subtitle_variant,
+      hero_headline_variant: cleanHeadline,
+      hero_subtitle_variant: cleanSubtitle,
     };
   } catch {
     return DEFAULT_REMOTE_CONFIG;
