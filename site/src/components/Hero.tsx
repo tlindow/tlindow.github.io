@@ -5,16 +5,17 @@ import {
   Copy,
   Check,
   Printer,
-  Linkedin,
   Github,
   Mail,
   Phone,
   MapPin,
   ArrowDown,
+  ArrowUpRight,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import FloatingOrbs from "@/components/animations/FloatingOrbs";
 import GradientBeam from "@/components/animations/GradientBeam";
+import { LinkedInIcon } from "@/components/brand/PartnerLogos";
 import { resumeContact } from "@/data/resumeData";
 
 export default function Hero() {
@@ -138,20 +139,22 @@ export default function Hero() {
             href={resumeContact.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full bg-surface hover:bg-surface-alt px-3 py-1 border border-border hover:border-indigo/40 transition-colors"
+            className="group inline-flex items-center gap-1.5 rounded-full bg-surface hover:bg-surface-alt px-3 py-1 border border-border hover:border-indigo/40 transition-colors"
           >
-            <Linkedin size={13} className="text-[#0A66C2]" />
+            <LinkedInIcon size={13} className="text-[#0A66C2] shrink-0" />
             <span>{resumeContact.linkedinDisplay}</span>
+            <ArrowUpRight size={11} className="opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
           </a>
 
           <a
             href={resumeContact.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full bg-surface hover:bg-surface-alt px-3 py-1 border border-border hover:border-indigo/40 transition-colors"
+            className="group inline-flex items-center gap-1.5 rounded-full bg-surface hover:bg-surface-alt px-3 py-1 border border-border hover:border-indigo/40 transition-colors"
           >
-            <Github size={13} className="text-foreground" />
+            <Github size={13} className="text-foreground shrink-0" />
             <span>{resumeContact.githubDisplay}</span>
+            <ArrowUpRight size={11} className="opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
           </a>
         </motion.div>
 

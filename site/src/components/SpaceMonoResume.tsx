@@ -5,13 +5,13 @@ import {
   Download,
   Copy,
   Check,
-  Linkedin,
   Github,
   Mail,
   Phone,
   MapPin,
   ExternalLink,
 } from "lucide-react";
+import { LinkedInIcon } from "@/components/brand/PartnerLogos";
 import {
   resumeContact,
   professionalSummary,
@@ -185,7 +185,7 @@ export default function SpaceMonoResume() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-foreground hover:text-indigo-dark transition-colors underline underline-offset-2"
                 >
-                  <Linkedin size={12} />
+                  <LinkedInIcon size={12} />
                   <span>{resumeContact.linkedinDisplay}</span>
                   <ExternalLink size={10} className="no-print" />
                 </a>

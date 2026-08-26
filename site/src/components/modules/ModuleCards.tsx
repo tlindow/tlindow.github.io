@@ -6,10 +6,10 @@ import {
   MapPin,
   Phone,
   Mail,
-  Linkedin,
   Github,
   ExternalLink,
 } from "lucide-react";
+import { LinkedInIcon } from "@/components/brand/PartnerLogos";
 import {
   resumeContact,
   visionText,
@@ -97,7 +97,7 @@ export function HeaderModuleCard() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-[#202124] hover:text-[#1A73E8] transition-colors underline underline-offset-2"
           >
-            <Linkedin size={13} className="text-[#1A73E8]" />
+            <LinkedInIcon size={13} className="text-[#1A73E8]" />
             <span>{resumeContact.linkedinDisplay}</span>
             <ExternalLink size={10} className="no-print" />
           </a>

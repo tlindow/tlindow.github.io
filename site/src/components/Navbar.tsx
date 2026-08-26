@@ -1,6 +1,6 @@
 "use client";
 
-import { Github } from "lucide-react";
+import { Github, ArrowUpRight } from "lucide-react";
 import { resumeContact } from "@/data/resumeData";
 import { useAnalytics } from "@/context/AnalyticsProvider";
 
@@ -50,11 +50,12 @@ export default function Navbar() {
                   variant: "beginner_green:Build with me",
                 })
               }
-              className="inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-mono font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98] bg-[#2d5a3d] text-[#f5f3ef] hover:bg-[#234731] ring-1 ring-[#2d5a3d]/30"
+              className="group inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-mono font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98] bg-[#2d5a3d] text-[#f5f3ef] hover:bg-[#234731] ring-1 ring-[#2d5a3d]/30"
               title="Build with me (Tyler's GitHub)"
             >
               <Github size={13} />
               <span>Build with me</span>
+              <ArrowUpRight size={13} className="opacity-75 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
             </a>
           </div>
         </div>
