@@ -17,7 +17,6 @@ export interface GMVLineItem {
   year: string;
   title: string;
   gmv?: string;
-  stage?: string;
   users: string;
   ownership: string;
   description: string;
@@ -46,7 +45,7 @@ export const companyCards: BeginnerStyleCard[] = [
     id: "chm",
     companyName: "Computer History Museum",
     wordmark: "chm",
-    cardKind: "GMV",
+    cardKind: "",
     cardNumber: "•••• 2017",
     holderName: "Tyler Lindow",
     frontBgStyle: { background: "#ffffff" },
@@ -74,7 +73,7 @@ export const companyCards: BeginnerStyleCard[] = [
     id: "tech-interactive",
     companyName: "The Tech Interactive",
     wordmark: "the tech",
-    cardKind: "GMV",
+    cardKind: "",
     cardNumber: "•••• 2018",
     holderName: "Tyler Lindow",
     frontBgStyle: { background: "#ffffff" },
@@ -208,7 +207,7 @@ export const companyCards: BeginnerStyleCard[] = [
     id: "beginner",
     companyName: "Beginner",
     wordmark: "beginner",
-    cardKind: "GMV",
+    cardKind: "",
     cardNumber: "•••• 2026",
     holderName: "Tyler Lindow",
     frontBgStyle: { background: "#ffffff" },
@@ -223,7 +222,6 @@ export const companyCards: BeginnerStyleCard[] = [
         id: "beg-1",
         year: "Early 2026",
         title: "0-to-1 Founder PWA & Pitch Engine",
-        stage: "0 → 1 Launch",
         users: "Paying Founders",
         ownership: "Founder & Product Lead",
         description:
@@ -233,7 +231,6 @@ export const companyCards: BeginnerStyleCard[] = [
         id: "beg-2",
         year: "Mid 2026",
         title: "Technical Community & Product Network",
-        stage: "Community Hub",
         users: "San Diego Tech Hub",
         ownership: "Community Architecture",
         description:
@@ -288,9 +285,9 @@ export default function TractionTimeline() {
                   <span className="text-sm text-foreground truncate">
                     {item.title}
                   </span>
-                  {(item.gmv || item.stage) && (
+                  {item.gmv && (
                     <span className="text-sm font-bold font-mono text-foreground shrink-0">
-                      {item.gmv || item.stage}
+                      {item.gmv}
                     </span>
                   )}
                 </div>
