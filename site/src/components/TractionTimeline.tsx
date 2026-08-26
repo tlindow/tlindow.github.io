@@ -85,7 +85,7 @@ export const companyCards: BeginnerStyleCard[] = [
         id: "tech-1",
         year: "2018",
         title: "Sustainability Exhibit Prototyping & Generative Signage",
-        users: "STAFF DEVs",
+        users: "3 DEVs",
         ownership: "Studio Coordinator & UX Research",
         description:
           "Prototyped sustainability city exhibits with 3D projection mapping and p5.js generative signage with staff engineers.",
@@ -94,7 +94,7 @@ export const companyCards: BeginnerStyleCard[] = [
         id: "tech-2",
         year: "2017",
         title: "Google Data Literacy Curriculum and Workshops",
-        users: "1,000+ DEVs",
+        users: "100 DEVs",
         ownership: "Curriculum Specialist",
         description:
           "Co-designed and launched hands-on data literacy workshops with Google utilizing mobile accelerometers.",
@@ -121,12 +121,21 @@ export const companyCards: BeginnerStyleCard[] = [
       {
         id: "galv-1",
         year: "2019",
-        title: "Developer Onboarding & Immersive Mentorship",
+        title: "Developer Onboarding",
         gmv: "$400K GMV",
-        users: "20+ DEVs",
+        users: "20 DEVs",
         ownership: "Lead Immersive Resident",
         description:
           "Mentored incoming Hack Reactor engineers through full-stack software development, code reviews, and multi-repo grading.",
+      },
+      {
+        id: "galv-2",
+        year: "2019",
+        title: "Multi-Repo Grading & Empathetic Code Reviews",
+        users: "20 DEVs",
+        ownership: "Lead Immersive Resident",
+        description:
+          "Managed multi-repo grading and delivered constructive code reviews, building psychological safety and technical confidence for career transitioners.",
       },
     ],
   },
@@ -171,7 +180,7 @@ export const companyCards: BeginnerStyleCard[] = [
         id: "aff-3",
         year: "2021",
         title: "Introductory AI Developer Paved Paths",
-        users: "1,000+ DEVs",
+        users: "7 DEVs",
         ownership: "Developer Productivity Lead",
         description:
           "Scaled self-service onboarding pipelines and CLI developer tools, cutting onboarding time by ~50%.",
@@ -219,7 +228,7 @@ export const companyCards: BeginnerStyleCard[] = [
         id: "beg-1",
         year: "Early 2026",
         title: "0-to-1 Founder PWA & Pitch Engine",
-        users: "FOUNDER DEVs",
+        users: "20 DEVs",
         ownership: "Founder & Product Lead",
         description:
           "Built and launched progressive web app enabling founders to practice pitches and validate fundraising in-person.",
@@ -228,7 +237,7 @@ export const companyCards: BeginnerStyleCard[] = [
         id: "beg-2",
         year: "Mid 2026",
         title: "Technical Community & Product Network",
-        users: "250+ DEVs",
+        users: "27 DEVs",
         ownership: "Community Architecture",
         description:
           "Architected and hosted high-trust technical forums for product-focused engineers and leaders in San Diego.",

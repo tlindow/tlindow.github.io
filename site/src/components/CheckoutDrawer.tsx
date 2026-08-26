@@ -54,11 +54,13 @@ export default function CheckoutDrawer() {
 
       // Developer relationships increment right when each card enters view
       if (isInView(begEl)) {
-        setDevCountText("2,750+ DEVs");
+        setDevCountText("677+ DEVs");
       } else if (isInView(affirmEl)) {
-        setDevCountText("2,500+ DEVs");
+        setDevCountText("630+ DEVs");
+      } else if (isInView(galvEl)) {
+        setDevCountText("623+ DEVs");
       } else if (isInView(techEl)) {
-        setDevCountText("1,500+ DEVs");
+        setDevCountText("603+ DEVs");
       } else {
         setDevCountText("500+ DEVs");
       }
