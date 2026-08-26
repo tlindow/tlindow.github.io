@@ -12,6 +12,15 @@ export const metadata: Metadata = {
     title: "Interactive Resume Deck — Tyler Lindow",
     description:
       "Google Material 3 interactive stackable resume cards with real-time reordering and gestures.",
+    url: "https://tlindow.github.io/modules",
+    siteName: "Tyler Lindow",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Interactive Resume Deck — Tyler Lindow",
+    description:
+      "Google Material 3 interactive stackable resume cards with real-time reordering and gestures.",
   },
 };
 

@@ -6,7 +6,21 @@ import Navbar from "@/components/Navbar";
 export const metadata: Metadata = {
   title: "Resume — Tyler Lindow (Fintech Product-Eng Manager)",
   description:
-    "Web-based and printable resume for Tyler Lindow. Fintech Product-Eng Manager — B2B SaaS on GenAI Rails. $10B+ partner portfolio scale, Affirm, and developer paved paths.",
+    "Web-based and printable resume for Tyler Lindow. Fintech Product-Eng Manager — B2B SaaS on curiosity-safe, GenAI Rails. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
+  openGraph: {
+    title: "Resume — Tyler Lindow (Fintech Product-Eng Manager)",
+    description:
+      "Web-based and printable resume for Tyler Lindow. Fintech Product-Eng Manager — B2B SaaS on curiosity-safe, GenAI Rails. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
+    url: "https://tlindow.github.io/resume",
+    siteName: "Tyler Lindow",
+    type: "profile",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Resume — Tyler Lindow (Fintech Product-Eng Manager)",
+    description:
+      "Web-based and printable resume for Tyler Lindow. Fintech Product-Eng Manager — B2B SaaS on curiosity-safe, GenAI Rails. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
+  },
 };
 
 export default function ResumePageRoute() {

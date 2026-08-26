@@ -8,6 +8,20 @@ export const metadata: Metadata = {
   title: "Blog — Tyler Lindow",
   description:
     "Reflections on engineering leadership, developer intuition, AI dev tools, and building at scale. By Tyler Lindow (Fintech Product-Eng Manager).",
+  openGraph: {
+    title: "Blog — Tyler Lindow",
+    description:
+      "Reflections on engineering leadership, developer intuition, AI dev tools, and building at scale. By Tyler Lindow (Fintech Product-Eng Manager).",
+    url: "https://tlindow.github.io/blog",
+    siteName: "Tyler Lindow",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog — Tyler Lindow",
+    description:
+      "Reflections on engineering leadership, developer intuition, AI dev tools, and building at scale. By Tyler Lindow (Fintech Product-Eng Manager).",
+  },
 };
 
 export default function BlogIndexPage() {

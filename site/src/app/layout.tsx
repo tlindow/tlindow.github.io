@@ -31,14 +31,23 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://tlindow.github.io"),
   title: "Tyler Lindow — Fintech Product-Eng Manager",
   description:
-    "Portfolio & Resume for Tyler Lindow. Fintech Product-Eng Manager — B2B SaaS on GenAI Rails. $10B+ partner portfolio scale, and developer paved paths.",
+    "Portfolio & Resume for Tyler Lindow. Fintech Product-Eng Manager — B2B SaaS on curiosity-safe, GenAI Rails. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
   openGraph: {
     title: "Tyler Lindow — Fintech Product-Eng Manager",
     description:
-      "Portfolio & Resume for Tyler Lindow. Fintech Product-Eng Manager — B2B SaaS on GenAI Rails. $10B+ partner portfolio scale, and developer paved paths.",
-    type: "profile",
+      "Portfolio & Resume for Tyler Lindow. Fintech Product-Eng Manager — B2B SaaS on curiosity-safe, GenAI Rails. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
+    url: "https://tlindow.github.io",
+    siteName: "Tyler Lindow",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tyler Lindow — Fintech Product-Eng Manager",
+    description:
+      "Portfolio & Resume for Tyler Lindow. Fintech Product-Eng Manager — B2B SaaS on curiosity-safe, GenAI Rails. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
   },
   alternates: {
     types: {

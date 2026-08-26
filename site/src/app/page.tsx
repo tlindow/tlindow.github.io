@@ -3,6 +3,7 @@
 import {
   Wallet,
   FileText,
+  TrendingUp,
 } from "lucide-react";
 
 import Navbar from "@/components/Navbar";
@@ -29,23 +30,27 @@ export default function Home() {
 
   const displayHeadline =
     !hero_headline_variant ||
-    hero_headline_variant.includes("Staff") ||
-    hero_headline_variant === "Fintech Eng Product Manager" ||
-    hero_headline_variant === "Fintech Eng-Product Manager" ||
-    hero_headline_variant === "Fintech Product Eng Manager"
+      hero_headline_variant.includes("Staff") ||
+      hero_headline_variant === "Fintech Eng Product Manager" ||
+      hero_headline_variant === "Fintech Eng-Product Manager" ||
+      hero_headline_variant === "Fintech Product Eng Manager"
       ? "Fintech Product-Eng Manager"
       : hero_headline_variant;
 
   const displaySubtitle =
     !hero_subtitle_variant ||
-    hero_subtitle_variant.includes("B2B at B2C scale") ||
-    hero_subtitle_variant.includes("B2B at B2B scale") ||
-    hero_subtitle_variant.includes("B2B Fintech on DevX Rails") ||
-    hero_subtitle_variant.includes("B2B Fintech on Developer Rails") ||
-    hero_subtitle_variant.includes("B2B Scale on DevX Rails") ||
-    hero_subtitle_variant.includes("B2B SaaS Scale on GenAI Rails")
-      ? "B2B SaaS on GenAI Rails · $0 – $10B+ GMV enterprises"
-      : hero_subtitle_variant;
+      hero_subtitle_variant.includes("B2B at B2C scale") ||
+      hero_subtitle_variant.includes("B2B at B2B scale") ||
+      hero_subtitle_variant.includes("B2B Fintech on DevX Rails") ||
+      hero_subtitle_variant.includes("B2B Fintech on Developer Rails") ||
+      hero_subtitle_variant.includes("B2B Scale on DevX Rails") ||
+      hero_subtitle_variant.includes("B2B SaaS Scale on GenAI Rails") ||
+      hero_subtitle_variant.includes("B2B SaaS on GenAI Rails") ||
+      hero_subtitle_variant.includes("B2B SaaS on Safe, GenAI Rails") ||
+      hero_subtitle_variant.includes("B2B SaaS on Builder-safe GenAI Rails") ||
+      hero_subtitle_variant.includes("· $0 – $10B+ GMV enterprises")
+      ? "B2B SaaS on curiosity-safe, GenAI Rails"
+      : hero_subtitle_variant.replace(/\s*·\s*\$0\s*–\s*\$10B\+\s*GMV\s*enterprises/gi, "").trim();
 
   const getCtaStyleClass = () => {
     switch (recruit_cta_style) {
@@ -74,7 +79,7 @@ export default function Home() {
       <div className="no-print w-full">
         <main className="w-full">
           {/* FULL PAGE HERO HEADER SECTION */}
-          <header className="min-h-[92vh] sm:min-h-[95vh] flex flex-col justify-center items-center text-center px-4 max-w-4xl mx-auto space-y-6 sm:space-y-8 relative pt-32 sm:pt-36 pb-10 sm:pb-14">
+          <header className="min-h-[92vh] sm:min-h-[95vh] flex flex-col justify-center items-center text-center px-4 max-w-5xl mx-auto space-y-6 sm:space-y-8 relative pt-32 sm:pt-36 pb-10 sm:pb-14">
             {/* Typographic Product Title */}
             <div className="space-y-5 sm:space-y-7 text-center">
               <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-foreground leading-[0.95] mx-auto flex flex-col items-center">
@@ -86,8 +91,14 @@ export default function Home() {
               </h1>
 
               <div className="space-y-2 sm:space-y-2.5">
-                <p className="text-base sm:text-xl md:text-2xl font-medium text-foreground/85 leading-relaxed [text-wrap:balance] mx-auto">
+                <p className="text-base sm:text-xl md:text-2xl font-medium text-foreground/90 leading-relaxed mx-auto">
                   {displaySubtitle}
+                </p>
+
+                <p className="text-sm sm:text-base md:text-lg font-mono text-muted inline-flex items-center justify-center gap-1.5 mx-auto">
+                  <span>Onboarding</span>
+                  <TrendingUp size={14} className="text-indigo-dark shrink-0" aria-label="Onboarding scale" />
+                  <span>$0 – $10B+ GMV enterprises</span>
                 </p>
 
                 <p className="text-sm sm:text-base md:text-lg font-bold text-indigo-dark font-mono tracking-tight">
