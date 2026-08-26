@@ -241,7 +241,7 @@ export const companyCards: BeginnerStyleCard[] = [
 ];
 
 export default function TractionTimeline() {
-  const { logOutboundClick } = useAnalytics();
+  const { logRecruitClick } = useAnalytics();
 
   return (
     <div className="w-full select-none space-y-12 py-4">
@@ -300,7 +300,7 @@ export default function TractionTimeline() {
       {/* ========================================================= */}
       {/* TOTAL GMV & RECRUIT ME BUTTON — bottom                     */}
       {/* ========================================================= */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-border/60">
+      <div className="flex flex-col sm:flex-row items-center sm:justify-end gap-4 sm:gap-6 pt-6 border-t border-border/60">
         <div className="flex items-baseline gap-2">
           <span className="text-xs font-mono font-bold text-muted uppercase tracking-wider">
             Attributed GMV:
@@ -314,7 +314,12 @@ export default function TractionTimeline() {
           href={resumeContact.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={() => logOutboundClick("linkedin", resumeContact.linkedin)}
+          onClick={() =>
+            logRecruitClick({
+              location: "launch_wallet",
+              label: "Recruit me",
+            })
+          }
           className="inline-flex items-center gap-2 rounded-xl bg-indigo-dark hover:bg-labs-primary-dark text-sand px-5 py-2.5 text-sm font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
           title="Recruit Tyler — connect on LinkedIn"
         >

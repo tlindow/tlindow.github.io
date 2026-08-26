@@ -53,7 +53,7 @@ export function trackEvent(eventName: string, eventParams?: Record<string, unkno
 // ----------------------------------------------------------------------
 
 export interface RecruitClickParams {
-  location: "navbar" | "hero" | "floating_trigger" | "footer" | "other";
+  location: "navbar" | "hero" | "floating_trigger" | "footer" | "launch_wallet" | "other";
   label?: string;
   variant?: string;
   destination?: string;
