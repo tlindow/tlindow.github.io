@@ -56,7 +56,7 @@ export default function Home() {
       <div className="no-print w-full">
         <main className="w-full">
           {/* FULL PAGE HERO HEADER SECTION */}
-          <header className="min-h-[92vh] sm:min-h-[95vh] flex flex-col justify-center items-center text-center px-4 max-w-4xl mx-auto space-y-6 sm:space-y-8 relative pt-32 sm:pt-36">
+          <header className="min-h-[92vh] sm:min-h-[95vh] flex flex-col justify-center items-center text-center px-4 max-w-4xl mx-auto space-y-6 sm:space-y-8 relative pt-32 sm:pt-36 pb-10 sm:pb-14">
             {/* Typographic Product Title */}
             <div className="space-y-5 sm:space-y-7 text-center">
               <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-foreground leading-[0.95] [text-wrap:balance] mx-auto">
@@ -111,16 +111,16 @@ export default function Home() {
             <EducationInstitutionsBar />
           </header>
 
-          <div className="max-w-4xl mx-auto w-full px-4 mb-4">
+          <div className="max-w-4xl mx-auto w-full px-4 my-8 sm:my-12">
             <hr className="rainbow-divider h-[2px] w-full border-0 labs-rainbow-gradient rounded-full opacity-60" />
           </div>
 
           {/* ======================================================= */}
           {/* 3. COMPANY DEBIT CARD WALLET SECTION */}
           {/* ======================================================= */}
-          <section className="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 pt-6 pb-24 space-y-6">
+          <section className="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 pt-8 sm:pt-10 pb-24 space-y-6">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
-              Employer Wallet
+              Launch Wallet
             </h2>
             <TractionTimeline />
           </section>
