@@ -35,8 +35,14 @@ export default function Navbar() {
             </div>
           </a>
 
-          {/* Right: Persistent Deploy Button */}
+          {/* Right: Nav Links & Persistent Deploy Button */}
           <div className="flex items-center gap-3 sm:gap-4">
+            <a
+              href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/blog`}
+              className="text-xs font-mono font-bold text-foreground/90 hover:text-indigo-dark transition-colors px-2 py-1"
+            >
+              Blog
+            </a>
 
             {/* Persistent Build CTA Button linking to GitHub */}
             <a

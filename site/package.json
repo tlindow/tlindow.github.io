@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "remove-bg": "node scripts/remove-bg.mjs",
+    "generate:slides": "node scripts/generate-slides.mjs",
     "export:pdf": "node scripts/sync-resume-gdrive.mjs --pdf-only",
     "sync:gdrive": "node scripts/sync-resume-gdrive.mjs"
   },
