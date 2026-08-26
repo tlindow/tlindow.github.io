@@ -253,9 +253,9 @@ export default function TractionTimeline() {
           key={card.id}
           className="flex flex-col md:flex-row md:items-start gap-6 md:gap-10"
         >
-          {/* Card (left on desktop, centered on mobile) */}
-          <div className="flex justify-center md:justify-start shrink-0">
-            <div className="w-80 aspect-[1.586/1] rounded-[20px]">
+          {/* Card (full width on mobile matching content margins, fixed w-80 on desktop) */}
+          <div className="w-full md:w-80 md:shrink-0">
+            <div className="w-full aspect-[1.586/1] rounded-[20px]">
               <CardFace card={card} />
             </div>
           </div>
