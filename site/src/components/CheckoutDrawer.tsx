@@ -27,7 +27,7 @@ export default function CheckoutDrawer() {
       const windowHeight = window.innerHeight;
 
       // Section is in view once its top enters the upper portion of the viewport
-      const inView = rect.top <= windowHeight * 0.7 && rect.bottom >= 120;
+      const inView = rect.top <= windowHeight * 0.8 && rect.bottom >= 120;
       setIsSectionInView(inView);
 
       // Compute scroll progress through the launch wallet section for rainbow bar
@@ -126,7 +126,7 @@ export default function CheckoutDrawer() {
               />
             </div>
 
-            <div className="mx-auto max-w-6xl px-3 sm:px-6 md:px-8 py-2.5 sm:py-3 flex items-center justify-end gap-3 sm:gap-6">
+            <div className="mx-auto max-w-6xl px-3 sm:px-6 md:px-8 pt-2.5 pb-4 sm:py-3 flex items-center justify-end gap-3 sm:gap-6">
               {/* Dynamic Accumulating Subtotal Amounts (stacks right next to button) */}
               <div className="flex flex-col sm:flex-row items-end sm:items-center gap-0.5 sm:gap-5 sm:divide-x sm:divide-border/60 shrink-0 py-0.5">
                 {/* Developer Relationships Subtotal */}
@@ -174,12 +174,12 @@ export default function CheckoutDrawer() {
                     variant: `${recruit_cta_style}:${recruit_cta_label}`,
                   })
                 }
-                className={`group inline-flex items-center gap-1.5 sm:gap-2 rounded-xl px-3 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer whitespace-nowrap shrink-0 ${getCtaStyleClass()}`}
+                className={`group inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl px-4 sm:px-5 py-3 sm:py-2.5 min-h-[44px] sm:min-h-0 text-sm font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer whitespace-nowrap shrink-0 ${getCtaStyleClass()}`}
                 title="Recruit Tyler — connect on LinkedIn"
               >
-                <LinkedInIcon size={14} className="shrink-0" />
+                <LinkedInIcon size={15} className="shrink-0" />
                 <span>{recruit_cta_label}</span>
-                <ArrowUpRight size={14} className="opacity-75 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
+                <ArrowUpRight size={15} className="opacity-75 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
               </a>
             </div>
           </div>

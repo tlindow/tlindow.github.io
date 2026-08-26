@@ -23,7 +23,7 @@ import {
 import { useAnalytics } from "@/context/AnalyticsProvider";
 
 const RAW_MARKDOWN = `# Tyler Lindow
-**Staff B2B Product Manager**
+**Fintech Eng-Product Manager**
 San Diego, CA | (650) 580-5788 | tlindow.invest@gmail.com
 [linkedin.com/in/tlindow](https://linkedin.com/in/tlindow) | [github.com/tlindow](https://github.com/tlindow)
 

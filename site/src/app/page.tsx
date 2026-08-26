@@ -27,11 +27,22 @@ export default function Home() {
     hero_subtitle_variant,
   } = useExperiment();
 
+  const displayHeadline =
+    !hero_headline_variant ||
+    hero_headline_variant.includes("Staff") ||
+    hero_headline_variant === "Fintech Eng Product Manager"
+      ? "Fintech Eng-Product Manager"
+      : hero_headline_variant;
+
   const displaySubtitle =
     !hero_subtitle_variant ||
     hero_subtitle_variant.includes("B2B at B2C scale") ||
-    hero_subtitle_variant.includes("B2B at B2B scale")
-      ? "B2B Fintech on DevX Rails · $0 – $10B+ GMV enterprises"
+    hero_subtitle_variant.includes("B2B at B2B scale") ||
+    hero_subtitle_variant.includes("B2B Fintech on DevX Rails") ||
+    hero_subtitle_variant.includes("B2B Fintech on Developer Rails") ||
+    hero_subtitle_variant.includes("B2B Scale on DevX Rails") ||
+    hero_subtitle_variant.includes("B2B SaaS Scale on GenAI Rails")
+      ? "B2B SaaS on GenAI Rails · $0 – $10B+ GMV enterprises"
       : hero_subtitle_variant;
 
   const getCtaStyleClass = () => {
@@ -49,7 +60,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-indigo-light selection:text-indigo-dark font-mono flex flex-col justify-between overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground selection:bg-indigo-light selection:text-indigo-dark font-mono flex flex-col justify-between overflow-x-clip">
       {/* ========================================================= */}
       {/* 1. TOP NAVIGATION BAR (FIXED, NO-PRINT) */}
       {/* ========================================================= */}
@@ -64,8 +75,12 @@ export default function Home() {
           <header className="min-h-[92vh] sm:min-h-[95vh] flex flex-col justify-center items-center text-center px-4 max-w-4xl mx-auto space-y-6 sm:space-y-8 relative pt-32 sm:pt-36 pb-10 sm:pb-14">
             {/* Typographic Product Title */}
             <div className="space-y-5 sm:space-y-7 text-center">
-              <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-foreground leading-[0.95] [text-wrap:balance] mx-auto">
-                {hero_headline_variant}
+              <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-foreground leading-[0.95] mx-auto flex flex-col items-center">
+                {displayHeadline.split(/\s+/).map((word, idx) => (
+                  <span key={idx} className="block">
+                    {word}
+                  </span>
+                ))}
               </h1>
 
               <div className="space-y-2 sm:space-y-2.5">
@@ -74,7 +89,7 @@ export default function Home() {
                 </p>
 
                 <p className="text-sm sm:text-base md:text-lg font-bold text-indigo-dark font-mono tracking-tight">
-                  Software Engineering Manager &rarr; PM
+                  Software Engineering Manager &lt;&gt; PM
                 </p>
               </div>
             </div>
@@ -114,7 +129,7 @@ export default function Home() {
             <EducationInstitutionsBar />
           </header>
 
-          <div className="max-w-4xl mx-auto w-full px-4 my-8 sm:my-12">
+          <div className="max-w-4xl mx-auto w-full px-4 mt-8 sm:mt-12 mb-12 sm:mb-16">
             <hr className="rainbow-divider h-[2px] w-full border-0 labs-rainbow-gradient rounded-full opacity-60" />
           </div>
 
@@ -123,9 +138,9 @@ export default function Home() {
           {/* ======================================================= */}
           <section
             id="launch-wallet"
-            className="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 pt-8 sm:pt-10 pb-28 sm:pb-36 space-y-6"
+            className="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 pt-4 pb-24 sm:pb-32"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground mb-6">
               Launch Wallet
             </h2>
             <TractionTimeline />

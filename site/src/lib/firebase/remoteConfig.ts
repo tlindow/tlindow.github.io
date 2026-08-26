@@ -23,25 +23,25 @@ export const VARIANT_PRESETS: Record<string, RemoteConfigValues> = {
   baseline: {
     recruit_cta_label: "Recruit Me",
     recruit_cta_style: "forest_solid",
-    hero_headline_variant: "Staff B2B Product Manager",
-    hero_subtitle_variant: "B2B Fintech on DevX Rails · $0 – $10B+ GMV enterprises",
+    hero_headline_variant: "Fintech Eng-Product Manager",
+    hero_subtitle_variant: "B2B SaaS on GenAI Rails · $0 – $10B+ GMV enterprises",
   },
   action_oriented: {
     recruit_cta_label: "Deploy Tyler",
     recruit_cta_style: "pulse_accent",
-    hero_headline_variant: "Staff Developer Product Manager",
-    hero_subtitle_variant: "Software Engineering Manager → Staff PM · $10B+ Scale",
+    hero_headline_variant: "Fintech Eng-Product Manager",
+    hero_subtitle_variant: "Software Engineering Manager <> PM · $10B+ Scale",
   },
   low_friction: {
     recruit_cta_label: "Connect on LinkedIn",
     recruit_cta_style: "sprout_glow",
-    hero_headline_variant: "Staff B2B Product Manager",
+    hero_headline_variant: "Fintech Eng-Product Manager",
     hero_subtitle_variant: "Building high-leverage developer paved paths & $10B+ partner scale",
   },
   executive_authority: {
-    recruit_cta_label: "Hire Staff PM",
+    recruit_cta_label: "Hire Fintech Eng-Product PM",
     recruit_cta_style: "high_contrast",
-    hero_headline_variant: "Staff Product Manager & EM",
+    hero_headline_variant: "Fintech Eng-Product Manager",
     hero_subtitle_variant: "Directing high-stakes revamps, $10B+ partner telemetry & SRE support",
   },
 };
@@ -105,12 +105,24 @@ export function getRemoteConfigValues(): RemoteConfigValues {
     const cleanSubtitle =
       !rawSubtitle ||
       rawSubtitle.includes("B2B at B2C scale") ||
-      rawSubtitle.includes("B2B at B2B scale")
+      rawSubtitle.includes("B2B at B2B scale") ||
+      rawSubtitle.includes("B2B Fintech on DevX Rails") ||
+      rawSubtitle.includes("B2B Fintech on Developer Rails") ||
+      rawSubtitle.includes("B2B Scale on DevX Rails") ||
+      rawSubtitle.includes("B2B SaaS Scale on GenAI Rails")
         ? DEFAULT_REMOTE_CONFIG.hero_subtitle_variant
         : rawSubtitle;
 
     const rawHeadline = getValue(remoteConfigInstance, "hero_headline_variant").asString();
-    const cleanHeadline = rawHeadline || DEFAULT_REMOTE_CONFIG.hero_headline_variant;
+    const cleanHeadline =
+      !rawHeadline ||
+      rawHeadline.includes("Staff") ||
+      rawHeadline.includes("Staff B2B Product Manager") ||
+      rawHeadline.includes("Staff Developer Product Manager") ||
+      rawHeadline.includes("Staff Product Manager") ||
+      rawHeadline === "Fintech Eng Product Manager"
+        ? DEFAULT_REMOTE_CONFIG.hero_headline_variant
+        : rawHeadline;
 
     return {
       recruit_cta_label:

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import {
   AffirmLogo,
   GalvanizeLogo,
@@ -51,7 +52,7 @@ export const companyCards: BeginnerStyleCard[] = [
     trimColor: "#C4B5FD",
     brandMark: <CHMLogo className="h-5 w-auto" />,
     linkedinUrl: "https://www.linkedin.com/in/tlindow/details/experience/",
-    totalVolumeSummary: "Education & Physical Computing",
+    totalVolumeSummary: "500+ young developers educated",
     lineItems: [
       {
         id: "chm-1",
@@ -59,8 +60,7 @@ export const companyCards: BeginnerStyleCard[] = [
         title: "Design Code Build & Physical Computing Event Support",
         users: "500+ DEVs",
         ownership: "Workshop Instructor",
-        description:
-          "Taught software engineering and physical computing triggers (Rube Goldberg machines) to ~500 Silicon Valley students and Title I school cohorts.",
+        description: "500+ young developers educated",
       },
     ],
   },
@@ -79,25 +79,15 @@ export const companyCards: BeginnerStyleCard[] = [
     trimColor: "#A5B4FC",
     brandMark: <TheTechLogo className="h-5 w-auto" />,
     linkedinUrl: "https://www.linkedin.com/in/tlindow/details/experience/",
-    totalVolumeSummary: "Exhibit & Curriculum Delivery",
+    totalVolumeSummary: "1000+ young engineers inspired",
     lineItems: [
       {
         id: "tech-1",
         year: "2018",
-        title: "Sustainability Exhibit Prototyping & Generative Signage",
-        users: "3 DEVs",
-        ownership: "Studio Coordinator & UX Research",
-        description:
-          "Prototyped sustainability city exhibits with 3D projection mapping and p5.js generative signage with staff engineers.",
-      },
-      {
-        id: "tech-2",
-        year: "2017",
-        title: "Google Data Literacy Curriculum and Workshops",
-        users: "100 DEVs",
-        ownership: "Curriculum Specialist",
-        description:
-          "Co-designed and launched hands-on data literacy workshops with Google utilizing mobile accelerometers.",
+        title: "Sustainability Exhibit Prototyping & Google Data Literacy",
+        users: "1000+ DEVs",
+        ownership: "Curriculum Specialist & Studio Lead",
+        description: "1000+ young engineers inspired",
       },
     ],
   },
@@ -105,7 +95,7 @@ export const companyCards: BeginnerStyleCard[] = [
   // 3. Galvanize Inc (2019) — Galvanize Orange
   {
     id: "galvanize",
-    companyName: "Galvanize Inc",
+    companyName: "Galvanize",
     wordmark: "galvanize",
     cardKind: "GMV",
     cardNumber: "•••• 2019",
@@ -116,26 +106,16 @@ export const companyCards: BeginnerStyleCard[] = [
     trimColor: "#7DD3FC",
     brandMark: <GalvanizeLogo className="h-4 sm:h-5 w-auto" />,
     linkedinUrl: "https://www.linkedin.com/in/tlindow/details/experience/",
-    totalVolumeSummary: "$400K GMV Handled",
+    totalVolumeSummary: "$400k revenue & 20 developers onboarded",
     lineItems: [
       {
         id: "galv-1",
         year: "2019",
-        title: "Developer Onboarding",
+        title: "Developer Onboarding & Multi-Repo Reviews",
         gmv: "$400K GMV",
         users: "20 DEVs",
         ownership: "Lead Immersive Resident",
-        description:
-          "Mentored incoming Hack Reactor engineers through full-stack software development, code reviews, and multi-repo grading.",
-      },
-      {
-        id: "galv-2",
-        year: "2019",
-        title: "Multi-Repo Grading & Empathetic Code Reviews",
-        users: "20 DEVs",
-        ownership: "Lead Immersive Resident",
-        description:
-          "Managed multi-repo grading and delivered constructive code reviews, building psychological safety and technical confidence for career transitioners.",
+        description: "$400k revenue & 20 developers onboarded",
       },
     ],
   },
@@ -154,56 +134,16 @@ export const companyCards: BeginnerStyleCard[] = [
     trimColor: "#6EE7B7",
     brandMark: <AffirmLogo className="h-5 sm:h-6 w-auto" />,
     linkedinUrl: "https://www.linkedin.com/in/tlindow/details/experience/",
-    totalVolumeSummary: "$10.11B+ GMV Handled",
+    totalVolumeSummary: "10.11B+ GMV & 300+ developers supported",
     lineItems: [
       {
         id: "aff-1",
         year: "2024",
-        title: "Flagship Partner Scale ($10B+ Amazon Portfolio)",
-        gmv: "$10B+ GMV",
-        users: "6 DEVs",
-        ownership: "Engineering Lead, Flagship SRE",
-        description:
-          "Oversaw site reliability engineering for Affirm's largest enterprise partner ($10B+ annual GMV volume) with 99.99% SLAs.",
-      },
-      {
-        id: "aff-2",
-        year: "2023",
-        title: "Enterprise SLA & Telemetry Pipelines",
-        gmv: "$100M+ GMV",
-        users: "PARTNER DEVs",
-        ownership: "Site Reliability Lead",
-        description:
-          "Founded merchant reliability squad (1 → 6 engineers) with automated Python/Snowflake reporting pipelines.",
-      },
-      {
-        id: "aff-3",
-        year: "2021",
-        title: "Introductory AI Developer Paved Paths",
-        users: "7 DEVs",
-        ownership: "Developer Productivity Lead",
-        description:
-          "Scaled self-service onboarding pipelines and CLI developer tools, cutting onboarding time by ~50%.",
-      },
-      {
-        id: "aff-4",
-        year: "2019",
-        title: "Merchant Integration Triage & ETL Advocacy",
-        gmv: "$10M+ GMV",
+        title: "Enterprise Scale, SLA & Merchant Telemetry",
+        gmv: "$10.11B+ GMV",
         users: "300+ DEVs",
-        ownership: "Technical Partner Liaison",
-        description:
-          "Primary technical liaison diagnosing e-commerce integration bugs and establishing ETL partner telemetry.",
-      },
-      {
-        id: "aff-5",
-        year: "2025",
-        title: "Affirm.com site Re-launch",
-        gmv: "$500K GMV",
-        users: "TECH LEADs",
-        ownership: "Mobile SRE / Observability",
-        description:
-          "Facilitated engineering trade-offs during affirm.com revamp, delivering $500K incremental GMV before BFCM.",
+        ownership: "Engineering Lead, Flagship SRE",
+        description: "10.11B+ GMV & 300+ developers supported",
       },
     ],
   },
@@ -222,25 +162,15 @@ export const companyCards: BeginnerStyleCard[] = [
     trimColor: "#FDBA74",
     brandMark: <BeginnerSeedMark className="w-6 h-6 rounded-lg shrink-0 shadow-xs" />,
     linkedinUrl: "https://www.linkedin.com/in/tlindow/details/experience/",
-    totalVolumeSummary: "Founder Discovery & Hub",
+    totalVolumeSummary: "27 tech founders understood",
     lineItems: [
       {
         id: "beg-1",
-        year: "Early 2026",
+        year: "2026",
         title: "0-to-1 Founder PWA & Pitch Engine",
-        users: "20 DEVs",
+        users: "27 Founders",
         ownership: "Founder & Product Lead",
-        description:
-          "Built and launched progressive web app enabling founders to practice pitches and validate fundraising in-person.",
-      },
-      {
-        id: "beg-2",
-        year: "Mid 2026",
-        title: "Technical Community & Product Network",
-        users: "27 DEVs",
-        ownership: "Community Architecture",
-        description:
-          "Architected and hosted high-trust technical forums for product-focused engineers and leaders in San Diego.",
+        description: "27 tech founders understood",
       },
     ],
   },
@@ -248,65 +178,60 @@ export const companyCards: BeginnerStyleCard[] = [
 
 export default function TractionTimeline() {
   return (
-    <div className="w-full select-none space-y-12 py-4">
-      {/* ========================================================= */}
-      {/* ALL COMPANY CARDS WITH GMV LINE ITEMS                      */}
-      {/* ========================================================= */}
-      {companyCards.map((card) => (
-        <div
-          key={card.id}
-          id={`wallet-card-${card.id}`}
-          className="flex flex-col md:flex-row md:items-start gap-6 md:gap-10"
-        >
-          {/* Card (consistent w-80 sizing across viewports, responsive max-w-full on small mobile) */}
-          <div className="w-80 max-w-full shrink-0">
-            <div className="w-full aspect-[1.586/1] rounded-[20px]">
+    <div className="w-full select-none py-2">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: {
+              staggerChildren: 0.08,
+            },
+          },
+        }}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+      >
+        {companyCards.map((card) => (
+          <motion.div
+            key={card.id}
+            id={`wallet-card-${card.id}`}
+            variants={{
+              hidden: { opacity: 0, scale: 0.94, y: 16 },
+              visible: {
+                opacity: 1,
+                scale: 1,
+                y: 0,
+                transition: { duration: 0.45, ease: [0.25, 0.4, 0.25, 1] },
+              },
+            }}
+            className="w-full max-w-[340px] sm:w-[340px] flex flex-col gap-3 group mx-auto sm:mx-0"
+          >
+            {/* Debit Card Face (Fixed uniform size across desktop screens) */}
+            <div className="w-full aspect-[1.586/1] rounded-[20px] transition-transform duration-300 group-hover:-translate-y-1.5 group-hover:shadow-lg">
               <CardFace card={card} />
             </div>
-          </div>
 
-          {/* GMV Ledger (right on desktop, below on mobile) */}
-          <div className="flex-1 min-w-0 space-y-4">
-            {/* Ledger Header Bar */}
-            <div className="flex items-center gap-2 pb-2 border-b border-border/80">
-              <h3
-                className="text-base sm:text-lg font-bold text-foreground tracking-tight"
+            {/* Card Metadata */}
+            <div className="flex flex-col gap-1 px-1">
+              <span
+                className="text-base font-bold text-foreground group-hover:text-indigo-dark transition-colors"
                 style={{
                   fontFamily:
                     '"Fraunces", var(--font-fraunces), "Plus Jakarta Sans", Georgia, serif',
                 }}
               >
                 {card.companyName}
-              </h3>
+              </span>
+              <span className="text-xs font-mono text-muted leading-relaxed">
+                {card.totalVolumeSummary}
+              </span>
             </div>
-
-            {/* Transaction Line Items */}
-            <div className="divide-y divide-border/60">
-              {card.lineItems.map((item) => (
-                <div
-                  key={item.id}
-                  className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 py-3"
-                >
-                  <span className="text-sm text-foreground truncate">
-                    {item.title}
-                  </span>
-                  <div className="flex items-center gap-3 sm:gap-4 shrink-0 self-start sm:self-auto">
-                    {item.gmv ? (
-                      <span className="text-sm font-bold font-mono text-foreground shrink-0 whitespace-nowrap">
-                        {item.gmv}
-                      </span>
-                    ) : item.users ? (
-                      <span className="text-sm font-bold font-mono text-foreground shrink-0 whitespace-nowrap">
-                        {item.users}
-                      </span>
-                    ) : null}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      ))}
+          </motion.div>
+        ))}
+      </motion.div>
     </div>
   );
 }

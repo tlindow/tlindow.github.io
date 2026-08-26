@@ -1,6 +1,6 @@
 # Tyler Lindow
 
-**Staff Developer Product Manager**  
+**Fintech Eng-Product Manager**  
 *Specializing in small business (SMB) developer partnerships, $10B+ platform scale, and developer paved paths*  
 San Diego, CA (Relocating to Seattle, WA) · (650) 580-5788 · [tlindow.invest@gmail.com](mailto:tlindow.invest@gmail.com) · [linkedin.com/in/tlindow](https://www.linkedin.com/in/tlindow) · [github.com/tlindow](https://github.com/tlindow)
 

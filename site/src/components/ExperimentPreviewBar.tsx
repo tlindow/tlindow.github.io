@@ -22,13 +22,13 @@ export default function ExperimentPreviewBar() {
 
   const presets = [
     { key: "baseline", title: "1. Baseline / Control", desc: "'Recruit Me' · $0–$10B+ GMV Scale" },
-    { key: "action_oriented", title: "2. Action-Oriented", desc: "'Deploy Tyler' · Staff Dev PM" },
+    { key: "action_oriented", title: "2. Action-Oriented", desc: "'Deploy Tyler' · Fintech Eng-Product PM" },
     { key: "low_friction", title: "3. Low-Friction", desc: "'Connect on LinkedIn' · Networking" },
-    { key: "executive_authority", title: "4. Executive Authority", desc: "'Hire Staff PM' · $10B+ Scale" },
+    { key: "executive_authority", title: "4. Executive Authority", desc: "'Hire Fintech Eng-Product PM' · $10B+ Scale" },
   ];
 
   return (
-    <aside aria-label="A/B Testing Preview Bar" className="fixed bottom-16 sm:bottom-18 left-4 z-50 no-print font-mono text-xs">
+    <aside aria-label="A/B Testing Preview Bar" className="fixed bottom-20 sm:bottom-18 left-4 z-50 no-print font-mono text-xs">
       <div className="bg-background/95 backdrop-blur-md border border-border rounded-2xl shadow-xl overflow-hidden transition-all max-w-xs">
         {/* Header Toggle */}
         <button
