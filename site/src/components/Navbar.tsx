@@ -98,11 +98,40 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Lindow Labs Signature Cool Spectrum Bar */}
-        <motion.div
-          className="h-[2px] labs-rainbow-gradient origin-left opacity-85"
-          style={{ scaleX }}
-        />
+        {/* Lindow Labs Signature Cool Spectrum Bar with Minimalist GMV Milestones */}
+        <div className="relative w-full h-[2px] bg-border/25 group/spectrum">
+          <motion.div
+            className="h-[2px] labs-rainbow-gradient origin-left opacity-90"
+            style={{ scaleX }}
+          />
+
+          {/* Minimalist Milestone Ticks Along the Progress Bar */}
+          <div className="absolute inset-0 flex justify-between pointer-events-none px-2 sm:px-6 -top-[2px]">
+            {[
+              { label: "$1M", year: "2017", company: "CHM", pos: "8%" },
+              { label: "$5M", year: "2017", company: "The Tech", pos: "18%" },
+              { label: "$8M", year: "2018", company: "The Tech", pos: "28%" },
+              { label: "$400K", year: "2019", company: "Galvanize", pos: "38%" },
+              { label: "$10M+", year: "2019", company: "Affirm", pos: "50%" },
+              { label: "$50M", year: "2021", company: "Affirm", pos: "62%" },
+              { label: "$100M+", year: "2023", company: "Affirm", pos: "74%" },
+              { label: "$1B+", year: "2024", company: "Affirm", pos: "86%" },
+              { label: "$750K", year: "2026", company: "Beginner", pos: "97%" },
+            ].map((m, idx) => (
+              <div
+                key={idx}
+                className="group/tick relative flex flex-col items-center pointer-events-auto cursor-default"
+                style={{ left: m.pos }}
+                title={`${m.year} · ${m.company} (${m.label} GMV)`}
+              >
+                <div className="w-1.5 h-1.5 rounded-full bg-border/70 group-hover/tick:bg-indigo-dark group-hover/tick:scale-125 transition-all shadow-2xs" />
+                <span className="opacity-0 group-hover/tick:opacity-100 transition-opacity absolute top-2 text-[9px] font-mono font-bold text-foreground bg-surface/95 border border-border/80 px-1.5 py-0.5 rounded-md shadow-xs whitespace-nowrap z-50 pointer-events-none">
+                  {m.year} · {m.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </header>
   );

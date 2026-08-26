@@ -77,7 +77,7 @@ export function logResumeView(source: "hero_cta" | "nav" | "footer" | "direct" |
 }
 
 export function logMarketplaceInteraction(
-  action: "scroll_left" | "scroll_right" | "sort_toggle" | "card_click",
+  action: "scroll_left" | "scroll_right" | "sort_toggle" | "card_click" | "company_filter",
   details?: Record<string, unknown>
 ) {
   trackEvent("skills_marketplace_interaction", {
