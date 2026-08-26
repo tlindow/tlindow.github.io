@@ -24,7 +24,7 @@ export const VARIANT_PRESETS: Record<string, RemoteConfigValues> = {
     recruit_cta_label: "Recruit Me",
     recruit_cta_style: "forest_solid",
     hero_headline_variant: "Staff B2B Product Manager",
-    hero_subtitle_variant: "B2B Fintech on Developer Rails · $0 – $10B+ GMV enterprises",
+    hero_subtitle_variant: "B2B Fintech on DevX Rails · $0 – $10B+ GMV enterprises",
   },
   action_oriented: {
     recruit_cta_label: "Deploy Tyler",

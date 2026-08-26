@@ -33,11 +33,11 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   title: "Tyler Lindow — Staff B2B Product Manager",
   description:
-    "Portfolio & Resume for Tyler Lindow. Staff B2B Product Manager — B2B Fintech on Developer Rails. $10B+ partner portfolio scale, and developer paved paths.",
+    "Portfolio & Resume for Tyler Lindow. Staff B2B Product Manager — B2B Fintech on DevX Rails. $10B+ partner portfolio scale, and developer paved paths.",
   openGraph: {
     title: "Tyler Lindow — Staff B2B Product Manager",
     description:
-      "Portfolio & Resume for Tyler Lindow. Staff B2B Product Manager — B2B Fintech on Developer Rails. $10B+ partner portfolio scale, and developer paved paths.",
+      "Portfolio & Resume for Tyler Lindow. Staff B2B Product Manager — B2B Fintech on DevX Rails. $10B+ partner portfolio scale, and developer paved paths.",
     type: "profile",
   },
   alternates: {

@@ -67,7 +67,7 @@ export interface ContactInfo {
 export const resumeContact: ContactInfo = {
   name: "Tyler Lindow",
   title: "Staff B2B Product Manager",
-  subtitle: "B2B Fintech on Developer Rails",
+  subtitle: "B2B Fintech on DevX Rails",
   location: "San Diego, CA",
   relocation: "Relocating to Seattle, WA",
   phone: "(650) 580-5788",
