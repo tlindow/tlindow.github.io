@@ -55,13 +55,12 @@ export const companyCards: BeginnerStyleCard[] = [
     trimColor: "#C4B5FD",
     brandMark: <CHMLogo className="h-5 w-auto" />,
     linkedinUrl: "https://www.linkedin.com/in/tlindow/details/experience/",
-    totalVolumeSummary: "$1M GMV Handled",
+    totalVolumeSummary: "Education & Physical Computing",
     lineItems: [
       {
         id: "chm-1",
         year: "2017",
         title: "Design Code Build & Physical Computing",
-        gmv: "$1M GMV",
         users: "500+ Students",
         ownership: "Workshop Instructor",
         description:
@@ -84,13 +83,12 @@ export const companyCards: BeginnerStyleCard[] = [
     trimColor: "#A5B4FC",
     brandMark: <TheTechLogo className="h-5 w-auto" />,
     linkedinUrl: "https://www.linkedin.com/in/tlindow/details/experience/",
-    totalVolumeSummary: "$13M GMV Handled",
+    totalVolumeSummary: "Exhibit & Curriculum Delivery",
     lineItems: [
       {
         id: "tech-1",
         year: "2018",
         title: "Projection-Mapped Exhibit & Generative Signage",
-        gmv: "$8M GMV",
         users: "150K+ Museum Guests",
         ownership: "Studio Coordinator & UX Research",
         description:
@@ -100,7 +98,6 @@ export const companyCards: BeginnerStyleCard[] = [
         id: "tech-2",
         year: "2017",
         title: "Google IoT Curriculum & Sensor APIs",
-        gmv: "$5M GMV",
         users: "1,000+ Students",
         ownership: "Curriculum Specialist",
         description:
@@ -152,7 +149,7 @@ export const companyCards: BeginnerStyleCard[] = [
     trimColor: "#6EE7B7",
     brandMark: <AffirmLogo className="h-5 sm:h-6 w-auto" />,
     linkedinUrl: "https://www.linkedin.com/in/tlindow/details/experience/",
-    totalVolumeSummary: "$1.16B+ GMV Handled",
+    totalVolumeSummary: "$1.11B+ GMV Handled",
     lineItems: [
       {
         id: "aff-1",
@@ -178,7 +175,6 @@ export const companyCards: BeginnerStyleCard[] = [
         id: "aff-3",
         year: "2021",
         title: "Developer Paved Paths & Self-Service",
-        gmv: "$50M GMV",
         users: "Thousands of Merchants",
         ownership: "Developer Productivity Lead",
         description:
@@ -292,9 +288,11 @@ export default function TractionTimeline() {
                   <span className="text-sm text-foreground truncate">
                     {item.title}
                   </span>
-                  <span className="text-sm font-bold font-mono text-foreground shrink-0">
-                    {item.gmv || item.stage}
-                  </span>
+                  {(item.gmv || item.stage) && (
+                    <span className="text-sm font-bold font-mono text-foreground shrink-0">
+                      {item.gmv || item.stage}
+                    </span>
+                  )}
                 </div>
               ))}
             </div>
@@ -311,7 +309,7 @@ export default function TractionTimeline() {
             Attributed GMV:
           </span>
           <span className="text-base sm:text-lg font-black font-mono text-indigo-dark tracking-tight">
-            $1.17B+ GMV
+            $1.11B+ GMV
           </span>
         </div>
 
