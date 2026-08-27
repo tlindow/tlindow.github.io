@@ -207,21 +207,17 @@ export default function TractionTimeline() {
                 transition: { duration: 0.45, ease: [0.25, 0.4, 0.25, 1] },
               },
             }}
-            className="w-full max-w-[340px] sm:w-[340px] flex flex-col gap-3 group mx-auto sm:mx-0"
+            className="w-full max-w-[340px] sm:w-[340px] flex flex-col gap-3 mx-auto sm:mx-0 cursor-default"
           >
             {/* Debit Card Face (Fixed uniform size across desktop screens) */}
-            <div className="w-full aspect-[1.586/1] rounded-[20px] transition-transform duration-300 group-hover:-translate-y-1.5 group-hover:shadow-lg">
+            <div className="w-full aspect-[1.586/1] rounded-[20px] cursor-default">
               <CardFace card={card} />
             </div>
 
             {/* Card Metadata */}
             <div className="flex flex-col gap-1 px-1">
               <span
-                className="text-base font-bold text-foreground group-hover:text-indigo-dark transition-colors"
-                style={{
-                  fontFamily:
-                    '"Fraunces", var(--font-fraunces), "Plus Jakarta Sans", Georgia, serif',
-                }}
+                className="text-base font-bold font-mono text-foreground"
               >
                 {card.companyName}
               </span>
@@ -263,11 +259,7 @@ function CardFace({ card }: { card: BeginnerStyleCard }) {
           </div>
 
           <span
-            className="text-xs sm:text-sm font-bold text-gray-700 truncate max-w-[50%] text-right leading-none"
-            style={{
-              fontFamily:
-                '"Fraunces", var(--font-fraunces), "Plus Jakarta Sans", Georgia, serif',
-            }}
+            className="text-xs sm:text-sm font-bold font-mono text-gray-700 truncate max-w-[50%] text-right leading-none"
           >
             {card.holderName}
           </span>
@@ -281,7 +273,7 @@ function CardFace({ card }: { card: BeginnerStyleCard }) {
 
           <div className="flex flex-col items-end gap-0.5">
             <span
-              className="font-sans font-semibold text-[10px] sm:text-[11px] uppercase tracking-wider leading-none"
+              className="font-mono font-semibold text-[10px] sm:text-[11px] uppercase tracking-wider leading-none"
               style={{ color: card.trimColor }}
             >
               {card.cardKind}
