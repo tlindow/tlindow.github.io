@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, ArrowUpRight } from "lucide-react";
+import { Github, ArrowUpRight, BookOpen } from "lucide-react";
 import { resumeContact } from "@/data/resumeData";
 import { useAnalytics } from "@/context/AnalyticsProvider";
 
@@ -36,12 +36,14 @@ export default function Navbar() {
           </a>
 
           {/* Right: Nav Links & Persistent Deploy Button */}
-          <div className="flex items-center gap-3 sm:gap-4">
+          <div className="flex items-center gap-2.5 sm:gap-3">
             <a
               href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/blog`}
-              className="text-xs font-mono font-bold text-foreground/90 hover:text-indigo-dark transition-colors px-2 py-1"
+              className="group inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-mono font-bold transition-all hover:scale-[1.02] active:scale-[0.98] bg-sand/80 hover:bg-sand text-foreground/90 hover:text-indigo-dark border border-border hover:border-indigo/40 shadow-2xs"
+              title="Read Tyler's Blog & Field Notes"
             >
-              Blog
+              <BookOpen size={13} className="text-muted group-hover:text-indigo-dark transition-colors" />
+              <span>Blog</span>
             </a>
 
             {/* Persistent Build CTA Button linking to GitHub */}

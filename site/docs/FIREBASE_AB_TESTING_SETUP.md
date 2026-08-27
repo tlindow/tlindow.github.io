@@ -81,11 +81,10 @@ The codebase includes 4 tested content variation presets ready for A/B testing:
 
 ---
 
-## 5. Live Local Previewing
+## 5. Live Local Previewing & Dashboard Control
 
-You can preview all variations locally in 2 ways:
-1. **Interactive Preview Toolbar**: Open [`http://localhost:3000`](http://localhost:3000) and click the **A/B Variant Preview** widget in the bottom-left corner to switch presets live.
-2. **URL Parameter Override**: Append `?variant=action_oriented`, `?variant=low_friction`, or `?variant=executive_authority` to test specific presets via direct links.
+- **Google Firebase Dashboard Control**: Configure Remote Config parameters or create A/B Testing experiments directly within the Firebase Console to distribute variants to live audiences.
+- **URL Parameter Override**: Append `?variant=action_oriented`, `?variant=low_friction`, or `?variant=executive_authority` to manually test specific presets locally or via direct links.
 
 ---
 

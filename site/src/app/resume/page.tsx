@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ArrowLeft } from "lucide-react";
 import SpaceMonoResume from "@/components/SpaceMonoResume";
 import Navbar from "@/components/Navbar";
+import { parsedResume } from "@/data/resumeMarkdown";
 
 export const metadata: Metadata = {
   title: "Resume — Tyler Lindow (Fintech Product-Eng Manager)",
@@ -25,20 +26,21 @@ export const metadata: Metadata = {
 
 export default function ResumePageRoute() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-indigo-light selection:text-indigo-dark font-mono">
+    <div className="min-h-screen bg-background text-foreground selection:bg-indigo-light selection:text-indigo-dark font-mono print:min-h-0 print:bg-white print:p-0 print:m-0">
       <Navbar />
-      <div className="pt-20 sm:pt-24 max-w-4xl mx-auto px-4 sm:px-6 no-print">
+      <div className="pt-20 sm:pt-24 max-w-4xl mx-auto px-4 sm:px-6 pb-4 sm:pb-6 no-print">
         <a
           href={`${basePath}/`}
-          className="inline-flex items-center gap-2 text-xs font-bold text-muted hover:text-indigo-dark transition-colors py-2"
+          className="inline-flex items-center gap-2 text-xs font-bold text-muted hover:text-indigo-dark transition-colors py-1"
         >
           <ArrowLeft size={14} />
-          <span>Back to Product Overview</span>
+          <span>Back to Home Page</span>
         </a>
       </div>
-      <div className="pt-2">
-        <SpaceMonoResume />
+      <div className="print:pt-0 print:p-0 print:m-0">
+        <SpaceMonoResume parsedResume={parsedResume} />
       </div>
     </div>
   );

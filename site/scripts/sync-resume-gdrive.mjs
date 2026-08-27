@@ -152,12 +152,12 @@ export async function generateResumePDF(options = {}) {
   // If no URL is provided, try to serve static out directory
   if (!targetUrl) {
     const outDir = path.join(projectRoot, "out");
-    if (fs.existsSync(outDir) && fs.existsSync(path.join(outDir, "index.html"))) {
+    if (fs.existsSync(outDir) && fs.existsSync(path.join(outDir, "resume.html"))) {
       console.log(`📦 Serving static build from ${outDir}...`);
       staticServer = await startStaticServer(outDir);
-      targetUrl = staticServer.url;
+      targetUrl = `${staticServer.url}/resume.html`;
     } else {
-      targetUrl = "http://localhost:3000";
+      targetUrl = "http://localhost:3000/resume";
       console.log(`ℹ️  Using default URL: ${targetUrl}`);
     }
   }
@@ -201,10 +201,10 @@ export async function generateResumePDF(options = {}) {
       format: "Letter",
       printBackground: true,
       margin: {
-        top: "0.35in",
-        bottom: "0.35in",
-        left: "0.45in",
-        right: "0.45in",
+        top: "0.6in",
+        bottom: "0.6in",
+        left: "0.6in",
+        right: "0.6in",
       },
       preferCSSPageSize: true,
     });

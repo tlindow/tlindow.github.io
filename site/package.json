@@ -3,14 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "node scripts/sync-resume-data.mjs && (node scripts/watch-resume.mjs & next dev)",
+    "build": "node scripts/sync-resume-data.mjs && next build",
     "start": "next start",
     "lint": "eslint",
     "remove-bg": "node scripts/remove-bg.mjs",
     "generate:slides": "node scripts/generate-slides.mjs",
     "export:pdf": "node scripts/sync-resume-gdrive.mjs --pdf-only",
-    "sync:gdrive": "node scripts/sync-resume-gdrive.mjs"
+    "sync:gdrive": "node scripts/sync-resume-gdrive.mjs",
+    "export:gdoc": "node scripts/export-resume-gdoc.mjs --local-only",
+    "sync:gdoc": "node scripts/export-resume-gdoc.mjs"
   },
   "dependencies": {
     "dotenv": "^17.4.2",

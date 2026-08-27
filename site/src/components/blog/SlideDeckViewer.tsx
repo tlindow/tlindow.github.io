@@ -1,13 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useCallback } from "react";
-import {
-  ChevronLeft,
-  ChevronRight,
-  Download,
-  Copy,
-  Check,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { SlideData } from "@/data/blogPosts";
 
 interface SlideDeckViewerProps {
@@ -45,7 +39,6 @@ export default function SlideDeckViewer({ slides }: SlideDeckViewerProps) {
       const bgCol = "#FFFDF7";
       const cardBg = "#FFFFFF";
       const textColor = "#1F1D1A";
-      const mutedColor = "#736E67";
       const borderColor = "#E6E2D8";
       const accentColor = "#4F46E5";
 

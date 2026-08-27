@@ -8,7 +8,6 @@ import {
 
 import Navbar from "@/components/Navbar";
 import CheckoutDrawer from "@/components/CheckoutDrawer";
-import ExperimentPreviewBar from "@/components/ExperimentPreviewBar";
 import TractionTimeline from "@/components/TractionTimeline";
 import {
   TrustedPartnersBar,
@@ -163,9 +162,6 @@ export default function Home() {
 
       {/* Persistent Checkout-Style Bottom Drawer (Docked & Expandable) */}
       <CheckoutDrawer />
-
-      {/* Sticky Runtime Environment Inspector Bar (No-Print) */}
-      <ExperimentPreviewBar />
     </div>
   );
 }

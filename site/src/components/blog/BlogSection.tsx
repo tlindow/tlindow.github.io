@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, BookOpen, Download, Sparkles, Layers } from "lucide-react";
+import { ArrowRight, BookOpen, Layers } from "lucide-react";
 import { blogPosts } from "@/data/blogPosts";
 import SlideDeckViewer from "./SlideDeckViewer";
 
