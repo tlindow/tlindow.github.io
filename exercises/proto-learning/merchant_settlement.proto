@@ -1,0 +1,144 @@
+// ============================================================================
+// EXERCISE: Merchant Settlement & Bank Payout Ledger Contract
+// ============================================================================
+// Domain Problem:
+// You are designing the high-throughput settlement and disbursement interface
+// for a B2B Merchant Financial Platform.
+//
+// Every day, millions of dollars in merchant transactions are aggregated into
+// settlement batches, fee schedules are calculated, rolling reserves are
+// retained, and the net payout is disbursed to merchant bank accounts.
+//
+// 🎯 Learning Objectives:
+// 1. Syntax & Schema Packaging (proto3, package declarations, imports)
+// 2. Exact Monetary Precision (avoiding IEEE-754 floating point pitfalls)
+// 3. Robust Enum Modeling (proto3 zero-value default convention)
+// 4. Hierarchical Ledgering (repeated sub-items, fee deduction breakdowns)
+// 5. Polymorphic Destination Rails (using `oneof` for ACH, FedNow, Wire, Tokenized Bank Accounts)
+// 6. Extensibility & Schema Evolution (field tags 1-15 optimization, `reserved` fields)
+// 7. gRPC Service & Streaming (Unary batch operations + Server-Streaming ledger feeds)
+//
+// 💬 How to Complete This Tutorial:
+// Leave inline review comments on the sections below describing how you would
+// model these structures. GitHub Copilot will pick up your thoughts, generate
+// scaffolded code suggestions, and ask you Socratic questions to refine your
+// mental model into canonical production Protobuf.
+// ============================================================================
+
+syntax = "proto3";
+
+package fintech.settlement.v1;
+
+// Step 1 starter: use Timestamp later for settlement and ledger event audit times.
+import "google/protobuf/timestamp.proto";
+
+
+// ----------------------------------------------------------------------------
+// 1. Monetary Precision
+// ----------------------------------------------------------------------------
+// Challenge: Represent currency values without floating-point precision loss.
+// A settlement batch needs to calculate gross volume, fees, deductions, and net payouts.
+//
+// Comment on this block with:
+// How should we structure a Money message to represent $1,250.75 USD or ¥10,000 JPY?
+message Money {
+  // ISO 4217 code like "USD" or "JPY".
+  string currency_code = 1;
+  // Whole amount in major currency units (e.g. dollars).
+  int64 units = 2;
+  // Fractional amount in billionths of a unit (e.g. $12.75 => 750000000).
+  int32 nanos = 3;
+  // Note: "= 1", "= 2", "= 3" are field tags for wire encoding and compatibility.
+}
+
+
+// ----------------------------------------------------------------------------
+// 2. Lifecycle Status & Disbursement Rails
+// ----------------------------------------------------------------------------
+// Challenge: Define settlement batch status and payment routing rails.
+//
+// Comment on this block with:
+// What states can a settlement batch transition through (e.g. pending, calculating,
+// funded, in_transit, settled, failed)?
+// What rails can be used (e.g. ACH, FedNow, RTP, Wire)?
+// Note: Consider what happens in proto3 if a field is not set.
+enum SettlementStatus {
+  // [STEP 2 EXERCISE]: Define enum values with proto3 zero-value conventions.
+  settlement_status_unspecified = 0
+  settlement_status_in_review = 1
+  settlement_status_approved_and_in_transit = 2
+  settlement_status_settled = 3
+  settlement_status_failed = 4
+}
+
+enum DisbursementRail {
+  // [STEP 2 EXERCISE]: Define disbursement payment rails.
+  disbursement_rail_unspecified = 0
+  disbursement_rail_ach = 1
+  disbursement_rail_wire = 2
+  // I don't know what the rest of these are
+  disbursement_rail_fednow = 3
+  disbursement_rail_rtp = 4
+  disbursement_rail_tokenized_bank_account = 5
+}
+
+
+// ----------------------------------------------------------------------------
+// 3. Polymorphic Bank Account Destinations
+// ----------------------------------------------------------------------------
+// Challenge: A merchant payout can be routed via:
+// A) Tokenized Bank Account (e.g., Plaid/processor token ID)
+// B) Direct US Routing & Account Numbers (ACH / FedNow)
+// C) International Wire Details (SWIFT / BIC / IBAN)
+//
+// Comment on this block with:
+// How do we enforce that exactly one destination is provided per payout?
+message PayoutDestination {
+  // [STEP 3 EXERCISE]: Model mutually exclusive bank destination options.
+}
+
+
+// ----------------------------------------------------------------------------
+// 4. Itemized Ledger Line Items & Fee Pricing
+// ----------------------------------------------------------------------------
+// Challenge: A settlement batch contains multiple charge line items, each with:
+// - transaction_id
+// - gross_amount
+// - contractual fee breakdown (basis points fee + fixed per-transaction fee)
+// - dispute/chargeback adjustments
+// - custom merchant reconciliation metadata
+//
+// Comment on this block with:
+// How should we structure individual line items and fee deductions?
+message SettlementLineItem {
+  // [STEP 4 EXERCISE]: Model line items, repeated fees, and merchant metadata map.
+}
+
+
+// ----------------------------------------------------------------------------
+// 5. The Settlement Batch Aggregate
+// ----------------------------------------------------------------------------
+// Challenge: Assemble the complete settlement batch document.
+// Include batch ID, merchant ID, status, gross/fee/reserve/net money totals,
+// destination bank account, list of line items, timestamps, and schema reservations.
+//
+// Comment on this block with:
+// How should the aggregate message combine all the components above?
+message SettlementBatch {
+  // [STEP 5 EXERCISE]: Compose the complete settlement batch message.
+  // Don't forget field numbering strategies (1-15 for high frequency) and reserved fields!
+}
+
+
+// ----------------------------------------------------------------------------
+// 6. gRPC Service Interface
+// ----------------------------------------------------------------------------
+// Challenge: Expose RPCs for:
+// 1. Creating/initiating an idempotent settlement batch (Unary RPC)
+// 2. Streaming real-time ledger event updates as funds clear the rail (Server Streaming RPC)
+//
+// Comment on this block with:
+// What request/response messages and RPC methods should be defined?
+service MerchantSettlementService {
+  // [STEP 6 EXERCISE]: Define Unary and Server Streaming RPCs.
+}
