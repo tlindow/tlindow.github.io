@@ -64,10 +64,22 @@ message Money {
 // Note: Consider what happens in proto3 if a field is not set.
 enum SettlementStatus {
   // [STEP 2 EXERCISE]: Define enum values with proto3 zero-value conventions.
+  settlement_status_unspecified = 0
+  settlement_status_in_review = 1
+  settlement_status_approved_and_in_transit = 2
+  settlement_status_settled = 3
+  settlement_status_failed = 4
 }
 
 enum DisbursementRail {
   // [STEP 2 EXERCISE]: Define disbursement payment rails.
+  disbursement_rail_unspecified = 0
+  disbursement_rail_ach = 1
+  disbursement_rail_wire = 2
+  // I don't know what the rest of these are
+  disbursement_rail_fednow = 3
+  disbursement_rail_rtp = 4
+  disbursement_rail_tokenized_bank_account = 5
 }
 
 
