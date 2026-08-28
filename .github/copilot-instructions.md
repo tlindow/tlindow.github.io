@@ -58,3 +58,7 @@ When Tyler comments on code or stubs in a Pull Request diff (specifically within
   - `google.protobuf.Timestamp` for audit settlement timestamps
   - Idempotent gRPC service definitions (Unary and Server Streaming)
 - Once Tyler arrives at the correct mental model, confirm canonical production readiness with an encouraging synthesis and summarize the key architectural principles learned.
+
+### 5. Review Completion Notification
+- Always explicitly tag **`@tlindow`** at the end of every review response, comment thread reply, and review summary when you finish generating your feedback and questions (e.g., `@tlindow Review complete! Let me know what you think of the conceptual questions above so we can proceed to the next step.`).
+
