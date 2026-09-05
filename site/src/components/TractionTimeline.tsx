@@ -235,7 +235,7 @@ export default function TractionTimeline() {
 /* ================================================================= */
 /* Shared Card Face Component                                        */
 /* ================================================================= */
-function CardFace({ card }: { card: BeginnerStyleCard }) {
+export function CardFace({ card }: { card: BeginnerStyleCard }) {
   return (
     <div
       style={{
@@ -251,18 +251,12 @@ function CardFace({ card }: { card: BeginnerStyleCard }) {
       />
 
       {/* Card Content */}
-      <div className="flex flex-col justify-between flex-1 p-5 sm:p-6">
-        {/* Top Bar: Brand Mark & Holder Name */}
+      <div className="flex flex-col justify-between flex-1 p-4 sm:p-5">
+        {/* Top Bar: Brand Mark (Holder name removed) */}
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-2.5 min-w-0">
             {card.brandMark}
           </div>
-
-          <span
-            className="text-xs sm:text-sm font-bold font-mono text-gray-700 truncate max-w-[50%] text-right leading-none"
-          >
-            {card.holderName}
-          </span>
         </div>
 
         {/* Bottom Bar: Masked Number & Card Kind */}

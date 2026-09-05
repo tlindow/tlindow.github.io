@@ -1,4 +1,6 @@
 import { ImageResponse } from "next/og";
+import fs from "fs";
+import path from "path";
 
 export const dynamic = "force-static";
 export const alt = "Tyler Lindow — Fintech Product-Eng Manager";
@@ -9,6 +11,11 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image() {
+  // Read cropped profile photo as base64
+  const avatarPath = path.join(process.cwd(), "public/profile-square.jpg");
+  const avatarBase64 = fs.readFileSync(avatarPath).toString("base64");
+  const avatarDataUrl = `data:image/jpeg;base64,${avatarBase64}`;
+
   return new ImageResponse(
     (
       <div
@@ -16,254 +23,117 @@ export default async function Image() {
           width: "100%",
           height: "100%",
           display: "flex",
-          flexDirection: "column",
+          alignItems: "center",
           justifyContent: "space-between",
-          backgroundColor: "#FBF9F5",
-          padding: "48px 56px",
+          backgroundColor: "#FFFDF7",
+          padding: "0 100px",
           fontFamily: "sans-serif",
           position: "relative",
         }}
       >
-        {/* Top Accent Gradient Border */}
+        {/* Left Side: Favicon Logo + Title */}
         <div
           style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            height: "8px",
-            background:
-              "linear-gradient(90deg, #E06D53 0%, #EAA844 20%, #4D8B6F 40%, #4A7A96 60%, #4361EE 80%, #7209B7 100%)",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            gap: "32px",
+            maxWidth: "640px",
           }}
-        />
+        >
+          {/* Favicon Logo */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "108px",
+              height: "108px",
+              borderRadius: "24px",
+              backgroundColor: "#FFFFFF",
+              border: "1px solid #E6E2D8",
+              boxShadow: "0 10px 30px rgba(0,0,0,0.06)",
+            }}
+          >
+            <svg
+              width="82"
+              height="82"
+              viewBox="0 0 64 64"
+              fill="none"
+            >
+              <defs>
+                <linearGradient id="cool" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#C4B5FD" />
+                  <stop offset="50%" stopColor="#A5B4FC" />
+                  <stop offset="100%" stopColor="#7DD3FC" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M14 10 H22 V38 H44 V46 H14 Z"
+                fill="url(#cool)"
+                opacity="0.85"
+              />
+              <path
+                d="M22 18 H30 V46 H52 V54 H22 Z"
+                fill="#1F1D1A"
+              />
+            </svg>
+          </div>
 
-        {/* Top Header Row */}
+          {/* Title of the Site */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "12px",
+            }}
+          >
+            <h1
+              style={{
+                fontSize: "68px",
+                fontWeight: "900",
+                color: "#1F1D1A",
+                lineHeight: 1.05,
+                letterSpacing: "-0.04em",
+                margin: 0,
+              }}
+            >
+              Tyler Lindow
+            </h1>
+            <p
+              style={{
+                fontSize: "30px",
+                fontWeight: "700",
+                color: "#4F46E5",
+                fontFamily: "monospace",
+                letterSpacing: "-0.02em",
+                margin: 0,
+              }}
+            >
+              Fintech Product-Eng Manager
+            </p>
+          </div>
+        </div>
+
+        {/* Right Side: Profile Picture */}
         <div
           style={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-between",
-            width: "100%",
+            justifyContent: "center",
           }}
         >
-          <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-            <div
-              style={{
-                width: "46px",
-                height: "46px",
-                borderRadius: "50%",
-                backgroundColor: "#2E4057",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "#F4EBD9",
-                fontSize: "22px",
-                fontWeight: "bold",
-              }}
-            >
-              TL
-            </div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <span
-                style={{
-                  fontSize: "32px",
-                  fontWeight: "900",
-                  color: "#1C1917",
-                  letterSpacing: "-0.03em",
-                }}
-              >
-                Tyler Lindow
-              </span>
-              <span
-                style={{
-                  fontSize: "16px",
-                  fontWeight: "600",
-                  color: "#2E4057",
-                  fontFamily: "monospace",
-                }}
-              >
-                Software Engineering Manager &lt;&gt; PM
-              </span>
-            </div>
-          </div>
-
-          <div
+          <img
+            src={avatarDataUrl}
+            alt="Tyler Lindow"
             style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              backgroundColor: "#FFFFFF",
-              border: "1px solid #D6D3D1",
-              borderRadius: "9999px",
-              padding: "8px 18px",
-              fontSize: "14px",
-              fontWeight: "700",
-              color: "#2E4057",
-              fontFamily: "monospace",
-              boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
+              width: "320px",
+              height: "320px",
+              borderRadius: "50%",
+              border: "8px solid #FFFFFF",
+              boxShadow: "0 16px 48px rgba(0,0,0,0.12)",
             }}
-          >
-            tlindow.github.io
-          </div>
-        </div>
-
-        {/* Main Headline & Subtitle */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "14px",
-            marginTop: "12px",
-            marginBottom: "12px",
-          }}
-        >
-          <div
-            style={{
-              fontSize: "58px",
-              fontWeight: "900",
-              color: "#1C1917",
-              lineHeight: 1.05,
-              letterSpacing: "-0.04em",
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <span>Fintech Product-Eng</span>
-            <span style={{ color: "#2E4057" }}>Manager</span>
-          </div>
-
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "4px",
-              backgroundColor: "#FFFFFF",
-              padding: "14px 22px",
-              borderRadius: "14px",
-              border: "1px solid #E7E5E4",
-              boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
-            }}
-          >
-            <div
-              style={{
-                fontSize: "23px",
-                fontWeight: "700",
-                color: "#1C1917",
-                letterSpacing: "-0.01em",
-              }}
-            >
-              B2B SaaS on curiosity-safe, GenAI Rails
-            </div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-                fontSize: "16px",
-                fontWeight: "600",
-                color: "#78716C",
-                fontFamily: "monospace",
-              }}
-            >
-              <span>Onboarding</span>
-              <svg
-                viewBox="0 0 24 24"
-                width="16"
-                height="16"
-                stroke="#4F46E5"
-                fill="none"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
-                <polyline points="16 7 22 7 22 13" />
-              </svg>
-              <span>$0 – $10B+ GMV enterprises</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Section: Previous Employers & Education Badges */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "10px",
-            borderTop: "1px solid #E7E5E4",
-            paddingTop: "16px",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <span
-              style={{
-                fontSize: "11px",
-                fontWeight: "700",
-                color: "#78716C",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                fontFamily: "monospace",
-              }}
-            >
-              Previous Employers & Educational Institutions
-            </span>
-          </div>
-
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              alignItems: "center",
-              gap: "8px",
-            }}
-          >
-            {[
-              { name: "Affirm", role: "Merchant Advocacy" },
-              { name: "Beginner", role: "Founder / DevRel" },
-              { name: "Galvanize", role: "Lead SWE" },
-              { name: "The Tech Interactive", role: "" },
-              { name: "Computer History Museum", role: "" },
-              { name: "Northwestern University", role: "Graduate" },
-              { name: "UC San Diego", role: "NanoEngineering" },
-            ].map((item) => (
-              <div
-                key={item.name}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "6px",
-                  backgroundColor: "#FFFFFF",
-                  border: "1px solid #D6D3D1",
-                  borderRadius: "8px",
-                  padding: "5px 12px",
-                  fontSize: "13px",
-                  fontWeight: "700",
-                  color: "#1C1917",
-                  boxShadow: "0 1px 2px rgba(0,0,0,0.03)",
-                }}
-              >
-                <span>{item.name}</span>
-                {item.role && (
-                  <span
-                    style={{
-                      fontSize: "11px",
-                      fontWeight: "500",
-                      color: "#78716C",
-                      fontFamily: "monospace",
-                    }}
-                  >
-                    ({item.role})
-                  </span>
-                )}
-              </div>
-            ))}
-          </div>
+          />
         </div>
       </div>
     ),

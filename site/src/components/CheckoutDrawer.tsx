@@ -20,7 +20,7 @@ export default function CheckoutDrawer() {
     if (typeof window === "undefined") return;
 
     const handleScroll = () => {
-      const section = document.getElementById("launch-wallet");
+      const section = document.getElementById("pricing") || document.getElementById("launch-wallet");
       if (!section) return;
 
       const rect = section.getBoundingClientRect();

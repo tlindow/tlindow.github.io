@@ -73,13 +73,44 @@ export const knowledgeBase: KnowledgeTopic[] = [
     ],
     actions: [
       { label: "Book a 1:1 Session on Calendly", href: "https://calendly.com/tylerlindow/elevate", isExternal: true, variant: "primary" },
-      { label: "View Mentoring Details", href: "#mentoring", variant: "secondary" },
-      { label: "Send an Email Inquiry", href: "mailto:tyler.lindow@gmail.com", isExternal: true, variant: "outline" },
+      { label: "View Pricing & Engagement", href: "#pricing", variant: "secondary" },
+      { label: "Send an Email Inquiry", href: "mailto:tlindow.invest@gmail.com", isExternal: true, variant: "outline" },
     ],
     suggestedFollowUps: [
+      "What are Tyler's pricing and engagement tiers?",
       "How do I book a session?",
       "What projects has Tyler built?",
-      "What speaking topics does he cover?",
+    ],
+  },
+  {
+    id: "pricing",
+    title: "Pricing & Engagement Models",
+    keywords: [
+      "price", "pricing", "cost", "rate", "rates", "fee", "fees", "how much", "tier", "tiers",
+      "retainer", "advisory", "hire", "contract", "consulting", "engagement", "package"
+    ],
+    patterns: [
+      /how much (does it cost|do you charge|is a session|for mentoring|for consulting)/i,
+      /what are (your|tyler's) (rates|prices|pricing|fees|tiers)/i,
+      /pricing|rates|cost|retainer/i,
+      /how (can I|to) (hire|partner with|engage) (you|tyler)/i,
+    ],
+    summary:
+      "Tyler offers three clear engagement tiers: 1:1 Mentoring & Advisory ($150 / 60-min session), Fractional Advisory Sprints ($5,000 / mo or sprint), and Retained Full-Time Engineering & Product Leadership.",
+    details: [
+      "🌱 1:1 Mentoring & Advisory ($150 / session): Hands-on code reviews, architecture pairing, career pivots, and GenAI workflows (booked via Calendly).",
+      "⚡ Fractional Advisory & Sprints ($5,000 / mo or sprint): Strategic B2B SaaS architecture, enterprise SLA telemetry, launch de-risking, and executive advisory.",
+      "💼 Full-Time Product-Eng Leadership (Custom / Retained): Embedded Software Engineering Manager <> PM (L7 benchmark) scaling engineering orgs and safeguarding multi-billion GMV scale.",
+    ],
+    actions: [
+      { label: "View Pricing Tiers", href: "#pricing", variant: "primary" },
+      { label: "Book 1:1 on Calendly", href: "https://calendly.com/tylerlindow/elevate", isExternal: true, variant: "secondary" },
+      { label: "Inquire via Email", href: "mailto:tlindow.invest@gmail.com", isExternal: true, variant: "outline" },
+    ],
+    suggestedFollowUps: [
+      "How do I book a 1:1 session?",
+      "What is Tyler's background at Affirm?",
+      "What does Tyler mean by 'What You Get If You Buy Me'?",
     ],
   },
   {
