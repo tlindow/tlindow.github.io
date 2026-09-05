@@ -1,12 +1,8 @@
 "use client";
 
-import { Github, ArrowUpRight, BookOpen } from "lucide-react";
-import { resumeContact } from "@/data/resumeData";
-import { useAnalytics } from "@/context/AnalyticsProvider";
+import { LinkedInIcon } from "@/components/brand/PartnerLogos";
 
 export default function Navbar() {
-  const { logRecruitClick } = useAnalytics();
-
   return (
     <header className="fixed top-0 left-0 right-0 z-50 no-print">
       <div className="bg-background/90 backdrop-blur-md border-b border-border shadow-xs">
@@ -35,35 +31,17 @@ export default function Navbar() {
             </div>
           </a>
 
-          {/* Right: Nav Links & Persistent Deploy Button */}
+          {/* Right: Nav Links */}
           <div className="flex items-center gap-2.5 sm:gap-3">
             <a
-              href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/blog`}
-              className="group inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-mono font-bold transition-all hover:scale-[1.02] active:scale-[0.98] bg-sand/80 hover:bg-sand text-foreground/90 hover:text-indigo-dark border border-border hover:border-indigo/40 shadow-2xs"
-              title="Read Tyler's Blog & Field Notes"
-            >
-              <BookOpen size={13} className="text-muted group-hover:text-indigo-dark transition-colors" />
-              <span>Blog</span>
-            </a>
-
-            {/* Persistent Build CTA Button linking to GitHub */}
-            <a
-              href={resumeContact.github}
+              href="https://www.linkedin.com/in/tlindow"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() =>
-                logRecruitClick({
-                  location: "navbar",
-                  label: "Build with me",
-                  variant: "beginner_green:Build with me",
-                })
-              }
-              className="group inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-mono font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98] bg-[#2d5a3d] text-[#f5f3ef] hover:bg-[#234731] ring-1 ring-[#2d5a3d]/30"
-              title="Build with me (Tyler's GitHub)"
+              className="group inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-mono font-bold transition-all hover:scale-[1.02] active:scale-[0.98] bg-sand/80 hover:bg-sand text-foreground/90 hover:text-indigo-dark border border-border hover:border-indigo/40 shadow-2xs"
+              title="Tyler Lindow on LinkedIn"
             >
-              <Github size={13} />
-              <span>Build with me</span>
-              <ArrowUpRight size={13} className="opacity-75 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
+              <LinkedInIcon size={13} className="text-[#0A66C2] group-hover:scale-105 transition-transform" />
+              <span>LinkedIn</span>
             </a>
           </div>
         </div>

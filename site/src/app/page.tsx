@@ -1,18 +1,18 @@
 "use client";
 
 import {
-  Wallet,
+  Mail,
   FileText,
   TrendingUp,
 } from "lucide-react";
 
 import Navbar from "@/components/Navbar";
-import CheckoutDrawer from "@/components/CheckoutDrawer";
-import TractionTimeline from "@/components/TractionTimeline";
 import {
   TrustedPartnersBar,
   EducationInstitutionsBar,
 } from "@/components/brand/PartnerLogos";
+import WhatYouGet from "@/components/WhatYouGet";
+import PricingSection from "@/components/PricingSection";
 import { useAnalytics, useExperiment } from "@/context/AnalyticsProvider";
 
 export default function Home() {
@@ -109,18 +109,18 @@ export default function Home() {
             {/* Primary Pipeline Actions */}
             <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
               <a
-                href="#launch-wallet"
+                href="mailto:tyler.lindow@gmail.com"
                 onClick={() =>
                   logRecruitClick({
                     location: "hero",
-                    label: "View Launch Wallet",
-                    variant: `${recruit_cta_style}:View Launch Wallet`,
+                    label: "Contact me",
+                    variant: `${recruit_cta_style}:Contact me`,
                   })
                 }
                 className={`inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-xs sm:text-sm font-bold shadow-xs transition-all hover:scale-[1.01] active:scale-[0.99] ${getCtaStyleClass()}`}
               >
-                <Wallet size={15} />
-                <span>View Launch Wallet</span>
+                <Mail size={15} />
+                <span>Contact me</span>
               </a>
 
               <a
@@ -141,27 +141,23 @@ export default function Home() {
             <EducationInstitutionsBar />
           </header>
 
-          <div className="max-w-4xl mx-auto w-full px-4 mt-8 sm:mt-12 mb-12 sm:mb-16">
+          {/* ======================================================= */}
+          {/* 2. VALUE PROPOSITION: WHAT YOU GET IF YOU BUY ME       */}
+          {/* ======================================================= */}
+          <WhatYouGet />
+
+          <div className="max-w-4xl mx-auto w-full px-4 my-8 sm:my-12">
             <hr className="rainbow-divider h-[2px] w-full border-0 labs-rainbow-gradient rounded-full opacity-60" />
           </div>
 
           {/* ======================================================= */}
-          {/* 3. COMPANY DEBIT CARD WALLET SECTION */}
+          {/* 3. PRICING & LAUNCH WALLET SECTION                      */}
           {/* ======================================================= */}
-          <section
-            id="launch-wallet"
-            className="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 pt-4 pb-24 sm:pb-32"
-          >
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground mb-6">
-              Launch Wallet
-            </h2>
-            <TractionTimeline />
-          </section>
+          <div className="pb-24 sm:pb-32">
+            <PricingSection />
+          </div>
         </main>
       </div>
-
-      {/* Persistent Checkout-Style Bottom Drawer (Docked & Expandable) */}
-      <CheckoutDrawer />
     </div>
   );
 }

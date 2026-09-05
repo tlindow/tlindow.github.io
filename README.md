@@ -12,6 +12,22 @@ To elevate the creative and financial position of software developers through ed
 
 ---
 
+## 🏛️ Repository Architecture
+
+This repository is structured into three clear pillars:
+
+```text
+├── exercises/    # 🎯 Personal hands-on learning exercises & typing practice
+├── content/      # ✍️ Journal entries, essays, and published post repository
+└── site/         # 🌐 The living Next.js personal website & interactive resume
+```
+
+- **[`exercises/`](./exercises/README.md)** — Dedicated exclusively to personal learning, technical katas, and schema design exercises (e.g. Protobuf & gRPC settlement engineering).
+- **[`content/`](./content/README.md)** — Personal journal entries, philosophy essays (like *[Typing is Learning](./content/typing_is_learning.md)*), and canonical resume sources.
+- **[`site/`](./site/)** — The living Next.js application powering [tlindow.github.io](https://tlindow.github.io).
+
+---
+
 ## Experience Snapshot
 
 ### Beginner | Founder, Developer Product Management
@@ -47,7 +63,7 @@ To elevate the creative and financial position of software developers through ed
 
 ---
 
-## Personal Website & Interactive Resume
+## Living Website (`site/`)
 
 The `site/` directory contains a full Next.js application powering [tlindow.github.io](https://tlindow.github.io) — an on-brand, interactive, and print-optimized resume.
 

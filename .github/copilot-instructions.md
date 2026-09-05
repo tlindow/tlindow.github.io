@@ -1,16 +1,23 @@
-# GitHub Copilot Instructions for Tyler Lindow's Personal Website
+# GitHub Copilot Instructions for Tyler Lindow's Repository
 
-This repository powers **Tyler Lindow's personal website & brand hub (Lindow Labs)**. It is built with Next.js, React, TypeScript, Tailwind CSS, and Framer Motion.
+This repository powers **Tyler Lindow's workspace**, organized into three core pillars:
+1. **`exercises/`** — Hands-on technical exercises and tutorials exclusively for personal learning and deep practice.
+2. **`content/`** — Personal journal entries, essays, and published post repository (public and private drafts).
+3. **`site/`** — The living Next.js application powering Tyler's personal website and interactive portfolio.
 
 ## Repository Structure
 
+- `exercises/` — Hands-on technical learning exercises (for Tyler's personal learning)
+  - `exercises/proto-learning/` — Protobuf & gRPC B2B fintech settlement exercises
+- `content/` — Journal entries, essay drafts, and master resume source
+  - `typing_is_learning.md` — Philosophy essay on typing and hands-on coding
+  - `resume.md` — Canonical resume markdown
 - `site/` — Next.js 16 (App Router) frontend application
-  - `src/app/` — Pages (`/`, `/brand`), layout, and global styles
+  - `src/app/` — Pages (`/`, `/brand`, `/resume`, `/blog`), layout, and global styles
   - `src/components/` — Feature sections (Navbar, Hero, About, Portfolio, Speaking, Mentoring, Content, TechStack, Footer)
   - `src/components/animations/` — Composable Framer Motion building blocks (`ScrollReveal`, `AnimatedText`, `CountUp`, `FloatingOrbs`, `GradientBeam`, `MagneticButton`)
   - `src/components/brand/` — Brand marks gallery, previews, and download logic
-  - `public/` — Static assets, brand SVGs and PNG exports
-- `logs/` — Chronological markdown build logs capturing context, reflections, decisions, and future plans
+  - `public/` — Static assets, brand SVGs, PNG exports, and downloadable resume files
 - `.github/workflows/` — CI/CD workflows for GitHub Pages static deployments
 
 ## Core Tech Stack & Patterns
@@ -24,11 +31,8 @@ This repository powers **Tyler Lindow's personal website & brand hub (Lindow Lab
 
 ## Design & Code Conventions
 
-1. **Aesthetic Philosophy**: Warm, editorial, and tactile. Combines clean typography (DM Serif Display and sans-serif pairing) with physics-based motion.
-2. **Animation Architecture**: Client components (`"use client"`) utilizing reusable primitives in `src/components/animations/`. Do not introduce ad-hoc CSS animations when Framer Motion springs/transitions are appropriate.
+1. **Aesthetic Philosophy**: Warm, editorial, and tactile. Combines clean typography (DM Serif Display, Space Mono, and sans-serif pairing) with physics-based motion.
+2. **Animation Architecture**: Client components (`"use client"`) utilizing reusable primitives in `src/components/animations/`.
 3. **Static Export Friendly**: Do not use server-only features (such as `cookies()`, dynamic server headers, or dynamic SSR API routes) that break `output: "export"`.
-4. **Forbidden Cliché Tropes**:
-   - Avoid generic AI/crypto dark gradients with violet/neon borders.
-   - Avoid icon-stuffed bento boxes without clear informational hierarchy.
-   - Avoid textureless, flat surfaces; maintain subtle borders, shadows, and glassmorphism where appropriate.
-5. **Build Logs**: When making substantial architectural or strategic changes, document context, reflections, decisions, and next steps in `logs/YYYY-MM-DD-<topic>.md`.
+4. **Learning Exercises**: When working on `exercises/`, foster active typing, scaffolding, and pedagogical depth.
+5. **PR-Based Content Publishing**: The `content/` directory is managed via a Pull Request workflow so that new content broadcasts public activity to GitHub followers as a publishing feed.
