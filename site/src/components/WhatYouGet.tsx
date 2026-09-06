@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Github, BookOpen, ArrowUpRight } from "lucide-react";
+import { Github, ArrowUpRight } from "lucide-react";
 import { TinkerGlobeMark } from "@/components/brand/BeginnerMarks";
 
 interface ValuePillar {
@@ -20,14 +20,8 @@ const valuePillars: ValuePillar[] = [
     quote: "Building software is creative design",
   },
   {
-    id: "systems-thinker",
-    number: "02",
-    title: "It starts with home",
-    quote: "Excellence follows self-respect",
-  },
-  {
     id: "culture-builder",
-    number: "03",
+    number: "02",
     title: "Culture-Builder",
     quote: "We are all founders",
   },
@@ -50,7 +44,6 @@ export default function WhatYouGet() {
         {valuePillars.map((pillar, idx) => {
           const isEven = idx % 2 === 0;
           const isMethodical = pillar.id === "methodical-enjoyable";
-          const isSystemsThinker = pillar.id === "systems-thinker";
 
           return (
             <motion.div
@@ -89,8 +82,6 @@ export default function WhatYouGet() {
               >
                 {isMethodical ? (
                   <GitHubOgCard basePath={basePath} />
-                ) : isSystemsThinker ? (
-                  <CurrentlyReadingCard basePath={basePath} />
                 ) : (
                   <TinkerOgCard basePath={basePath} />
                 )}
@@ -125,57 +116,6 @@ function GitHubOgCard({ basePath }: { basePath: string }) {
       <div className="absolute top-3 right-3 z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/90 backdrop-blur-md border border-border text-xs font-mono font-bold text-foreground group-hover:text-indigo-dark group-hover:border-indigo/50 shadow-xs transition-all">
         <Github size={13} className="shrink-0" />
         <span>github.com/tlindow</span>
-        <ArrowUpRight
-          size={13}
-          className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0"
-        />
-      </div>
-    </a>
-  );
-}
-
-function CurrentlyReadingCard({ basePath }: { basePath: string }) {
-  return (
-    <a
-      href="https://www.amazon.com/dp/1607747308"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group relative flex items-center justify-center w-full aspect-[16/10] rounded-2xl border border-border bg-surface overflow-hidden hover:border-[#FF9900]/60 hover:shadow-md transition-all duration-300 cursor-pointer shadow-2xs"
-      title="The Life-Changing Magic of Tidying Up by Marie Kondo on Amazon"
-    >
-      {/* Blurred ambient book cover background */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={`${basePath}/book-marie-kondo.jpg`}
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-20 scale-125 pointer-events-none"
-      />
-
-      {/* Book Cover */}
-      <div className="relative z-10 h-[80%] aspect-[351/500] rounded-r-md rounded-l-xs shadow-xl border border-border/70 overflow-hidden group-hover:scale-105 transition-transform duration-500 bg-sand">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={`${basePath}/book-marie-kondo.jpg`}
-          alt="The Life-Changing Magic of Tidying Up by Marie Kondo"
-          className="w-full h-full object-cover object-center"
-          loading="lazy"
-        />
-        {/* Subtle book spine shadow */}
-        <div className="absolute top-0 bottom-0 left-0 w-2.5 bg-gradient-to-r from-black/25 via-black/10 to-transparent pointer-events-none" />
-      </div>
-
-      {/* Top Left: Current Read pill */}
-      <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-background/90 backdrop-blur-md border border-border text-[11px] font-mono font-bold text-foreground shadow-xs">
-        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-        <span className="text-muted font-normal">Current read:</span>
-        <span className="text-foreground">Marie Kondo</span>
-      </div>
-
-      {/* Top Right: Frosted glass Amazon link badge */}
-      <div className="absolute top-3 right-3 z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/90 backdrop-blur-md border border-border text-xs font-mono font-bold text-foreground group-hover:text-[#FF9900] group-hover:border-[#FF9900]/50 shadow-xs transition-all">
-        <BookOpen size={13} className="shrink-0 text-[#FF9900]" />
-        <span>amazon.com</span>
         <ArrowUpRight
           size={13}
           className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0"

@@ -1,59 +1,106 @@
 "use client";
 
-import { Mail } from "lucide-react";
+import { Mail, BookOpen, ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
   return (
-    <footer className="py-14 sm:py-20 px-4 sm:px-6 border-t border-border bg-surface-alt/70 no-print font-mono">
-      <div className="mx-auto max-w-2xl text-center space-y-6">
-        {/* Follow on LinkedIn CTA */}
-        <div className="space-y-5">
+    <footer className="border-t border-border bg-surface-alt/70 no-print font-mono">
+      {/* ========================================================= */}
+      {/* SECTION 1: CONTACT ME CTA                                 */}
+      {/* ========================================================= */}
+      <section className="py-14 sm:py-20 px-4 sm:px-6 border-b border-border/70">
+        <div className="mx-auto max-w-xl text-center space-y-6">
           <div className="space-y-2">
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-dark block">
-              Connect &amp; Follow
+              Get in Touch
             </span>
-            <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground font-mono">
-              Follow my work on LinkedIn
+            <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground font-mono">
+              Let&apos;s talk
             </h3>
             <p className="text-xs sm:text-sm font-mono text-muted max-w-md mx-auto leading-relaxed">
-              I share hands-on reflections on B2B fintech engineering, systems thinking, developer tooling, and shipping 0-to-1 products.
+              Open to strategic advisory, technical leadership roles, and ambitious B2B fintech products.
             </p>
           </div>
 
-          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a
-              href="https://www.linkedin.com/in/tlindow"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-mono font-bold transition-all hover:scale-[1.02] active:scale-[0.98] bg-[#0A66C2] hover:bg-[#004182] text-white shadow-xs w-full sm:w-auto"
-              title="Follow Tyler Lindow on LinkedIn"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                width={16}
-                height={16}
-                className="text-white shrink-0"
-                aria-hidden="true"
-              >
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-              </svg>
-              <span>Follow on LinkedIn</span>
-            </a>
-          </div>
-
-          <div>
+          <div className="pt-2 flex justify-center">
             <a
               href="mailto:tyler.lindow@gmail.com"
-              className="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-mono font-medium transition-all hover:scale-[1.02] active:scale-[0.98] bg-surface hover:bg-surface-alt text-foreground border border-border shadow-2xs hover:border-indigo/40"
+              className="inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3.5 text-sm font-mono font-bold transition-all hover:scale-[1.02] active:scale-[0.98] bg-foreground text-background hover:bg-foreground/90 shadow-xs"
               title="Contact Tyler Lindow"
             >
-              <Mail size={16} className="text-indigo-dark shrink-0" />
+              <Mail size={16} className="shrink-0" />
               <span>Contact me</span>
             </a>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* ========================================================= */}
+      {/* SECTION 2: PHILOSOPHY (IT STARTS WITH HOME)               */}
+      {/* ========================================================= */}
+      <section className="py-14 sm:py-20 px-4 sm:px-6 md:px-8">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-14 items-center">
+          {/* Copy Block */}
+          <div className="flex flex-col justify-center space-y-3 sm:space-y-4 text-left">
+            <span className="text-xs sm:text-sm font-mono font-bold text-indigo-dark tracking-widest uppercase">
+              Philosophy
+            </span>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold font-mono tracking-tight text-foreground">
+              It starts with home
+            </h3>
+            <p className="text-base sm:text-lg font-mono text-muted leading-relaxed">
+              Excellence follows self-respect.
+            </p>
+          </div>
+
+          {/* Book Visual Asset */}
+          <div className="w-full flex justify-center md:justify-end">
+            <a
+              href="https://www.amazon.com/dp/1607747308"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative flex items-center justify-center w-full max-w-md aspect-[16/10] rounded-2xl border border-border bg-surface overflow-hidden hover:border-[#FF9900]/60 hover:shadow-md transition-all duration-300 cursor-pointer shadow-2xs"
+              title="The Life-Changing Magic of Tidying Up by Marie Kondo on Amazon"
+            >
+              {/* Blurred ambient book cover background */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`${basePath}/book-marie-kondo.jpg`}
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-20 scale-125 pointer-events-none"
+              />
+
+              {/* Book Cover */}
+              <div className="relative z-10 h-[80%] aspect-[351/500] rounded-r-md rounded-l-xs shadow-xl border border-border/70 overflow-hidden group-hover:scale-105 transition-transform duration-500 bg-sand">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`${basePath}/book-marie-kondo.jpg`}
+                  alt="The Life-Changing Magic of Tidying Up by Marie Kondo"
+                  className="w-full h-full object-cover object-center"
+                  loading="lazy"
+                />
+                {/* Subtle book spine shadow */}
+                <div className="absolute top-0 bottom-0 left-0 w-2.5 bg-gradient-to-r from-black/25 via-black/10 to-transparent pointer-events-none" />
+              </div>
+
+              {/* Unified Current Read on Amazon Pill Badge */}
+              <div className="absolute top-3 right-3 z-10 flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/90 backdrop-blur-md border border-border text-xs font-mono font-bold text-foreground group-hover:text-[#FF9900] group-hover:border-[#FF9900]/50 shadow-xs transition-all">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+                <span className="text-muted font-normal text-[11px]">Current read:</span>
+                <BookOpen size={13} className="shrink-0 text-[#FF9900]" />
+                <span>amazon.com</span>
+                <ArrowUpRight
+                  size={13}
+                  className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0"
+                />
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
     </footer>
   );
 }
