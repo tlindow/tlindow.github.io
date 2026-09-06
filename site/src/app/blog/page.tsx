@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { blogPosts } from "@/data/blogPosts";
 
@@ -57,9 +57,15 @@ export default function BlogIndexPage() {
             <article key={post.id} className="space-y-3 group">
               {/* Meta row: pure text, zero boxes */}
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted font-mono">
+                {post.pillarLabel && (
+                  <>
+                    <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-indigo-light text-indigo-dark font-bold">
+                      {post.pillarLabel}
+                    </span>
+                    <span>·</span>
+                  </>
+                )}
                 <span className="text-foreground font-medium">{post.date}</span>
-                <span>·</span>
-                <span>{post.readTime}</span>
                 <span>·</span>
                 <span className="text-muted/80">
                   {post.tags.map((t) => `#${t.replace(/\s+/g, "")}`).join(" ")}
@@ -68,12 +74,7 @@ export default function BlogIndexPage() {
 
               {/* Title: Clean typography */}
               <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground font-mono leading-snug">
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="hover:text-indigo-dark transition-colors"
-                >
-                  {post.title}
-                </Link>
+                {post.title}
               </h2>
 
               {/* Excerpt */}
@@ -83,16 +84,9 @@ export default function BlogIndexPage() {
 
               {/* Linkout */}
               <div className="pt-2">
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-indigo-dark hover:text-labs-primary-dark transition-colors"
-                >
-                  <span>Read essay</span>
-                  <ArrowRight
-                    size={13}
-                    className="group-hover:translate-x-1 transition-transform"
-                  />
-                </Link>
+                <div className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-muted">
+                  <span>Post coming soon</span>
+                </div>
               </div>
             </article>
           ))}

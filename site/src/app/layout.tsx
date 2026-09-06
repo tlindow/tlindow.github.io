@@ -34,11 +34,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://tlindow.github.io"),
   title: "Tyler Lindow — Fintech Product-Eng Manager",
   description:
-    "Portfolio & Resume for Tyler Lindow. Fintech Product-Eng Manager — B2B SaaS on curiosity-safe, GenAI Rails. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
+    "Portfolio & Resume for Tyler Lindow. Fintech Product-Eng Manager. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
   openGraph: {
     title: "Tyler Lindow — Fintech Product-Eng Manager",
     description:
-      "Portfolio & Resume for Tyler Lindow. Fintech Product-Eng Manager — B2B SaaS on curiosity-safe, GenAI Rails. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
+      "Portfolio & Resume for Tyler Lindow. Fintech Product-Eng Manager. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
     url: "https://tlindow.github.io",
     siteName: "Tyler Lindow",
     type: "website",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Tyler Lindow — Fintech Product-Eng Manager",
     description:
-      "Portfolio & Resume for Tyler Lindow. Fintech Product-Eng Manager — B2B SaaS on curiosity-safe, GenAI Rails. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
+      "Portfolio & Resume for Tyler Lindow. Fintech Product-Eng Manager. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
   },
   alternates: {
     types: {

@@ -62,10 +62,14 @@ export default async function BlogPostPage({ params }: Props) {
 
         {/* Article Header (Editorial, Zero Boxes) */}
         <header className="mb-12 space-y-4">
+          {post.pillarLabel && (
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-dark bg-indigo-light px-2.5 py-1 rounded-md">
+              <span>Pillar: {post.pillarLabel}</span>
+            </div>
+          )}
+
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted font-mono">
             <span className="text-foreground font-medium">{post.date}</span>
-            <span>·</span>
-            <span>{post.readTime}</span>
             <span>·</span>
             <span className="text-muted/80">
               {post.tags.map((t) => `#${t.replace(/\s+/g, "")}`).join(" ")}
@@ -103,9 +107,29 @@ export default async function BlogPostPage({ params }: Props) {
           ))}
         </article>
 
-        {/* Minimalist Slide Download Action at the bottom */}
-        <div className="mt-12">
-          <SlideDownloader slides={post.slides} />
+        {/* Minimalist Slide Download Action for posts with generated slide PNGs */}
+        {post.slug === "over-index-on-intuition" && post.slides && post.slides.length > 0 && (
+          <div className="mt-12">
+            <SlideDownloader slides={post.slides} />
+          </div>
+        )}
+
+        {/* Back Link to Value Propositions */}
+        <div className="mt-16 pt-8 border-t border-border flex flex-wrap items-center justify-between gap-4 text-xs font-mono">
+          <Link
+            href="/#what-you-get"
+            className="inline-flex items-center gap-1.5 font-bold text-indigo-dark hover:text-labs-primary-dark transition-colors"
+          >
+            <ArrowLeft size={13} />
+            <span>Back to Value Propositions</span>
+          </Link>
+
+          <Link
+            href="/blog"
+            className="text-muted hover:text-foreground transition-colors"
+          >
+            <span>Browse all blog posts →</span>
+          </Link>
         </div>
       </main>
     </div>

@@ -2,40 +2,39 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Github, Calendar, BookOpen, ArrowUpRight } from "lucide-react";
-import { LinkedInIcon } from "@/components/brand/PartnerLogos";
+import { Github, BookOpen, ArrowUpRight, BookOpenText } from "lucide-react";
+import { TinkerGlobeMark } from "@/components/brand/BeginnerMarks";
+import { getBlogPostBySlug, ValuePillarId } from "@/data/blogPosts";
 
 interface ValuePillar {
-  id: string;
+  id: ValuePillarId;
   number: string;
   title: string;
   quote: string;
+  postSlug: string;
 }
 
 const valuePillars: ValuePillar[] = [
   {
-    id: "executive-presence",
-    number: "01",
-    title: "Executive Presence",
-    quote: 'Building B2B founder fintech products, ex-Affirm'
-  },
-  {
     id: "methodical-enjoyable",
-    number: "02",
-    title: "Methodical & Enjoyable",
+    number: "01",
+    title: "Methodical & Empathetic",
     quote: "Building software is creative design",
+    postSlug: "velocity-labs-system-sculpting",
   },
   {
     id: "systems-thinker",
-    number: "03",
-    title: "Systems-Thinker",
+    number: "02",
+    title: "It starts with home",
     quote: "Excellence follows self-respect",
+    postSlug: "the-rebuild-intuition",
   },
   {
-    id: "unique-perspective",
-    number: "04",
+    id: "culture-builder",
+    number: "03",
     title: "Culture-Builder",
     quote: "We are all founders",
+    postSlug: "tinker-culture-led-growth",
   },
 ];
 
@@ -45,14 +44,19 @@ export default function WhatYouGet() {
   return (
     <section
       id="what-you-get"
-      className="w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-10 sm:py-16 scroll-mt-20 select-none"
+      className="w-full border-y border-border/80 bg-surface-alt/70 pt-14 pb-12 sm:pt-20 sm:pb-16 scroll-mt-20 mt-8 sm:mt-12 mb-0"
     >
-      <div className="flex flex-col space-y-16 sm:space-y-24">
+      <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
+
+        {/* ========================================================= */}
+        {/* 3 VALUE PILLARS (01, 02, 03)                             */}
+        {/* ========================================================= */}
+        <div className="flex flex-col space-y-16 sm:space-y-24">
         {valuePillars.map((pillar, idx) => {
           const isEven = idx % 2 === 0;
-          const isExecutive = pillar.id === "executive-presence";
           const isMethodical = pillar.id === "methodical-enjoyable";
           const isSystemsThinker = pillar.id === "systems-thinker";
+          const post = getBlogPostBySlug(pillar.postSlug);
 
           return (
             <motion.div
@@ -70,7 +74,7 @@ export default function WhatYouGet() {
                 }`}
               >
                 <div className="flex items-baseline gap-2.5">
-                  <span className="text-xs sm:text-sm font-mono font-bold text-indigo-dark">
+                  <span className="text-xs sm:text-sm font-mono font-bold text-indigo-dark shrink-0">
                     {pillar.number}
                   </span>
                   <h3 className="text-2xl sm:text-3xl font-bold font-mono tracking-tight text-foreground">
@@ -81,6 +85,32 @@ export default function WhatYouGet() {
                 <p className="text-sm sm:text-base md:text-lg font-mono text-foreground/85 leading-relaxed">
                   {pillar.quote}
                 </p>
+
+                {/* Attached Blog Post Preview */}
+                {post && (
+                  <div className="pt-2 sm:pt-3">
+                    <div className="block p-3.5 sm:p-4 rounded-xl border border-border bg-surface/70 shadow-xs">
+                      <div className="flex items-center justify-between gap-2 text-xs font-mono text-muted mb-1.5">
+                        <span className="inline-flex items-center gap-1 font-semibold text-indigo-dark">
+                          <BookOpenText size={13} className="shrink-0" />
+                          <span>Blog post</span>
+                        </span>
+                      </div>
+
+                      <h4 className="text-sm sm:text-base font-bold font-mono text-foreground leading-snug">
+                        {post.title}
+                      </h4>
+
+                      <p className="mt-1.5 text-xs sm:text-sm font-mono text-muted leading-relaxed line-clamp-2">
+                        {post.previewText || post.summary}
+                      </p>
+
+                      <div className="mt-3 inline-flex items-center gap-1.5 text-xs font-mono font-bold text-muted">
+                        <span>Post coming soon</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Visual Asset */}
@@ -89,52 +119,20 @@ export default function WhatYouGet() {
                   isEven ? "md:order-2" : "md:order-1"
                 }`}
               >
-                {isExecutive ? (
-                  <LinkedInProfileCard basePath={basePath} />
-                ) : isMethodical ? (
+                {isMethodical ? (
                   <GitHubOgCard basePath={basePath} />
                 ) : isSystemsThinker ? (
                   <CurrentlyReadingCard basePath={basePath} />
                 ) : (
-                  <LumaOgCard basePath={basePath} />
+                  <TinkerOgCard basePath={basePath} />
                 )}
               </div>
             </motion.div>
           );
         })}
       </div>
-    </section>
-  );
-}
-
-function LinkedInProfileCard({ basePath }: { basePath: string }) {
-  return (
-    <a
-      href="https://www.linkedin.com/in/tlindow"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group relative block w-full aspect-[16/10] rounded-2xl border border-border bg-surface overflow-hidden hover:border-[#0A66C2]/70 hover:shadow-md transition-all duration-300 cursor-pointer shadow-2xs"
-      title="View Tyler Lindow's LinkedIn Profile"
-    >
-      {/* Current Profile Image */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={`${basePath}/IMG_0548.jpeg`}
-        alt="Tyler Lindow"
-        className="w-full h-full object-cover object-[center_20%] group-hover:scale-[1.02] transition-transform duration-500"
-        loading="lazy"
-      />
-
-      {/* Frosted glass overlay link badge */}
-      <div className="absolute top-3 right-3 z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/90 backdrop-blur-md border border-border text-xs font-mono font-bold text-foreground group-hover:text-[#0A66C2] group-hover:border-[#0A66C2]/50 shadow-xs transition-all">
-        <LinkedInIcon size={13} className="shrink-0 text-[#0A66C2]" />
-        <span>linkedin.com/in/tlindow</span>
-        <ArrowUpRight
-          size={13}
-          className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0"
-        />
       </div>
-    </a>
+    </section>
   );
 }
 
@@ -199,7 +197,14 @@ function CurrentlyReadingCard({ basePath }: { basePath: string }) {
         <div className="absolute top-0 bottom-0 left-0 w-2.5 bg-gradient-to-r from-black/25 via-black/10 to-transparent pointer-events-none" />
       </div>
 
-      {/* Frosted glass overlay link badge */}
+      {/* Top Left: Current Read pill */}
+      <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-background/90 backdrop-blur-md border border-border text-[11px] font-mono font-bold text-foreground shadow-xs">
+        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+        <span className="text-muted font-normal">Current read:</span>
+        <span className="text-foreground">Marie Kondo</span>
+      </div>
+
+      {/* Top Right: Frosted glass Amazon link badge */}
       <div className="absolute top-3 right-3 z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/90 backdrop-blur-md border border-border text-xs font-mono font-bold text-foreground group-hover:text-[#FF9900] group-hover:border-[#FF9900]/50 shadow-xs transition-all">
         <BookOpen size={13} className="shrink-0 text-[#FF9900]" />
         <span>amazon.com</span>
@@ -212,27 +217,27 @@ function CurrentlyReadingCard({ basePath }: { basePath: string }) {
   );
 }
 
-function LumaOgCard({ basePath }: { basePath: string }) {
+function TinkerOgCard({ basePath }: { basePath: string }) {
   return (
     <a
-      href="https://luma.com/user/usr-9KiQYoihDtEnnrV"
+      href="https://tinker.beginner.work"
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative block w-full aspect-[16/10] rounded-2xl border border-border bg-surface overflow-hidden hover:border-amber-400/60 hover:shadow-md transition-all duration-300 cursor-pointer shadow-2xs"
-      title="View Tyler Lindow's Luma Profile & Events"
+      className="group relative block w-full aspect-[16/10] rounded-2xl border border-border bg-surface overflow-hidden hover:border-indigo/60 hover:shadow-md transition-all duration-300 cursor-pointer shadow-2xs"
+      title="View tinker (tinker.beginner.work)"
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={`${basePath}/og-luma.png`}
-        alt="Tyler Lindow Luma OpenGraph Event Card"
+        src={`${basePath}/og-tinker.png`}
+        alt="tinker — A new way to web"
         className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
         loading="lazy"
       />
 
       {/* Frosted glass overlay link badge */}
-      <div className="absolute top-3 right-3 z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/90 backdrop-blur-md border border-border text-xs font-mono font-bold text-foreground group-hover:text-amber-700 group-hover:border-amber-400/50 shadow-xs transition-all">
-        <Calendar size={13} className="shrink-0 text-[#eb5757]" />
-        <span>lu.ma/user/usr-9KiQ...</span>
+      <div className="absolute top-3 right-3 z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/90 backdrop-blur-md border border-border text-xs font-mono font-bold text-foreground group-hover:text-indigo-dark group-hover:border-indigo/50 shadow-xs transition-all">
+        <TinkerGlobeMark className="w-3.5 h-3.5 shrink-0" />
+        <span>tinker.beginner.work</span>
         <ArrowUpRight
           size={13}
           className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0"

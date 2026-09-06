@@ -45,8 +45,6 @@ export default function BlogSection() {
           <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-muted">
             <span className="font-bold text-foreground">{featuredPost.date}</span>
             <span>·</span>
-            <span>{featuredPost.readTime}</span>
-            <span>·</span>
             <div className="flex flex-wrap gap-1.5">
               {featuredPost.tags.map((tag) => (
                 <span

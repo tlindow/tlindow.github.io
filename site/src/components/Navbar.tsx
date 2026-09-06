@@ -1,6 +1,6 @@
 "use client";
 
-import { LinkedInIcon } from "@/components/brand/PartnerLogos";
+import { TinkerGlobeMark } from "@/components/brand/BeginnerMarks";
 
 export default function Navbar() {
   return (
@@ -34,14 +34,14 @@ export default function Navbar() {
           {/* Right: Nav Links */}
           <div className="flex items-center gap-2.5 sm:gap-3">
             <a
-              href="https://www.linkedin.com/in/tlindow"
+              href="https://tinker.beginner.work"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-mono font-bold transition-all hover:scale-[1.02] active:scale-[0.98] bg-sand/80 hover:bg-sand text-foreground/90 hover:text-indigo-dark border border-border hover:border-indigo/40 shadow-2xs"
-              title="Tyler Lindow on LinkedIn"
+              title="Signup to tinker"
             >
-              <LinkedInIcon size={13} className="text-[#0A66C2] group-hover:scale-105 transition-transform" />
-              <span>LinkedIn</span>
+              <TinkerGlobeMark className="w-3.5 h-3.5 shrink-0 group-hover:scale-105 transition-transform" />
+              <span>Signup to tinker</span>
             </a>
           </div>
         </div>

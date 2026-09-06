@@ -6,17 +6,23 @@ When you hire or partner with me, here is the concrete return on investment and 
 
 ---
 
-## 1. Executive Presence
+## 1. Ex-Affirm, Ex-Founder, Building B2B Fintech Products for Tech Founders
 > **Clean, sharp but not uptight—someone who "just gets it."**
 
 High-stakes engineering leadership requires the ability to communicate with extreme clarity across all layers of an organization. Whether translating technical debt to C-suite executives, mediating multi-director architectural stalemates, or presenting merchant telemetry to enterprise partners like Amazon, I bring a calm, measured, and decisive posture. Sharp without being rigid; approachable without sacrificing standards.
 
+**Proof in Practice:**
+- 📄 [Securing the $500K GMV Win: How to Mediate Technical Deadlocks and Ship](./essays/securing-500k-gmv-win.md)
+
 ---
 
-## 2. Methodical & Enjoyable
-> **Has clear methods that make building software fun, exciting, and highly enjoyable (not stuffy).**
+## 2. Methodical & Empathetic
+> **Has clear methods that make building software fun, exciting, and deeply empathetic (not stuffy).**
 
 Process shouldn't feel like bureaucracy—it should feel like a paved path that unleashes developer flow. I believe building software should be thrilling, creative, and constructionist. By establishing lightweight, psychologically safe methods, teams move fast, celebrate milestones, and actually look forward to Monday mornings without the stuffiness of corporate ceremony.
+
+**Proof in Practice:**
+- 📄 [Velocity Labs: Why the Intelligence Age Requires Top-Down System Sculpting](./essays/velocity-labs-system-sculpting.md)
 
 ---
 
@@ -32,6 +38,9 @@ Code has zero inherent value until it solves real human and business friction. I
 
 Great engineering leaders don't just solve problems; they eliminate classes of problems. Whether automating 80% of operational workflows, building real-time SLA reporting suites that reclaim 16+ hours of manual toil each month, or distributing tier-2 support to empower partner teams, I design sustainable, cost-effective systems that compound team velocity and elevate everyone around me.
 
+**Proof in Practice:**
+- 📄 [The Rebuild Intuition: When to Stop Patching Technical Debt and Start Sculpting](./essays/the-rebuild-intuition.md)
+
 ---
 
 ## 5. Results-Oriented
@@ -41,7 +50,10 @@ Engineering and business goals must never live in separate silos. My work connec
 
 ---
 
-## 6. Unique Perspective
-> **Brings a distinct, valuable point of view as a Filipino professional that serves as a long-term competitive advantage, even compared to elite institutions.**
+## 6. Culture-Builder & Unique Perspective
+> **Brings a distinct, valuable point of view as a Filipino professional and community founder that serves as an enduring competitive advantage.**
 
-True innovation comes from non-consensus perspectives and lived grit, not institutional conformity. My journey as a Filipino professional brings deep resourcefulness, relational empathy, cultural adaptability, and an instinct for building community. This perspective cuts through Silicon Valley groupthink and serves as an enduring, long-term competitive moat for any team building for a global audience.
+True innovation comes from non-consensus perspectives and lived grit, not institutional conformity. My journey as a Filipino professional brings deep resourcefulness, relational empathy, cultural adaptability, and an instinct for building community. Through the **Beginner Work** community and **tinker** ([tinker.beginner.work](https://tinker.beginner.work)), we architect culture-led growth that empowers builders to create with high agency and mutual trust.
+
+**Proof in Practice:**
+- 📄 [tinker: The Beginning of Culture-Led Growth for Product-Minded Tech Folks](./essays/tinker-culture-led-growth.md)
