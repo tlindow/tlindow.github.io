@@ -2,16 +2,14 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Github, BookOpen, ArrowUpRight, BookOpenText } from "lucide-react";
+import { Github, BookOpen, ArrowUpRight } from "lucide-react";
 import { TinkerGlobeMark } from "@/components/brand/BeginnerMarks";
-import { getBlogPostBySlug, ValuePillarId } from "@/data/blogPosts";
 
 interface ValuePillar {
-  id: ValuePillarId;
+  id: string;
   number: string;
   title: string;
   quote: string;
-  postSlug: string;
 }
 
 const valuePillars: ValuePillar[] = [
@@ -20,21 +18,18 @@ const valuePillars: ValuePillar[] = [
     number: "01",
     title: "Methodical & Empathetic",
     quote: "Building software is creative design",
-    postSlug: "velocity-labs-system-sculpting",
   },
   {
     id: "systems-thinker",
     number: "02",
     title: "It starts with home",
     quote: "Excellence follows self-respect",
-    postSlug: "the-rebuild-intuition",
   },
   {
     id: "culture-builder",
     number: "03",
     title: "Culture-Builder",
     quote: "We are all founders",
-    postSlug: "tinker-culture-led-growth",
   },
 ];
 
@@ -56,7 +51,6 @@ export default function WhatYouGet() {
           const isEven = idx % 2 === 0;
           const isMethodical = pillar.id === "methodical-enjoyable";
           const isSystemsThinker = pillar.id === "systems-thinker";
-          const post = getBlogPostBySlug(pillar.postSlug);
 
           return (
             <motion.div
@@ -85,32 +79,6 @@ export default function WhatYouGet() {
                 <p className="text-sm sm:text-base md:text-lg font-mono text-foreground/85 leading-relaxed">
                   {pillar.quote}
                 </p>
-
-                {/* Attached Blog Post Preview */}
-                {post && (
-                  <div className="pt-2 sm:pt-3">
-                    <div className="block p-3.5 sm:p-4 rounded-xl border border-border bg-surface/70 shadow-xs">
-                      <div className="flex items-center justify-between gap-2 text-xs font-mono text-muted mb-1.5">
-                        <span className="inline-flex items-center gap-1 font-semibold text-indigo-dark">
-                          <BookOpenText size={13} className="shrink-0" />
-                          <span>Blog post</span>
-                        </span>
-                      </div>
-
-                      <h4 className="text-sm sm:text-base font-bold font-mono text-foreground leading-snug">
-                        {post.title}
-                      </h4>
-
-                      <p className="mt-1.5 text-xs sm:text-sm font-mono text-muted leading-relaxed line-clamp-2">
-                        {post.previewText || post.summary}
-                      </p>
-
-                      <div className="mt-3 inline-flex items-center gap-1.5 text-xs font-mono font-bold text-muted">
-                        <span>Post coming soon</span>
-                      </div>
-                    </div>
-                  </div>
-                )}
               </div>
 
               {/* Visual Asset */}
