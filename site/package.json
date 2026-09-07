@@ -15,6 +15,7 @@
     "sync:gdoc": "node scripts/export-resume-gdoc.mjs"
   },
   "dependencies": {
+    "@types/three": "^0.185.4",
     "dotenv": "^17.4.2",
     "firebase": "^12.18.0",
     "framer-motion": "^12.35.0",
@@ -23,7 +24,8 @@
     "next": "16.1.6",
     "puppeteer": "^25.9.0",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "three": "^0.185.1"
   },
   "devDependencies": {
     "@imgly/background-removal-node": "^1.4.5",

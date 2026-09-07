@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { FileText } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import {
   TrustedPartnersBar,
@@ -9,10 +10,12 @@ import {
 import WhatYouGet from "@/components/WhatYouGet";
 import Footer from "@/components/Footer";
 import ScrollMorphAvatar from "@/components/animations/ScrollMorphAvatar";
+import { useAnalytics } from "@/context/AnalyticsProvider";
 
 export default function Home() {
   const [avatarReady, setAvatarReady] = useState(false);
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const { logResumeView } = useAnalytics();
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-indigo-light selection:text-indigo-dark font-mono flex flex-col justify-between overflow-x-clip">
@@ -66,6 +69,19 @@ export default function Home() {
                   top of funnel marketing and self service b2b portals
                 </p>
               </div>
+            </div>
+
+            {/* Primary Action Trigger: Resume */}
+            <div className="pt-2 flex justify-center">
+              <a
+                href={`${basePath}/resume`}
+                onClick={() => logResumeView("hero_cta")}
+                className="inline-flex items-center gap-2 rounded-xl bg-surface hover:bg-surface-alt text-foreground border border-border px-5 py-2.5 text-xs sm:text-sm font-mono font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                title="Read Tyler Lindow's resume"
+              >
+                <FileText size={15} className="shrink-0" />
+                <span>Read resume</span>
+              </a>
             </div>
 
             {/* Trusted Partners (Previous Employers) */}
