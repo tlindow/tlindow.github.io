@@ -152,6 +152,21 @@ export function DeepAtlasLogo({ className = "h-3.5 sm:h-4.5 w-auto" }: { classNa
   );
 }
 
+export function OlinCollegeLogo({ className = "h-4 sm:h-5 w-auto" }: { className?: string }) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={`${basePath}/olin-college-logo.svg`}
+      alt="Olin College of Engineering"
+      width={130}
+      height={26}
+      className={`object-contain ${className}`}
+      loading="eager"
+    />
+  );
+}
+
 export function TrustedPartnersBar() {
   return (
     <div className="pt-8 sm:pt-10 pb-1 flex flex-col items-center gap-3.5 text-center">
@@ -210,6 +225,11 @@ export function EducationInstitutionsBar() {
           <NorthwesternLogo className="h-5 sm:h-6 md:h-7 w-auto" />
         </div>
 
+        {/* Olin College of Engineering Badge */}
+        <div className="flex items-center gap-2 px-2.5 py-1 rounded-xl hover:bg-surface-alt transition-colors">
+          <OlinCollegeLogo className="h-4 sm:h-5 w-auto" />
+        </div>
+
         {/* Hack Reactor Badge */}
         <div className="flex items-center gap-2 px-2.5 py-1 rounded-xl hover:bg-surface-alt transition-colors">
           <HackReactorLogo className="h-4 sm:h-5 w-auto" />
@@ -223,3 +243,4 @@ export function EducationInstitutionsBar() {
     </div>
   );
 }
+

@@ -42,7 +42,7 @@ export default function Home() {
               </span>
 
               <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-foreground leading-[1.05] mx-auto">
-                Building B2B2C fintech products
+                Building B2B fintech products
               </h1>
 
               <div className="pt-2">

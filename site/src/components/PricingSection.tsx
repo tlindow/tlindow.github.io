@@ -52,7 +52,7 @@ const columns: ColumnDefinition[] = [
   {
     id: "col-3",
     number: "03",
-    title: "B2B2C",
+    title: "B2B",
     tagline: "0-to-1 B2B Fintech & Scale",
     stats: [
       { value: "$10.11B+", label: "GMV Scaled", sublabel: "Affirm" },
