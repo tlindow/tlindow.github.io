@@ -1,9 +1,11 @@
 "use client";
 
-import { Mail, BookOpen, ArrowUpRight } from "lucide-react";
+import { Mail, BookOpen, ArrowUpRight, FileText } from "lucide-react";
+import { useAnalytics } from "@/context/AnalyticsProvider";
 
 export default function Footer() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const { logResumeView } = useAnalytics();
 
   return (
     <footer className="border-t border-border bg-surface-alt/70 no-print font-mono">
@@ -24,14 +26,24 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="pt-2 flex justify-center">
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
             <a
               href="mailto:tyler.lindow@gmail.com"
-              className="inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3.5 text-sm font-mono font-bold transition-all hover:scale-[1.02] active:scale-[0.98] bg-foreground text-background hover:bg-foreground/90 shadow-xs"
+              className="inline-flex items-center justify-center gap-2 rounded-xl px-6 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-mono font-bold transition-all hover:scale-[1.02] active:scale-[0.98] bg-foreground text-background hover:bg-foreground/90 shadow-xs"
               title="Contact Tyler Lindow"
             >
-              <Mail size={16} className="shrink-0" />
+              <Mail size={15} className="shrink-0" />
               <span>Contact me</span>
+            </a>
+
+            <a
+              href={`${basePath}/resume`}
+              onClick={() => logResumeView("footer")}
+              className="inline-flex items-center justify-center gap-2 rounded-xl px-6 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-mono font-bold transition-all hover:scale-[1.02] active:scale-[0.98] bg-surface hover:bg-surface-alt text-foreground border border-border shadow-xs cursor-pointer"
+              title="Read Tyler Lindow's CV"
+            >
+              <FileText size={15} className="shrink-0" />
+              <span>CV</span>
             </a>
           </div>
         </div>

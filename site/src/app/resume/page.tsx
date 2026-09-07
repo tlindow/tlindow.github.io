@@ -5,22 +5,22 @@ import Navbar from "@/components/Navbar";
 import { parsedResume } from "@/data/resumeMarkdown";
 
 export const metadata: Metadata = {
-  title: "Resume — Tyler Lindow (Fintech Product-Eng Manager)",
+  title: "Resume — Tyler Lindow (Fintech Product & Engineering)",
   description:
-    "Web-based and printable resume for Tyler Lindow. Fintech Product-Eng Manager. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
+    "Web-based and printable resume for Tyler Lindow. Fintech Product & Engineering. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
   openGraph: {
-    title: "Resume — Tyler Lindow (Fintech Product-Eng Manager)",
+    title: "Resume — Tyler Lindow (Fintech Product & Engineering)",
     description:
-      "Web-based and printable resume for Tyler Lindow. Fintech Product-Eng Manager. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
+      "Web-based and printable resume for Tyler Lindow. Fintech Product & Engineering. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
     url: "https://tlindow.github.io/resume",
     siteName: "Tyler Lindow",
     type: "profile",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Resume — Tyler Lindow (Fintech Product-Eng Manager)",
+    title: "Resume — Tyler Lindow (Fintech Product & Engineering)",
     description:
-      "Web-based and printable resume for Tyler Lindow. Fintech Product-Eng Manager. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
+      "Web-based and printable resume for Tyler Lindow. Fintech Product & Engineering. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
   },
 };
 

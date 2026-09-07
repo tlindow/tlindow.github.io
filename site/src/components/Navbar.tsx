@@ -26,7 +26,7 @@ export default function Navbar() {
                 Tyler Lindow
               </span>
               <span className="text-[10px] text-muted font-mono leading-none hidden sm:inline">
-                Fintech Product-Eng Manager
+                Fintech Product &amp; Engineering
               </span>
             </div>
           </a>
@@ -38,10 +38,10 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-mono font-bold transition-all hover:scale-[1.02] active:scale-[0.98] bg-sand/80 hover:bg-sand text-foreground/90 hover:text-indigo-dark border border-border hover:border-indigo/40 shadow-2xs"
-              title="Signup to tinker"
+              title="Start your pitch deck"
             >
               <TinkerGlobeMark className="w-3.5 h-3.5 shrink-0 group-hover:scale-105 transition-transform" />
-              <span>Signup to tinker</span>
+              <span>Start your pitch deck</span>
             </a>
           </div>
         </div>

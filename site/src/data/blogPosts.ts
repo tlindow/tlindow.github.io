@@ -38,7 +38,7 @@ export interface BlogPost {
 
 const defaultAuthor = {
   name: "Tyler Lindow",
-  role: "Fintech Product-Eng Manager",
+  role: "Fintech Product & Engineering",
   avatar: "/IMG_0548.jpeg",
   handle: "@tlindow",
   linkedin: "https://www.linkedin.com/in/tlindow",

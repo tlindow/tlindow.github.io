@@ -1,10 +1,5 @@
 "use client";
 
-import {
-  FileText,
-  TrendingUp,
-} from "lucide-react";
-
 import Navbar from "@/components/Navbar";
 import {
   TrustedPartnersBar,
@@ -17,7 +12,6 @@ import { useAnalytics } from "@/context/AnalyticsProvider";
 
 export default function Home() {
   const {
-    logResumeView,
     logOutboundClick,
   } = useAnalytics();
 
@@ -42,14 +36,12 @@ export default function Home() {
               </span>
 
               <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-foreground leading-[1.05] mx-auto">
-                Building B2B fintech products
+                Elevating capital-tech
               </h1>
 
               <div className="pt-2">
-                <p className="text-sm sm:text-base md:text-lg font-mono text-muted inline-flex items-center justify-center gap-1.5 mx-auto">
-                  <span>$0 startups</span>
-                  <TrendingUp size={14} className="text-indigo-dark shrink-0" aria-label="Scaling to" />
-                  <span>$10B+ GMV enterprises</span>
+                <p className="text-sm sm:text-base md:text-lg font-mono text-muted mx-auto">
+                  top of funnel and self service b2b portals
                 </p>
               </div>
             </div>
@@ -66,16 +58,6 @@ export default function Home() {
               >
                 <LinkedInIcon size={16} className="text-white shrink-0" />
                 <span>Follow on LinkedIn</span>
-              </a>
-
-              <a
-                href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/resume`}
-                onClick={() => logResumeView("hero_cta")}
-                className="inline-flex items-center gap-2 rounded-xl bg-surface hover:bg-surface-alt text-foreground border border-border px-4 py-2.5 text-xs sm:text-sm font-medium transition-colors cursor-pointer"
-                title="Read web-based resume template"
-              >
-                <FileText size={15} />
-                <span>Read Resume</span>
               </a>
             </div>
 

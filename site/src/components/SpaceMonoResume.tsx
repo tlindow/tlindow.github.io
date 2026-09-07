@@ -25,7 +25,7 @@ import { useAnalytics } from "@/context/AnalyticsProvider";
 import type { ParsedResume } from "@/lib/parseResumeMarkdown";
 
 const FALLBACK_RAW_MARKDOWN = `# Tyler Lindow
-**Fintech Product-Eng Manager**
+**Fintech Product & Engineering**
 San Diego, CA | (650) 580-5788 | tlindow.invest@gmail.com
 [linkedin.com/in/tlindow](https://linkedin.com/in/tlindow) | [github.com/tlindow](https://github.com/tlindow)
 

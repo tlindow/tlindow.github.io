@@ -4,7 +4,7 @@
 import { parseResumeMarkdown, ParsedResume } from "@/lib/parseResumeMarkdown";
 
 export const rawResumeMarkdown = `# Tyler Lindow
-**Fintech Product-Eng Manager**  
+**Fintech Product & Engineering**  
 San Diego, CA | Relocating to Seattle, WA  
 (650) 580-5788 | [tlindow.invest@gmail.com](mailto:tlindow.invest@gmail.com)  
 [linkedin.com/in/tlindow](https://linkedin.com/in/tlindow) | [github.com/tlindow](https://github.com/tlindow)

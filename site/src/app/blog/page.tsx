@@ -7,11 +7,11 @@ import { blogPosts } from "@/data/blogPosts";
 export const metadata: Metadata = {
   title: "Blog — Tyler Lindow",
   description:
-    "Reflections on engineering leadership, developer intuition, AI dev tools, and building at scale. By Tyler Lindow (Fintech Product-Eng Manager).",
+    "Reflections on engineering leadership, developer intuition, AI dev tools, and building at scale. By Tyler Lindow (Fintech Product & Engineering).",
   openGraph: {
     title: "Blog — Tyler Lindow",
     description:
-      "Reflections on engineering leadership, developer intuition, AI dev tools, and building at scale. By Tyler Lindow (Fintech Product-Eng Manager).",
+      "Reflections on engineering leadership, developer intuition, AI dev tools, and building at scale. By Tyler Lindow (Fintech Product & Engineering).",
     url: "https://tlindow.github.io/blog",
     siteName: "Tyler Lindow",
     type: "website",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Blog — Tyler Lindow",
     description:
-      "Reflections on engineering leadership, developer intuition, AI dev tools, and building at scale. By Tyler Lindow (Fintech Product-Eng Manager).",
+      "Reflections on engineering leadership, developer intuition, AI dev tools, and building at scale. By Tyler Lindow (Fintech Product & Engineering).",
   },
 };
 
