@@ -1,44 +1,16 @@
-# Securing the $500K GMV Win: How to Mediate Technical Deadlocks and Ship
+At Afirm, I inherited a merchant network of over 500,000 merchants while managing the engineering team and building the system for all things merchant advocacy. 
 
-*When Staff+ engineering debates stall a company-critical initiative, the solution isn't more meetings—it's anchoring every technical trade-off in strict RFC constraints and top-line revenue attribution.*
+I started in the partner engineering organization, specifically within developer support engineering team, and there are two things that I noticed immediately.
 
----
+First, what I understood, is that even though the partner engineering organization was part of the larger engineering organization, it was in many ways a second-class engineering team (this is empirically true just by looking at the job descriptions and the pay grade). And secondly, that working with merchants as your customers at a B2B2C business like Affirm, merchants were second-class customers.
 
-## The Impasse
+I think I always wanted to figure out for myself how to be treated as a first-class engineer. And for our customer segment, merchants, figure out how to have them treated as first class customers.
 
-At Affirm, scaling enterprise merchant integrations meant operating under ruthless deadlines. Ahead of a critical promotional launch, our engineering and platform teams hit an architectural stalemate. Two Staff+ engineers held diametrically opposing views on how to structure our merchant settlement and promotional telemetry pipelines.
+In late September of 2025, I saw an opportunity to expand our merchant network natively - meaning onboarding merchants directly onto our platform via the the the technology that Affirm had built to to reduce risk in onboarding new merchants and help them integrate themselves with the Affirm payment method by using resources found in their Merchant Portal. 
 
-One camp championed a pure, greenfield event-driven redesign that promised pristine architectural boundaries but carried a three-month timeline risk. The other camp pushed for an inline database patch—fast to ship, but hazardous to maintain across high-volume promotional spikes.
+And the opportunity I saw was twofold - (1) to improve the existing technical architecture of the Merchant Portal and (2) to enlarge the funnel for customers and merchants by improving the marketing site, affirm.com. Continuing to enhance our own merchant onboarding pipeline would reduce the risk of a growing merchant portfolio being disintermediated by a partner payment network like Stripe or Shopify.
 
-While the debate spun through weeks of heated Slack threads and unresolved comment blocks, the promotional deadline was slipping. At stake was an estimated **$500,000 in incremental Gross Merchandise Volume (GMV)** that our merchant partners were counting on for the quarter.
+--
 
-## Moving Past Opinion: The RFC Boundary Box
+--
 
-Engineering disagreements rarely happen because people don't care; they happen because brilliant engineers care intensely about different dimensions of a system. When debates become personal or philosophical, leadership must change the coordinate system.
-
-I called an in-person RFC facilitation session with a strict mandate: **we are not leaving this room with consensus; we are leaving with a decisive path anchored in boundary constraints.**
-
-We reframed the debate around three non-negotiable boundaries:
-1. **The Hard Latency & Consistency Budget**: The settlement ledger could not tolerate eventually consistent reads exceeding 250ms during peak checkout traffic.
-2. **The Revenue Timeline**: Any architecture that could not reach staging verification two weeks prior to the promotional freeze was dead on arrival.
-3. **The Rollback Blast Radius**: In the event of payload corruption, the fallback pipeline had to isolate the merchant portfolio without manual database surgeries.
-
-By mapping both proposals against these explicit constraints rather than personal aesthetics, the path cleared immediately. The greenfield architecture failed the timeline boundary, while the inline patch failed the latency and rollback budgets.
-
-## The Hybrid Architecture: Sculpting the Middle Path
-
-With the boundary conditions agreed upon, we sculpted a hybrid compromise:
-- We implemented a bounded gRPC service layer that decoupled merchant settlement logic without rebuilding the entire data ingestion backbone.
-- We isolated the promotional discount ledger behind an idempotent worker queue that guaranteed zero double-credit anomalies during traffic bursts.
-- We established automated telemetry alerting directly to our merchant operations dashboard, converting raw error metrics into real-time GMV impact indicators.
-
-Both Staff+ leads were invited to co-author the final implementation spec. The debate transformed from a territorial defense into a collaborative engineering challenge.
-
-## The Outcome
-
-The integration went live 72 hours ahead of promotional freeze. Over the course of the promotional campaign:
-- **$500K+ incremental GMV** was captured with zero ledger anomalies.
-- P99 latency remained stable well below our 150ms service level agreement.
-- The merchant operations team reclaimed hours of manual reconciliation toil through the new automated telemetry.
-
-Executive presence isn't about being the loudest voice in the room or pretending to have every technical answer. It's about bringing calm, rigorous clarity to chaotic situations, respecting deep technical expertise, and anchoring architectural decisions where they belong: in the undeniable language of enterprise value.
