@@ -17,7 +17,7 @@ const valuePillars: ValuePillar[] = [
     id: "culture-builder",
     number: "01",
     title: "Capture the founder market",
-    subtitle: "Your total addressable market is a quadrillion",
+    subtitle: "Your total addressable market is $1Q (quadrillion)",
   },
   {
     id: "methodical-enjoyable",
