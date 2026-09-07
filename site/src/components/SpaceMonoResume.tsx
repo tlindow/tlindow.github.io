@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, type Variants } from "framer-motion";
 import {
   Download,
   Copy,
@@ -9,15 +10,13 @@ import {
   Mail,
   Phone,
   MapPin,
-  ExternalLink,
   Printer,
+  ArrowUpRight,
 } from "lucide-react";
 import { LinkedInIcon } from "@/components/brand/PartnerLogos";
 import {
   resumeContact,
   professionalSummary,
-  allToolkitSkills,
-  allBusinessToolkitSkills,
   professionalExperience,
   educationList,
 } from "@/data/resumeData";
@@ -77,6 +76,35 @@ To elevate the creative and financial position of software developers through ed
 * **University of California, San Diego** | B.S. NanoEngineering – *Cum Laude*
 `;
 
+/* ───────────────────────────────────────────────────────────────────── */
+/* Stagger entrance variants                                             */
+/* ───────────────────────────────────────────────────────────────────── */
+
+const sectionVariants: Variants = {
+  hidden: { opacity: 0, y: 12 },
+  visible: (i: number = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, delay: i * 0.05, ease: "easeOut" },
+  }),
+};
+
+/* ───────────────────────────────────────────────────────────────────── */
+/* Minimalist Section Header                                             */
+/* ───────────────────────────────────────────────────────────────────── */
+
+function SectionHeader({ title }: { title: string }) {
+  return (
+    <h2 className="text-base sm:text-lg font-serif font-normal tracking-tight text-foreground mb-3">
+      {title}
+    </h2>
+  );
+}
+
+/* ───────────────────────────────────────────────────────────────────── */
+/* Main component                                                       */
+/* ───────────────────────────────────────────────────────────────────── */
+
 interface SpaceMonoResumeProps {
   parsedResume?: ParsedResume;
 }
@@ -88,8 +116,6 @@ export default function SpaceMonoResume({ parsedResume }: SpaceMonoResumeProps) 
 
   const contact = parsedResume?.contact || resumeContact;
   const vision = parsedResume?.visionText || professionalSummary.text;
-  const techSkills = parsedResume?.technicalToolkit || allToolkitSkills;
-  const bizSkills = parsedResume?.businessToolkit || allBusinessToolkitSkills;
   const experiences = parsedResume?.experiences || professionalExperience;
   const education = parsedResume?.education || educationList;
   const skillsList = parsedResume?.skillsList || [
@@ -125,24 +151,42 @@ export default function SpaceMonoResume({ parsedResume }: SpaceMonoResumeProps) 
     <div className="bg-background text-foreground pt-1 pb-12 sm:pb-20 px-3 sm:px-6 print:py-0 print:px-0 print:min-h-0">
       {/* Main Single Resume Document Canvas */}
       <main className="max-w-4xl mx-auto print:max-w-none print:m-0 print:p-0">
-        <article className="resume-paper rounded-3xl bg-surface border border-border p-6 sm:p-16 font-mono text-foreground leading-relaxed selection:bg-indigo-light shadow-md hover:shadow-lg relative overflow-visible print:p-0 print:m-0 print:border-none print:shadow-none print:rounded-none">
-          {/* Header: Name, Title, Contact */}
-          <header className="resume-section pb-3.5">
+        <article className="resume-paper rounded-3xl bg-surface border border-border p-6 sm:p-14 text-foreground leading-relaxed selection:bg-indigo-light shadow-sm hover:shadow-md relative overflow-visible print:p-0 print:m-0 print:border-none print:shadow-none print:rounded-none">
+
+          {/* ─── Signature rainbow accent bar (top of document) ─── */}
+          <div
+            className="absolute top-0 left-6 right-6 sm:left-14 sm:right-14 h-[2px] rounded-full print:left-0 print:right-0"
+            style={{
+              background:
+                "linear-gradient(90deg, #C4B5FD 0%, #A5B4FC 25%, #7DD3FC 50%, #6EE7B7 75%, #FDBA74 100%)",
+            }}
+          />
+
+          {/* ═══════════════════════════════════════════════════════ */}
+          {/* HEADER: Name, Title, Contact Info                      */}
+          {/* ═══════════════════════════════════════════════════════ */}
+          <motion.header
+            className="resume-section pt-3 pb-4 print:pt-0"
+            variants={sectionVariants}
+            initial="hidden"
+            animate="visible"
+            custom={0}
+          >
             <div>
-              <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-foreground pl-0.5">
+              <h1 className="text-2xl sm:text-4xl font-serif font-normal tracking-tight text-foreground">
                 {contact.name}
               </h1>
-              <p className="mt-1.5 text-sm sm:text-base font-bold text-indigo-dark">
+              <p className="mt-1.5 text-xs sm:text-sm font-sans font-medium text-indigo-dark">
                 {contact.title}
               </p>
             </div>
 
-            {/* Contact Metadata Bar: Three Lines */}
-            <div className="mt-3 pt-2.5 border-t border-border-subtle space-y-1.5 text-xs sm:text-sm text-muted font-mono">
+            {/* Contact Metadata: Clean, Minimalist Rows */}
+            <div className="mt-3 pt-2.5 border-t border-border/60 space-y-1.5 text-xs sm:text-sm text-muted font-mono">
               {/* Line 1: Location & Relocation */}
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                <span className="inline-flex items-center gap-1 text-foreground">
-                  <MapPin size={12} className="text-indigo-dark" />
+                <span className="inline-flex items-center gap-1.5 text-foreground">
+                  <MapPin size={12} className="text-indigo-dark shrink-0" />
                   {contact.location}
                 </span>
                 {contact.relocation && (
@@ -155,11 +199,10 @@ export default function SpaceMonoResume({ parsedResume }: SpaceMonoResumeProps) 
                 )}
               </div>
 
-              {/* Line 2: Phone & Email (on their own line) */}
+              {/* Line 2: Phone & Email */}
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                <div className="inline-flex items-center gap-1 text-foreground">
-                  <Phone size={12} className="text-indigo-dark" />
-                  {/* Web view: Obscured / click-to-reveal */}
+                <div className="inline-flex items-center gap-1.5 text-foreground">
+                  <Phone size={12} className="text-sky shrink-0" />
                   <span className="print:hidden">
                     {revealPhone ? (
                       <a
@@ -179,7 +222,6 @@ export default function SpaceMonoResume({ parsedResume }: SpaceMonoResumeProps) 
                       </button>
                     )}
                   </span>
-                  {/* Print view: Always full un-obscured number */}
                   <span className="hidden print:inline text-foreground">
                     {contact.phone}
                   </span>
@@ -188,9 +230,9 @@ export default function SpaceMonoResume({ parsedResume }: SpaceMonoResumeProps) 
 
                 <a
                   href={`mailto:${contact.email}`}
-                  className="inline-flex items-center gap-1 text-foreground hover:text-indigo-dark transition-colors underline underline-offset-2"
+                  className="inline-flex items-center gap-1.5 text-foreground hover:text-indigo-dark transition-colors underline underline-offset-2"
                 >
-                  <Mail size={12} className="text-indigo-dark" />
+                  <Mail size={12} className="text-violet shrink-0" />
                   {contact.email}
                 </a>
               </div>
@@ -201,11 +243,11 @@ export default function SpaceMonoResume({ parsedResume }: SpaceMonoResumeProps) 
                   href={contact.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-foreground hover:text-indigo-dark transition-colors underline underline-offset-2"
+                  className="group inline-flex items-center gap-1.5 text-foreground hover:text-indigo-dark transition-colors underline underline-offset-2"
                 >
                   <LinkedInIcon size={12} />
                   <span>{contact.linkedinDisplay}</span>
-                  <ExternalLink size={10} className="no-print" />
+                  <ArrowUpRight size={10} className="opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 no-print" />
                 </a>
                 <span className="text-border select-none">|</span>
 
@@ -213,93 +255,106 @@ export default function SpaceMonoResume({ parsedResume }: SpaceMonoResumeProps) 
                   href={contact.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-foreground hover:text-indigo-dark transition-colors underline underline-offset-2"
+                  className="group inline-flex items-center gap-1.5 text-foreground hover:text-indigo-dark transition-colors underline underline-offset-2"
                 >
-                  <Github size={12} />
+                  <Github size={12} className="text-foreground shrink-0" />
                   <span>{contact.githubDisplay}</span>
-                  <ExternalLink size={10} className="no-print" />
+                  <ArrowUpRight size={10} className="opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 no-print" />
                 </a>
               </div>
             </div>
-          </header>
+          </motion.header>
 
-          <hr className="rainbow-divider my-4 h-[2px] w-full border-0 labs-rainbow-gradient rounded-full opacity-85" />
-
-          {/* Section 1: Vision */}
-          <section className="resume-section my-5">
-            <h2 className="text-lg sm:text-xl font-bold tracking-tight text-foreground mb-2.5">
-              Vision
-            </h2>
-
-            <p className="text-xs sm:text-sm text-foreground/90 font-mono leading-relaxed">
+          {/* ═══════════════════════════════════════════════════════ */}
+          {/* SECTION 1: Vision                                      */}
+          {/* ═══════════════════════════════════════════════════════ */}
+          <motion.section
+            className="resume-section py-5 border-t border-border/60"
+            variants={sectionVariants}
+            initial="hidden"
+            animate="visible"
+            custom={1}
+          >
+            <SectionHeader title="Vision" />
+            <p className="text-xs sm:text-sm text-foreground/85 font-sans leading-relaxed">
               {vision}
             </p>
-          </section>
+          </motion.section>
 
+          {/* ═══════════════════════════════════════════════════════ */}
+          {/* SECTION 2: Skills & Toolkits                           */}
+          {/* ═══════════════════════════════════════════════════════ */}
           {skillsList.length > 0 && (
-            <>
-              <hr className="rainbow-divider my-4 h-[2px] w-full border-0 labs-rainbow-gradient rounded-full opacity-85" />
-
-              {/* Section 2: Skills & Toolkits */}
-              <section className="resume-section my-5">
-                <h2 className="text-lg sm:text-xl font-bold tracking-tight text-foreground mb-3.5">
-                  Skills &amp; Toolkits
-                </h2>
-
-                <ul className="space-y-2.5 text-xs sm:text-sm text-foreground/90 font-mono">
-                  {skillsList.map((skillCat, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm">
-                      <span className="text-indigo-dark select-none font-bold text-xs sm:text-sm shrink-0 mt-0.5">•</span>
-                      <div className="text-xs sm:text-sm">
-                        <strong className="font-bold text-foreground mr-1.5">
-                          {skillCat.category}:
-                        </strong>
-                        <span>{skillCat.skills}</span>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            </>
+            <motion.section
+              className="resume-section py-5 border-t border-border/60"
+              variants={sectionVariants}
+              initial="hidden"
+              animate="visible"
+              custom={2}
+            >
+              <SectionHeader title="Skills & Toolkits" />
+              <ul className="space-y-2.5 text-xs sm:text-sm font-sans text-foreground/85">
+                {skillsList.map((skillCat, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-dark mt-1.5 shrink-0" />
+                    <div>
+                      <strong className="font-semibold text-foreground mr-1.5">
+                        {skillCat.category}:
+                      </strong>
+                      <span className="text-foreground/80">{skillCat.skills}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </motion.section>
           )}
 
-          <hr className="rainbow-divider my-4 h-[2px] w-full border-0 labs-rainbow-gradient rounded-full opacity-85" />
+          {/* ═══════════════════════════════════════════════════════ */}
+          {/* SECTION 3: Professional Experience                      */}
+          {/* ═══════════════════════════════════════════════════════ */}
+          <motion.section
+            className="resume-section py-5 border-t border-border/60"
+            variants={sectionVariants}
+            initial="hidden"
+            animate="visible"
+            custom={3}
+          >
+            <SectionHeader title="Professional Experience" />
 
-          {/* Section 3: Professional Experience (Complete Linear List) */}
-          <section className="resume-section my-5">
-            <h2 className="text-lg sm:text-xl font-bold tracking-tight text-foreground mb-5">
-              Professional Experience
-            </h2>
-
-            <div className="space-y-9 sm:space-y-11">
+            <div className="space-y-7 sm:space-y-9">
               {experiences.map((item) => (
                 <div key={item.id} className="resume-experience-item">
                   {/* Role Header */}
                   <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-                    <h3 className="text-sm sm:text-base font-bold text-foreground flex flex-wrap items-baseline gap-2">
-                      <span className="text-foreground">{item.company}</span>
-                      <span className="text-muted font-normal">|</span>
-                      <span className="text-indigo-dark">{item.role}</span>
+                    <h3 className="text-sm sm:text-base text-foreground flex flex-wrap items-baseline gap-2">
+                      <span className="font-serif font-normal">{item.company}</span>
+                      <span className="text-muted font-sans text-xs">|</span>
+                      <span className="font-sans font-medium text-indigo-dark">{item.role}</span>
                     </h3>
                   </div>
 
-                  {/* Location & Period Subtext */}
-                  <p className="mt-1 text-xs sm:text-sm text-muted italic font-mono flex flex-wrap items-center gap-2">
-                    <span>{item.location} | {item.period}{item.duration ? ` (${item.duration})` : ""}</span>
+                  {/* Location & Period */}
+                  <p className="mt-0.5 text-xs font-mono text-muted flex flex-wrap items-center gap-2">
+                    <span className="inline-flex items-center gap-1">
+                      <MapPin size={11} className="text-indigo-dark/70" />
+                      {item.location}
+                    </span>
+                    <span className="text-border select-none">|</span>
+                    <span>{item.period}{item.duration ? ` (${item.duration})` : ""}</span>
                   </p>
 
                   {/* Bullets */}
-                  <ul className="mt-2.5 space-y-2 text-xs sm:text-sm text-foreground/90 font-mono leading-relaxed pl-1">
+                  <ul className="mt-2.5 space-y-2 text-xs sm:text-sm font-sans text-muted leading-relaxed pl-0.5">
                     {item.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2.5 text-xs sm:text-sm">
-                        <span className="text-indigo-dark select-none font-bold text-xs sm:text-sm shrink-0 mt-0.5">•</span>
-                        <div className="text-xs sm:text-sm">
+                      <li key={bIdx} className="flex items-start gap-2.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-dark mt-1.5 shrink-0" />
+                        <div>
                           {bullet.category && (
-                            <strong className="font-bold text-foreground mr-1">
+                            <strong className="font-semibold text-foreground mr-1">
                               {bullet.category}:
                             </strong>
                           )}
-                          <span>{bullet.text}</span>
+                          <span className="text-foreground/85">{bullet.text}</span>
                         </div>
                       </li>
                     ))}
@@ -307,35 +362,40 @@ export default function SpaceMonoResume({ parsedResume }: SpaceMonoResumeProps) 
                 </div>
               ))}
             </div>
-          </section>
+          </motion.section>
 
-          <hr className="rainbow-divider my-4 h-[2px] w-full border-0 labs-rainbow-gradient rounded-full opacity-85" />
-
-          {/* Section 4: Education */}
-          <section className="resume-section my-5">
-            <h2 className="text-lg sm:text-xl font-bold tracking-tight text-foreground mb-3.5">
-              Education
-            </h2>
-
-            <ul className="space-y-2.5 text-xs sm:text-sm text-foreground/90 font-mono">
+          {/* ═══════════════════════════════════════════════════════ */}
+          {/* SECTION 4: Education                                    */}
+          {/* ═══════════════════════════════════════════════════════ */}
+          <motion.section
+            className="resume-section py-5 border-t border-border/60"
+            variants={sectionVariants}
+            initial="hidden"
+            animate="visible"
+            custom={4}
+          >
+            <SectionHeader title="Education" />
+            <ul className="space-y-2 text-xs sm:text-sm font-sans text-foreground/85">
               {education.map((edu, eduIdx) => (
-                <li key={`${edu.institution}-${eduIdx}`} className="flex items-start gap-2.5 text-xs sm:text-sm">
-                  <span className="text-indigo-dark select-none font-bold text-xs sm:text-sm shrink-0 mt-0.5">•</span>
-                  <div className="text-xs sm:text-sm">
-                    <strong className="font-bold text-foreground mr-1.5">
+                <li key={`${edu.institution}-${eduIdx}`} className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-indigo-dark mt-1.5 shrink-0" />
+                  <div>
+                    <strong className="font-semibold text-foreground mr-1.5">
                       {edu.institution}
                     </strong>
                     <span className="text-muted font-normal mr-1.5">|</span>
-                    <span>{edu.degree || (edu as unknown as { detail: string }).detail}</span>
+                    <span className="text-foreground/80">{edu.degree || (edu as unknown as { detail: string }).detail}</span>
                   </div>
                 </li>
               ))}
             </ul>
-          </section>
+          </motion.section>
         </article>
       </main>
 
-      {/* Bottom Download as PDF Button & Actions (Outside of Resume Section, No-Print) */}
+      {/* ═══════════════════════════════════════════════════════════ */}
+      {/* FOOTER ACTIONS (Outside Resume, No-Print)                  */}
+      {/* ═══════════════════════════════════════════════════════════ */}
       <footer className="max-w-4xl mx-auto mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 no-print">
         <div className="flex flex-wrap items-center gap-3">
           {/* Direct Download as PDF Link */}
@@ -343,7 +403,7 @@ export default function SpaceMonoResume({ parsedResume }: SpaceMonoResumeProps) 
             href="/Tyler_Lindow_Resume.pdf"
             download="Tyler_Lindow_Resume.pdf"
             onClick={() => logResumeView("download_pdf")}
-            className="inline-flex items-center gap-2 rounded-2xl bg-indigo-dark text-cream hover:bg-labs-primary-dark px-6 py-3 text-xs sm:text-sm font-mono font-bold shadow-sm transition-all cursor-pointer border border-indigo-dark/20 hover:scale-[1.02] active:scale-[0.98]"
+            className="inline-flex items-center gap-2 rounded-full bg-indigo-dark text-sand hover:bg-labs-primary-dark px-6 py-3 text-xs sm:text-sm font-mono font-bold shadow-sm transition-all duration-200 cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
             title="Download compiled resume as PDF"
           >
             <Download size={15} />
@@ -354,7 +414,7 @@ export default function SpaceMonoResume({ parsedResume }: SpaceMonoResumeProps) 
           <button
             type="button"
             onClick={handlePrint}
-            className="inline-flex items-center gap-1.5 rounded-2xl bg-surface hover:bg-surface-alt text-foreground border border-border px-4 py-3 text-xs font-mono font-medium transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 rounded-full bg-surface hover:bg-surface-alt text-foreground border border-border hover:border-indigo/40 px-4 py-3 text-xs font-mono font-medium shadow-sm transition-all duration-200 cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
             title="Open browser print dialog to print or save PDF"
           >
             <Printer size={13} className="text-muted" />
@@ -365,7 +425,7 @@ export default function SpaceMonoResume({ parsedResume }: SpaceMonoResumeProps) 
           <button
             type="button"
             onClick={handleCopyMarkdown}
-            className="inline-flex items-center gap-1.5 rounded-2xl bg-surface hover:bg-surface-alt text-foreground border border-border px-4 py-3 text-xs font-mono font-medium transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 rounded-full bg-surface hover:bg-surface-alt text-foreground border border-border hover:border-indigo/40 px-4 py-3 text-xs font-mono font-medium shadow-sm transition-all duration-200 cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
             title="Copy raw markdown to clipboard"
           >
             {copiedMd ? (

@@ -156,6 +156,27 @@ body {
     line-height: 1.32 !important;
   }
 
+  .resume-section {
+    padding-top: 0.35rem !important;
+    padding-bottom: 0.35rem !important;
+  }
+
+  .resume-section > div.rounded-2xl,
+  .resume-experience-item {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .resume-section .rounded-full {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 0.4rem 0 0 !important;
+    box-shadow: none !important;
+  }
+
   h1 {
     font-size: 15.0pt !important;
     line-height: 1.1 !important;
@@ -163,6 +184,7 @@ body {
 
   h2 {
     font-size: 10.8pt !important;
+    margin-bottom: 0.25rem !important;
   }
 
   h3,

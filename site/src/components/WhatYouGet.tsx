@@ -2,7 +2,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Github, ArrowUpRight, Bot } from "lucide-react";
 import { TinkerGlobeMark } from "@/components/brand/BeginnerMarks";
 
 interface ValuePillar {
@@ -17,7 +16,7 @@ const valuePillars: ValuePillar[] = [
     id: "culture-builder",
     number: "01",
     title: "Capture the founder market",
-    subtitle: "Your total addressable market is $1Q (quadrillion)",
+    subtitle: "Your TAM is 10x",
   },
   {
     id: "methodical-enjoyable",
@@ -36,9 +35,9 @@ export default function WhatYouGet() {
       <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
 
         {/* ========================================================= */}
-        {/* VALUE PILLARS (01, 02) SIDE BY SIDE                       */}
+        {/* VALUE PILLARS (01, 02) SIDE BY SIDE ON DESKTOP            */}
         {/* ========================================================= */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-8 lg:gap-10 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 lg:gap-16 items-start w-full">
           {valuePillars.map((pillar) => {
             const isCultureBuilder = pillar.id === "culture-builder";
 
@@ -49,11 +48,11 @@ export default function WhatYouGet() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
-                className="flex flex-col text-left items-start w-full h-full justify-between gap-4 sm:gap-5"
+                className="flex flex-col text-center md:text-left items-center md:items-start justify-between w-full h-full gap-5 sm:gap-6"
               >
                 {/* Copy Block */}
-                <div className="flex flex-col gap-1 w-full">
-                  <div className="flex items-baseline gap-2.5 w-full">
+                <div className="flex flex-col gap-1 w-full md:min-h-[80px] items-center md:items-start">
+                  <div className="flex items-baseline justify-center md:justify-start gap-2.5 w-full">
                     <span className="text-xs sm:text-sm font-mono font-bold text-indigo-dark shrink-0">
                       {pillar.number}
                     </span>
@@ -62,24 +61,22 @@ export default function WhatYouGet() {
                     </h3>
                   </div>
                   {pillar.subtitle && (
-                    <p className="text-xs sm:text-sm font-mono text-muted leading-relaxed pl-6 sm:pl-7">
+                    <p className="text-xs sm:text-sm font-mono text-muted leading-relaxed text-center md:text-left pl-0 md:pl-6 sm:md:pl-7">
                       {pillar.subtitle}
                     </p>
                   )}
                 </div>
 
-                {/* Visual Asset & Link */}
-                <div className="w-full flex-1 flex flex-col justify-between items-end gap-2.5">
+                {/* Visual */}
+                <div className="flex flex-col items-center md:items-start w-full">
                   {isCultureBuilder ? (
-                    <>
-                      <TinkerAppCard />
-                      <StartPitchDeckBannerLink />
-                    </>
+                    <div className="w-[340px] max-w-full mx-auto md:mx-0">
+                      <TinkerDebitCard />
+                    </div>
                   ) : (
-                    <>
-                      <ExerciseDiffCard />
-                      <TechnicalThesisBannerLink />
-                    </>
+                    <div className="w-[340px] max-w-full mx-auto md:mx-0">
+                      <GitHubDebitCard />
+                    </div>
                   )}
                 </div>
               </motion.div>
@@ -91,213 +88,110 @@ export default function WhatYouGet() {
   );
 }
 
-function StartPitchDeckBannerLink() {
+function GitHubOfficialMark({ className = "w-6 h-6", ...props }: React.SVGProps<SVGSVGElement>) {
   return (
-    <a
-      href="https://tinker.beginner.work"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group inline-flex items-center gap-1.5 self-end rounded-full px-3 py-1.5 text-xs font-mono font-bold transition-all hover:scale-[1.02] active:scale-[0.98] bg-sand/80 hover:bg-sand text-foreground/90 hover:text-indigo-dark border border-border hover:border-indigo/40 shadow-2xs cursor-pointer"
-      title="Start your pitch deck"
+    <svg
+      viewBox="0 0 98 96"
+      fill="none"
+      role="img"
+      aria-label="GitHub mark"
+      className={className}
+      {...props}
     >
-      <TinkerGlobeMark className="w-3.5 h-3.5 shrink-0 group-hover:scale-105 transition-transform" />
-      <span>Start your pitch deck</span>
-    </a>
+      <circle cx="49" cy="48" r="48" fill="#FFFFFF" stroke="#D0D7DE" strokeWidth="1.5" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.36 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"
+        fill="#24292F"
+      />
+    </svg>
   );
 }
 
-function TechnicalThesisBannerLink() {
+function GitHubDebitCard() {
   return (
     <a
       href="https://github.com/tlindow"
       target="_blank"
       rel="noopener noreferrer"
-      className="group inline-flex items-center gap-1.5 self-end rounded-full px-3 py-1.5 text-xs font-mono font-bold transition-all hover:scale-[1.02] active:scale-[0.98] bg-[#f6f8fa] hover:bg-[#f3f4f6] text-[#24292f] hover:text-[#0969da] border border-[#d0d7de] hover:border-[#b0b8c1] shadow-2xs cursor-pointer"
-      title="View my Github profile"
+      className="group relative flex flex-col justify-between w-[340px] max-w-full aspect-[1.586/1] rounded-[20px] border border-[#D0D7DE] bg-[#F6F8FA] overflow-hidden shadow-xs hover:border-[#24292F]/40 hover:shadow-md transition-all duration-300 cursor-pointer select-none"
+      title="Open Tyler Lindow's GitHub (github.com/tlindow)"
     >
-      <Github className="w-3.5 h-3.5 shrink-0 text-[#24292f] group-hover:text-[#0969da] group-hover:scale-105 transition-transform" />
-      <span>View my Github profile</span>
-    </a>
-  );
-}
+      {/* Signature GitHub Monochrome Spectrum Trim */}
+      <div
+        className="w-full h-2 shrink-0"
+        style={{
+          background:
+            "linear-gradient(90deg, #24292F 0%, #57606A 40%, #8C959F 75%, #D0D7DE 100%)",
+        }}
+      />
 
-function ExerciseDiffCard() {
-  return (
-    <a
-      href="https://github.com/tlindow/tlindow.github.io/blob/main/exercises/proto-learning/merchant_settlement.proto"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group flex flex-col justify-between w-full flex-1 rounded-xl border border-[#d0d7de] bg-white overflow-hidden hover:border-[#0969da]/60 hover:shadow-md transition-all duration-200 shadow-2xs font-mono text-[11px] sm:text-xs text-[#24292f]"
-      title="View merchant settlement Protobuf exercise on GitHub"
-    >
-      {/* GitHub Commit/File Header */}
-      <div className="flex items-center justify-between px-3.5 sm:px-4 py-2 bg-[#f6f8fa] border-b border-[#d0d7de] shrink-0">
-        <div className="flex items-center gap-2 min-w-0">
-          <Github size={14} className="text-[#57609a] shrink-0" />
-          <span className="font-semibold text-[#0969da] truncate">
-            merchant_settlement.proto
+      {/* Card Content */}
+      <div className="flex flex-col justify-between flex-1 p-5">
+        {/* Top Row: Official brand mark on left, cardholder name on right */}
+        <div className="flex items-center justify-between gap-3 min-w-0">
+          <GitHubOfficialMark className="w-6 h-6 shrink-0 group-hover:scale-105 transition-transform duration-300" />
+          <span className="font-mono text-xs font-semibold tracking-wider uppercase text-[#57606A] truncate">
+            Tyler Lindow
           </span>
         </div>
 
-        <div className="flex items-center gap-2 shrink-0">
-          <span className="text-[10px] font-medium text-[#57609a]">
-            <span className="text-[#1a7f37] font-semibold">+5</span>{" "}
-            <span className="text-[#cf222e] font-semibold">-1</span>
+        {/* Bottom Row: Masked card number on left, network kind on right */}
+        <div className="flex items-end justify-between gap-3 pt-4">
+          <span className="font-mono text-xs font-semibold tracking-widest text-[#57606A] tabular-nums">
+            •••• 2027
           </span>
-          <ArrowUpRight
-            size={13}
-            className="text-[#57609a] group-hover:text-[#0969da] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
-          />
-        </div>
-      </div>
-
-      {/* GitHub Unified Diff Body (Single Hunk) */}
-      <div className="flex-1 overflow-x-auto text-[11px] sm:text-xs leading-relaxed select-none divide-y divide-[#d0d7de]/30">
-        {/* Hunk Header */}
-        <div className="px-3.5 sm:px-4 py-1.5 bg-[#ddf4ff] text-[#0969da] font-mono text-[10px]">
-          @@ -12,4 +12,12 @@ fintech.settlement.v1
-        </div>
-        <div className="bg-[#ffebe9] text-[#24292f] flex items-center">
-          <span className="w-6 shrink-0 select-none text-right pr-2 text-[#cf222e]/60 font-mono text-[10px] py-1">-</span>
-          <span className="py-1 pr-3 flex items-center gap-2">
-            <span className="text-[#cf222e] font-medium font-mono">double amount = 1;</span>
-            <span className="text-[#57609a] font-mono text-[10px]">{"// float rounding loss"}</span>
+          <span className="font-mono font-semibold text-[10px] uppercase tracking-widest text-[#24292F]">
+            DEBIT
           </span>
         </div>
-
-        {/* GitHub Copilot Inline Review Comment (Always Viewable, Most Prominent Text) */}
-        <div className="p-3.5 sm:p-4 bg-white border-y border-[#d0d7de] font-sans shadow-xs">
-          <div className="flex items-start gap-2.5">
-            <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-[#4F46E5] to-[#7C3AED] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
-              <Bot size={13} className="text-white" />
-            </div>
-            <div className="space-y-1.5 min-w-0 flex-1">
-              <div className="flex items-center gap-2 text-[10px] sm:text-[11px] text-[#57609a]">
-                <span className="font-semibold text-[#1F2328]">github-copilot</span>
-                <span className="text-[9px] px-1.5 py-0.5 font-mono font-medium rounded border border-[#d0d7de] text-[#57609a] bg-[#f6f8fa] uppercase tracking-wider leading-none">
-                  bot
-                </span>
-                <span className="text-[#8c959f] hidden sm:inline">&bull; suggested inquiry</span>
-              </div>
-              <p className="text-xs sm:text-sm md:text-base font-bold text-[#1F2328] leading-snug tracking-tight">
-                How are customers affected by floating point precision loss in banking applications?
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="bg-[#dafbe1] text-[#24292f] flex">
-          <span className="w-6 shrink-0 select-none text-right pr-2 text-[#1a7f37]/60 font-mono text-[10px] py-1">+</span>
-          <span className="py-1 pr-3 text-[#1a7f37] font-semibold">message Money &#123;</span>
-        </div>
-        <div className="bg-[#dafbe1] text-[#24292f] flex">
-          <span className="w-6 shrink-0 select-none text-right pr-2 text-[#1a7f37]/60 font-mono text-[10px] py-1">+</span>
-          <span className="py-1 pr-3 text-[#1a7f37]">  string currency_code = 1; <span className="text-[#57609a]">{"// \"USD\""}</span></span>
-        </div>
-        <div className="bg-[#dafbe1] text-[#24292f] flex">
-          <span className="w-6 shrink-0 select-none text-right pr-2 text-[#1a7f37]/60 font-mono text-[10px] py-1">+</span>
-          <span className="py-1 pr-3 text-[#1a7f37]">  int64 units = 2;          <span className="text-[#57609a]">{"// whole dollars"}</span></span>
-        </div>
-        <div className="bg-[#dafbe1] text-[#24292f] flex">
-          <span className="w-6 shrink-0 select-none text-right pr-2 text-[#1a7f37]/60 font-mono text-[10px] py-1">+</span>
-          <span className="py-1 pr-3 text-[#1a7f37]">  int32 nanos = 3;          <span className="text-[#57609a]">{"// billionths"}</span></span>
-        </div>
-        <div className="bg-[#dafbe1] text-[#24292f] flex">
-          <span className="w-6 shrink-0 select-none text-right pr-2 text-[#1a7f37]/60 font-mono text-[10px] py-1">+</span>
-          <span className="py-1 pr-3 text-[#1a7f37] font-semibold">&#125;</span>
-        </div>
-      </div>
-
-      {/* GitHub Diff Footer */}
-      <div className="flex items-center justify-between px-3.5 sm:px-4 py-2 bg-[#f6f8fa] border-t border-[#d0d7de] text-[10px] text-[#57609a] shrink-0">
-        <div className="flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-[#1a7f37]" />
-          <span>exercises/proto-learning</span>
-        </div>
-        <span className="text-[#0969da] font-semibold group-hover:underline">View on GitHub &rarr;</span>
       </div>
     </a>
   );
 }
 
-function TinkerAppCard() {
+function TinkerDebitCard() {
   return (
     <a
       href="https://tinker.beginner.work"
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col justify-between w-full flex-1 rounded-xl border border-[#EDE8E0] bg-[#FFFDF7] overflow-hidden hover:border-[#C4B5FD] hover:shadow-md transition-all duration-200 shadow-2xs text-[#2D2A26]"
-      title="View tinker web shell on tinker.beginner.work — Founder source code"
+      className="group relative flex flex-col justify-between w-[340px] max-w-full aspect-[1.586/1] rounded-[20px] border border-[#EDE8E0] bg-[#FFFDF7] overflow-hidden shadow-xs hover:border-indigo/40 hover:shadow-md transition-all duration-300 cursor-pointer select-none"
+      title="Open tinker (tinker.beginner.work)"
     >
-      {/* Tinker File Header */}
-      <div className="flex items-center justify-between px-3.5 sm:px-4 py-2 bg-[#F5F3EF] border-b border-[#EDE8E0] shrink-0 font-mono text-[11px] sm:text-xs">
-        <div className="flex items-center gap-2 min-w-0">
-          <TinkerGlobeMark className="w-3.5 h-3.5 shrink-0" />
-          <span className="font-semibold text-[#2D2A26] truncate">
-            founder_source.md
-          </span>
-        </div>
-
-        <div className="flex items-center gap-2 shrink-0">
-          <span className="text-[10px] font-medium font-mono text-[#6F6A65]">
-            <span className="text-[#2D5A3D] font-semibold">+1</span>{" "}
-            <span className="text-[#991B1B] font-semibold">-1</span>
-          </span>
-          <ArrowUpRight
-            size={13}
-            className="text-[#6F6A65] group-hover:text-[#4F46E5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
-          />
-        </div>
-      </div>
-
-      {/* Rainbow Spectrum Accent Line */}
+      {/* Signature Tinker 7-Color Pastel Rainbow Spectrum Trim */}
       <div
-        className="w-full h-[2px]"
+        className="w-full h-2 shrink-0"
         style={{
           background:
             "linear-gradient(90deg, #F9A8D4 0%, #FDBA74 20%, #FDE68A 40%, #7BC47A 60%, #7DD3FC 80%, #C4B5FD 100%)",
         }}
       />
 
-      {/* Unrendered Markdown Diff Body */}
-      <div className="flex-1 overflow-x-auto text-[11px] sm:text-xs leading-relaxed select-none divide-y divide-[#EDE8E0]/40 font-mono">
-        {/* Hunk Header */}
-        <div className="px-3.5 sm:px-4 py-1.5 bg-[#FAF5EE] text-[#4F46E5] font-mono text-[10px] flex items-center justify-between">
-          <span>@@ -1,1 +1,1 @@ founder.thesis.v1</span>
-          <span className="text-[10px] text-[#8C827A] font-mono">markdown</span>
-        </div>
-
-        {/* Removed line in code diff style with rainbow strikethrough */}
-        <div className="bg-[#FFF1F2] text-[#2D2A26] flex items-center">
-          <span className="w-6 shrink-0 select-none text-right pr-2 text-[#991B1B]/70 font-mono text-[10px] py-2">-</span>
-          <span className="py-2 pr-3">
-            <span className="relative inline-block">
-              <span className="text-[#991B1B] font-medium">we are all founders</span>
-              <span
-                aria-hidden="true"
-                className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-[2px] rounded-full"
-                style={{
-                  background:
-                    "linear-gradient(90deg, #F9A8D4 0%, #FDBA74 25%, #7BC47A 65%, #7DD3FC 100%)",
-                }}
-              />
+      {/* Card Content */}
+      <div className="flex flex-col justify-between flex-1 p-5">
+        {/* Top Row: Brand icon & wordmark on left, cardholder name on right */}
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2 min-w-0">
+            <TinkerGlobeMark className="w-6 h-6 shrink-0 group-hover:scale-105 transition-transform duration-300" />
+            <span className="font-serif text-lg font-medium tracking-tight text-[#2D2A26] lowercase leading-none">
+              tinker
             </span>
+          </div>
+          <span className="font-mono text-xs font-semibold tracking-wider uppercase text-[#78716C] truncate">
+            You
           </span>
         </div>
 
-        {/* Added line in code diff style */}
-        <div className="bg-[#F0FDF4] text-[#2D2A26] flex items-center">
-          <span className="w-6 shrink-0 select-none text-right pr-2 text-[#166534]/70 font-mono text-[10px] py-2">+</span>
-          <span className="py-2 pr-3 text-[#166534] font-semibold">
-            we are all looking for the highest fundable valuation
+        {/* Bottom Row: Masked card number on left, network kind on right */}
+        <div className="flex items-end justify-between gap-3 pt-4">
+          <span className="font-mono text-xs font-semibold tracking-widest text-[#78716C] tabular-nums">
+            •••• 2026
           </span>
-        </div>
-      </div>
-
-      {/* Tinker Diff Footer (Mirroring GitHub Chrome) */}
-      <div className="flex items-center justify-between px-3.5 sm:px-4 py-2 bg-[#F5F3EF] border-t border-[#EDE8E0] text-[10px] text-[#6F6A65] shrink-0 font-mono">
-        <div className="flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-[#7BC47A]" />
-          <span>tinker.beginner.work</span>
+          <span className="font-mono font-semibold text-[10px] uppercase tracking-widest text-[#6366F1]">
+            DEBIT
+          </span>
         </div>
       </div>
     </a>

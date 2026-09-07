@@ -33,10 +33,10 @@ export default function ResumePageRoute() {
       <div className="pt-20 sm:pt-24 max-w-4xl mx-auto px-4 sm:px-6 pb-4 sm:pb-6 no-print">
         <a
           href={`${basePath}/`}
-          className="inline-flex items-center gap-2 text-xs font-bold text-muted hover:text-indigo-dark transition-colors py-1"
+          className="group inline-flex items-center gap-2 text-xs font-mono font-medium rounded-full bg-surface hover:bg-surface-alt px-3.5 py-1.5 border border-border hover:border-indigo/40 text-muted hover:text-foreground shadow-2xs transition-all duration-200"
         >
-          <ArrowLeft size={14} />
-          <span>Back to Home Page</span>
+          <ArrowLeft size={13} className="text-indigo-dark transition-transform group-hover:-translate-x-0.5" />
+          <span>Back to Home</span>
         </a>
       </div>
       <div className="print:pt-0 print:p-0 print:m-0">
