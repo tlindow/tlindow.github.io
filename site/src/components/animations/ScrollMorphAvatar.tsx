@@ -381,7 +381,7 @@ export default function ScrollMorphAvatar({
         zIndex: 60,
         pointerEvents: webglReady ? "auto" : "none",
       }}
-      className="group cursor-pointer focus:outline-none select-none drop-shadow-md hover:drop-shadow-xl transition-all"
+      className="group cursor-pointer focus:outline-none select-none drop-shadow-md hover:drop-shadow-xl transition-[filter] duration-200"
       onMouseEnter={() => {
         if (!webglReady) return;
         isHoveredRef.current = true;

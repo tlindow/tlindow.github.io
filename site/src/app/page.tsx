@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
+import { useScroll, useMotionValue } from "framer-motion";
 import { FileText } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import {
@@ -15,100 +16,120 @@ import ScrollMorphAvatar, {
 import { useAnalytics } from "@/context/AnalyticsProvider";
 
 export default function Home() {
-  const [isNavEstablished, setIsNavEstablished] = useState(false);
-  const navTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const { scrollY } = useScroll();
+  const avatarProgress = useMotionValue(0);
+  const isHardScrolledRef = useRef(false);
 
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const { logResumeView } = useAnalytics();
 
-  const MAX_INITIAL_SCROLL = HERO_PIN_SCROLL_DISTANCE;
-
-  // On page mount, if already scrolled down past initial threshold, establish nav immediately
+  // If page loads already scrolled down, dock avatar immediately
   useEffect(() => {
-    if (typeof window !== "undefined" && window.scrollY >= MAX_INITIAL_SCROLL) {
-      requestAnimationFrame(() => {
-        setIsNavEstablished(true);
-      });
+    if (typeof window !== "undefined" && window.scrollY >= HERO_PIN_SCROLL_DISTANCE) {
+      isHardScrolledRef.current = true;
+      avatarProgress.set(1);
     }
-  }, [MAX_INITIAL_SCROLL]);
+  }, [avatarProgress]);
 
-  // Keep scroll 100% connected to actual scroll, but prevent scrolling too far down
-  // past MAX_INITIAL_SCROLL until the profile coin establishes in the navbar
+  // Synchronize avatar & navbar progress with scroll position:
+  // - If at the top (scrollY <= 10): restore avatar to hero anchor
+  // - If hard scrolled: keep avatar docked in navbar
+  // - Otherwise (gentle scroll): 1:1 direct smooth tracking
   useEffect(() => {
+    const unsubscribe = scrollY.on("change", (latestY) => {
+      if (latestY <= 10) {
+        isHardScrolledRef.current = false;
+        avatarProgress.set(0);
+        return;
+      }
+
+      if (isHardScrolledRef.current) {
+        avatarProgress.set(1);
+        return;
+      }
+
+      const p = Math.min(Math.max(latestY / HERO_PIN_SCROLL_DISTANCE, 0), 1);
+      avatarProgress.set(p);
+    });
+
+    return () => unsubscribe();
+  }, [scrollY, avatarProgress]);
+
+  // Detect hard scroll:
+  // On a fast flick or large scroll delta, skip animation, place profile in nav immediately,
+  // and allow the page to flow completely freely with native inertia (no preventDefault, passive listeners).
+  useEffect(() => {
+    const HARD_SCROLL_DELTA = 35; // Pixels per wheel event to trigger hard scroll bypass
+
     const handleWheel = (e: WheelEvent) => {
-      // While establishing, don't allow fast flicks to overshoot past the hero context
-      if (!isNavEstablished && window.scrollY >= MAX_INITIAL_SCROLL && e.deltaY > 0) {
-        e.preventDefault();
+      const normalizedDelta = e.deltaMode === 1 ? e.deltaY * 30 : e.deltaY;
+
+      // Scrolling back up resets hard scroll mode so upward gentle scroll works symmetrically
+      if (normalizedDelta < 0) {
+        isHardScrolledRef.current = false;
+        return;
+      }
+
+      if (isHardScrolledRef.current || window.scrollY >= HERO_PIN_SCROLL_DISTANCE) return;
+
+      if (normalizedDelta >= HARD_SCROLL_DELTA) {
+        // Hard scroll detected: place profile in nav immediately and allow native flow
+        isHardScrolledRef.current = true;
+        avatarProgress.set(1);
       }
     };
 
     let touchStartY = 0;
+    let touchStartTime = 0;
+
     const handleTouchStart = (e: TouchEvent) => {
       touchStartY = e.touches[0].clientY;
+      touchStartTime = performance.now();
     };
 
     const handleTouchMove = (e: TouchEvent) => {
-      if (!isNavEstablished && window.scrollY >= MAX_INITIAL_SCROLL) {
-        const deltaY = touchStartY - e.touches[0].clientY;
-        if (deltaY > 0) {
-          e.preventDefault();
-        }
+      const touchCurrentY = e.touches[0].clientY;
+      const deltaY = touchStartY - touchCurrentY;
+
+      if (deltaY < 0) {
+        isHardScrolledRef.current = false;
+        return;
+      }
+
+      if (isHardScrolledRef.current || window.scrollY >= HERO_PIN_SCROLL_DISTANCE) return;
+
+      const deltaTime = performance.now() - touchStartTime;
+      if (deltaY > 40 || (deltaTime > 0 && deltaY / deltaTime > 0.4)) {
+        isHardScrolledRef.current = true;
+        avatarProgress.set(1);
       }
     };
 
-    const handleScroll = () => {
-      const currentY = window.scrollY;
-
-      if (!isNavEstablished) {
-        // Prevent scrolling too far down the page on initial scroll
-        if (currentY > MAX_INITIAL_SCROLL) {
-          window.scrollTo({ top: MAX_INITIAL_SCROLL });
-        }
-
-        // Once coin has reached the navbar, establish after a brief settling pause
-        if (currentY >= MAX_INITIAL_SCROLL) {
-          if (!navTimerRef.current) {
-            navTimerRef.current = setTimeout(() => {
-              setIsNavEstablished(true);
-              navTimerRef.current = null;
-            }, 200);
-          }
-        }
-      } else if (currentY <= 10) {
-        // Re-arm initial guard when user returns to the top of the page
-        setIsNavEstablished(false);
-        if (navTimerRef.current) {
-          clearTimeout(navTimerRef.current);
-          navTimerRef.current = null;
-        }
-      }
-    };
-
-    window.addEventListener("wheel", handleWheel, { passive: false });
+    window.addEventListener("wheel", handleWheel, { passive: true });
     window.addEventListener("touchstart", handleTouchStart, { passive: true });
-    window.addEventListener("touchmove", handleTouchMove, { passive: false });
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
 
     return () => {
       window.removeEventListener("wheel", handleWheel);
       window.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("touchmove", handleTouchMove);
-      window.removeEventListener("scroll", handleScroll);
-      if (navTimerRef.current) {
-        clearTimeout(navTimerRef.current);
-      }
     };
-  }, [isNavEstablished, MAX_INITIAL_SCROLL]);
+  }, [avatarProgress]);
+
+  const handleReturnToHero = () => {
+    isHardScrolledRef.current = false;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-indigo-light selection:text-indigo-dark font-mono flex flex-col justify-between overflow-x-clip">
       {/* Scroll-animated profile picture bridging hero and navbar */}
-      <ScrollMorphAvatar />
+      <ScrollMorphAvatar progress={avatarProgress} onReturnToHero={handleReturnToHero} />
 
       {/* ========================================================= */}
       {/* 1. TOP NAVIGATION BAR (FIXED, NO-PRINT) */}
       {/* ========================================================= */}
-      <Navbar />
+      <Navbar progress={avatarProgress} onReturnToHero={handleReturnToHero} />
 
       {/* ========================================================= */}
       {/* 2. MAIN VIEW */}
