@@ -285,7 +285,7 @@ export const experiences: ExperienceEntry[] = [
     id: "affirm-dse",
     company: "Affirm",
     role: "Developer Support Engineer (L4 → L5), Partner Engineering",
-    locationAndPeriod: "San Francisco (On-site) & San Diego, CA (Remote) | Sept 2019 – Jul 2021 (1 yr 11 mos)",
+    locationAndPeriod: "San Francisco, CA (Hybrid) | Sept 2019 – Jul 2021 (1 yr 11 mos)",
     timelineSubheader: "Resolved over 300 merchant integration issue tickets at the beginning of my time with Affirm",
     bullets: [
       {

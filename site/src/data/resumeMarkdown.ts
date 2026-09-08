@@ -38,7 +38,7 @@ Fintech engineering and product leader with 7+ years of experience building deve
 * **DevOps Observability & Incident Response:** Established real-time telemetry dashboards and automated incident alert routing, decreasing MTTR for enterprise partner incidents by hours.
 
 ### Developer Support Engineer (L4 → L5), Partner Engineering | Affirm
-*San Francisco & San Diego, CA | Sept 2019 – Jul 2021*
+*San Francisco, CA (Hybrid) | Sept 2019 – Jul 2021*
 * **Role Scope & Scale:** Promoted from L4 to L5, serving as primary technical liaison for 300+ SMB merchants; diagnosed B2B integration bugs across partner platforms to eliminate merchant churn.
 * **Technical Advocacy & Defect Clustering:** Designed automated ETL pipelines to cluster integration defect patterns, turning developer feedback into platform fixes that reduced integration churn.
 * **SDK & Integration Debugging:** Diagnosed and resolved complex JavaScript, REST API, and webhook integration defects across major platforms (Shopify, Magento, WooCommerce, Salesforce Commerce Cloud).

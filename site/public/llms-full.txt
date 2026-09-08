@@ -58,7 +58,7 @@ To elevate the creative and financial position of software developers through ed
 - **Data-Driven Advocacy:** Developed a full-stack reporting and analytics suite (Python, Flask, Snowflake) removing 16 hours of manual overhead monthly and shifting to a proactive integration strategy.
 
 ### Affirm | Developer Support Engineer (L4 → L5), Partner Engineering
-*San Francisco (On-site) & San Diego (Remote) | Sept 2019 – Jul 2021 (1 yr 11 mos)*
+*San Francisco, CA (Hybrid) | Sept 2019 – Jul 2021 (1 yr 11 mos)*
 - **Technical Translation & Liaison:** Served as the primary technical point of contact for enterprise merchants; established the foundation for data-driven developer advocacy by diagnosing B2B integration bugs and translating them into actionable platform solutions to eliminate partner churn.
 
 ### Galvanize Inc | Lead Software Engineering Immersive Resident

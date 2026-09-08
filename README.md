@@ -50,7 +50,7 @@ This repository is structured into three clear pillars:
 - Developed a full-stack reporting and analytics suite (Python, Flask, Snowflake) removing 16 hours of manual overhead monthly and shifting to a proactive integration strategy.
 
 ### Affirm | Developer Support Engineer (L4 → L5), Partner Engineering
-*San Francisco (On-site) & San Diego (Remote) | Sept 2019 – Jul 2021 (1 yr 11 mos)*
+*San Francisco, CA (Hybrid) | Sept 2019 – Jul 2021 (1 yr 11 mos)*
 
 - **Galvanize Inc** — Lead Software Engineering Immersive Resident *(May 2019 – Aug 2019 · 4 mos)*
 - **The Tech Interactive** — Gallery Programs Specialist → Experience Development Specialist & Prototyping Studio Coordinator *(May 2017 – Jan 2019 · 1 yr 9 mos)*
