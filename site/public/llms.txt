@@ -1,7 +1,7 @@
-# Tyler Lindow — Fintech Product & Engineering
+# Tyler Lindow — Fintech Engineering & Product
 *B2B at B2C scale · Specializing in $10B+ platform scale, partner SLA infrastructure, and developer paved paths*
 
-> San Diego, CA (Relocating to Seattle, WA) | (650) 580-5788 | tlindow.invest@gmail.com | https://www.linkedin.com/in/tlindow | https://github.com/tlindow
+> San Diego, CA (Relocating to Seattle, WA) | (650) 580-5788 | tyler.lindow@gmail.com | https://www.linkedin.com/in/tlindow | https://github.com/tlindow
 
 ## Vision
 To elevate the creative and financial position of software developers through education, in-person connection, and creating safe spaces to build business ideas.
@@ -27,7 +27,7 @@ To elevate the creative and financial position of software developers through ed
 
 ## Professional Experience
 
-### Beginner | Founder, Developer Product Management
+### Beginner | Founder
 *San Diego, CA (Hybrid) | Mar 2026 – Jul 2026 (5 mos)*
 - Built and launched a progressive web app enabling technical founders to refine pitches and practice fundraising in-person with potential customers, successfully acquiring initial paying users.
 - Established a local technical network by hosting targeted networking events for product-focused tech professionals and engineers in San Diego.

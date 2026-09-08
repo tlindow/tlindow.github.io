@@ -74,7 +74,7 @@ export const knowledgeBase: KnowledgeTopic[] = [
     actions: [
       { label: "Book a 1:1 Session on Calendly", href: "https://calendly.com/tylerlindow/elevate", isExternal: true, variant: "primary" },
       { label: "View Pricing & Engagement", href: "#pricing", variant: "secondary" },
-      { label: "Send an Email Inquiry", href: "mailto:tlindow.invest@gmail.com", isExternal: true, variant: "outline" },
+      { label: "Send an Email Inquiry", href: "mailto:tyler.lindow@gmail.com", isExternal: true, variant: "outline" },
     ],
     suggestedFollowUps: [
       "What are Tyler's pricing and engagement tiers?",
@@ -105,7 +105,7 @@ export const knowledgeBase: KnowledgeTopic[] = [
     actions: [
       { label: "View Pricing Tiers", href: "#pricing", variant: "primary" },
       { label: "Book 1:1 on Calendly", href: "https://calendly.com/tylerlindow/elevate", isExternal: true, variant: "secondary" },
-      { label: "Inquire via Email", href: "mailto:tlindow.invest@gmail.com", isExternal: true, variant: "outline" },
+      { label: "Inquire via Email", href: "mailto:tyler.lindow@gmail.com", isExternal: true, variant: "outline" },
     ],
     suggestedFollowUps: [
       "How do I book a 1:1 session?",

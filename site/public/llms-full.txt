@@ -1,8 +1,8 @@
 # Full Profile & Professional Context: Tyler Lindow
 
-**Fintech Product & Engineering**  
+**Fintech Engineering & Product**  
 *Specializing in small business (SMB) developer partnerships, $10B+ platform scale, and developer paved paths*  
-Location: San Diego, CA (Relocating to Seattle, WA) | Contact: (650) 580-5788 | Email: tlindow.invest@gmail.com  
+Location: San Diego, CA (Relocating to Seattle, WA) | Contact: (650) 580-5788 | Email: tyler.lindow@gmail.com  
 LinkedIn: https://www.linkedin.com/in/tlindow | GitHub: https://github.com/tlindow | Portfolio: https://tlindow.github.io
 
 ---
@@ -36,7 +36,7 @@ To elevate the creative and financial position of software developers through ed
 
 ## 4. Professional Experience
 
-### Beginner | Founder, Developer Product Management
+### Beginner | Founder
 *San Diego, CA (Hybrid) | Mar 2026 – Jul 2026 (5 mos)*
 - **Developer Engagement:** Built and launched a progressive web app enabling technical founders to refine pitches and practice fundraising in-person with potential customers, successfully acquiring initial paying users.
 - **Community Architecture:** Established a local technical network by hosting targeted networking events for product-focused tech professionals and engineers in San Diego.

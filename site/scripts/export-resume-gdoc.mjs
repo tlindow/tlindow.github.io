@@ -189,8 +189,6 @@ function convertToGoogleDocHtml(markdown) {
 <body>
 `;
 
-  const rainbowSvgDataUri =
-    "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iNCIgdmlld0JveD0iMCAwIDgwMCA0Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9InJhaW5ib3ciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjNEY0NkU1Ii8+PHN0b3Agb2Zmc2V0PSIyNSUiIHN0b3AtY29sb3I9IiNBNUI0RkMiLz48c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzdERDNGRyIvPjxzdG9wIG9mZnNldD0iNzUlIiBzdG9wLWNvbG9yPSIjNkVFN0I3Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjRkRCQTc0Ii8+PC9saW5lYXJHYXJkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0idXJsKCNyYWluYm93KSIvPjwvc3ZnPg==";
 
   let inList = false;
   let isHeader = true;
@@ -224,7 +222,7 @@ function convertToGoogleDocHtml(markdown) {
         html += `</ul>\n`;
         inList = false;
       }
-      html += `<div><img class="rainbow-bar" src="${rainbowSvgDataUri}" alt="divider" style="width: 100%; height: 3px; display: block; margin: 10pt 0;" /></div>\n`;
+      html += `<hr style="border: none; border-top: 1px solid #E5E0DA; margin: 10pt 0;" />\n`;
     } else if (line.startsWith("## ")) {
       isHeader = false;
       if (inList) {

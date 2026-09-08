@@ -171,7 +171,6 @@ export async function generateResumePDF(options = {}) {
       "--disable-setuid-sandbox",
       "--disable-dev-shm-usage",
       "--disable-gpu",
-      "--font-render-hinting=none",
     ],
   });
 
@@ -201,10 +200,10 @@ export async function generateResumePDF(options = {}) {
       format: "Letter",
       printBackground: true,
       margin: {
-        top: "0.6in",
-        bottom: "0.6in",
-        left: "0.6in",
-        right: "0.6in",
+        top: "0.45in",
+        bottom: "0.45in",
+        left: "0.5in",
+        right: "0.5in",
       },
       preferCSSPageSize: true,
     });
@@ -215,6 +214,12 @@ export async function generateResumePDF(options = {}) {
       fs.mkdirSync(dir, { recursive: true });
     }
     fs.writeFileSync(outPath, pdfBuffer);
+    const outDirPdf = path.join(projectRoot, "out", path.basename(outPath));
+    if (fs.existsSync(path.join(projectRoot, "out")) && outPath !== outDirPdf) {
+      try {
+        fs.writeFileSync(outDirPdf, pdfBuffer);
+      } catch {}
+    }
 
     console.log(`✅ Resume PDF successfully generated: ${outPath} (${(pdfBuffer.length / 1024).toFixed(1)} KB)`);
 

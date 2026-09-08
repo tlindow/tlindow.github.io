@@ -15,6 +15,7 @@ export interface SkillCategoryItem {
 export interface ParsedResume {
   rawMarkdown: string;
   contact: ContactInfo;
+  summaryTitle: string;
   visionText: string;
   technicalToolkit: string[];
   businessToolkit: string[];
@@ -31,19 +32,20 @@ export function parseResumeMarkdown(markdownText: string): ParsedResume {
 
   const contact: ContactInfo = {
     name: "Tyler Lindow",
-    title: "Fintech Product & Engineering",
+    title: "Fintech Engineering & Product",
     subtitle: "B2B SaaS on curiosity-safe, GenAI Rails",
     location: "San Diego, CA",
     relocation: "Relocating to Seattle, WA",
     phone: "(650) 580-5788",
     phoneObscured: "(650) •••-••••",
-    email: "tlindow.invest@gmail.com",
+    email: "tyler.lindow@gmail.com",
     linkedin: "https://linkedin.com/in/tlindow",
     linkedinDisplay: "linkedin.com/in/tlindow",
     github: "https://github.com/tlindow",
     githubDisplay: "github.com/tlindow",
   };
 
+  let summaryTitle = "Summary";
   let visionText = defaultSummary.text;
   let technicalToolkit: string[] = [];
   let businessToolkit: string[] = [];
@@ -103,6 +105,7 @@ export function parseResumeMarkdown(markdownText: string): ParsedResume {
 
     if (line.startsWith("## Vision") || line.startsWith("## Summary")) {
       currentSection = "vision";
+      summaryTitle = line.replace(/^##\s+/, "").trim();
       continue;
     } else if (line.startsWith("## Professional Experience") || line.startsWith("## Experience")) {
       currentSection = "experience";
@@ -147,16 +150,29 @@ export function parseResumeMarkdown(markdownText: string): ParsedResume {
         }
         const titleLine = line.replace(/^###\s+/, "");
         const parts = titleLine.split("|").map((p) => p.trim());
-        const company = parts[0] || "";
-        const role = parts[1] || "";
+        let company = parts[0] || "";
+        let role = parts[1] || "";
+        const location = parts[2] || "";
+        const period = parts[3] || "";
+
+        const roleKeywords = ["founder", "manager", "engineer", "resident", "specialist", "instructor", "lead", "director", "head", "architect"];
+        const isFirstPartRole = roleKeywords.some(kw => parts[0]?.toLowerCase().includes(kw));
+        const knownCompanies = ["affirm", "beginner", "galvanize", "galvanize inc", "the tech interactive", "computer history museum"];
+        const isSecondPartCompany = knownCompanies.some(c => parts[1]?.toLowerCase().includes(c));
+
+        if (parts.length >= 2 && (isFirstPartRole || isSecondPartCompany)) {
+          role = parts[0] || "";
+          company = parts[1] || "";
+        }
+
         const id = `${company}-${role}-${experiences.length}`.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
         currentExp = {
           id,
           company,
           role,
-          location: "",
-          period: "",
+          location,
+          period,
           bullets: [],
         };
       } else if (line.startsWith("*") && line.endsWith("*") && currentExp) {
@@ -225,11 +241,12 @@ export function parseResumeMarkdown(markdownText: string): ParsedResume {
   return {
     rawMarkdown: markdownText,
     contact,
+    summaryTitle,
     visionText,
     technicalToolkit: technicalToolkit.length > 0 ? technicalToolkit : [
       "Python", "PyTorch", "JavaScript", "React", "Node.js", "Flask",
       "LLMs & RAG", "Agentic Coding Frameworks", "Snowflake", "Vercel",
-      "Cursor", "IntelliJ IDEA", "VS Code", "SRE Support", "Expo", "Jules",
+      "Cursor", "IntelliJ IDEA", "VS Code", "SRE Support", "Jules",
       "Antigravity", "Luma",
     ],
     businessToolkit: businessToolkit.length > 0 ? businessToolkit : [
@@ -244,7 +261,7 @@ export function parseResumeMarkdown(markdownText: string): ParsedResume {
     education: education.length > 0 ? education : [],
     skillsList: skillsList.length > 0 ? skillsList : [
       { category: "AI & Agentic Systems", skills: "LLMs & RAG, Agentic Coding Frameworks, PyTorch, Antigravity, Jules, Luma, First-Principles GenAI Upskilling." },
-      { category: "Languages & Frameworks", skills: "Python, JavaScript, TypeScript, React, Next.js, Node.js, Flask, Tailwind CSS, Expo, p5.js." },
+      { category: "Languages & Frameworks", skills: "Python, JavaScript, React, Next.js, Node.js, Flask." },
       { category: "Cloud, Data & SRE", skills: "Snowflake, SQL, ETL Pipelines, SRE Support, Vercel, Git/GitHub, CI/CD, 99.99% Uptime Telemetry." },
       { category: "Product & GTM Strategy", skills: "Developer Advocacy & Evangelism, Partner Engineering, Enterprise Merchant Integrations ($10B+ Portfolio), GMV Attribution & Revenue Acceleration, GTM Strategy, Developer Paved Paths & Enablement, Cross-Functional Stakeholder Alignment, Voice of the Developer Synthesis, Technical Community Architecture." }
     ],

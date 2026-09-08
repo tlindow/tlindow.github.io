@@ -66,13 +66,13 @@ export interface ContactInfo {
 
 export const resumeContact: ContactInfo = {
   name: "Tyler Lindow",
-  title: "Fintech Product & Engineering",
+  title: "Fintech Engineering & Product",
   subtitle: "B2B SaaS on curiosity-safe, GenAI Rails",
   location: "San Diego, CA",
   relocation: "Relocating to Seattle, WA",
   phone: "(650) 580-5788",
   phoneObscured: "(650) •••-••••",
-  email: "tlindow.invest@gmail.com",
+  email: "tyler.lindow@gmail.com",
   linkedin: "https://www.linkedin.com/in/tlindow",
   linkedinDisplay: "linkedin.com/in/tlindow",
   github: "https://github.com/tlindow",
@@ -141,7 +141,6 @@ export const technicalToolkit: ToolkitCategory[] = [
       { name: "React", featured: true },
       { name: "Node.js", featured: true },
       { name: "Flask", featured: false },
-      { name: "Expo", featured: false },
     ],
   },
   {
@@ -177,7 +176,6 @@ export const allToolkitSkills: string[] = [
   "IntelliJ IDEA",
   "VS Code",
   "SRE Support",
-  "Expo",
   "Jules",
   "Antigravity",
   "Luma",
@@ -219,7 +217,7 @@ export const experiences: ExperienceEntry[] = [
   {
     id: "beginner",
     company: "Beginner",
-    role: "Founder, Developer Product Management",
+    role: "Founder",
     locationAndPeriod: "San Diego, CA (Hybrid) | Mar 2026 – Jul 2026 (5 mos)",
     timelineSubheader: "Product management at Affirm is incorrectly assuming to expand the partnerships side of merchant growth — Affirm will become acquired by Stripe",
     bullets: [
@@ -364,6 +362,10 @@ export const education: EducationEntry[] = [
     detail: "Graduate Coursework, Learning Sciences",
   },
   {
+    institution: "Olin College of Engineering",
+    detail: "SEER Program (Summer Engineering Education Research)",
+  },
+  {
     institution: "Hack Reactor",
     detail: "Advanced Software Engineering Immersive",
   },
@@ -389,6 +391,15 @@ export const educationList: EducationItem[] = [
       "Deep exploration of constructionist pedagogy, cognitive modeling, and how human learning dynamics shape intuitive technical systems.",
     accentColor: "text-violet",
     accentBg: "bg-violet-light",
+  },
+  {
+    institution: "Olin College of Engineering",
+    degree: "SEER Program (Summer Engineering Education Research)",
+    location: "Needham, MA",
+    description:
+      "Engineering education research focused on student learning, curriculum prototyping, and design-led pedagogy.",
+    accentColor: "text-indigo-dark",
+    accentBg: "bg-indigo-light",
   },
   {
     institution: "Hack Reactor",

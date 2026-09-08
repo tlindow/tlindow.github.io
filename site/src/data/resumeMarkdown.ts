@@ -4,68 +4,56 @@
 import { parseResumeMarkdown, ParsedResume } from "@/lib/parseResumeMarkdown";
 
 export const rawResumeMarkdown = `# Tyler Lindow
-**Fintech Product & Engineering**  
-San Diego, CA | Relocating to Seattle, WA  
-(650) 580-5788 | [tlindow.invest@gmail.com](mailto:tlindow.invest@gmail.com)  
+**Fintech Engineering & Product**  
+Relocating to Seattle, WA  
+(650) 580-5788 | [tyler.lindow@gmail.com](mailto:tyler.lindow@gmail.com)  
 [linkedin.com/in/tlindow](https://linkedin.com/in/tlindow) | [github.com/tlindow](https://github.com/tlindow)
 
 ---
 
-## Vision
-To elevate the creative and financial position of software developers through psychologically safe, AI-assisted, developer experience.
-
----
-
-## Skills & Toolkits
-
-* **AI & Agentic Systems:** LLMs & RAG, Agentic Coding Frameworks (Claude, Cursor, Antigravity), PyTorch, Google Colab
-* **Languages & Frameworks:** Python, JavaScript, React, Next.js, Node.js, Flask, Tailwind CSS, Expo
-* **Cloud, Data & SRE:** Snowflake, SQL, ETL Pipelines, SRE Support, Vercel, Git/GitHub, CI/CD
-* **Product & GTM Strategy:** Developer Advocacy & Evangelism, Partner Engineering, Enterprise Merchant Integrations, Developer Paved Paths & Enablement, Cross-Functional Stakeholder Alignment, Technical Community-Building
+## Summary
+Fintech engineering and product leader with 7+ years of experience building developer platforms, partner experiences, and technical communities across fintech and technology. Scaled engineering teams from 1 to 9, supported $10B+ in enterprise GMV, and drove $500K in incremental GMV through high-stakes technical initiatives. Combines software engineering, GenAI agentic workflows, and developer advocacy to build scalable products and high-impact developer experiences. Targeting Engineering Management, Developer Experience, and Product leadership roles.
 
 ---
 
 ## Professional Experience
 
-### Beginner | Founder
-*San Diego, CA (Hybrid) | Mar 2026 – Jul 2026 (5 mos)*
-* **Developer Engagement:** Built and launched a progressive web app enabling technical founders to refine pitches and practice fundraising in-person with potential customers. Successfully acquired initial paying users.
-* **Community Architecture:** Established a local technical network by hosting targeted events for product-focused tech professionals and engineers in San Diego.
-* **Market Advocacy:** Traveled across major tech hubs (NYC, SF) — including weekly trips to LA over a 2-month period — to conduct user research, gather developer feedback, and evangelize the product framework directly with engineers and potential VC investors.
+### Founder | Beginner
+*San Diego, CA (Hybrid) | Mar 2026 – Jul 2026*
+* **Role Scope & Scale:** Founded early-stage developer product venture; led product discovery, full-stack engineering (React, Next.js), and GTM for a fundraising pitch simulator, acquiring initial paying users within 6 weeks and building a 20+ engineer community.
+* **Community Architecture:** Established a developer and founder network across SoCal, NYC, and SF.
+* **Customer Discovery:** Conducted 40+ user research interviews with developers and technical founders and iterated on product features on-the-go and in real-time.
 
-### Affirm | Software Engineering Manager (L7), Merchant Advocacy
-*San Diego, CA (Remote) | Mar 2025 – Feb 2026 (1 yr)*
-* **Program Orchestration:** Directed a high-pressure, 5-week strategic website revamp (affirm.com), unifying engineering, design, and product content to successfully unlock critical GMV attribution features.
-* **Cross-Functional Performance:** Facilitated engineering trade-offs throughout the revamp to optimize mobile performance, driving an incremental **$500K GMV** during a pre-Black-Friday/Cyber-Monday (BFCM) 2025 promotional window.
-* **First-Principles GenAI Upskilling:** Spearheaded organizational adoption of LLM code-generation utilities and agentic frameworks via team workshops and one-on-one's, leading to stabilizing the merchant portal at 99.9% uptime and de-risking catastrophic failure points ahead of BFCM 2025.
-* **Stakeholder Alignment:** Mediated and resolved complex technical conflicts across Manager, Director, and Staff+ levels by defining timelines and written architectural decisions to unblock a critical platform re-architecture, enabling support for 99.99% uptime capabilities.
+### Software Engineering Manager (L7), Merchant Advocacy | Affirm
+*San Diego, CA (Remote) | Mar 2025 – Feb 2026*
+* **Role Scope & Scale:** Managed 6 software engineers with cross-functional leadership across Product, Design, and Content; owned affirm.com and merchant portal infrastructure (React, TypeScript) supporting 500,000+ active merchants, delivering an incremental $500K GMV lift ahead of BFCM 2025.
+* **Top-of-Funnel Revamp & $500K GMV:** Directed 5-week website revamp of affirm.com, unifying engineering and product marketing to launch native customer onboarding funnels and mobile conversion, capturing an incremental **$500K GMV** ahead of BFCM 2025.
+* **Incident Root-Cause & Velocity Labs:** Diagnosed legacy software driving recurring production incidents; instituted weekly "Velocity Lab" working sessions to upskill engineers in AI tooling, empowering the team to solve problems more thoroughly, move faster, own more of the stack, and stabilize the merchant portal at 99.9% uptime.
+* **Domain Architecture & Boundary Mediation:** Mediated technical RFCs and decoupled service boundaries across Staff+ and Director levels as part of a multi-org initiative, aligning merchant systems with the enterprise domain architecture to lay the groundwork for 99.99% availability.
 
-### Affirm | Developer Support Engineering Manager (L6 → L7), Partner Engineering
-*San Diego, CA (Remote) | Jul 2021 – Mar 2025 (3 yrs 9 mos)*
-* **Engineering Scaling & Operations Distribution:** Hired and scaled the developer support engineering team from 1 to 6 engineers (eventually 9 after re-org), systemized 80% of workflows, and successfully distributed Tier-2 operational load to the operations team to focus engineering bandwidth on platform reliability and root-cause resolution.
-* **Enterprise SLA Telemetry ($100M+ & $10B+ Amazon GMV):** Architected automated service level agreement (SLA) reporting pipelines and technical root-cause summaries (Python, Flask, Snowflake) for strategic enterprise merchants ($100M+ GMV) and a flagship **$10B+ GMV** partner (Amazon), eliminating 16 hours of monthly manual overhead and securing 100% executive stakeholder alignment.
-* **Self-Service Merchant Onboarding:** Maintained and scaled self-service onboarding pipelines, SDK integration tooling, and paved-path documentation supporting thousands of active merchants with zero-touch developer integration.
+### Developer Support Engineering Manager (L6 → L7), Partner Engineering | Affirm
+*San Diego, CA (Remote) | Jul 2021 – Mar 2025*
+* **Role Scope & Scale:** Promoted from L6 to L7 to build, scale, and lead the developer support engineering team from 1 to 9 engineers; managed technical operations and SLA reliability across strategic accounts ($100M+ GMV) and Affirm's flagship partner (Amazon, $10B+ GMV).
+* **Automated SLA Telemetry & Operations:** Architected automated SLA reporting and root-cause summaries (Python, Flask, Snowflake), eliminating 16 hours of monthly manual toil, systemizing 80% of workflows, and distributing Tier-1/Tier-2 operational load.
+* **DevOps Observability & Incident Response:** Established real-time telemetry dashboards and automated incident alert routing, decreasing MTTR for enterprise partner incidents by hours.
 
-### Affirm | Developer Support Engineer (L4 → L5), Partner Engineering
-*San Francisco (On-site) & San Diego, CA (Remote) | Sept 2019 – Jul 2021 (1 yr 11 mos)*
-* **Technical Translation & Liaison:** Served as the primary technical point of contact for SMB merchants; established the foundation for data-driven developer advocacy by diagnosing B2B integration bugs, developing ETL pipelines for easier ad-hoc analysis of e-commerce platform issue themes, and translating them into actionable platform solutions to reduce partner churn.
+### Developer Support Engineer (L4 → L5), Partner Engineering | Affirm
+*San Francisco & San Diego, CA | Sept 2019 – Jul 2021*
+* **Role Scope & Scale:** Promoted from L4 to L5, serving as primary technical liaison for 300+ SMB merchants; diagnosed B2B integration bugs across partner platforms to eliminate merchant churn.
+* **Technical Advocacy & Defect Clustering:** Designed automated ETL pipelines to cluster integration defect patterns, turning developer feedback into platform fixes that reduced integration churn.
+* **SDK & Integration Debugging:** Diagnosed and resolved complex JavaScript, REST API, and webhook integration defects across major platforms (Shopify, Magento, WooCommerce, Salesforce Commerce Cloud).
 
-### Galvanize Inc | Lead Software Engineering Immersive Resident
-*San Francisco, CA (Hybrid) | May 2019 – Aug 2019 (4 mos)*
-* **Developer Onboarding:** Mentored a cohort of ~20 incoming Hack Reactor students, guiding them through practical JavaScript application development, Git/GitHub best practices, and foundational developer workflows.
-* **Code Review:** Managed multi-repo grading and delivered constructive code reviews, building psychological safety and technical confidence for career transitioners entering the industry.
+### Lead Software Engineering Immersive Resident | Galvanize Inc
+*San Francisco, CA | May 2019 – Aug 2019*
+* **Developer Mentorship & Code Review:** Directed technical onboarding and code evaluation for cohorts of ~20 incoming Hack Reactor students, delivering multi-repo reviews in full-stack JavaScript and Git workflows.
 
-### The Tech Interactive | Gallery Programs Specialist → Experience Development Specialist & Prototyping Studio Coordinator
-*San Jose, CA (On-site) | May 2017 – Jan 2019 (1 yr 9 mos)*
-* **Partner Engineering & Curriculum Design:** Partnered directly with Google to design and launch hands-on data literacy workshops (e.g., 'Toy Tops'), introducing data and hardware concepts utilizing mobile accelerometers and sensor APIs.
-* **Cross-Functional Prototyping:** Collaborated with a Staff Engineer and exhibit designers to prototype and run UX-research for a sustainability-focused city exhibit, combining 3D-printed models, graphical projection mapping, and research-backed prompts for museum guests to engage with.
-* **Creative Automation & Community:** Engineered generative digital signage using JavaScript (p5.js) to automate daily workshop scheduling. Awarded the 'Monthly Innovator Award' for spearheading cross-departmental skill-sharing.
+### Experience Development Specialist & Prototyping Studio Coordinator | The Tech Interactive
+*San Jose, CA | May 2017 – Jan 2019*
+* **Google Partner Engineering & Creative Automation:** Partnered directly with Google to design sensor API workshops for 400+ visitors; engineered generative digital signage in JavaScript (p5.js) to automate workshop scheduling (Monthly Innovator Award).
 
-### Computer History Museum | Workshop Instructor, Education Programs → Design Code Build Instructor
-*Mountain View, CA (On-site) | Mar 2017 – Nov 2018 (1 yr 9 mos)*
-* **Community Event Orchestration:** Engaged with event attendees and volunteers for large-scale 'Design Code Build' events, introducing Silicon Valley families and Title I students to software engineering.
-* **Hardware & Software Integration:** Guided diverse groups of students across varying developmental levels through cross-disciplinary engineering exercises, blending physical builds (Rube Goldberg machines) with custom software triggers.
-* **Inclusive Technical Storytelling:** Delivered engaging, real-time presentations and guided tours on the history of computing to large groups (10 - 20), dynamically adapting complex concepts based on the room's baseline knowledge and integrating insights from industry veterans in attendance.
+### Design Code Build Instructor | Computer History Museum
+*Mountain View, CA | Mar 2017 – Nov 2018*
+* **Technical Education & Physical Computing:** Guided 1,000+ students and volunteers through software logic and physical computing workshops (Rube Goldberg machines), adapting complex computing concepts for diverse audiences.
 
 ---
 
@@ -73,10 +61,17 @@ To elevate the creative and financial position of software developers through ps
 
 * **Deep Atlas** | Residency, Applied AI and Machine Learning *(San Francisco, CA & Remote)*
 * **Northwestern University** | Graduate Coursework, Learning Sciences *(Evanston, IL)*
+* **Olin College of Engineering** | SEER Program (Summer Engineering Education Research) *(Needham, MA)*
 * **Hack Reactor** | Advanced Software Engineering Immersive *(San Francisco, CA)*
 * **University of California, San Diego** | B.S. NanoEngineering – *Cum Laude* *(La Jolla, CA)*
 
+---
 
+## Skills & Toolkits
+
+* **Technical Toolkit:** Python, JavaScript, React, Next.js, Node.js, Flask, PyTorch, LLMs & RAG, Agentic Coding Frameworks (Claude, Cursor, Antigravity), Snowflake, SQL, ETL Pipelines, SRE Support, Vercel, Git/GitHub, CI/CD, REST APIs, Webhooks
+* **Leadership & Management:** Team Scaling (1 to 9 engineers), Performance Management, Cross-Functional Alignment (Product, Design, Account Management, Ops), Mentorship & Coaching, Psychological Safety, Written RFCs & Architectural Decisions, Sprint Orchestration, Incident Management (MTTR reduction)
+* **Product & GTM Strategy:** Developer Advocacy & Evangelism, Partner Engineering, Enterprise Merchant Integrations ($10B+ GMV Scale), GMV Attribution & Revenue Acceleration, Developer Paved Paths & Documentation, Field Research & Customer Discovery, Community Architecture
 `;
 
 export const parsedResume: ParsedResume = parseResumeMarkdown(rawResumeMarkdown);
