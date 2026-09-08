@@ -20,6 +20,7 @@ interface ScrollMorphAvatarProps {
   onReady?: () => void;
   progress?: MotionValue<number>;
   contactProgress?: MotionValue<number>;
+  isQuickUp?: MotionValue<number>;
   onReturnToHero?: () => void;
 }
 
@@ -59,6 +60,7 @@ export default function ScrollMorphAvatar({
   onReady,
   progress: customProgress,
   contactProgress: customContactProgress,
+  isQuickUp: customQuickUp,
   onReturnToHero,
 }: ScrollMorphAvatarProps) {
   const [coords, setCoords] = useState<Coords | null>(null);
@@ -78,6 +80,9 @@ export default function ScrollMorphAvatar({
 
   const fallbackContactProgress = useTransform(scrollY, () => 0);
   const effectiveContactProgress = customContactProgress || fallbackContactProgress;
+
+  const fallbackQuickUp = useTransform(scrollY, () => 0);
+  const activeQuickUp = customQuickUp || fallbackQuickUp;
 
   // 1. Measure coordinates across Hero Anchor, Navbar Target, and Contact Target
   useEffect(() => {
@@ -323,21 +328,24 @@ export default function ScrollMorphAvatar({
       const rawProgress = Math.min(Math.max(progress.get(), 0), 1);
       // Phase 2: progress from 0 (navbar) to 1 (contact slot)
       const rawContact = Math.min(Math.max(effectiveContactProgress.get(), 0), 1);
+      const quickUp = activeQuickUp.get();
       const isHovered = isHoveredRef.current;
       const hasClick = clickImpulseRef.current > 0.001;
 
-      const combinedProgress = rawProgress + rawContact;
+      const c = coordsRef.current;
+      const currentScrollY = scrollY.get();
+      const windowH = typeof window !== "undefined" ? window.innerHeight : 800;
+      const contactTargetY = c ? Math.max(c.contactAbsoluteY - windowH * 0.5, 1) : 1000;
+      const quickT = Math.min(Math.max(currentScrollY / contactTargetY, 0), 1);
+
+      const metric = quickUp > 0.5 ? quickT : (rawProgress + rawContact);
       if (
-        Math.abs(combinedProgress - lastScrollProgress) > 0.0001 ||
+        Math.abs(metric - lastScrollProgress) > 0.0001 ||
         isHovered ||
         hasClick ||
         hoverSpin > 0.001
       ) {
-        lastScrollProgress = combinedProgress;
-
-        // Smooth Hermite smoothstep easing for graceful departure and soft docking
-        const easedP1 = rawProgress * rawProgress * (3 - 2 * rawProgress);
-        const easedP2 = rawContact * rawContact * (3 - 2 * rawContact);
+        lastScrollProgress = metric;
 
         // Hover spin accumulation
         if (isHovered) {
@@ -350,14 +358,27 @@ export default function ScrollMorphAvatar({
           clickImpulseRef.current *= 0.92;
         }
 
-        // Full 360-degree rotation during Phase 1 (0 -> 2*PI)
-        // Another full 360-degree rotation during Phase 2 (2*PI -> 4*PI)
-        coinMesh.rotation.y = (easedP1 + easedP2) * Math.PI * 2 + hoverSpin + clickImpulseRef.current;
+        if (quickUp > 0.5) {
+          // Direct rotation and tilt as coin travels straight to top center hero
+          const easedT = quickT * quickT * (3 - 2 * quickT);
+          coinMesh.rotation.y = easedT * Math.PI * 2 + hoverSpin + clickImpulseRef.current;
+          const transitTilt = Math.sin(easedT * Math.PI) * 0.28;
+          const hoverTilt = isHovered ? 0.15 : 0;
+          coinMesh.rotation.x = transitTilt + hoverTilt;
+        } else {
+          // Smooth Hermite smoothstep easing for graceful departure and soft docking
+          const easedP1 = rawProgress * rawProgress * (3 - 2 * rawProgress);
+          const easedP2 = rawContact * rawContact * (3 - 2 * rawContact);
 
-        // Subtle 3D tilt exposing the metallic milled edge during transit
-        const transitTilt = (Math.sin(easedP1 * Math.PI) * (1 - rawContact) + Math.sin(easedP2 * Math.PI)) * 0.28;
-        const hoverTilt = isHovered ? 0.15 : 0;
-        coinMesh.rotation.x = transitTilt + hoverTilt;
+          // Full 360-degree rotation during Phase 1 (0 -> 2*PI)
+          // Another full 360-degree rotation during Phase 2 (2*PI -> 4*PI)
+          coinMesh.rotation.y = (easedP1 + easedP2) * Math.PI * 2 + hoverSpin + clickImpulseRef.current;
+
+          // Subtle 3D tilt exposing the metallic milled edge during transit
+          const transitTilt = (Math.sin(easedP1 * Math.PI) * (1 - rawContact) + Math.sin(easedP2 * Math.PI)) * 0.28;
+          const hoverTilt = isHovered ? 0.15 : 0;
+          coinMesh.rotation.x = transitTilt + hoverTilt;
+        }
 
         renderer.render(scene, camera);
       }
@@ -380,16 +401,28 @@ export default function ScrollMorphAvatar({
       rimBump.dispose();
       renderer.dispose();
     };
-  }, [isReady, basePath, onReady, progress, effectiveContactProgress]);
+  }, [isReady, basePath, onReady, progress, effectiveContactProgress, activeQuickUp, scrollY]);
 
   // 3. Motion Interpolation for multi-phase position & scale (Hermite smoothstep)
   const x = useTransform(
-    [progress, effectiveContactProgress],
+    [progress, effectiveContactProgress, activeQuickUp, scrollY],
     (values: number[]) => {
       const c = coordsRef.current;
       if (!c) return 0;
       const p1 = values[0] ?? 0;
       const p2 = values[1] ?? 0;
+      const quickUp = values[2] ?? 0;
+      const latestY = values[3] ?? 0;
+
+      // When scrolling up quickly, skip nav placement and move directly to top center placement
+      if (quickUp > 0.5) {
+        const windowH = typeof window !== "undefined" ? window.innerHeight : 800;
+        const contactTargetY = Math.max(c.contactAbsoluteY - windowH * 0.5, 1);
+        const t = Math.min(Math.max(latestY / contactTargetY, 0), 1);
+        const easedT = t * t * (3 - 2 * t);
+        return c.heroX + (c.contactX - c.heroX) * easedT;
+      }
+
       const clampedP1 = Math.min(Math.max(p1, 0), 1);
       const clampedP2 = Math.min(Math.max(p2, 0), 1);
       const easedP1 = clampedP1 * clampedP1 * (3 - 2 * clampedP1);
@@ -404,13 +437,25 @@ export default function ScrollMorphAvatar({
   );
 
   const y = useTransform(
-    [progress, effectiveContactProgress, scrollY],
+    [progress, effectiveContactProgress, activeQuickUp, scrollY],
     (values: number[]) => {
       const c = coordsRef.current;
       if (!c) return 0;
       const p1 = values[0] ?? 0;
       const p2 = values[1] ?? 0;
-      const latestY = values[2] ?? 0;
+      const quickUp = values[2] ?? 0;
+      const latestY = values[3] ?? 0;
+
+      // When scrolling up quickly, direct linear flight from contact/current to hero top center
+      if (quickUp > 0.5) {
+        const windowH = typeof window !== "undefined" ? window.innerHeight : 800;
+        const contactTargetY = Math.max(c.contactAbsoluteY - windowH * 0.5, 1);
+        const t = Math.min(Math.max(latestY / contactTargetY, 0), 1);
+        const easedT = t * t * (3 - 2 * t);
+        const contactViewportY = c.contactAbsoluteY - latestY;
+        return c.heroY + (contactViewportY - c.heroY) * easedT;
+      }
+
       const clampedP1 = Math.min(Math.max(p1, 0), 1);
       const clampedP2 = Math.min(Math.max(p2, 0), 1);
       const easedP1 = clampedP1 * clampedP1 * (3 - 2 * clampedP1);
@@ -427,12 +472,24 @@ export default function ScrollMorphAvatar({
   );
 
   const size = useTransform(
-    [progress, effectiveContactProgress],
+    [progress, effectiveContactProgress, activeQuickUp, scrollY],
     (values: number[]) => {
       const c = coordsRef.current;
       if (!c) return 96;
       const p1 = values[0] ?? 0;
       const p2 = values[1] ?? 0;
+      const quickUp = values[2] ?? 0;
+      const latestY = values[3] ?? 0;
+
+      // When scrolling up quickly, scale directly from contact size to hero size, skipping 32px nav size
+      if (quickUp > 0.5) {
+        const windowH = typeof window !== "undefined" ? window.innerHeight : 800;
+        const contactTargetY = Math.max(c.contactAbsoluteY - windowH * 0.5, 1);
+        const t = Math.min(Math.max(latestY / contactTargetY, 0), 1);
+        const easedT = t * t * (3 - 2 * t);
+        return c.heroSize + (c.contactSize - c.heroSize) * easedT;
+      }
+
       const clampedP1 = Math.min(Math.max(p1, 0), 1);
       const clampedP2 = Math.min(Math.max(p2, 0), 1);
       const easedP1 = clampedP1 * clampedP1 * (3 - 2 * clampedP1);

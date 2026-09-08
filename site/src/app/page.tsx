@@ -31,6 +31,13 @@ export default function Home() {
     mass: 0.4,
   });
 
+  const rawQuickUp = useMotionValue(0);
+  const isQuickUp = useSpring(rawQuickUp, {
+    stiffness: 280,
+    damping: 28,
+    mass: 0.3,
+  });
+
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const { logResumeView } = useAnalytics();
 
@@ -68,7 +75,30 @@ export default function Home() {
 
   // Synchronize avatar & navbar progress smoothly with scroll position:
   useEffect(() => {
+    let lastY = typeof window !== "undefined" ? window.scrollY : 0;
+    let lastTime = performance.now();
+
     const unsubscribe = scrollY.on("change", (latestY) => {
+      const now = performance.now();
+      const dt = now - lastTime;
+      const dy = latestY - lastY;
+      lastY = latestY;
+      lastTime = now;
+
+      // Detect high-velocity upward scroll
+      if (dt > 0) {
+        const velocity = (dy / dt) * 1000;
+        if (velocity < -400) {
+          rawQuickUp.set(1);
+        } else if (velocity > 120) {
+          rawQuickUp.set(0);
+        }
+      }
+
+      if (latestY <= 15) {
+        rawQuickUp.set(0);
+      }
+
       const heroP = Math.min(Math.max(latestY / HERO_PIN_SCROLL_DISTANCE, 0), 1);
       rawProgress.set(heroP);
 
@@ -77,7 +107,70 @@ export default function Home() {
     });
 
     return () => unsubscribe();
-  }, [scrollY, rawProgress, rawContactProgress]);
+  }, [scrollY, rawProgress, rawContactProgress, rawQuickUp]);
+
+  // Wheel and touch listeners to instantly detect quick upward flicks
+  useEffect(() => {
+    let idleTimer: NodeJS.Timeout | null = null;
+
+    const triggerQuickUp = () => {
+      rawQuickUp.set(1);
+      if (idleTimer) clearTimeout(idleTimer);
+      idleTimer = setTimeout(() => {
+        if (window.scrollY > 20) {
+          rawQuickUp.set(0);
+        }
+      }, 700);
+    };
+
+    const cancelQuickUp = () => {
+      rawQuickUp.set(0);
+      if (idleTimer) {
+        clearTimeout(idleTimer);
+        idleTimer = null;
+      }
+    };
+
+    const handleWheel = (e: WheelEvent) => {
+      const normalizedDelta = e.deltaMode === 1 ? e.deltaY * 30 : e.deltaY;
+      if (normalizedDelta < -20) {
+        triggerQuickUp();
+      } else if (normalizedDelta > 15) {
+        cancelQuickUp();
+      }
+    };
+
+    let touchStartY = 0;
+    let touchStartTime = 0;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartY = e.touches[0].clientY;
+      touchStartTime = performance.now();
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      const touchCurrentY = e.touches[0].clientY;
+      const deltaY = touchStartY - touchCurrentY;
+      const deltaTime = performance.now() - touchStartTime;
+
+      if (deltaY < -20 || (deltaTime > 0 && deltaY / deltaTime < -0.3)) {
+        triggerQuickUp();
+      } else if (deltaY > 15) {
+        cancelQuickUp();
+      }
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: true });
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
+
+    return () => {
+      window.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
+      if (idleTimer) clearTimeout(idleTimer);
+    };
+  }, [rawQuickUp]);
 
   // Handle window resizing or dynamic layout changes
   useEffect(() => {
@@ -99,6 +192,7 @@ export default function Home() {
   }, [rawContactProgress]);
 
   const handleReturnToHero = () => {
+    rawQuickUp.set(1);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -108,6 +202,7 @@ export default function Home() {
       <ScrollMorphAvatar
         progress={avatarProgress}
         contactProgress={contactProgress}
+        isQuickUp={isQuickUp}
         onReturnToHero={handleReturnToHero}
       />
 
@@ -117,6 +212,7 @@ export default function Home() {
       <Navbar
         progress={avatarProgress}
         contactProgress={contactProgress}
+        isQuickUp={isQuickUp}
         onReturnToHero={handleReturnToHero}
       />
 
