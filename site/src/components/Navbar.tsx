@@ -30,12 +30,14 @@ export default function Navbar({ progress, onReturnToHero }: NavbarProps = {}) {
 
   const navOpacity = progress ? progressOpacity : fallbackScrollOpacity;
   const pointerEvents = progress ? progressPointerEvents : fallbackPointerEvents;
+  const visibility = useTransform(navOpacity, (o) => (o > 0 ? "visible" : "hidden"));
 
   return (
     <motion.header
       style={{
         opacity: navOpacity,
         pointerEvents,
+        visibility,
       }}
       className="fixed top-0 left-0 right-0 z-50 bg-background/85 backdrop-blur-md border-b border-border/80 transition-colors no-print"
     >

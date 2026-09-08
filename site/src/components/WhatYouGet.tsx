@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import WebGLCoin from "@/components/WebGLCoin";
 
 interface ValuePillar {
@@ -9,20 +10,35 @@ interface ValuePillar {
   number: string;
   title: string;
   subtitle?: string;
+  link: {
+    href: string;
+    label: string;
+    title: string;
+  };
 }
 
 const valuePillars: ValuePillar[] = [
   {
     id: "culture-builder",
     number: "01",
-    title: "Capture the founder market",
-    subtitle: "Your TAM is 10x",
+    title: "Capture the developer market",
+    subtitle: "And 10x your TAM",
+    link: {
+      href: "https://www.beginner.work",
+      label: "beginner.work",
+      title: "Beginner Work (www.beginner.work)",
+    },
   },
   {
     id: "methodical-enjoyable",
     number: "02",
-    title: "Retain talent & customers",
-    subtitle: "And make your customers your talent",
+    title: "Retain enterprise customers",
+    subtitle: "And recruit their developers",
+    link: {
+      href: "https://github.com/tlindow",
+      label: "github.com/tlindow",
+      title: "Tyler Lindow - GitHub (github.com/tlindow)",
+    },
   },
 ];
 
@@ -66,27 +82,30 @@ export default function WhatYouGet() {
                   )}
                 </div>
 
-                {/* Rotating 3D WebGL Coin (No words within or below the token, logo fills entire coin) */}
+                {/* Rotating 3D WebGL Coin & Link */}
                 <div className="flex flex-col items-center md:items-start w-full pt-1">
-                  {isCultureBuilder ? (
-                    <div className="mx-auto md:mx-0">
-                      <WebGLCoin
-                        type="tinker"
-                        href="https://www.beginner.work"
-                        title="Beginner Work (www.beginner.work)"
-                        className="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48"
+                  <div className="mx-auto md:mx-0 flex flex-col items-center gap-3">
+                    <WebGLCoin
+                      type={isCultureBuilder ? "tinker" : "github"}
+                      href={pillar.link.href}
+                      title={pillar.link.title}
+                      className="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48"
+                    />
+
+                    <a
+                      href={pillar.link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center gap-1.5 rounded-full bg-surface hover:bg-surface-alt px-3.5 py-1.5 border border-border hover:border-indigo/40 text-xs font-mono font-medium text-foreground shadow-2xs hover:shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98]"
+                      title={pillar.link.title}
+                    >
+                      <span>{pillar.link.label}</span>
+                      <ArrowUpRight
+                        size={12}
+                        className="opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 text-muted group-hover:text-foreground"
                       />
-                    </div>
-                  ) : (
-                    <div className="mx-auto md:mx-0">
-                      <WebGLCoin
-                        type="github"
-                        href="https://github.com/tlindow"
-                        title="Tyler Lindow - GitHub (github.com/tlindow)"
-                        className="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48"
-                      />
-                    </div>
-                  )}
+                    </a>
+                  </div>
                 </div>
               </motion.div>
             );

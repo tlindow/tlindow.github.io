@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { useScroll, useMotionValue } from "framer-motion";
+import { useEffect } from "react";
+import { useScroll, useMotionValue, useSpring } from "framer-motion";
 import { FileText } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import {
@@ -17,107 +17,36 @@ import { useAnalytics } from "@/context/AnalyticsProvider";
 
 export default function Home() {
   const { scrollY } = useScroll();
-  const avatarProgress = useMotionValue(0);
-  const isHardScrolledRef = useRef(false);
+  const rawProgress = useMotionValue(0);
+  const avatarProgress = useSpring(rawProgress, {
+    stiffness: 220,
+    damping: 24,
+    mass: 0.4,
+  });
 
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const { logResumeView } = useAnalytics();
 
-  // If page loads already scrolled down, dock avatar immediately
+  // If page loads already scrolled down, initialize progress appropriately
   useEffect(() => {
-    if (typeof window !== "undefined" && window.scrollY >= HERO_PIN_SCROLL_DISTANCE) {
-      isHardScrolledRef.current = true;
-      avatarProgress.set(1);
+    if (typeof window !== "undefined") {
+      const p = Math.min(Math.max(window.scrollY / HERO_PIN_SCROLL_DISTANCE, 0), 1);
+      rawProgress.set(p);
+      avatarProgress.jump(p);
     }
-  }, [avatarProgress]);
+  }, [rawProgress, avatarProgress]);
 
-  // Synchronize avatar & navbar progress with scroll position:
-  // - If at the top (scrollY <= 10): restore avatar to hero anchor
-  // - If hard scrolled: keep avatar docked in navbar
-  // - Otherwise (gentle scroll): 1:1 direct smooth tracking
+  // Synchronize avatar & navbar progress smoothly with scroll position:
   useEffect(() => {
     const unsubscribe = scrollY.on("change", (latestY) => {
-      if (latestY <= 10) {
-        isHardScrolledRef.current = false;
-        avatarProgress.set(0);
-        return;
-      }
-
-      if (isHardScrolledRef.current) {
-        avatarProgress.set(1);
-        return;
-      }
-
       const p = Math.min(Math.max(latestY / HERO_PIN_SCROLL_DISTANCE, 0), 1);
-      avatarProgress.set(p);
+      rawProgress.set(p);
     });
 
     return () => unsubscribe();
-  }, [scrollY, avatarProgress]);
-
-  // Detect hard scroll:
-  // On a fast flick or large scroll delta, skip animation, place profile in nav immediately,
-  // and allow the page to flow completely freely with native inertia (no preventDefault, passive listeners).
-  useEffect(() => {
-    const HARD_SCROLL_DELTA = 35; // Pixels per wheel event to trigger hard scroll bypass
-
-    const handleWheel = (e: WheelEvent) => {
-      const normalizedDelta = e.deltaMode === 1 ? e.deltaY * 30 : e.deltaY;
-
-      // Scrolling back up resets hard scroll mode so upward gentle scroll works symmetrically
-      if (normalizedDelta < 0) {
-        isHardScrolledRef.current = false;
-        return;
-      }
-
-      if (isHardScrolledRef.current || window.scrollY >= HERO_PIN_SCROLL_DISTANCE) return;
-
-      if (normalizedDelta >= HARD_SCROLL_DELTA) {
-        // Hard scroll detected: place profile in nav immediately and allow native flow
-        isHardScrolledRef.current = true;
-        avatarProgress.set(1);
-      }
-    };
-
-    let touchStartY = 0;
-    let touchStartTime = 0;
-
-    const handleTouchStart = (e: TouchEvent) => {
-      touchStartY = e.touches[0].clientY;
-      touchStartTime = performance.now();
-    };
-
-    const handleTouchMove = (e: TouchEvent) => {
-      const touchCurrentY = e.touches[0].clientY;
-      const deltaY = touchStartY - touchCurrentY;
-
-      if (deltaY < 0) {
-        isHardScrolledRef.current = false;
-        return;
-      }
-
-      if (isHardScrolledRef.current || window.scrollY >= HERO_PIN_SCROLL_DISTANCE) return;
-
-      const deltaTime = performance.now() - touchStartTime;
-      if (deltaY > 40 || (deltaTime > 0 && deltaY / deltaTime > 0.4)) {
-        isHardScrolledRef.current = true;
-        avatarProgress.set(1);
-      }
-    };
-
-    window.addEventListener("wheel", handleWheel, { passive: true });
-    window.addEventListener("touchstart", handleTouchStart, { passive: true });
-    window.addEventListener("touchmove", handleTouchMove, { passive: true });
-
-    return () => {
-      window.removeEventListener("wheel", handleWheel);
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchmove", handleTouchMove);
-    };
-  }, [avatarProgress]);
+  }, [scrollY, rawProgress]);
 
   const handleReturnToHero = () => {
-    isHardScrolledRef.current = false;
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -160,7 +89,7 @@ export default function Home() {
 
               <div className="pt-2">
                 <p className="text-sm sm:text-base md:text-lg font-mono text-muted mx-auto">
-                  Top of funnel marketing and self-service B2B portals
+                  Top of funnel developer marketing and enterprise B2B portals
                 </p>
               </div>
             </div>

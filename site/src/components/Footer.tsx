@@ -23,7 +23,7 @@ export default function Footer() {
               Let&apos;s talk
             </h3>
             <p className="text-xs sm:text-sm font-mono text-muted max-w-md mx-auto leading-relaxed">
-              Open to strategic advisory, technical leadership roles, and ambitious B2B fintech products.
+              Open to strategic advisory, technical leadership roles, and developer-first enterprise B2B platforms.
             </p>
           </div>
 

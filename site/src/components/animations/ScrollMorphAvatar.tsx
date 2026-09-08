@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, type MotionValue } from "framer-motion";
 import * as THREE from "three";
 
 interface Coords {
@@ -48,7 +48,7 @@ function createMilledRimTexture(): THREE.CanvasTexture {
  * Distance in pixels that the profile avatar morphs from its hero anchor position
  * to the docked top navbar slot.
  */
-export const AVATAR_MORPH_SCROLL_DISTANCE = 160;
+export const AVATAR_MORPH_SCROLL_DISTANCE = 240;
 export const HERO_PIN_SCROLL_DISTANCE = AVATAR_MORPH_SCROLL_DISTANCE;
 
 export default function ScrollMorphAvatar({
@@ -66,8 +66,9 @@ export default function ScrollMorphAvatar({
 
   // Fallback internal scroll progress if customProgress is not passed
   const { scrollY } = useScroll();
-  const internalProgress = useTransform(scrollY, [0, HERO_PIN_SCROLL_DISTANCE], [0, 1], { clamp: true });
-  const progress = customProgress || internalProgress;
+  const internalRawProgress = useTransform(scrollY, [0, HERO_PIN_SCROLL_DISTANCE], [0, 1], { clamp: true });
+  const internalSpring = useSpring(internalRawProgress, { stiffness: 220, damping: 24, mass: 0.4 });
+  const progress = customProgress || internalSpring;
 
   // 1. Measure coordinates between Hero Anchor and Navbar Target
   useEffect(() => {
@@ -300,8 +301,8 @@ export default function ScrollMorphAvatar({
       if (rawProgress !== lastScrollProgress || isHovered || hasClick || hoverSpin > 0.001) {
         lastScrollProgress = rawProgress;
 
-        // Smooth easing quad
-        const eased = rawProgress * (2 - rawProgress);
+        // Smooth Hermite smoothstep easing for graceful departure and soft docking
+        const eased = rawProgress * rawProgress * (3 - 2 * rawProgress);
 
         // Hover spin accumulation
         if (isHovered) {
@@ -345,8 +346,8 @@ export default function ScrollMorphAvatar({
     };
   }, [isReady, basePath, onReady, progress]);
 
-  // 3. Motion Interpolation for position & scale
-  const easedProgress = useTransform(progress, (p) => p * (2 - p));
+  // 3. Motion Interpolation for position & scale (Hermite smoothstep)
+  const easedProgress = useTransform(progress, (p) => p * p * (3 - 2 * p));
 
   const x = useTransform(easedProgress, (p) => {
     if (!coords) return 0;
