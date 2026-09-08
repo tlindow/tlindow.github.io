@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import { useScroll, useMotionValue, useSpring } from "framer-motion";
 import { FileText } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -31,8 +31,9 @@ export default function Home() {
     mass: 0.4,
   });
 
-  const rawQuickUp = useMotionValue(0);
-  const isQuickUp = useSpring(rawQuickUp, {
+  const hasReachedContactRef = useRef(false);
+  const rawDirectToHero = useMotionValue(0);
+  const directToHero = useSpring(rawDirectToHero, {
     stiffness: 280,
     damping: 28,
     mass: 0.3,
@@ -41,22 +42,31 @@ export default function Home() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const { logResumeView } = useAnalytics();
 
-  const computeContactProgress = (latestY: number) => {
+  const computeContactTargetScrollY = useCallback(() => {
     if (typeof window === "undefined") return 0;
     const contactEl = document.getElementById("contact-avatar-target");
     if (!contactEl) return 0;
     const rect = contactEl.getBoundingClientRect();
     const contactAbsoluteY = rect.top + window.scrollY;
-    // Contact section reaches the middle of the viewport when:
-    // window.scrollY = contactAbsoluteY - window.innerHeight * 0.5
-    const targetMidScrollY = contactAbsoluteY - window.innerHeight * 0.5;
-    const transitDistance = Math.min(320, window.innerHeight * 0.45);
-    const startScrollY = targetMidScrollY - transitDistance;
+    return contactAbsoluteY - window.innerHeight * 0.5;
+  }, []);
 
-    if (latestY <= startScrollY) return 0;
-    if (latestY >= targetMidScrollY) return 1;
-    return (latestY - startScrollY) / transitDistance;
-  };
+  const computeContactProgress = useCallback(
+    (latestY: number) => {
+      const targetMidScrollY = computeContactTargetScrollY();
+      if (targetMidScrollY <= 0) return 0;
+      const transitDistance = Math.min(
+        320,
+        typeof window !== "undefined" ? window.innerHeight * 0.45 : 320
+      );
+      const startScrollY = targetMidScrollY - transitDistance;
+
+      if (latestY <= startScrollY) return 0;
+      if (latestY >= targetMidScrollY) return 1;
+      return (latestY - startScrollY) / transitDistance;
+    },
+    [computeContactTargetScrollY]
+  );
 
   // If page loads already scrolled down, initialize progress appropriately
   useEffect(() => {
@@ -66,37 +76,45 @@ export default function Home() {
       avatarProgress.jump(heroP);
 
       requestAnimationFrame(() => {
+        const contactTargetScrollY = computeContactTargetScrollY();
+        if (contactTargetScrollY > 0 && window.scrollY >= contactTargetScrollY - 20) {
+          hasReachedContactRef.current = true;
+          rawDirectToHero.set(1);
+          directToHero.jump(1);
+        }
+
         const contactP = computeContactProgress(window.scrollY);
         rawContactProgress.set(contactP);
         contactProgress.jump(contactP);
       });
     }
-  }, [rawProgress, avatarProgress, rawContactProgress, contactProgress]);
+  }, [
+    rawProgress,
+    avatarProgress,
+    rawContactProgress,
+    contactProgress,
+    rawDirectToHero,
+    directToHero,
+    computeContactTargetScrollY,
+    computeContactProgress,
+  ]);
 
-  // Synchronize avatar & navbar progress smoothly with scroll position:
+  // Synchronize avatar & navbar progress with scroll position:
   useEffect(() => {
-    let lastY = typeof window !== "undefined" ? window.scrollY : 0;
-    let lastTime = performance.now();
-
     const unsubscribe = scrollY.on("change", (latestY) => {
-      const now = performance.now();
-      const dt = now - lastTime;
-      const dy = latestY - lastY;
-      lastY = latestY;
-      lastTime = now;
+      const contactTargetScrollY = computeContactTargetScrollY();
 
-      // Detect high-velocity upward scroll
-      if (dt > 0) {
-        const velocity = (dy / dt) * 1000;
-        if (velocity < -400) {
-          rawQuickUp.set(1);
-        } else if (velocity > 120) {
-          rawQuickUp.set(0);
-        }
+      // Once profile picture has reached the "Let's talk" section:
+      // any scroll up should always go directly to center top position
+      if (contactTargetScrollY > 0 && latestY >= contactTargetScrollY - 20) {
+        hasReachedContactRef.current = true;
+        rawDirectToHero.set(1);
       }
 
+      // Reset when back at top center hero
       if (latestY <= 15) {
-        rawQuickUp.set(0);
+        hasReachedContactRef.current = false;
+        rawDirectToHero.set(0);
       }
 
       const heroP = Math.min(Math.max(latestY / HERO_PIN_SCROLL_DISTANCE, 0), 1);
@@ -107,70 +125,14 @@ export default function Home() {
     });
 
     return () => unsubscribe();
-  }, [scrollY, rawProgress, rawContactProgress, rawQuickUp]);
-
-  // Wheel and touch listeners to instantly detect quick upward flicks
-  useEffect(() => {
-    let idleTimer: NodeJS.Timeout | null = null;
-
-    const triggerQuickUp = () => {
-      rawQuickUp.set(1);
-      if (idleTimer) clearTimeout(idleTimer);
-      idleTimer = setTimeout(() => {
-        if (window.scrollY > 20) {
-          rawQuickUp.set(0);
-        }
-      }, 700);
-    };
-
-    const cancelQuickUp = () => {
-      rawQuickUp.set(0);
-      if (idleTimer) {
-        clearTimeout(idleTimer);
-        idleTimer = null;
-      }
-    };
-
-    const handleWheel = (e: WheelEvent) => {
-      const normalizedDelta = e.deltaMode === 1 ? e.deltaY * 30 : e.deltaY;
-      if (normalizedDelta < -20) {
-        triggerQuickUp();
-      } else if (normalizedDelta > 15) {
-        cancelQuickUp();
-      }
-    };
-
-    let touchStartY = 0;
-    let touchStartTime = 0;
-
-    const handleTouchStart = (e: TouchEvent) => {
-      touchStartY = e.touches[0].clientY;
-      touchStartTime = performance.now();
-    };
-
-    const handleTouchMove = (e: TouchEvent) => {
-      const touchCurrentY = e.touches[0].clientY;
-      const deltaY = touchStartY - touchCurrentY;
-      const deltaTime = performance.now() - touchStartTime;
-
-      if (deltaY < -20 || (deltaTime > 0 && deltaY / deltaTime < -0.3)) {
-        triggerQuickUp();
-      } else if (deltaY > 15) {
-        cancelQuickUp();
-      }
-    };
-
-    window.addEventListener("wheel", handleWheel, { passive: true });
-    window.addEventListener("touchstart", handleTouchStart, { passive: true });
-    window.addEventListener("touchmove", handleTouchMove, { passive: true });
-
-    return () => {
-      window.removeEventListener("wheel", handleWheel);
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchmove", handleTouchMove);
-      if (idleTimer) clearTimeout(idleTimer);
-    };
-  }, [rawQuickUp]);
+  }, [
+    scrollY,
+    rawProgress,
+    rawContactProgress,
+    rawDirectToHero,
+    computeContactTargetScrollY,
+    computeContactProgress,
+  ]);
 
   // Handle window resizing or dynamic layout changes
   useEffect(() => {
@@ -189,10 +151,11 @@ export default function Home() {
       window.removeEventListener("resize", handleLayoutChange);
       observer.disconnect();
     };
-  }, [rawContactProgress]);
+  }, [rawContactProgress, computeContactProgress]);
 
   const handleReturnToHero = () => {
-    rawQuickUp.set(1);
+    hasReachedContactRef.current = true;
+    rawDirectToHero.set(1);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -202,7 +165,7 @@ export default function Home() {
       <ScrollMorphAvatar
         progress={avatarProgress}
         contactProgress={contactProgress}
-        isQuickUp={isQuickUp}
+        directToHero={directToHero}
         onReturnToHero={handleReturnToHero}
       />
 
@@ -212,7 +175,7 @@ export default function Home() {
       <Navbar
         progress={avatarProgress}
         contactProgress={contactProgress}
-        isQuickUp={isQuickUp}
+        directToHero={directToHero}
         onReturnToHero={handleReturnToHero}
       />
 

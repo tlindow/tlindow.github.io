@@ -7,14 +7,14 @@ import { HERO_PIN_SCROLL_DISTANCE } from "@/components/animations/ScrollMorphAva
 interface NavbarProps {
   progress?: MotionValue<number>;
   contactProgress?: MotionValue<number>;
-  isQuickUp?: MotionValue<number>;
+  directToHero?: MotionValue<number>;
   onReturnToHero?: () => void;
 }
 
 export default function Navbar({
   progress,
   contactProgress,
-  isQuickUp,
+  directToHero,
   onReturnToHero,
 }: NavbarProps = {}) {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -31,23 +31,23 @@ export default function Navbar({
   const fallbackContactProgress = useTransform(scrollY, () => 0);
   const activeContactProgress = contactProgress || fallbackContactProgress;
 
-  const fallbackQuickUp = useTransform(scrollY, () => 0);
-  const activeQuickUp = isQuickUp || fallbackQuickUp;
+  const fallbackDirectToHero = useTransform(scrollY, () => 0);
+  const activeDirectToHero = directToHero || fallbackDirectToHero;
 
   // When progress is supplied from page.tsx:
   // p1: hero progress [0, 1] (fades in as user scrolls away from hero, 0.55 -> 1.0)
   // p2: contact progress [0, 1] (fades out as coin departs navbar towards contact section)
-  // quickUp: [0, 1] (when scrolling up quickly, completely hide the navbar)
+  // directToHero: [0, 1] (when scrolling up after reaching contact, completely hide the navbar)
   const progressOpacity = useTransform(
-    [progress || scrollY, activeContactProgress, activeQuickUp],
+    [progress || scrollY, activeContactProgress, activeDirectToHero],
     (values: number[]) => {
       if (!progress) return 1;
       const p1 = values[0] ?? 0;
       const p2 = values[1] ?? 0;
-      const quickUp = values[2] ?? 0;
+      const direct = values[2] ?? 0;
 
-      // Skip nav completely when scrolling up quickly
-      if (quickUp > 0.5) return 0;
+      // Skip nav completely when direct-to-hero mode is active
+      if (direct > 0.5) return 0;
 
       const heroAlpha = Math.min(Math.max((p1 - 0.55) / 0.45, 0), 1);
       const contactFade = Math.max(1 - p2 / 0.7, 0);

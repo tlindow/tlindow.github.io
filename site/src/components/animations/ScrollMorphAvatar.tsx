@@ -20,7 +20,7 @@ interface ScrollMorphAvatarProps {
   onReady?: () => void;
   progress?: MotionValue<number>;
   contactProgress?: MotionValue<number>;
-  isQuickUp?: MotionValue<number>;
+  directToHero?: MotionValue<number>;
   onReturnToHero?: () => void;
 }
 
@@ -60,7 +60,7 @@ export default function ScrollMorphAvatar({
   onReady,
   progress: customProgress,
   contactProgress: customContactProgress,
-  isQuickUp: customQuickUp,
+  directToHero: customDirectToHero,
   onReturnToHero,
 }: ScrollMorphAvatarProps) {
   const [coords, setCoords] = useState<Coords | null>(null);
@@ -81,8 +81,8 @@ export default function ScrollMorphAvatar({
   const fallbackContactProgress = useTransform(scrollY, () => 0);
   const effectiveContactProgress = customContactProgress || fallbackContactProgress;
 
-  const fallbackQuickUp = useTransform(scrollY, () => 0);
-  const activeQuickUp = customQuickUp || fallbackQuickUp;
+  const fallbackDirectToHero = useTransform(scrollY, () => 0);
+  const activeDirectToHero = customDirectToHero || fallbackDirectToHero;
 
   // 1. Measure coordinates across Hero Anchor, Navbar Target, and Contact Target
   useEffect(() => {
@@ -328,7 +328,7 @@ export default function ScrollMorphAvatar({
       const rawProgress = Math.min(Math.max(progress.get(), 0), 1);
       // Phase 2: progress from 0 (navbar) to 1 (contact slot)
       const rawContact = Math.min(Math.max(effectiveContactProgress.get(), 0), 1);
-      const quickUp = activeQuickUp.get();
+      const direct = activeDirectToHero.get();
       const isHovered = isHoveredRef.current;
       const hasClick = clickImpulseRef.current > 0.001;
 
@@ -338,7 +338,7 @@ export default function ScrollMorphAvatar({
       const contactTargetY = c ? Math.max(c.contactAbsoluteY - windowH * 0.5, 1) : 1000;
       const quickT = Math.min(Math.max(currentScrollY / contactTargetY, 0), 1);
 
-      const metric = quickUp > 0.5 ? quickT : (rawProgress + rawContact);
+      const metric = direct > 0.5 ? quickT : (rawProgress + rawContact);
       if (
         Math.abs(metric - lastScrollProgress) > 0.0001 ||
         isHovered ||
@@ -358,10 +358,10 @@ export default function ScrollMorphAvatar({
           clickImpulseRef.current *= 0.92;
         }
 
-        if (quickUp > 0.5) {
+        if (direct > 0.5) {
           // Direct rotation and tilt as coin travels straight to top center hero
           const easedT = quickT * quickT * (3 - 2 * quickT);
-          coinMesh.rotation.y = easedT * Math.PI * 2 + hoverSpin + clickImpulseRef.current;
+          coinMesh.rotation.y = (1 + easedT) * Math.PI * 2 + hoverSpin + clickImpulseRef.current;
           const transitTilt = Math.sin(easedT * Math.PI) * 0.28;
           const hoverTilt = isHovered ? 0.15 : 0;
           coinMesh.rotation.x = transitTilt + hoverTilt;
@@ -401,21 +401,21 @@ export default function ScrollMorphAvatar({
       rimBump.dispose();
       renderer.dispose();
     };
-  }, [isReady, basePath, onReady, progress, effectiveContactProgress, activeQuickUp, scrollY]);
+  }, [isReady, basePath, onReady, progress, effectiveContactProgress, activeDirectToHero, scrollY]);
 
   // 3. Motion Interpolation for multi-phase position & scale (Hermite smoothstep)
   const x = useTransform(
-    [progress, effectiveContactProgress, activeQuickUp, scrollY],
+    [progress, effectiveContactProgress, activeDirectToHero, scrollY],
     (values: number[]) => {
       const c = coordsRef.current;
       if (!c) return 0;
       const p1 = values[0] ?? 0;
       const p2 = values[1] ?? 0;
-      const quickUp = values[2] ?? 0;
+      const direct = values[2] ?? 0;
       const latestY = values[3] ?? 0;
 
-      // When scrolling up quickly, skip nav placement and move directly to top center placement
-      if (quickUp > 0.5) {
+      // When scrolling up after reaching contact section, skip nav and move directly to top center
+      if (direct > 0.5) {
         const windowH = typeof window !== "undefined" ? window.innerHeight : 800;
         const contactTargetY = Math.max(c.contactAbsoluteY - windowH * 0.5, 1);
         const t = Math.min(Math.max(latestY / contactTargetY, 0), 1);
@@ -437,17 +437,17 @@ export default function ScrollMorphAvatar({
   );
 
   const y = useTransform(
-    [progress, effectiveContactProgress, activeQuickUp, scrollY],
+    [progress, effectiveContactProgress, activeDirectToHero, scrollY],
     (values: number[]) => {
       const c = coordsRef.current;
       if (!c) return 0;
       const p1 = values[0] ?? 0;
       const p2 = values[1] ?? 0;
-      const quickUp = values[2] ?? 0;
+      const direct = values[2] ?? 0;
       const latestY = values[3] ?? 0;
 
-      // When scrolling up quickly, direct linear flight from contact/current to hero top center
-      if (quickUp > 0.5) {
+      // When scrolling up after reaching contact section, direct flight to top center
+      if (direct > 0.5) {
         const windowH = typeof window !== "undefined" ? window.innerHeight : 800;
         const contactTargetY = Math.max(c.contactAbsoluteY - windowH * 0.5, 1);
         const t = Math.min(Math.max(latestY / contactTargetY, 0), 1);
@@ -472,17 +472,17 @@ export default function ScrollMorphAvatar({
   );
 
   const size = useTransform(
-    [progress, effectiveContactProgress, activeQuickUp, scrollY],
+    [progress, effectiveContactProgress, activeDirectToHero, scrollY],
     (values: number[]) => {
       const c = coordsRef.current;
       if (!c) return 96;
       const p1 = values[0] ?? 0;
       const p2 = values[1] ?? 0;
-      const quickUp = values[2] ?? 0;
+      const direct = values[2] ?? 0;
       const latestY = values[3] ?? 0;
 
-      // When scrolling up quickly, scale directly from contact size to hero size, skipping 32px nav size
-      if (quickUp > 0.5) {
+      // When scrolling up after reaching contact section, scale directly from contact size to hero size
+      if (direct > 0.5) {
         const windowH = typeof window !== "undefined" ? window.innerHeight : 800;
         const contactTargetY = Math.max(c.contactAbsoluteY - windowH * 0.5, 1);
         const t = Math.min(Math.max(latestY / contactTargetY, 0), 1);
