@@ -12,7 +12,7 @@ export default function Footer() {
       {/* ========================================================= */}
       <section
         id="contact"
-        className="w-full py-14 sm:py-20 px-4 sm:px-6 bg-surface-alt/70 border-t border-border/70"
+        className="w-full pt-16 sm:pt-24 pb-14 sm:pb-20 px-4 sm:px-6 bg-surface-alt/70 border-t border-border/70"
       >
         <div className="mx-auto max-w-xl text-center space-y-6">
           <div className="space-y-2">
@@ -22,6 +22,13 @@ export default function Footer() {
             <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground font-mono">
               Let&apos;s talk
             </h3>
+            {/* Slot for profile coin when contact section reaches middle of viewport */}
+            <div className="flex justify-center items-center py-2 min-h-[72px] sm:min-h-[88px]">
+              <div
+                id="contact-avatar-target"
+                className="w-16 h-16 sm:w-20 sm:h-20 rounded-full opacity-0 pointer-events-none"
+              />
+            </div>
             <p className="text-xs sm:text-sm font-mono text-muted max-w-md mx-auto leading-relaxed">
               Open to strategic advisory, technical leadership roles, and developer-first enterprise B2B platforms.
             </p>

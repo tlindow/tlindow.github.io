@@ -7,9 +7,9 @@ import WebGLCoin from "@/components/WebGLCoin";
 
 interface ValuePillar {
   id: string;
-  number: string;
+  pretitle?: string;
   title: string;
-  subtitle?: string;
+  ctaSubtext?: string;
   link: {
     href: string;
     label: string;
@@ -20,9 +20,9 @@ interface ValuePillar {
 const valuePillars: ValuePillar[] = [
   {
     id: "culture-builder",
-    number: "01",
-    title: "Capture the developer market",
-    subtitle: "And 10x your TAM",
+    pretitle: "10x your TAM",
+    title: "Capture your developer market",
+    ctaSubtext: "By addressing developers' entrepreneurial needs",
     link: {
       href: "https://www.beginner.work",
       label: "beginner.work",
@@ -31,9 +31,9 @@ const valuePillars: ValuePillar[] = [
   },
   {
     id: "methodical-enjoyable",
-    number: "02",
+    pretitle: "Recruit enterprise developers",
     title: "Retain enterprise customers",
-    subtitle: "And recruit their developers",
+    ctaSubtext: "By showcasing your code strategy in a portal",
     link: {
       href: "https://github.com/tlindow",
       label: "github.com/tlindow",
@@ -46,7 +46,7 @@ export default function WhatYouGet() {
   return (
     <section
       id="what-you-get"
-      className="w-full border-t border-border/80 bg-surface-alt/70 pt-16 pb-14 sm:pt-20 sm:pb-20 scroll-mt-20"
+      className="w-full border-t border-border/80 bg-surface-alt/70 pt-16 pb-16 sm:pt-20 sm:pb-24 scroll-mt-20 relative"
     >
       <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
         {/* ========================================================= */}
@@ -66,45 +66,51 @@ export default function WhatYouGet() {
                 className="flex flex-col text-center md:text-left items-center md:items-start justify-between w-full h-full gap-6 sm:gap-8"
               >
                 {/* Copy Block */}
-                <div className="flex flex-col gap-1 w-full md:min-h-[80px] items-center md:items-start">
-                  <div className="flex items-baseline justify-center md:justify-start gap-2.5 w-full">
-                    <span className="text-xs sm:text-sm font-mono font-bold text-indigo-dark shrink-0">
-                      {pillar.number}
+                <div className="flex flex-col gap-1.5 w-full md:min-h-[80px] items-center md:items-start text-center md:text-left">
+                  {pillar.pretitle && (
+                    <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-widest text-indigo-dark block">
+                      {pillar.pretitle}
                     </span>
-                    <h3 className="text-xl sm:text-2xl font-bold font-mono tracking-tight text-foreground">
-                      {pillar.title}
-                    </h3>
-                  </div>
-                  {pillar.subtitle && (
-                    <p className="text-xs sm:text-sm font-mono text-muted leading-relaxed text-center md:text-left pl-0 md:pl-6 sm:md:pl-7">
-                      {pillar.subtitle}
-                    </p>
                   )}
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold font-mono tracking-tight text-foreground">
+                    {pillar.title}
+                  </h3>
                 </div>
 
                 {/* Rotating 3D WebGL Coin & Link */}
                 <div className="flex flex-col items-center md:items-start w-full pt-1">
-                  <div className="mx-auto md:mx-0 flex flex-col items-center gap-3">
-                    <WebGLCoin
-                      type={isCultureBuilder ? "tinker" : "github"}
-                      href={pillar.link.href}
-                      title={pillar.link.title}
-                      className="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48"
-                    />
-
-                    <a
-                      href={pillar.link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group inline-flex items-center gap-1.5 rounded-full bg-surface hover:bg-surface-alt px-3.5 py-1.5 border border-border hover:border-indigo/40 text-xs font-mono font-medium text-foreground shadow-2xs hover:shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98]"
-                      title={pillar.link.title}
-                    >
-                      <span>{pillar.link.label}</span>
-                      <ArrowUpRight
-                        size={12}
-                        className="opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 text-muted group-hover:text-foreground"
+                  <div className="mx-0 flex flex-col items-center md:items-start gap-4 w-full">
+                    <div className="w-full flex justify-center md:justify-start items-center py-2">
+                      <WebGLCoin
+                        type={isCultureBuilder ? "tinker" : "github"}
+                        href={pillar.link.href}
+                        title={pillar.link.title}
+                        className="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48"
                       />
-                    </a>
+                    </div>
+
+                    {/* Action & Mechanism Area */}
+                    <div className="flex flex-col items-center md:items-start text-center md:text-left gap-3 w-full">
+                      {pillar.ctaSubtext && (
+                        <p className="text-xs sm:text-sm font-mono text-muted leading-snug text-center md:text-left">
+                          {pillar.ctaSubtext}
+                        </p>
+                      )}
+
+                      <a
+                        href={pillar.link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-xs sm:text-sm font-mono font-bold transition-all hover:scale-[1.02] active:scale-[0.98] bg-foreground text-background hover:bg-foreground/90 shadow-xs"
+                        title={pillar.link.title}
+                      >
+                        <span>{pillar.link.label}</span>
+                        <ArrowUpRight
+                          size={14}
+                          className="opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 text-background/80 group-hover:text-background"
+                        />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </motion.div>

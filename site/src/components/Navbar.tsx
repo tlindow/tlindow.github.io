@@ -6,30 +6,42 @@ import { HERO_PIN_SCROLL_DISTANCE } from "@/components/animations/ScrollMorphAva
 
 interface NavbarProps {
   progress?: MotionValue<number>;
+  contactProgress?: MotionValue<number>;
   onReturnToHero?: () => void;
 }
 
-export default function Navbar({ progress, onReturnToHero }: NavbarProps = {}) {
+export default function Navbar({ progress, contactProgress, onReturnToHero }: NavbarProps = {}) {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const { scrollY } = useScroll();
 
-  // If progress is supplied from page.tsx, drive opacity via progress [0.55, 1].
-  // Otherwise fall back to scroll-based opacity for other pages.
+  // Fallback for other routes (e.g. /resume, /blog) where custom progress isn't passed
   const fallbackScrollOpacity = useTransform(
     scrollY,
     [HERO_PIN_SCROLL_DISTANCE - 40, HERO_PIN_SCROLL_DISTANCE],
     [0, 1],
     { clamp: true }
   );
-  const fallbackPointerEvents = useTransform(scrollY, (y) =>
-    y >= HERO_PIN_SCROLL_DISTANCE - 20 ? "auto" : "none"
+
+  const fallbackContactProgress = useTransform(scrollY, () => 0);
+  const activeContactProgress = contactProgress || fallbackContactProgress;
+
+  // When progress is supplied from page.tsx:
+  // p1: hero progress [0, 1] (fades in as user scrolls away from hero, 0.55 -> 1.0)
+  // p2: contact progress [0, 1] (fades out as coin departs navbar towards contact section)
+  const progressOpacity = useTransform(
+    [progress || scrollY, activeContactProgress],
+    (values: number[]) => {
+      if (!progress) return 1;
+      const p1 = values[0] ?? 0;
+      const p2 = values[1] ?? 0;
+      const heroAlpha = Math.min(Math.max((p1 - 0.55) / 0.45, 0), 1);
+      const contactFade = Math.max(1 - p2 / 0.7, 0);
+      return heroAlpha * contactFade;
+    }
   );
 
-  const progressOpacity = useTransform(progress || scrollY, [0.55, 1], [0, 1], { clamp: true });
-  const progressPointerEvents = useTransform(progress || scrollY, (p) => (p >= 0.75 ? "auto" : "none"));
-
   const navOpacity = progress ? progressOpacity : fallbackScrollOpacity;
-  const pointerEvents = progress ? progressPointerEvents : fallbackPointerEvents;
+  const pointerEvents = useTransform(navOpacity, (o) => (o > 0.1 ? "auto" : "none"));
   const visibility = useTransform(navOpacity, (o) => (o > 0 ? "visible" : "hidden"));
 
   return (

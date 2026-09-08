@@ -11,11 +11,15 @@ interface Coords {
   navX: number;
   navY: number;
   navSize: number;
+  contactX: number;
+  contactAbsoluteY: number;
+  contactSize: number;
 }
 
 interface ScrollMorphAvatarProps {
   onReady?: () => void;
   progress?: MotionValue<number>;
+  contactProgress?: MotionValue<number>;
   onReturnToHero?: () => void;
 }
 
@@ -54,9 +58,11 @@ export const HERO_PIN_SCROLL_DISTANCE = AVATAR_MORPH_SCROLL_DISTANCE;
 export default function ScrollMorphAvatar({
   onReady,
   progress: customProgress,
+  contactProgress: customContactProgress,
   onReturnToHero,
 }: ScrollMorphAvatarProps) {
   const [coords, setCoords] = useState<Coords | null>(null);
+  const coordsRef = useRef<Coords | null>(null);
   const [isReady, setIsReady] = useState(false);
   const [webglReady, setWebglReady] = useState(false);
   const canvasContainerRef = useRef<HTMLDivElement | null>(null);
@@ -70,47 +76,67 @@ export default function ScrollMorphAvatar({
   const internalSpring = useSpring(internalRawProgress, { stiffness: 220, damping: 24, mass: 0.4 });
   const progress = customProgress || internalSpring;
 
-  // 1. Measure coordinates between Hero Anchor and Navbar Target
+  const fallbackContactProgress = useTransform(scrollY, () => 0);
+  const effectiveContactProgress = customContactProgress || fallbackContactProgress;
+
+  // 1. Measure coordinates across Hero Anchor, Navbar Target, and Contact Target
   useEffect(() => {
     let rafId: number;
 
     const measureCoords = () => {
       const heroEl = document.getElementById("hero-avatar-anchor");
       const navEl = document.getElementById("navbar-avatar-target");
+      const contactEl = document.getElementById("contact-avatar-target");
 
-      if (!heroEl || !navEl) {
+      if (!heroEl || !navEl || !contactEl) {
         rafId = requestAnimationFrame(measureCoords);
         return;
       }
 
       const heroRect = heroEl.getBoundingClientRect();
       const navRect = navEl.getBoundingClientRect();
+      const contactRect = contactEl.getBoundingClientRect();
       const currentScrollY = window.scrollY;
 
-      // Reconstruct the initial hero viewport Y (as if scrollY was 0)
+      // Reconstruct initial hero viewport Y (as if scrollY was 0)
       const initialHeroY = heroRect.top + currentScrollY;
       const initialHeroX = heroRect.left;
 
-      setCoords({
+      // Absolute document Y position of contact target
+      const contactAbsoluteY = contactRect.top + currentScrollY;
+
+      const newCoords: Coords = {
         heroX: initialHeroX,
         heroY: initialHeroY,
         heroSize: heroRect.width,
         navX: navRect.left,
         navY: navRect.top,
         navSize: navRect.width,
-      });
+        contactX: contactRect.left,
+        contactAbsoluteY,
+        contactSize: contactRect.width,
+      };
 
+      coordsRef.current = newCoords;
+      setCoords(newCoords);
       setIsReady(true);
     };
 
     measureCoords();
 
     window.addEventListener("resize", measureCoords);
+    const observer = new ResizeObserver(() => {
+      measureCoords();
+    });
+    observer.observe(document.body);
+
     return () => {
       cancelAnimationFrame(rafId);
       window.removeEventListener("resize", measureCoords);
+      observer.disconnect();
     };
   }, [onReady]);
+
 
   // 2. Three.js WebGL Profile Coin Setup
   useEffect(() => {
@@ -286,23 +312,32 @@ export default function ScrollMorphAvatar({
       handleImageLoad();
     }
 
-    // Animation Loop: Coin rotates ONLY when moving between starting position and nav position, or on hover/click
+    // Animation Loop: Coin rotates during hero->nav (Phase 1) and nav->contact (Phase 2), or on hover/click
     let animationFrameId: number;
     let hoverSpin = 0;
 
     const renderLoop = () => {
       animationFrameId = requestAnimationFrame(renderLoop);
 
-      // Progress from 0 (hero starting position) to 1 (nav position)
+      // Phase 1: progress from 0 (hero anchor) to 1 (navbar)
       const rawProgress = Math.min(Math.max(progress.get(), 0), 1);
+      // Phase 2: progress from 0 (navbar) to 1 (contact slot)
+      const rawContact = Math.min(Math.max(effectiveContactProgress.get(), 0), 1);
       const isHovered = isHoveredRef.current;
       const hasClick = clickImpulseRef.current > 0.001;
 
-      if (rawProgress !== lastScrollProgress || isHovered || hasClick || hoverSpin > 0.001) {
-        lastScrollProgress = rawProgress;
+      const combinedProgress = rawProgress + rawContact;
+      if (
+        Math.abs(combinedProgress - lastScrollProgress) > 0.0001 ||
+        isHovered ||
+        hasClick ||
+        hoverSpin > 0.001
+      ) {
+        lastScrollProgress = combinedProgress;
 
         // Smooth Hermite smoothstep easing for graceful departure and soft docking
-        const eased = rawProgress * rawProgress * (3 - 2 * rawProgress);
+        const easedP1 = rawProgress * rawProgress * (3 - 2 * rawProgress);
+        const easedP2 = rawContact * rawContact * (3 - 2 * rawContact);
 
         // Hover spin accumulation
         if (isHovered) {
@@ -315,13 +350,14 @@ export default function ScrollMorphAvatar({
           clickImpulseRef.current *= 0.92;
         }
 
-        // Complete 360-degree rotation during scroll + hover/click extra spin
-        coinMesh.rotation.y = eased * Math.PI * 2 + hoverSpin + clickImpulseRef.current;
+        // Full 360-degree rotation during Phase 1 (0 -> 2*PI)
+        // Another full 360-degree rotation during Phase 2 (2*PI -> 4*PI)
+        coinMesh.rotation.y = (easedP1 + easedP2) * Math.PI * 2 + hoverSpin + clickImpulseRef.current;
 
-        // Subtle 3D tilt exposing the metallic milled edge during transit or hover
-        const scrollTilt = Math.sin(eased * Math.PI) * 0.28;
+        // Subtle 3D tilt exposing the metallic milled edge during transit
+        const transitTilt = (Math.sin(easedP1 * Math.PI) * (1 - rawContact) + Math.sin(easedP2 * Math.PI)) * 0.28;
         const hoverTilt = isHovered ? 0.15 : 0;
-        coinMesh.rotation.x = scrollTilt + hoverTilt;
+        coinMesh.rotation.x = transitTilt + hoverTilt;
 
         renderer.render(scene, camera);
       }
@@ -344,25 +380,71 @@ export default function ScrollMorphAvatar({
       rimBump.dispose();
       renderer.dispose();
     };
-  }, [isReady, basePath, onReady, progress]);
+  }, [isReady, basePath, onReady, progress, effectiveContactProgress]);
 
-  // 3. Motion Interpolation for position & scale (Hermite smoothstep)
-  const easedProgress = useTransform(progress, (p) => p * p * (3 - 2 * p));
+  // 3. Motion Interpolation for multi-phase position & scale (Hermite smoothstep)
+  const x = useTransform(
+    [progress, effectiveContactProgress],
+    (values: number[]) => {
+      const c = coordsRef.current;
+      if (!c) return 0;
+      const p1 = values[0] ?? 0;
+      const p2 = values[1] ?? 0;
+      const clampedP1 = Math.min(Math.max(p1, 0), 1);
+      const clampedP2 = Math.min(Math.max(p2, 0), 1);
+      const easedP1 = clampedP1 * clampedP1 * (3 - 2 * clampedP1);
+      const easedP2 = clampedP2 * clampedP2 * (3 - 2 * clampedP2);
 
-  const x = useTransform(easedProgress, (p) => {
-    if (!coords) return 0;
-    return coords.heroX + (coords.navX - coords.heroX) * p;
-  });
+      if (clampedP2 > 0) {
+        return c.navX + (c.contactX - c.navX) * easedP2;
+      } else {
+        return c.heroX + (c.navX - c.heroX) * easedP1;
+      }
+    }
+  );
 
-  const y = useTransform(easedProgress, (p) => {
-    if (!coords) return 0;
-    return coords.heroY + (coords.navY - coords.heroY) * p;
-  });
+  const y = useTransform(
+    [progress, effectiveContactProgress, scrollY],
+    (values: number[]) => {
+      const c = coordsRef.current;
+      if (!c) return 0;
+      const p1 = values[0] ?? 0;
+      const p2 = values[1] ?? 0;
+      const latestY = values[2] ?? 0;
+      const clampedP1 = Math.min(Math.max(p1, 0), 1);
+      const clampedP2 = Math.min(Math.max(p2, 0), 1);
+      const easedP1 = clampedP1 * clampedP1 * (3 - 2 * clampedP1);
+      const easedP2 = clampedP2 * clampedP2 * (3 - 2 * clampedP2);
 
-  const size = useTransform(easedProgress, (p) => {
-    if (!coords) return 96;
-    return coords.heroSize + (coords.navSize - coords.heroSize) * p;
-  });
+      if (clampedP2 > 0) {
+        // While docked or docking in the contact section, match target's viewport position (contactAbsoluteY - scrollY)
+        const contactViewportY = c.contactAbsoluteY - latestY;
+        return c.navY + (contactViewportY - c.navY) * easedP2;
+      } else {
+        return c.heroY + (c.navY - c.heroY) * easedP1;
+      }
+    }
+  );
+
+  const size = useTransform(
+    [progress, effectiveContactProgress],
+    (values: number[]) => {
+      const c = coordsRef.current;
+      if (!c) return 96;
+      const p1 = values[0] ?? 0;
+      const p2 = values[1] ?? 0;
+      const clampedP1 = Math.min(Math.max(p1, 0), 1);
+      const clampedP2 = Math.min(Math.max(p2, 0), 1);
+      const easedP1 = clampedP1 * clampedP1 * (3 - 2 * clampedP1);
+      const easedP2 = clampedP2 * clampedP2 * (3 - 2 * clampedP2);
+
+      if (clampedP2 > 0) {
+        return c.navSize + (c.contactSize - c.navSize) * easedP2;
+      } else {
+        return c.heroSize + (c.navSize - c.heroSize) * easedP1;
+      }
+    }
+  );
 
   if (!isReady || !coords) {
     return null;

@@ -24,27 +24,79 @@ export default function Home() {
     mass: 0.4,
   });
 
+  const rawContactProgress = useMotionValue(0);
+  const contactProgress = useSpring(rawContactProgress, {
+    stiffness: 220,
+    damping: 24,
+    mass: 0.4,
+  });
+
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const { logResumeView } = useAnalytics();
+
+  const computeContactProgress = (latestY: number) => {
+    if (typeof window === "undefined") return 0;
+    const contactEl = document.getElementById("contact-avatar-target");
+    if (!contactEl) return 0;
+    const rect = contactEl.getBoundingClientRect();
+    const contactAbsoluteY = rect.top + window.scrollY;
+    // Contact section reaches the middle of the viewport when:
+    // window.scrollY = contactAbsoluteY - window.innerHeight * 0.5
+    const targetMidScrollY = contactAbsoluteY - window.innerHeight * 0.5;
+    const transitDistance = Math.min(320, window.innerHeight * 0.45);
+    const startScrollY = targetMidScrollY - transitDistance;
+
+    if (latestY <= startScrollY) return 0;
+    if (latestY >= targetMidScrollY) return 1;
+    return (latestY - startScrollY) / transitDistance;
+  };
 
   // If page loads already scrolled down, initialize progress appropriately
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const p = Math.min(Math.max(window.scrollY / HERO_PIN_SCROLL_DISTANCE, 0), 1);
-      rawProgress.set(p);
-      avatarProgress.jump(p);
+      const heroP = Math.min(Math.max(window.scrollY / HERO_PIN_SCROLL_DISTANCE, 0), 1);
+      rawProgress.set(heroP);
+      avatarProgress.jump(heroP);
+
+      requestAnimationFrame(() => {
+        const contactP = computeContactProgress(window.scrollY);
+        rawContactProgress.set(contactP);
+        contactProgress.jump(contactP);
+      });
     }
-  }, [rawProgress, avatarProgress]);
+  }, [rawProgress, avatarProgress, rawContactProgress, contactProgress]);
 
   // Synchronize avatar & navbar progress smoothly with scroll position:
   useEffect(() => {
     const unsubscribe = scrollY.on("change", (latestY) => {
-      const p = Math.min(Math.max(latestY / HERO_PIN_SCROLL_DISTANCE, 0), 1);
-      rawProgress.set(p);
+      const heroP = Math.min(Math.max(latestY / HERO_PIN_SCROLL_DISTANCE, 0), 1);
+      rawProgress.set(heroP);
+
+      const contactP = computeContactProgress(latestY);
+      rawContactProgress.set(contactP);
     });
 
     return () => unsubscribe();
-  }, [scrollY, rawProgress]);
+  }, [scrollY, rawProgress, rawContactProgress]);
+
+  // Handle window resizing or dynamic layout changes
+  useEffect(() => {
+    const handleLayoutChange = () => {
+      if (typeof window !== "undefined") {
+        const contactP = computeContactProgress(window.scrollY);
+        rawContactProgress.set(contactP);
+      }
+    };
+
+    window.addEventListener("resize", handleLayoutChange);
+    const observer = new ResizeObserver(handleLayoutChange);
+    observer.observe(document.body);
+
+    return () => {
+      window.removeEventListener("resize", handleLayoutChange);
+      observer.disconnect();
+    };
+  }, [rawContactProgress]);
 
   const handleReturnToHero = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -52,13 +104,21 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-indigo-light selection:text-indigo-dark font-mono flex flex-col justify-between overflow-x-clip">
-      {/* Scroll-animated profile picture bridging hero and navbar */}
-      <ScrollMorphAvatar progress={avatarProgress} onReturnToHero={handleReturnToHero} />
+      {/* Scroll-animated profile picture bridging hero, navbar, and contact section */}
+      <ScrollMorphAvatar
+        progress={avatarProgress}
+        contactProgress={contactProgress}
+        onReturnToHero={handleReturnToHero}
+      />
 
       {/* ========================================================= */}
       {/* 1. TOP NAVIGATION BAR (FIXED, NO-PRINT) */}
       {/* ========================================================= */}
-      <Navbar progress={avatarProgress} onReturnToHero={handleReturnToHero} />
+      <Navbar
+        progress={avatarProgress}
+        contactProgress={contactProgress}
+        onReturnToHero={handleReturnToHero}
+      />
 
       {/* ========================================================= */}
       {/* 2. MAIN VIEW */}
@@ -89,7 +149,7 @@ export default function Home() {
 
               <div className="pt-2">
                 <p className="text-sm sm:text-base md:text-lg font-mono text-muted mx-auto">
-                  Top of funnel developer marketing and enterprise B2B portals
+                  With top of funnel marketing and enterprise B2B portals
                 </p>
               </div>
             </div>
