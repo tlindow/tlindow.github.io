@@ -67,6 +67,8 @@ export default function WebGLCoin({
   const containerRef = useRef<HTMLDivElement | null>(null);
   const isHoveredRef = useRef(false);
   const clickImpulseRef = useRef(0);
+  const isInMiddleRef = useRef(false);
+  const isMobileRef = useRef(false);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -74,6 +76,38 @@ export default function WebGLCoin({
     const container = containerRef.current;
     const width = container.clientWidth || 180;
     const height = container.clientHeight || 180;
+
+    // Helper to detect mobile environment (screens < 768px or touch/coarse devices)
+    const checkIsMobile = () => {
+      if (typeof window === "undefined") return false;
+      return (
+        window.innerWidth < 768 ||
+        window.matchMedia("(hover: none), (pointer: coarse)").matches
+      );
+    };
+
+    // Evaluate whether the coin is in the vertical middle of the viewport on mobile
+    const checkViewportPosition = () => {
+      if (!containerRef.current) return;
+      const isMobile = checkIsMobile();
+      isMobileRef.current = isMobile;
+
+      if (!isMobile) {
+        isInMiddleRef.current = false;
+        return;
+      }
+
+      const rect = containerRef.current.getBoundingClientRect();
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      const coinCenterY = rect.top + rect.height / 2;
+
+      // Vertical middle zone: 35% to 65% of viewport height (central third)
+      isInMiddleRef.current = coinCenterY >= vh * 0.35 && coinCenterY <= vh * 0.65;
+    };
+
+    checkViewportPosition();
+    window.addEventListener("scroll", checkViewportPosition, { passive: true });
+    window.addEventListener("resize", checkViewportPosition, { passive: true });
 
     // 1. Scene & Camera
     const scene = new THREE.Scene();
@@ -194,19 +228,22 @@ export default function WebGLCoin({
     coinMesh.rotation.set(0, 0, 0);
     scene.add(coinMesh);
 
-    // 7. Animation Loop: ONLY animates on hover or click
+    // 7. Animation Loop:
+    // On mobile: animates ONLY when in the vertical middle of the viewport.
+    // On desktop: animates on hover.
     let animationFrameId: number;
     let currentSpeed = 0;
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
 
-      const isHovered = isHoveredRef.current;
+      const isMobile = isMobileRef.current;
+      const isActive = isMobile ? isInMiddleRef.current : isHoveredRef.current;
       const hasClickImpulse = clickImpulseRef.current > 0.001;
 
-      if (isHovered || hasClickImpulse || Math.abs(currentSpeed) > 0.0005) {
-        // Accelerate on hover, decelerate when unhovered
-        const targetSpeed = isHovered ? 0.036 : 0;
+      if (isActive || hasClickImpulse || Math.abs(currentSpeed) > 0.0005) {
+        // Accelerate when active, decelerate when inactive
+        const targetSpeed = isActive ? 0.036 : 0;
         currentSpeed += (targetSpeed - currentSpeed) * 0.08;
 
         if (hasClickImpulse) {
@@ -217,20 +254,17 @@ export default function WebGLCoin({
         coinMesh.rotation.y += currentSpeed;
 
         // Subtle 3D tilt during active motion to reveal the metallic rim
-        const targetTilt = isHovered ? 0.16 : 0;
+        const targetTilt = isActive ? 0.16 : 0;
         coinMesh.rotation.x += (targetTilt - coinMesh.rotation.x) * 0.08;
 
         renderer.render(scene, camera);
       } else {
-        // Gently settle cleanly to the nearest full rotation facing front
-        const targetRot = Math.round(coinMesh.rotation.y / (Math.PI * 2)) * (Math.PI * 2);
-        const rotDiff = targetRot - coinMesh.rotation.y;
+        // Coin has stopped spinning: keep rotation.y in whatever position it stopped (do not reset).
+        // Ease any remaining tilt back to upright resting position.
         const tiltDiff = 0 - coinMesh.rotation.x;
 
-        if (Math.abs(rotDiff) > 0.001 || Math.abs(tiltDiff) > 0.001 || needsInitialRender) {
-          coinMesh.rotation.y += rotDiff * 0.12;
+        if (Math.abs(tiltDiff) > 0.001 || needsInitialRender) {
           coinMesh.rotation.x += tiltDiff * 0.12;
-          coinMesh.rotation.z = 0;
           renderer.render(scene, camera);
           needsInitialRender = false;
         }
@@ -258,6 +292,8 @@ export default function WebGLCoin({
     // Cleanup
     return () => {
       cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("scroll", checkViewportPosition);
+      window.removeEventListener("resize", checkViewportPosition);
       resizeObserver.disconnect();
       if (container.contains(renderer.domElement)) {
         container.removeChild(renderer.domElement);
@@ -283,14 +319,18 @@ export default function WebGLCoin({
       title={title}
       aria-label={title}
       onMouseEnter={() => {
-        isHoveredRef.current = true;
+        if (!isMobileRef.current) {
+          isHoveredRef.current = true;
+        }
       }}
       onMouseLeave={() => {
         isHoveredRef.current = false;
       }}
       onClick={() => {
-        // Trigger responsive click spin impulse
-        clickImpulseRef.current = 0.18;
+        // Trigger responsive click spin impulse on desktop, or on mobile only if in vertical middle
+        if (!isMobileRef.current || isInMiddleRef.current) {
+          clickImpulseRef.current = 0.18;
+        }
       }}
       className="group relative inline-flex items-center justify-center cursor-pointer select-none focus:outline-none transition-transform duration-300 hover:scale-105"
     >

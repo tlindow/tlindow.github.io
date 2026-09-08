@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
 import * as THREE from "three";
 
 interface Coords {
@@ -15,6 +15,8 @@ interface Coords {
 
 interface ScrollMorphAvatarProps {
   onReady?: () => void;
+  progress?: MotionValue<number>;
+  onReturnToHero?: () => void;
 }
 
 /**
@@ -42,13 +44,30 @@ function createMilledRimTexture(): THREE.CanvasTexture {
   return texture;
 }
 
-export default function ScrollMorphAvatar({ onReady }: ScrollMorphAvatarProps) {
+/**
+ * Distance in pixels that the profile avatar morphs from its hero anchor position
+ * to the docked top navbar slot.
+ */
+export const AVATAR_MORPH_SCROLL_DISTANCE = 160;
+export const HERO_PIN_SCROLL_DISTANCE = AVATAR_MORPH_SCROLL_DISTANCE;
+
+export default function ScrollMorphAvatar({
+  onReady,
+  progress: customProgress,
+  onReturnToHero,
+}: ScrollMorphAvatarProps) {
   const [coords, setCoords] = useState<Coords | null>(null);
   const [isReady, setIsReady] = useState(false);
+  const [webglReady, setWebglReady] = useState(false);
   const canvasContainerRef = useRef<HTMLDivElement | null>(null);
   const isHoveredRef = useRef(false);
   const clickImpulseRef = useRef(0);
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+  // Fallback internal scroll progress if customProgress is not passed
+  const { scrollY } = useScroll();
+  const internalProgress = useTransform(scrollY, [0, HERO_PIN_SCROLL_DISTANCE], [0, 1], { clamp: true });
+  const progress = customProgress || internalProgress;
 
   // 1. Measure coordinates between Hero Anchor and Navbar Target
   useEffect(() => {
@@ -67,9 +86,13 @@ export default function ScrollMorphAvatar({ onReady }: ScrollMorphAvatarProps) {
       const navRect = navEl.getBoundingClientRect();
       const currentScrollY = window.scrollY;
 
+      // Reconstruct the initial hero viewport Y (as if scrollY was 0)
+      const initialHeroY = heroRect.top + currentScrollY;
+      const initialHeroX = heroRect.left;
+
       setCoords({
-        heroX: heroRect.left,
-        heroY: heroRect.top + currentScrollY,
+        heroX: initialHeroX,
+        heroY: initialHeroY,
         heroSize: heroRect.width,
         navX: navRect.left,
         navY: navRect.top,
@@ -141,17 +164,21 @@ export default function ScrollMorphAvatar({ onReady }: ScrollMorphAvatarProps) {
       bumpScale: 0.04,
     });
 
+    const maxAnisotropy = renderer.capabilities.getMaxAnisotropy();
+
     const frontCanvas = document.createElement("canvas");
-    frontCanvas.width = 512;
-    frontCanvas.height = 512;
+    frontCanvas.width = 1024;
+    frontCanvas.height = 1024;
     const frontTexture = new THREE.CanvasTexture(frontCanvas);
     frontTexture.colorSpace = THREE.SRGBColorSpace;
+    frontTexture.anisotropy = maxAnisotropy;
 
     const backCanvas = document.createElement("canvas");
-    backCanvas.width = 512;
-    backCanvas.height = 512;
+    backCanvas.width = 1024;
+    backCanvas.height = 1024;
     const backTexture = new THREE.CanvasTexture(backCanvas);
     backTexture.colorSpace = THREE.SRGBColorSpace;
+    backTexture.anisotropy = maxAnisotropy;
 
     const frontMaterial = new THREE.MeshStandardMaterial({
       map: frontTexture,
@@ -175,80 +202,88 @@ export default function ScrollMorphAvatar({ onReady }: ScrollMorphAvatarProps) {
       backMaterial,
     ]);
     scene.add(coinMesh);
-    renderer.render(scene, camera);
 
     let lastScrollProgress = -1;
+    let isDisposed = false;
 
     // Load Profile Image Texture
     const img = new Image();
-    img.onload = () => {
+    const handleImageLoad = () => {
+      if (isDisposed) return;
       const sw = img.naturalWidth || img.width;
       const sh = img.naturalHeight || img.height;
+      if (!sw || !sh) return;
       const cropSize = Math.min(sw, sh);
       const sx = (sw - cropSize) / 2;
       const sy = Math.max(0, Math.min(sh - cropSize, (sh - cropSize) * 0.2));
 
-      // Draw Front Face
+      // Draw Front Face (1024x1024 High-DPI Texture)
       const fCtx = frontCanvas.getContext("2d");
       if (fCtx) {
         fCtx.fillStyle = "#FFFDF7";
-        fCtx.fillRect(0, 0, 512, 512);
+        fCtx.fillRect(0, 0, 1024, 1024);
 
         fCtx.save();
         fCtx.beginPath();
-        fCtx.arc(256, 256, 252, 0, Math.PI * 2);
+        fCtx.arc(512, 512, 504, 0, Math.PI * 2);
         fCtx.clip();
 
         // Rotate counterclockwise 90 degrees so image is upright on Three.js cap
-        fCtx.translate(256, 256);
+        fCtx.translate(512, 512);
         fCtx.rotate(-Math.PI / 2);
-        fCtx.drawImage(img, sx, sy, cropSize, cropSize, -256, -256, 512, 512);
+        fCtx.drawImage(img, sx, sy, cropSize, cropSize, -512, -512, 1024, 1024);
         fCtx.restore();
 
         // Subtle minted inner coin ring
         fCtx.beginPath();
-        fCtx.arc(256, 256, 250, 0, Math.PI * 2);
+        fCtx.arc(512, 512, 500, 0, Math.PI * 2);
         fCtx.strokeStyle = "#E6E2D8";
-        fCtx.lineWidth = 4;
+        fCtx.lineWidth = 8;
         fCtx.stroke();
 
         frontTexture.needsUpdate = true;
       }
 
-      // Draw Back Face
+      // Draw Back Face (1024x1024 High-DPI Texture)
       const bCtx = backCanvas.getContext("2d");
       if (bCtx) {
         bCtx.fillStyle = "#FFFDF7";
-        bCtx.fillRect(0, 0, 512, 512);
+        bCtx.fillRect(0, 0, 1024, 1024);
 
         bCtx.save();
         bCtx.beginPath();
-        bCtx.arc(256, 256, 252, 0, Math.PI * 2);
+        bCtx.arc(512, 512, 504, 0, Math.PI * 2);
         bCtx.clip();
 
-        bCtx.translate(256, 256);
+        bCtx.translate(512, 512);
         bCtx.rotate(-Math.PI / 2);
-        bCtx.drawImage(img, sx, sy, cropSize, cropSize, -256, -256, 512, 512);
+        bCtx.drawImage(img, sx, sy, cropSize, cropSize, -512, -512, 1024, 1024);
         bCtx.restore();
 
         bCtx.beginPath();
-        bCtx.arc(256, 256, 250, 0, Math.PI * 2);
+        bCtx.arc(512, 512, 500, 0, Math.PI * 2);
         bCtx.strokeStyle = "#E6E2D8";
-        bCtx.lineWidth = 4;
+        bCtx.lineWidth = 8;
         bCtx.stroke();
 
         backTexture.needsUpdate = true;
       }
 
-      // Render immediately with the new texture
+      // Render the first complete, textured frame immediately
       renderer.render(scene, camera);
+      setWebglReady(true);
       if (onReady) {
         onReady();
       }
 
       lastScrollProgress = -1;
     };
+
+    img.onload = handleImageLoad;
     img.src = `${basePath}/IMG_0548.jpeg`;
+    if (img.complete && img.naturalWidth > 0) {
+      handleImageLoad();
+    }
 
     // Animation Loop: Coin rotates ONLY when moving between starting position and nav position, or on hover/click
     let animationFrameId: number;
@@ -257,8 +292,8 @@ export default function ScrollMorphAvatar({ onReady }: ScrollMorphAvatarProps) {
     const renderLoop = () => {
       animationFrameId = requestAnimationFrame(renderLoop);
 
-      // Scroll progress from 0 (hero starting position) to 150 (nav position)
-      const rawProgress = Math.min(Math.max(window.scrollY / 150, 0), 1);
+      // Progress from 0 (hero starting position) to 1 (nav position)
+      const rawProgress = Math.min(Math.max(progress.get(), 0), 1);
       const isHovered = isHoveredRef.current;
       const hasClick = clickImpulseRef.current > 0.001;
 
@@ -294,6 +329,7 @@ export default function ScrollMorphAvatar({ onReady }: ScrollMorphAvatarProps) {
     renderLoop();
 
     return () => {
+      isDisposed = true;
       cancelAnimationFrame(animationFrameId);
       if (container.contains(renderer.domElement)) {
         container.removeChild(renderer.domElement);
@@ -307,11 +343,9 @@ export default function ScrollMorphAvatar({ onReady }: ScrollMorphAvatarProps) {
       rimBump.dispose();
       renderer.dispose();
     };
-  }, [isReady, basePath, onReady]);
+  }, [isReady, basePath, onReady, progress]);
 
   // 3. Motion Interpolation for position & scale
-  const { scrollY } = useScroll();
-  const progress = useTransform(scrollY, [0, 150], [0, 1], { clamp: true });
   const easedProgress = useTransform(progress, (p) => p * (2 - p));
 
   const x = useTransform(easedProgress, (p) => {
@@ -335,6 +369,9 @@ export default function ScrollMorphAvatar({ onReady }: ScrollMorphAvatarProps) {
 
   return (
     <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: webglReady ? 1 : 0 }}
+      transition={{ duration: 0.25, ease: "easeInOut" }}
       style={{
         position: "fixed",
         left: x,
@@ -342,18 +379,25 @@ export default function ScrollMorphAvatar({ onReady }: ScrollMorphAvatarProps) {
         width: size,
         height: size,
         zIndex: 60,
+        pointerEvents: webglReady ? "auto" : "none",
       }}
       className="group cursor-pointer focus:outline-none select-none drop-shadow-md hover:drop-shadow-xl transition-all"
       onMouseEnter={() => {
+        if (!webglReady) return;
         isHoveredRef.current = true;
       }}
       onMouseLeave={() => {
         isHoveredRef.current = false;
       }}
       onClick={(e) => {
+        if (!webglReady) return;
         e.preventDefault();
         clickImpulseRef.current = Math.PI * 2;
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        if (onReturnToHero) {
+          onReturnToHero();
+        } else {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
       }}
       title="Tyler Lindow - Back to top"
       aria-label="Tyler Lindow profile coin - Back to top"

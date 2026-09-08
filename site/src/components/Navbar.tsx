@@ -1,15 +1,35 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
 import { LinkedInIcon } from "@/components/brand/PartnerLogos";
+import { HERO_PIN_SCROLL_DISTANCE } from "@/components/animations/ScrollMorphAvatar";
 
-export default function Navbar() {
+interface NavbarProps {
+  progress?: MotionValue<number>;
+  onReturnToHero?: () => void;
+}
+
+export default function Navbar({ progress, onReturnToHero }: NavbarProps = {}) {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const { scrollY } = useScroll();
 
-  // Only appear once image is in place (avatar docks at scrollY = 150px, nav fades in from 150px to 180px)
-  const navOpacity = useTransform(scrollY, [150, 180], [0, 1], { clamp: true });
-  const pointerEvents = useTransform(scrollY, (y) => (y >= 165 ? "auto" : "none"));
+  // If progress is supplied from page.tsx, drive opacity via progress [0.55, 1].
+  // Otherwise fall back to scroll-based opacity for other pages.
+  const fallbackScrollOpacity = useTransform(
+    scrollY,
+    [HERO_PIN_SCROLL_DISTANCE - 40, HERO_PIN_SCROLL_DISTANCE],
+    [0, 1],
+    { clamp: true }
+  );
+  const fallbackPointerEvents = useTransform(scrollY, (y) =>
+    y >= HERO_PIN_SCROLL_DISTANCE - 20 ? "auto" : "none"
+  );
+
+  const progressOpacity = useTransform(progress || scrollY, [0.55, 1], [0, 1], { clamp: true });
+  const progressPointerEvents = useTransform(progress || scrollY, (p) => (p >= 0.75 ? "auto" : "none"));
+
+  const navOpacity = progress ? progressOpacity : fallbackScrollOpacity;
+  const pointerEvents = progress ? progressPointerEvents : fallbackPointerEvents;
 
   return (
     <motion.header
@@ -26,6 +46,14 @@ export default function Navbar() {
             href={`${basePath}/`}
             className="flex items-center gap-2.5 sm:gap-3 group cursor-pointer focus:outline-none"
             aria-label="Tyler Lindow - Back to top"
+            onClick={(e) => {
+              e.preventDefault();
+              if (onReturnToHero) {
+                onReturnToHero();
+              } else {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
           >
             <div
               id="navbar-avatar-target"

@@ -6,11 +6,14 @@ export default function Footer() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
   return (
-    <footer className="border-t border-border bg-surface-alt/70 no-print font-mono">
+    <footer className="no-print font-mono w-full">
       {/* ========================================================= */}
-      {/* SECTION 1: CONTACT ME CTA                                 */}
+      {/* SECTION 3: CONTACT ME CTA (NO COLOR CHANGE FROM SECTION 2)*/}
       {/* ========================================================= */}
-      <section className="py-14 sm:py-20 px-4 sm:px-6 border-b border-border/70">
+      <section
+        id="contact"
+        className="w-full py-14 sm:py-20 px-4 sm:px-6 bg-surface-alt/70 border-t border-border/70"
+      >
         <div className="mx-auto max-w-xl text-center space-y-6">
           <div className="space-y-2">
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-dark block">
@@ -38,9 +41,12 @@ export default function Footer() {
       </section>
 
       {/* ========================================================= */}
-      {/* SECTION 2: PHILOSOPHY (IT STARTS WITH HOME)               */}
+      {/* SECTION 4: PHILOSOPHY (ALTERNATES TO COLOR A: BACKGROUND)  */}
       {/* ========================================================= */}
-      <section className="py-14 sm:py-20 px-4 sm:px-6 md:px-8">
+      <section
+        id="philosophy"
+        className="w-full py-14 sm:py-20 px-4 sm:px-6 md:px-8 bg-background border-t border-border/70"
+      >
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-14 items-center">
           {/* Copy Block */}
           <div className="flex flex-col justify-center space-y-3 sm:space-y-4 text-left">

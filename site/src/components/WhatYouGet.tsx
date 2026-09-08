@@ -22,7 +22,7 @@ const valuePillars: ValuePillar[] = [
     id: "methodical-enjoyable",
     number: "02",
     title: "Retain talent & customers",
-    subtitle: "Your customers are your talent pipeline",
+    subtitle: "And make your customers your talent",
   },
 ];
 
@@ -30,7 +30,7 @@ export default function WhatYouGet() {
   return (
     <section
       id="what-you-get"
-      className="w-full border-y border-border/80 bg-surface-alt/70 pt-14 pb-12 sm:pt-20 sm:pb-16 scroll-mt-20 mt-8 sm:mt-12 mb-0"
+      className="w-full border-t border-border/80 bg-surface-alt/70 pt-16 pb-14 sm:pt-20 sm:pb-20 scroll-mt-20"
     >
       <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
         {/* ========================================================= */}
