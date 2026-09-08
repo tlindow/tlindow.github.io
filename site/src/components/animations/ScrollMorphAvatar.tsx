@@ -414,8 +414,9 @@ export default function ScrollMorphAvatar({
       const direct = values[2] ?? 0;
       const latestY = values[3] ?? 0;
 
-      // When scrolling up after reaching contact section, skip nav and move directly to top center
+      // When direct-to-hero is active (any scroll up after reaching contact section):
       if (direct > 0.5) {
+        if (latestY <= 0) return c.heroX;
         const windowH = typeof window !== "undefined" ? window.innerHeight : 800;
         const contactTargetY = Math.max(c.contactAbsoluteY - windowH * 0.5, 1);
         const t = Math.min(Math.max(latestY / contactTargetY, 0), 1);
@@ -423,12 +424,16 @@ export default function ScrollMorphAvatar({
         return c.heroX + (c.contactX - c.heroX) * easedT;
       }
 
+      if (latestY <= 0) return c.heroX;
+
       const clampedP1 = Math.min(Math.max(p1, 0), 1);
       const clampedP2 = Math.min(Math.max(p2, 0), 1);
-      const easedP1 = clampedP1 * clampedP1 * (3 - 2 * clampedP1);
-      const easedP2 = clampedP2 * clampedP2 * (3 - 2 * clampedP2);
+      const safeP1 = clampedP1 < 0.005 ? 0 : clampedP1;
+      const safeP2 = clampedP2 < 0.005 ? 0 : clampedP2;
+      const easedP1 = safeP1 * safeP1 * (3 - 2 * safeP1);
+      const easedP2 = safeP2 * safeP2 * (3 - 2 * safeP2);
 
-      if (clampedP2 > 0) {
+      if (safeP2 > 0) {
         return c.navX + (c.contactX - c.navX) * easedP2;
       } else {
         return c.heroX + (c.navX - c.heroX) * easedP1;
@@ -446,8 +451,9 @@ export default function ScrollMorphAvatar({
       const direct = values[2] ?? 0;
       const latestY = values[3] ?? 0;
 
-      // When scrolling up after reaching contact section, direct flight to top center
+      // When direct-to-hero is active:
       if (direct > 0.5) {
+        if (latestY <= 0) return c.heroY - latestY;
         const windowH = typeof window !== "undefined" ? window.innerHeight : 800;
         const contactTargetY = Math.max(c.contactAbsoluteY - windowH * 0.5, 1);
         const t = Math.min(Math.max(latestY / contactTargetY, 0), 1);
@@ -456,12 +462,16 @@ export default function ScrollMorphAvatar({
         return c.heroY + (contactViewportY - c.heroY) * easedT;
       }
 
+      if (latestY <= 0) return c.heroY - latestY;
+
       const clampedP1 = Math.min(Math.max(p1, 0), 1);
       const clampedP2 = Math.min(Math.max(p2, 0), 1);
-      const easedP1 = clampedP1 * clampedP1 * (3 - 2 * clampedP1);
-      const easedP2 = clampedP2 * clampedP2 * (3 - 2 * clampedP2);
+      const safeP1 = clampedP1 < 0.005 ? 0 : clampedP1;
+      const safeP2 = clampedP2 < 0.005 ? 0 : clampedP2;
+      const easedP1 = safeP1 * safeP1 * (3 - 2 * safeP1);
+      const easedP2 = safeP2 * safeP2 * (3 - 2 * safeP2);
 
-      if (clampedP2 > 0) {
+      if (safeP2 > 0) {
         // While docked or docking in the contact section, match target's viewport position (contactAbsoluteY - scrollY)
         const contactViewportY = c.contactAbsoluteY - latestY;
         return c.navY + (contactViewportY - c.navY) * easedP2;
@@ -481,8 +491,9 @@ export default function ScrollMorphAvatar({
       const direct = values[2] ?? 0;
       const latestY = values[3] ?? 0;
 
-      // When scrolling up after reaching contact section, scale directly from contact size to hero size
+      // When direct-to-hero is active:
       if (direct > 0.5) {
+        if (latestY <= 0) return c.heroSize;
         const windowH = typeof window !== "undefined" ? window.innerHeight : 800;
         const contactTargetY = Math.max(c.contactAbsoluteY - windowH * 0.5, 1);
         const t = Math.min(Math.max(latestY / contactTargetY, 0), 1);
@@ -490,12 +501,16 @@ export default function ScrollMorphAvatar({
         return c.heroSize + (c.contactSize - c.heroSize) * easedT;
       }
 
+      if (latestY <= 0) return c.heroSize;
+
       const clampedP1 = Math.min(Math.max(p1, 0), 1);
       const clampedP2 = Math.min(Math.max(p2, 0), 1);
-      const easedP1 = clampedP1 * clampedP1 * (3 - 2 * clampedP1);
-      const easedP2 = clampedP2 * clampedP2 * (3 - 2 * clampedP2);
+      const safeP1 = clampedP1 < 0.005 ? 0 : clampedP1;
+      const safeP2 = clampedP2 < 0.005 ? 0 : clampedP2;
+      const easedP1 = safeP1 * safeP1 * (3 - 2 * safeP1);
+      const easedP2 = safeP2 * safeP2 * (3 - 2 * safeP2);
 
-      if (clampedP2 > 0) {
+      if (safeP2 > 0) {
         return c.navSize + (c.contactSize - c.navSize) * easedP2;
       } else {
         return c.heroSize + (c.navSize - c.heroSize) * easedP1;

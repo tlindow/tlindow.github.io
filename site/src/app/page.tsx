@@ -32,12 +32,9 @@ export default function Home() {
   });
 
   const hasReachedContactRef = useRef(false);
-  const rawDirectToHero = useMotionValue(0);
-  const directToHero = useSpring(rawDirectToHero, {
-    stiffness: 280,
-    damping: 28,
-    mass: 0.3,
-  });
+  const wasAtTopRef = useRef(false);
+  const prevYRef = useRef(0);
+  const directToHero = useMotionValue(0);
 
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const { logResumeView } = useAnalytics();
@@ -79,8 +76,7 @@ export default function Home() {
         const contactTargetScrollY = computeContactTargetScrollY();
         if (contactTargetScrollY > 0 && window.scrollY >= contactTargetScrollY - 20) {
           hasReachedContactRef.current = true;
-          rawDirectToHero.set(1);
-          directToHero.jump(1);
+          directToHero.set(1);
         }
 
         const contactP = computeContactProgress(window.scrollY);
@@ -93,7 +89,6 @@ export default function Home() {
     avatarProgress,
     rawContactProgress,
     contactProgress,
-    rawDirectToHero,
     directToHero,
     computeContactTargetScrollY,
     computeContactProgress,
@@ -103,33 +98,59 @@ export default function Home() {
   useEffect(() => {
     const unsubscribe = scrollY.on("change", (latestY) => {
       const contactTargetScrollY = computeContactTargetScrollY();
+      const isScrollingDown = latestY > prevYRef.current;
+      prevYRef.current = latestY;
 
-      // Once profile picture has reached the "Let's talk" section:
-      // any scroll up should always go directly to center top position
+      // 1. Once profile picture has reached the "Let's talk" section:
+      // engage direct-to-hero mode for any subsequent upward scroll
       if (contactTargetScrollY > 0 && latestY >= contactTargetScrollY - 20) {
         hasReachedContactRef.current = true;
-        rawDirectToHero.set(1);
+        wasAtTopRef.current = false;
+        directToHero.set(1);
       }
 
-      // Reset when back at top center hero
-      if (latestY <= 15) {
-        hasReachedContactRef.current = false;
-        rawDirectToHero.set(0);
+      // 2. If direct-to-hero mode is active:
+      if (hasReachedContactRef.current) {
+        // Keep nav and contact springs strictly at 0 so no phantom values can pull avatar
+        rawProgress.set(0);
+        avatarProgress.jump(0);
+        rawContactProgress.set(0);
+        contactProgress.jump(0);
+
+        // Keep directToHero engaged as avatar travels to and stays at top center hero
+        directToHero.set(1);
+
+        if (latestY <= 5) {
+          wasAtTopRef.current = true;
+        }
+
+        // Only start a fresh downward journey once the user has been at top (<= 5)
+        // AND then intentionally scrolls back DOWN past 25px:
+        if (wasAtTopRef.current && isScrollingDown && latestY > 25) {
+          hasReachedContactRef.current = false;
+          wasAtTopRef.current = false;
+          directToHero.set(0);
+          const heroP = Math.min(Math.max(latestY / HERO_PIN_SCROLL_DISTANCE, 0), 1);
+          rawProgress.set(heroP);
+        }
+      } else {
+        // Normal downward flow (Hero -> Nav -> Contact):
+        const heroP = Math.min(Math.max(latestY / HERO_PIN_SCROLL_DISTANCE, 0), 1);
+        rawProgress.set(heroP);
+
+        const contactP = computeContactProgress(latestY);
+        rawContactProgress.set(contactP);
       }
-
-      const heroP = Math.min(Math.max(latestY / HERO_PIN_SCROLL_DISTANCE, 0), 1);
-      rawProgress.set(heroP);
-
-      const contactP = computeContactProgress(latestY);
-      rawContactProgress.set(contactP);
     });
 
     return () => unsubscribe();
   }, [
     scrollY,
     rawProgress,
+    avatarProgress,
     rawContactProgress,
-    rawDirectToHero,
+    contactProgress,
+    directToHero,
     computeContactTargetScrollY,
     computeContactProgress,
   ]);
@@ -155,7 +176,12 @@ export default function Home() {
 
   const handleReturnToHero = () => {
     hasReachedContactRef.current = true;
-    rawDirectToHero.set(1);
+    wasAtTopRef.current = false;
+    directToHero.set(1);
+    rawProgress.set(0);
+    avatarProgress.jump(0);
+    rawContactProgress.set(0);
+    contactProgress.jump(0);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -203,7 +229,7 @@ export default function Home() {
 
               <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-foreground leading-[1.05] mx-auto">
                 <span className="block">Elevating</span>
-                <span className="block">capital-tech</span>
+                <span className="block">Developer Fintech</span>
               </h1>
 
               <div className="pt-2">
