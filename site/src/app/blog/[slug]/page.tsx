@@ -75,10 +75,6 @@ export default async function BlogPostPage({ params }: Props) {
             {post.title}
           </h1>
 
-          <p className="text-base sm:text-lg text-muted font-mono leading-relaxed pt-1">
-            {post.subtitle}
-          </p>
-
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted font-mono pt-2">
             <span className="text-foreground font-medium">{post.date}</span>
             <span>·</span>
