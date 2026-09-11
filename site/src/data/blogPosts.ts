@@ -55,7 +55,7 @@ export const blogPosts: BlogPost[] = [
     title: "Marketing as Engineering Leadership",
     subtitle:
       "Treating top-of-funnel marketing as a core engineering discipline—leading the affirm.com revamp to unify web and mobile conversion, driving $500K in GMV through perseverance and team focus.",
-    date: "October of 2025",
+    date: "2026-09-11",
     readTime: "2 min read",
     author: defaultAuthor,
     tags: [
@@ -65,9 +65,9 @@ export const blogPosts: BlogPost[] = [
       "Black Friday",
     ],
     summary:
-      "In September of 2025, we revamped the affirm.com marketing website in order to create design continuity between web and mobile apps and drive more conversion for the ~1M monthly viewers of the site.",
+      "In October of 2025, we revamped the affirm.com marketing website in order to create design continuity between web and mobile apps and drive more conversion for the ~1M monthly viewers of the site.",
     previewText:
-      "In September of 2025, we revamped the affirm.com marketing website in order to create design continuity between web and mobile apps and drive more conversion for the ~1M monthly viewers of the site.",
+      "In October of 2025, we revamped the affirm.com marketing website in order to create design continuity between web and mobile apps and drive more conversion for the ~1M monthly viewers of the site.",
     slides: [
       {
         id: 1,
@@ -89,7 +89,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     content: [
-      `In September of 2025, we revamped the affirm.com marketing website in order to create design continuity between web and mobile apps and drive more conversion for the ~1M monthly viewers of the site.`,
+      `In October of 2025, we revamped the affirm.com marketing website in order to create design continuity between web and mobile apps and drive more conversion for the ~1M monthly viewers of the site.`,
       `And when we were finished, we had generated an additional $500K in GMV through a 3-day pre-Black Friday sale.`,
       `It was a lot of intense focus for engineers on my team and, frankly, one too many late nights to get this done. And what I told my team at the end of all of the scoping, collaboration, and execution alongside the immense work of product, design, and copy was:`,
       `> "Engineers are important... and even if we are not seen for all of our efforts right now, you know what you accomplished."`,
@@ -107,7 +107,7 @@ export const blogPosts: BlogPost[] = [
     title: "B2B Portals as Trust Stores",
     subtitle:
       "Transforming legacy merchant portals into resilient trust stores—standing up Velocity Labs to eliminate recurring incidents, sustain 99.9% availability for Intuit scale, and unlock AI-driven agility.",
-    date: "2026-08-18",
+    date: "2026-09-11",
     readTime: "3 min read",
     author: defaultAuthor,
     tags: [
