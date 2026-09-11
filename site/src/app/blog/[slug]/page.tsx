@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { blogPosts, getBlogPostBySlug } from "@/data/blogPosts";
-import SlideDownloader from "@/components/blog/SlideDownloader";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -44,6 +43,12 @@ export default async function BlogPostPage({ params }: Props) {
     notFound();
   }
 
+  const currentIndex = blogPosts.findIndex((p) => p.slug === slug);
+  const nextPost =
+    currentIndex >= 0 && currentIndex < blogPosts.length - 1
+      ? blogPosts[currentIndex + 1]
+      : blogPosts[0];
+
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-indigo-light selection:text-indigo-dark font-mono flex flex-col justify-between">
       <Navbar />
@@ -60,76 +65,91 @@ export default async function BlogPostPage({ params }: Props) {
           </Link>
         </div>
 
-        {/* Article Header (Editorial, Zero Boxes) */}
-        <header className="mb-12 space-y-4">
-          {post.pillarLabel && (
-            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-dark bg-indigo-light px-2.5 py-1 rounded-md">
-              <span>Pillar: {post.pillarLabel}</span>
-            </div>
-          )}
-
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted font-mono">
-            <span className="text-foreground font-medium">{post.date}</span>
-            <span>·</span>
-            <span className="text-muted/80">
-              {post.tags.map((t) => `#${t.replace(/\s+/g, "")}`).join(" ")}
-            </span>
-          </div>
+        {/* Article Header (Purple pre-title, Title, Content format) */}
+        <header className="mb-12 space-y-2">
+          <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-widest text-indigo-dark block">
+            {post.pretitle || "My work product"}
+          </span>
 
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-foreground font-mono leading-tight">
             {post.title}
           </h1>
 
-          <p className="text-base sm:text-lg text-muted font-mono leading-relaxed">
+          <p className="text-base sm:text-lg text-muted font-mono leading-relaxed pt-1">
             {post.subtitle}
           </p>
 
-          <div className="pt-1 text-xs text-muted font-mono">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted font-mono pt-2">
+            <span className="text-foreground font-medium">{post.date}</span>
+            <span>·</span>
             <span>By {post.author.name}</span>
           </div>
         </header>
 
-        {/* Full Essay Prose (Zero Box Containers) */}
+        {/* Full Essay Prose (Zero Box Containers, All Quotes in Purple) */}
         <article className="prose prose-neutral max-w-none font-mono space-y-6 text-foreground/90 leading-relaxed text-sm sm:text-base">
-          {post.content.map((paragraph, index) => (
-            <p
-              key={index}
-              className="leading-relaxed"
-              dangerouslySetInnerHTML={{
-                __html: paragraph
-                  .replace(
-                    /\*\*(.*?)\*\*/g,
-                    '<strong class="font-bold text-foreground">$1</strong>'
-                  )
-                  .replace(/\*(.*?)\*/g, '<em class="italic text-foreground/80">$1</em>'),
-              }}
-            />
-          ))}
+          {post.content.map((paragraph, index) => {
+            const isBlockquote = paragraph.startsWith("> ");
+
+            const formattedText = paragraph
+              .replace(/^>\s+/, "")
+              .replace(
+                /"([^"]+)"/g,
+                '<span class="text-indigo-dark font-medium italic">“$1”</span>'
+              )
+              .replace(
+                /\*\*(.*?)\*\*/g,
+                '<strong class="font-bold text-foreground">$1</strong>'
+              )
+              .replace(
+                /\*(.*?)\*/g,
+                '<em class="italic text-foreground/80">$1</em>'
+              )
+              .replace(
+                /\[([^\]]+)\]\(([^)]+)\)/g,
+                '<a href="$2" target="_blank" rel="noopener noreferrer" class="underline text-indigo-dark hover:text-foreground transition-colors">$1</a>'
+              );
+
+            if (isBlockquote) {
+              return (
+                <p
+                  key={index}
+                  className="text-indigo-dark font-medium italic leading-relaxed my-4 text-sm sm:text-base"
+                  dangerouslySetInnerHTML={{ __html: formattedText }}
+                />
+              );
+            }
+
+            return (
+              <p
+                key={index}
+                className="leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: formattedText }}
+              />
+            );
+          })}
         </article>
 
-        {/* Minimalist Slide Download Action for posts with generated slide PNGs */}
-        {post.slug === "over-index-on-intuition" && post.slides && post.slides.length > 0 && (
-          <div className="mt-12">
-            <SlideDownloader slides={post.slides} />
-          </div>
-        )}
-
-        {/* Back Link to Value Propositions */}
+        {/* Bottom Navigation: Back to Home & Forward to Next Post Title */}
         <div className="mt-16 pt-8 border-t border-border flex flex-wrap items-center justify-between gap-4 text-xs font-mono">
           <Link
-            href="/#what-you-get"
-            className="inline-flex items-center gap-1.5 font-bold text-indigo-dark hover:text-labs-primary-dark transition-colors"
+            href="/"
+            className="inline-flex items-center gap-1.5 font-bold text-indigo-dark hover:text-indigo-dark/80 transition-colors"
           >
-            <ArrowLeft size={13} />
-            <span>Back to Value Propositions</span>
+            <ArrowLeft size={14} />
+            <span>Back to home</span>
           </Link>
 
-          <Link
-            href="/blog"
-            className="text-muted hover:text-foreground transition-colors"
-          >
-            <span>Browse all blog posts →</span>
-          </Link>
+          {nextPost && (
+            <Link
+              href={`/blog/${nextPost.slug}`}
+              className="inline-flex items-center gap-1.5 font-bold text-foreground hover:text-indigo-dark transition-colors group text-right ml-auto"
+              title={`Read next: ${nextPost.title}`}
+            >
+              <span>{nextPost.title}</span>
+              <ArrowRight size={14} className="shrink-0 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+          )}
         </div>
       </main>
     </div>

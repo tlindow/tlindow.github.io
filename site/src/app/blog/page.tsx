@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, FileText } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { blogPosts } from "@/data/blogPosts";
 
@@ -51,42 +51,47 @@ export default function BlogIndexPage() {
           </p>
         </header>
 
-        {/* Minimalist Post List */}
+        {/* Post List */}
         <div className="space-y-16">
           {blogPosts.map((post) => (
-            <article key={post.id} className="space-y-3 group">
-              {/* Meta row: pure text, zero boxes */}
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted font-mono">
-                {post.pillarLabel && (
-                  <>
-                    <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-indigo-light text-indigo-dark font-bold">
-                      {post.pillarLabel}
-                    </span>
-                    <span>·</span>
-                  </>
-                )}
-                <span className="text-foreground font-medium">{post.date}</span>
-                <span>·</span>
-                <span className="text-muted/80">
-                  {post.tags.map((t) => `#${t.replace(/\s+/g, "")}`).join(" ")}
-                </span>
-              </div>
+            <article key={post.id} className="space-y-2 group">
+              {/* Pre-title */}
+              <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-widest text-indigo-dark block">
+                {post.pretitle || "My work product"}
+              </span>
 
               {/* Title: Clean typography */}
               <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground font-mono leading-snug">
-                {post.title}
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="hover:text-indigo-dark transition-colors"
+                >
+                  {post.title}
+                </Link>
               </h2>
 
-              {/* Excerpt */}
-              <p className="text-sm sm:text-base text-foreground/80 font-mono leading-relaxed pt-1">
-                {post.summary}
+              {/* Excerpt / Content Subtext */}
+              <p className="text-sm sm:text-base text-muted font-mono leading-relaxed pt-1">
+                {post.subtitle || post.summary}
               </p>
+
+              {/* Metadata */}
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted font-mono pt-1">
+                <span className="text-foreground font-medium">{post.date}</span>
+                <span>·</span>
+                <span>By {post.author.name}</span>
+              </div>
 
               {/* Linkout */}
               <div className="pt-2">
-                <div className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-muted">
-                  <span>Post coming soon</span>
-                </div>
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="inline-flex items-center gap-2 rounded-xl bg-surface hover:bg-surface-alt text-foreground border border-border px-5 py-2.5 text-xs sm:text-sm font-mono font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                  title={`Read ${post.title}`}
+                >
+                  <FileText size={15} className="shrink-0 text-foreground" />
+                  <span>Read blog post</span>
+                </Link>
               </div>
             </article>
           ))}

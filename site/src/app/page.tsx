@@ -271,7 +271,7 @@ export default function Home() {
       </div>
 
       {/* ========================================================= */}
-      {/* 4. FOOTER WITH COMPLETE DIRECTORY                         */}
+      {/* 4. FOOTER (LET'S TALK, PHILOSOPHY)                        */}
       {/* ========================================================= */}
       <Footer />
     </div>

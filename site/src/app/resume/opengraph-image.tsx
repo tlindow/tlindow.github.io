@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 
 export const dynamic = "force-static";
-export const alt = "Tyler Lindow — Fintech Product & Engineering";
+export const alt = "Resume — Tyler Lindow (Fintech Engineering & Product)";
 export const size = {
   width: 1200,
   height: 630,
@@ -31,50 +31,40 @@ export default async function Image() {
           position: "relative",
         }}
       >
-        {/* Left Side: Favicon Logo + Title */}
+        {/* Left Side: Title & Subtitle */}
         <div
           style={{
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            gap: "32px",
+            gap: "16px",
             maxWidth: "640px",
           }}
         >
-
-          {/* Title of the Site */}
-          <div
+          <h1
             style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "12px",
+              fontSize: "68px",
+              fontWeight: "900",
+              color: "#1F1D1A",
+              lineHeight: 1.05,
+              letterSpacing: "-0.04em",
+              margin: 0,
             }}
           >
-            <h1
-              style={{
-                fontSize: "68px",
-                fontWeight: "900",
-                color: "#1F1D1A",
-                lineHeight: 1.05,
-                letterSpacing: "-0.04em",
-                margin: 0,
-              }}
-            >
-              Tyler Lindow
-            </h1>
-            <p
-              style={{
-                fontSize: "30px",
-                fontWeight: "700",
-                color: "#4F46E5",
-                fontFamily: "monospace",
-                letterSpacing: "-0.02em",
-                margin: 0,
-              }}
-            >
-              Fintech Product &amp; Engineering
-            </p>
-          </div>
+            Tyler Lindow
+          </h1>
+          <p
+            style={{
+              fontSize: "30px",
+              fontWeight: "700",
+              color: "#4F46E5",
+              fontFamily: "monospace",
+              letterSpacing: "-0.02em",
+              margin: 0,
+            }}
+          >
+            Resume — Fintech Engineering &amp; Product
+          </p>
         </div>
 
         {/* Right Side: Profile Picture */}
@@ -89,8 +79,8 @@ export default async function Image() {
             src={avatarDataUrl}
             alt="Tyler Lindow"
             style={{
-              width: "320px",
-              height: "320px",
+              width: "340px",
+              height: "340px",
               borderRadius: "50%",
               border: "8px solid #FFFFFF",
               boxShadow: "0 16px 48px rgba(0,0,0,0.12)",
