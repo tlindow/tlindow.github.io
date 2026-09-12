@@ -259,12 +259,12 @@ function PillarStoryCarousel({
               onClick={() => {
                 if (!isActive) scrollToStory(idx);
               }}
-              className={`snap-start shrink-0 rounded-2xl border bg-surface p-4 sm:p-6 shadow-xs transition-opacity duration-300 flex flex-col justify-between space-y-4 sm:space-y-5 select-none ${
+              className={`snap-start shrink-0 transition-opacity duration-300 flex flex-col justify-between space-y-4 sm:space-y-5 select-none ${
                 hasMultiple ? "w-[85%] sm:w-[88%]" : "w-full"
               } ${
                 isActive
-                  ? "border-border/90 opacity-100 ring-1 ring-border/30"
-                  : "border-border/50 opacity-60 hover:opacity-90 cursor-pointer"
+                  ? "opacity-100"
+                  : "opacity-40 hover:opacity-75 cursor-pointer"
               }`}
             >
               {/* Story Header */}
