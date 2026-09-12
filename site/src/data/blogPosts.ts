@@ -118,7 +118,7 @@ export const blogPosts: BlogPost[] = [
       "Reliability",
     ],
     summary:
-      "In September of 2025, I took lead to bring more cohesion across the merchant engineering organization at Affirm to develop the merchant lifecycle orchestrator deployable target as part of a multi-year effort to lay the groundwork for 99.99% availability.",
+      "In September of 2025, I took the lead to bring more cohesion across the merchant engineering organization at Affirm to develop the merchant lifecycle orchestrator deployable target as part of a multi-year effort to lay the groundwork for 99.99% availability.",
     previewText:
       "Building system architecture is too often seen as simply a requirement to appease enterprise customers. System architecture, along with any technical debt work, is always an act of building the core product.",
     slides: [
@@ -138,20 +138,20 @@ export const blogPosts: BlogPost[] = [
         id: 3,
         slideNumber: "03/03",
         quote:
-          "It's not a failure to require operational support at a product and engineering-led company—it's a necessary growth pattern for building a system that feels like a human.",
+          "It's not a failure to require operational support at a product- and engineering-led company—it's a necessary growth pattern for building a system that feels like a human.",
       },
     ],
     content: [
       `In September of 2025, I took the lead to bring more cohesion across the merchant engineering organization at Affirm to develop the merchant lifecycle orchestrator deployable target as part of a multi-year effort to lay the groundwork for 99.99% availability across the application suite.`,
-      `By December of 2025, we had not only developed the technical architecture, with sign-off from our senior directors, but we had also laid the groundwork for an MCP-ready implementation of the architecture. This intelligent routing layer would reduce team dependencies and put us in a position to further product-led growth of merchant onboarding.`,
-      `As the engineering manager overseeing this program, I set up working meetings with four separate teams to enable our tech lead to see around architectural corners only the other tech leads would know about (e.g., are we choosing to consolidate this endpoint or will it become deprecated in a future build?). I also set up kickoff and close meetings with upward and peer leadership to say "Work with us! And if you are too busy, tell us."`,
+      `By December of 2025, we had not only developed the technical architecture, with sign-off from our senior directors, but we had also laid the groundwork for an MCP-ready implementation of the architecture. This intelligent routing layer would reduce team dependencies and put us in a position to further product-led growth for merchant onboarding.`,
+      `As the engineering manager overseeing this program, I set up working meetings with four separate teams to enable our tech lead to see around architectural corners only the other tech leads would know about (e.g., are we choosing to consolidate this endpoint or will it become deprecated in a future build?). I also set up kickoff and close meetings with upward and peer leadership to say, "Work with us! And if you are too busy, tell us."`,
       `Building system architecture is too often seen as simply a requirement to appease the high standards of enterprise customers. System architecture, along with any technical debt work, is always an act of building the core product.`,
       `"Are our systems fast enough to get hesitant users to think, 'that was easy' and go tell their friends?"`,
       `"By reducing confusion about data discrepancies in our system, will we grow the bottom line?"`,
       `"If we have another incident, will users leave us, or will they leave us because they just didn't understand how valuable the dashboard was to them?"`,
       `In this project, I made a clear decision early on when faced with the option to tell another team to do a database migration or drop a dashboard customers found useful:`,
       `> "Drop the dashboard—the product is causing these users to do more work. And don't migrate the database—the data schemas are correct. I have found a way for our operations teams to provide this dashboard data and provide more holistic support."`,
-      `It's not a failure to require operational support at a product and engineering-led company—it's a necessary growth pattern for building a system that feels like a human.`,
+      `It's not a failure to require operational support at a product- and engineering-led company—it's a necessary growth pattern for building a system that feels like a human.`,
     ],
   },
   {
@@ -248,13 +248,13 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     content: [
-      `During my first years as an engineering manager in 2022, I promoted a junior engineer to an intermediate position in about 1 year. A few years later, this person was promoted again from a support engineer to a product-building engineer. And through the span of my time managing this person, they received multiple raises and equity grants for their ability to get critical projects over the line and building the organizational intelligence of the team while doing it.`,
-      `Every week, I checked-in with this engineer, giving them a space to process their work challenges and come up with paths forward that aligned with growing the business. Every month, I conducted career growth sessions, giving them a space to consider ways they could invest more in themselves and ultimately in the business.`,
+      `During my first years as an engineering manager in 2022, I promoted a junior engineer to an intermediate position in about 1 year. A few years later, this person was promoted again from a support engineer to a product-building engineer. And through the span of my time managing this person, they received multiple raises and equity grants for their ability to get critical projects over the line and build the organizational intelligence of the team while doing it.`,
+      `Every week, I checked in with this engineer, giving them a space to process their work challenges and come up with paths forward that aligned with growing the business. Every month, I conducted career growth sessions, giving them a space to consider ways they could invest more in themselves and ultimately in the business.`,
       `In one particular check-in with this person, I asked, "What do you see yourself doing in five years?" And their answer was "I'd like to become a manager." I said, "Tell me how."`,
-      `This work of building teams by raising the funding potential of an individual doesn't happen by mistake and it also does not happen quickly. Raising funds for your position requires an intentional process, and one that is not taken for granted. A goal and a gift.`,
-      `In similar timing, about six months later, I supported the promotion cycle for another one of my engineers and over my tenure at Affirm I had seen the team grow from one (me and one other person) to nine, through hiring and acquisition of engineers from other teams.`,
+      `This work of building teams by raising the funding potential of an individual doesn't happen by mistake, and it also does not happen quickly. Raising funds for your position requires an intentional process, and one that is not taken for granted. A goal and a gift.`,
+      `In similar timing, about six months later, I supported the promotion cycle for another one of my engineers, and over my tenure at Affirm, I had seen the team grow from one (me and one other person) to nine through hiring and the acquisition of engineers from other teams.`,
       `People come and go... but building a team, just like promoting someone, requires constructing a personal belief that:`,
-      `> "I know how to grow this business"`,
+      `> "I know how to grow this business."`,
     ],
   },
   {
