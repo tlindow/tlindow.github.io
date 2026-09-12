@@ -110,12 +110,6 @@ const valuePillars: ValuePillar[] = [
           "Transforming legacy merchant portals into resilient trust stores—standing up Velocity Labs to eliminate recurring incidents, sustain 99.9% availability for Intuit scale, and unlock AI-driven agility.",
         screenshots: [
           {
-            src: "/affirm-dashboard.png",
-            alt: "Affirm Merchant Portal Dashboard",
-            domain: "affirm.com/dashboard",
-            href: "https://www.affirm.com/dashboard",
-          },
-          {
             src: "/tinker-beginner-work.png",
             alt: "Tinker by Beginner.work sign in app",
             domain: "tinker.beginner.work",
