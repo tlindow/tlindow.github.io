@@ -23,7 +23,7 @@ Process shouldn't feel like bureaucracy—it should feel like a paved path that 
 
 **Proof in Practice:**
 - 📄 [Velocity Labs: Why the Intelligence Age Requires Top-Down System Sculpting](./essays/velocity-labs-system-sculpting.md)
-- 📄 [Building Teams by Raising Funds: Intentional Career Growth & Team Scaling](./essays/building-teams-by-raising-funds.md)
+- 📄 [Building Teams as Raising Funds: Intentional Career Growth & Team Scaling](./essays/building-teams-as-raising-funds.md)
 
 ---
 

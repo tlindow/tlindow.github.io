@@ -206,12 +206,12 @@ export const blogPosts: BlogPost[] = [
     ],
   },
   {
-    id: "building-teams-by-raising-funds",
-    slug: "building-teams-by-raising-funds",
+    id: "building-teams-as-raising-funds",
+    slug: "building-teams-as-raising-funds",
     pretitle: "My work product",
     pillarId: "methodical-enjoyable",
     pillarLabel: "01 Methodical & Empathetic",
-    title: "Building Teams by Raising Funds",
+    title: "Building Teams as Raising Funds",
     subtitle:
       "Raising funds for your position requires an intentional process—building teams by raising the funding potential of individuals and constructing a personal belief to grow the business.",
     date: "2026-09-11",
@@ -315,6 +315,9 @@ export const blogPosts: BlogPost[] = [
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
+  if (slug === "building-teams-by-raising-funds") {
+    return blogPosts.find((p) => p.slug === "building-teams-as-raising-funds");
+  }
   return blogPosts.find((p) => p.slug === slug);
 }
 

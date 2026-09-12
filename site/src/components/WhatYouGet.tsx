@@ -130,21 +130,21 @@ const valuePillars: ValuePillar[] = [
       },
       {
         pretitle: "My work product",
-        title: "Building Teams by Raising Funds",
+        title: "Building Teams as Raising Funds",
         description:
           "Scaling an engineering team from 1 to 9 at Affirm—aligning intentional career growth, promoting talent across tiers, and cultivating the personal belief and capability to grow the business.",
         screenshots: [
           {
-            src: "/tinker-pitch.png",
-            alt: "Tinker by Beginner.work founder pitch app",
-            domain: "tinker.beginner.work",
-            href: "https://tinker.beginner.work",
+            src: "/beginner-card.png",
+            alt: "Beginner Cards and Raise app",
+            domain: "beginner.work",
+            href: "https://www.beginner.work",
           },
         ],
         link: {
-          href: "/blog/building-teams-by-raising-funds",
+          href: "/blog/building-teams-as-raising-funds",
           label: "Read blog post",
-          title: "Building Teams by Raising Funds",
+          title: "Building Teams as Raising Funds",
         },
       },
     ],
