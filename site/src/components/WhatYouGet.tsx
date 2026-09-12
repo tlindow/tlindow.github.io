@@ -259,7 +259,11 @@ function PillarStoryCarousel({
               onClick={() => {
                 if (!isActive) scrollToStory(idx);
               }}
-              className={`snap-start shrink-0 transition-opacity duration-300 flex flex-col justify-between space-y-4 sm:space-y-5 select-none ${
+              className={`snap-start shrink-0 transition-opacity duration-300 flex flex-col ${
+                story.screenshots.length > 0
+                  ? "justify-between space-y-4 sm:space-y-5"
+                  : "justify-start space-y-3 sm:space-y-3.5"
+              } select-none ${
                 hasMultiple ? "w-[85%] sm:w-[88%]" : "w-full"
               } ${
                 isActive
@@ -308,7 +312,7 @@ function PillarStoryCarousel({
               )}
 
               {/* On-site blog post action button */}
-              <div className="pt-2">
+              <div className={story.screenshots.length > 0 ? "pt-2" : "pt-0.5"}>
                 <Link
                   href={story.link.href}
                   className="inline-flex items-center gap-2 rounded-xl bg-surface hover:bg-surface-alt text-foreground border border-border px-5 py-2.5 text-xs sm:text-sm font-mono font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
