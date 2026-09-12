@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, FileText } from "lucide-react";
+import { ArrowUpRight, ChevronLeft, ChevronRight, FileText } from "lucide-react";
 import WebGLCoin from "@/components/WebGLCoin";
 
 interface ScreenshotItem {
@@ -36,7 +36,7 @@ interface ValuePillar {
     label: string;
     title: string;
   };
-  story: StoryItem;
+  stories: StoryItem[];
 }
 
 const valuePillars: ValuePillar[] = [
@@ -51,31 +51,45 @@ const valuePillars: ValuePillar[] = [
       label: "beginner.work",
       title: "Beginner Work (www.beginner.work)",
     },
-    story: {
-      pretitle: "My work product",
-      title: "Marketing as Engineering Leadership",
-      description:
-        "Treating top-of-funnel marketing as a core engineering discipline—leading the affirm.com revamp to unify web and mobile conversion, driving $500K in GMV through perseverance and team focus.",
-      screenshots: [
-        {
-          src: "/affirm-home.png",
-          alt: "Affirm.com homepage website revamp",
-          domain: "affirm.com",
-          href: "https://www.affirm.com",
-        },
-        {
-          src: "/beginner-work.png",
-          alt: "Beginner.work tinker app and word as currency",
-          domain: "beginner.work",
-          href: "https://www.beginner.work",
-        },
-      ],
-      link: {
-        href: "/blog/securing-500k-gmv-win",
-        label: "Read blog post",
+    stories: [
+      {
+        pretitle: "My work product",
         title: "Marketing as Engineering Leadership",
+        description:
+          "Treating top-of-funnel marketing as a core engineering discipline—leading the affirm.com revamp to unify web and mobile conversion, driving $500K in GMV through perseverance and team focus.",
+        screenshots: [
+          {
+            src: "/affirm-home.png",
+            alt: "Affirm.com homepage website revamp",
+            domain: "affirm.com",
+            href: "https://www.affirm.com",
+          },
+          {
+            src: "/beginner-work.png",
+            alt: "Beginner.work tinker app and word as currency",
+            domain: "beginner.work",
+            href: "https://www.beginner.work",
+          },
+        ],
+        link: {
+          href: "/blog/securing-500k-gmv-win",
+          label: "Read blog post",
+          title: "Marketing as Engineering Leadership",
+        },
       },
-    },
+      {
+        pretitle: "My work product",
+        title: "Building Product as System Architecture",
+        description:
+          "Developing the merchant lifecycle orchestrator at Affirm for 99.99% availability and MCP-ready intelligent routing—proving system architecture is always an act of building the core product.",
+        screenshots: [],
+        link: {
+          href: "/blog/building-product-as-system-architecture",
+          label: "Read blog post",
+          title: "Building Product as System Architecture",
+        },
+      },
+    ],
   },
   {
     id: "methodical-enjoyable",
@@ -88,33 +102,232 @@ const valuePillars: ValuePillar[] = [
       label: "github.com/tlindow",
       title: "Tyler Lindow - GitHub (github.com/tlindow)",
     },
-    story: {
-      pretitle: "My work product",
-      title: "B2B Portals as Trust Stores",
-      description:
-        "Transforming legacy merchant portals into resilient trust stores—standing up Velocity Labs to eliminate recurring incidents, sustain 99.9% availability for Intuit scale, and unlock AI-driven agility.",
-      screenshots: [
-        {
-          src: "/affirm-dashboard.png",
-          alt: "Affirm Merchant Portal Dashboard",
-          domain: "affirm.com/dashboard",
-          href: "https://www.affirm.com/dashboard",
-        },
-        {
-          src: "/tinker-beginner-work.png",
-          alt: "Tinker by Beginner.work sign in app",
-          domain: "tinker.beginner.work",
-          href: "https://tinker.beginner.work",
-        },
-      ],
-      link: {
-        href: "/blog/velocity-labs-system-sculpting",
-        label: "Read blog post",
+    stories: [
+      {
+        pretitle: "My work product",
         title: "B2B Portals as Trust Stores",
+        description:
+          "Transforming legacy merchant portals into resilient trust stores—standing up Velocity Labs to eliminate recurring incidents, sustain 99.9% availability for Intuit scale, and unlock AI-driven agility.",
+        screenshots: [
+          {
+            src: "/affirm-dashboard.png",
+            alt: "Affirm Merchant Portal Dashboard",
+            domain: "affirm.com/dashboard",
+            href: "https://www.affirm.com/dashboard",
+          },
+          {
+            src: "/tinker-beginner-work.png",
+            alt: "Tinker by Beginner.work sign in app",
+            domain: "tinker.beginner.work",
+            href: "https://tinker.beginner.work",
+          },
+        ],
+        link: {
+          href: "/blog/velocity-labs-system-sculpting",
+          label: "Read blog post",
+          title: "B2B Portals as Trust Stores",
+        },
       },
-    },
+      {
+        pretitle: "My work product",
+        title: "Building Teams by Raising Funds",
+        description:
+          "Scaling an engineering team from 1 to 9 at Affirm—aligning intentional career growth, promoting talent across tiers, and cultivating the personal belief and capability to grow the business.",
+        screenshots: [
+          {
+            src: "/tinker-pitch.png",
+            alt: "Tinker by Beginner.work founder pitch app",
+            domain: "tinker.beginner.work",
+            href: "https://tinker.beginner.work",
+          },
+        ],
+        link: {
+          href: "/blog/building-teams-by-raising-funds",
+          label: "Read blog post",
+          title: "Building Teams by Raising Funds",
+        },
+      },
+    ],
   },
 ];
+
+function PillarStoryCarousel({
+  stories,
+  basePath,
+}: {
+  stories: StoryItem[];
+  basePath: string;
+}) {
+  const [activeIdx, setActiveIdx] = useState(0);
+  const scrollRef = React.useRef<HTMLDivElement | null>(null);
+  const hasMultiple = stories.length > 1;
+
+  const scrollToStory = (idx: number) => {
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    const cards = Array.from(container.children) as HTMLElement[];
+    if (cards[idx]) {
+      const targetLeft = cards[idx].offsetLeft - container.offsetLeft;
+      container.scrollTo({
+        left: targetLeft,
+        behavior: "smooth",
+      });
+      setActiveIdx(idx);
+    }
+  };
+
+  const handleScroll = () => {
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    const scrollLeft = container.scrollLeft;
+    const children = Array.from(container.children) as HTMLElement[];
+    if (!children.length) return;
+
+    let closestIdx = 0;
+    let minDistance = Infinity;
+    children.forEach((child, idx) => {
+      const distance = Math.abs(child.offsetLeft - container.offsetLeft - scrollLeft);
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestIdx = idx;
+      }
+    });
+
+    if (closestIdx !== activeIdx) {
+      setActiveIdx(closestIdx);
+    }
+  };
+
+  const prev = () => {
+    const nextIdx = Math.max(0, activeIdx - 1);
+    scrollToStory(nextIdx);
+  };
+
+  const next = () => {
+    const nextIdx = Math.min(stories.length - 1, activeIdx + 1);
+    scrollToStory(nextIdx);
+  };
+
+  return (
+    <div className="lg:col-span-7 flex flex-col items-start text-left space-y-4 lg:pl-6 lg:border-l lg:border-border/60 w-full min-w-0 overflow-hidden">
+      {/* Top Header: Pretitle and Prev/Next Chevrons (No Tabs) */}
+      {hasMultiple && (
+        <div className="w-full flex items-center justify-between pb-1 text-xs font-mono text-muted">
+          <span className="font-bold text-indigo-dark uppercase tracking-wider text-[11px] sm:text-xs">
+            {stories[activeIdx].pretitle}
+          </span>
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-mono text-muted select-none">
+              {String(activeIdx + 1).padStart(2, "0")}/{String(stories.length).padStart(2, "0")}
+            </span>
+            <div className="flex items-center gap-1">
+              <button
+                onClick={prev}
+                disabled={activeIdx === 0}
+                className="p-1.5 rounded-lg border border-border bg-surface hover:bg-surface-alt text-foreground transition-all cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed hover:scale-105 active:scale-95"
+                aria-label="Previous story"
+                title="Previous story"
+              >
+                <ChevronLeft size={14} />
+              </button>
+              <button
+                onClick={next}
+                disabled={activeIdx === stories.length - 1}
+                className="p-1.5 rounded-lg border border-border bg-surface hover:bg-surface-alt text-foreground transition-all cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed hover:scale-105 active:scale-95"
+                aria-label="Next story"
+                title="Next story"
+              >
+                <ChevronRight size={14} />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Horizontal Snap Track with Cut-off Preview of Next Story (Fully touch & swipe enabled on mobile) */}
+      <div
+        ref={scrollRef}
+        onScroll={handleScroll}
+        className="w-full flex gap-3.5 sm:gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth touch-pan-x overscroll-x-contain [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden py-1 px-0.5"
+      >
+        {stories.map((story, idx) => {
+          const isActive = idx === activeIdx;
+
+          return (
+            <div
+              key={story.title}
+              onClick={() => {
+                if (!isActive) scrollToStory(idx);
+              }}
+              className={`snap-start shrink-0 rounded-2xl border bg-surface p-4 sm:p-6 shadow-xs transition-opacity duration-300 flex flex-col justify-between space-y-4 sm:space-y-5 select-none ${
+                hasMultiple ? "w-[85%] sm:w-[88%]" : "w-full"
+              } ${
+                isActive
+                  ? "border-border/90 opacity-100 ring-1 ring-border/30"
+                  : "border-border/50 opacity-60 hover:opacity-90 cursor-pointer"
+              }`}
+            >
+              {/* Story Header */}
+              <div className="space-y-2">
+                {!hasMultiple && (
+                  <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-widest text-indigo-dark block">
+                    {story.pretitle}
+                  </span>
+                )}
+                <h4 className="text-xl sm:text-2xl font-bold font-mono tracking-tight text-foreground line-clamp-2">
+                  {story.title}
+                </h4>
+                <p className="text-xs sm:text-sm text-muted leading-relaxed font-mono pt-1">
+                  {story.description}
+                </p>
+              </div>
+
+              {/* Screenshots (grid-cols-2 maintains consistent size across 1 or 2 images) */}
+              {story.screenshots.length > 0 && (
+                <div className="w-full grid grid-cols-2 gap-2.5 sm:gap-4 pt-1">
+                  {story.screenshots.map((shot) => (
+                    <a
+                      key={shot.src}
+                      href={shot.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group relative w-full aspect-[16/10] rounded-xl sm:rounded-2xl border border-border bg-surface overflow-hidden shadow-xs hover:border-foreground/40 transition-all block"
+                      title={`${shot.alt} (${shot.domain})`}
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={`${basePath}${shot.src}`}
+                        alt={shot.alt}
+                        className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02] pointer-events-none select-none"
+                        loading="lazy"
+                        draggable={false}
+                      />
+                    </a>
+                  ))}
+                </div>
+              )}
+
+              {/* On-site blog post action button */}
+              <div className="pt-2">
+                <Link
+                  href={story.link.href}
+                  className="inline-flex items-center gap-2 rounded-xl bg-surface hover:bg-surface-alt text-foreground border border-border px-5 py-2.5 text-xs sm:text-sm font-mono font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                  title={story.link.title}
+                >
+                  <FileText
+                    size={15}
+                    className="shrink-0 text-foreground"
+                  />
+                  <span>{story.link.label}</span>
+                </Link>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 
 export default function WhatYouGet() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -184,54 +397,11 @@ export default function WhatYouGet() {
                   </div>
                 </div>
 
-                {/* Right Side: Case Study / Story (7 cols) */}
-                <div className="lg:col-span-7 flex flex-col items-start text-left space-y-4 sm:space-y-5 lg:pl-6 lg:border-l lg:border-border/60">
-                  {/* Story Header */}
-                  <div className="space-y-2">
-                    <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-widest text-indigo-dark block">
-                      {pillar.story.pretitle}
-                    </span>
-                    <h4 className="text-xl sm:text-2xl font-bold font-mono tracking-tight text-foreground">
-                      {pillar.story.title}
-                    </h4>
-                    <p className="text-xs sm:text-sm text-muted leading-relaxed font-mono pt-1">
-                      {pillar.story.description}
-                    </p>
-                  </div>
-
-                  {/* Side-by-side Screenshots (2 columns on both mobile & desktop) */}
-                  <div className="w-full grid grid-cols-2 gap-2.5 sm:gap-4 pt-1">
-                    {pillar.story.screenshots.map((shot) => (
-                      <div
-                        key={shot.src}
-                        className="relative w-full aspect-[16/10] rounded-xl sm:rounded-2xl border border-border bg-surface overflow-hidden shadow-xs"
-                      >
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={`${basePath}${shot.src}`}
-                          alt={shot.alt}
-                          className="w-full h-full object-cover object-top"
-                          loading="lazy"
-                        />
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* On-site blog post action button */}
-                  <div className="pt-2">
-                    <Link
-                      href={pillar.story.link.href}
-                      className="inline-flex items-center gap-2 rounded-xl bg-surface hover:bg-surface-alt text-foreground border border-border px-5 py-2.5 text-xs sm:text-sm font-mono font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
-                      title={pillar.story.link.title}
-                    >
-                      <FileText
-                        size={15}
-                        className="shrink-0 text-foreground"
-                      />
-                      <span>{pillar.story.link.label}</span>
-                    </Link>
-                  </div>
-                </div>
+                {/* Right Side: Case Study / Story Carousel (7 cols) */}
+                <PillarStoryCarousel
+                  stories={pillar.stories}
+                  basePath={basePath}
+                />
               </motion.div>
             );
           })}
