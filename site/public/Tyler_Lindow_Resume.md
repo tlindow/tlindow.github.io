@@ -7,7 +7,7 @@ Relocating to Seattle, WA
 ---
 
 ## Summary
-Fintech engineering and product leader with 7+ years of experience building developer platforms, partner experiences, and technical communities across fintech and technology. Scaled engineering teams from 1 to 9, supported $10B+ in enterprise GMV, and drove $500K in incremental GMV through high-stakes technical initiatives. Combines software engineering, GenAI agentic workflows, and developer advocacy to build scalable products and high-impact developer experiences. Targeting Engineering Management, Developer Experience, and Product leadership roles.
+Fintech engineering and product leader with 7+ years of experience scaling high-performing engineering teams, merchant systems, and technical communities across fintech and technology. Scaled engineering teams from 1 to 9, supported $10B+ in enterprise GMV, and drove $500K in incremental GMV through high-stakes technical initiatives. Combines software engineering, GenAI agentic workflows, and an empathetic, high-velocity managerial style to build scalable products, eliminate operational toil, and unleash engineering flow. Targeting Engineering Management and Technical Product Leadership roles.
 
 ---
 
@@ -65,5 +65,5 @@ Fintech engineering and product leader with 7+ years of experience building deve
 ## Skills & Toolkits
 
 * **Technical Toolkit:** Python, JavaScript, React, Next.js, Node.js, Flask, PyTorch, LLMs & RAG, Agentic Coding Frameworks (Claude, Cursor, Antigravity), Snowflake, SQL, ETL Pipelines, SRE Support, Vercel, Git/GitHub, CI/CD, REST APIs, Webhooks
-* **Leadership & Management:** Team Scaling (1 to 9 engineers), Performance Management, Cross-Functional Alignment (Product, Design, Account Management, Ops), Mentorship & Coaching, Psychological Safety, Written RFCs & Architectural Decisions, Sprint Orchestration, Incident Management (MTTR reduction)
-* **Product & GTM Strategy:** Developer Advocacy & Evangelism, Partner Engineering, Enterprise Merchant Integrations ($10B+ GMV Scale), GMV Attribution & Revenue Acceleration, Developer Paved Paths & Documentation, Field Research & Customer Discovery, Community Architecture
+* **Leadership & Management:** Team Scaling (1 to 9 engineers), Performance Management, Cross-Functional Alignment (Product, Design, Account Management, Ops), Mentorship & Coaching, Psychological Safety, Paved Paths & Engineering Velocity (Velocity Labs), Written RFCs & Architectural Decisions, Sprint Orchestration, Incident Management (MTTR reduction)
+* **Product & GTM Strategy:** Developer Advocacy & Evangelism, Partner Engineering, Enterprise Merchant Integrations ($10B+ GMV Scale), GMV Attribution & Revenue Acceleration, Merchant & Partner Enablement, Field Research & Customer Discovery, Community Architecture
