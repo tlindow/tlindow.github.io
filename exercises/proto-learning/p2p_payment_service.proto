@@ -60,23 +60,33 @@ message UserAccount {
 }
 
 message TransferRate {
-  int64 rate = 1;           // primitive field, not an enum — rate is an open numeric range, not a fixed menu
+  string rate_date = 1;              // FIXME: `date` is not a proto3 type, and this line is missing a `;`
+  // TODO: proto3 has no built-in date/time type — decide what to use instead (same "no native type" problem corridor_id already solved with `string`)
+  repeated int64 rate = 2;
+  enum currency = 4;         // FIXME: `enum` is a keyword, not a type name — a field's type must name an enum you defined (e.g. `Currency currency = 4;`)
 }
 
 message TransferRates {
-    tuple repeat TransferRate = 1;  // `tuple` isn't a proto3 keyword, and `repeat` should be `repeated` — but first: does one "day" need more than just a rate? what fields would let you name each day's date + high + low?
+  tuple repeated TransferRate = 1;  // FIXME: `tuple` is not a proto3 keyword — `repeated` is the whole collection modifier by itself: `repeated TransferRate <field_name> = 1;`
 }
 
-// enum SomeStatusOrRail { ... }  // reach for enum only when a field has a small CLOSED set of options (e.g. currency, rail type)
+enum Currency {
+  string region = 1;  // FIXME: enum entries are `NAME = integer_constant;` (e.g. `USD = 1;`), not a typed field like a message has
+  // TODO: define the actual closed set of currency options this needs
+}
 
-service P2pPaymentService {       // service name = the whole API surface, can hold multiple rpc methods
-  rpc GetCurrentTransferRate(UserAccount) returns (TransferRate);  // rpc name = the callable method, like a function
-  rpc Get3DayTransferLimitForecast(UserAccount) returns (TransferRate);  // should this return type be TransferRates (plural, repeated) instead?
+service P2pPaymentService {
+  rpc GetCurrentTransferRate(UserAccount) returns (TransferRate);
+  rpc Get3DayTransferLimitForecast(UserAccount) returns (TransferRates);
 
-  // Still open: does day 1 = today or tomorrow? pick ONE rule and write it as a comment here.
-  // start first eligible day as 0
-  // ^ still an indexing convention, not the calendar rule — "first eligible day" doesn't say whether that day's CALENDAR DATE is today or tomorrow. Try finishing this sentence: "the date at index 0 is always ___ 's date (UTC)."
-  // Still open: if only 1 or 2 valid days exist, does the response return fewer entries, or an explicit count field, or an error?
-  // If 3 valid days do not exist, return still a 3 position tuple mark non-availble next entries as null
-  // ^ real answer, but two follow-ups: (1) proto3 primitives (int64) have no `null` — they default to 0, which is indistinguishable from a real $0 rate. What field would let a caller tell "$0 rate" apart from "no data for this day"? (2) `tuple` isn't valid proto3 — how would `TransferRates` express "always exactly 3 slots, some possibly empty" using `repeated` (open-ended) vs. fixed named fields (day_one/day_two/day_three)?
+  // TODO: does the first day returned = today's date or tomorrow's date (UTC)?
+  // Concrete test: if called at 11:59pm Tuesday, is Tuesday one of the 3
+  // days, or does the window always start Wednesday regardless of call
+  // time? Pick one rule and state it: "the first day returned is always
+  // ___ 's date relative to when the call is made (UTC)."
+
+  // TODO: what happens when fewer than 3 valid days exist (e.g. a brand
+  // new corridor)? int64 has no null (defaults to 0, indistinguishable
+  // from a real $0 rate) — how does a caller tell "no data for this day"
+  // apart from "the rate really is 0"?
 }
