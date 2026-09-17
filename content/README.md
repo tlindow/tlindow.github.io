@@ -31,4 +31,4 @@ Content publication in `content/` intentionally operates on a **Pull Request (PR
 
 - **Journaling as Thinking**: Raw reflections, engineering notes, and early thoughts start here before evolving into polished essays.
 - **Public & Private Post Repo**: Houses drafts, long-form thoughts, and articles published across personal platforms.
-- **Separation of Concerns**: Kept cleanly separated from personal technical practice katas ([`exercises/`](../exercises/)) and the living web frontend ([`site/`](../site/)).
+- **Separation of Concerns**: Kept cleanly separated from hands-on technical practice katas, which live in the [`tlindow/tlindow`](https://github.com/tlindow/tlindow) profile repository, and the living web frontend ([`site/`](../site/)).
