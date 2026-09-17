@@ -60,9 +60,8 @@ message UserAccount {
 }
 
 message TransferRate {
-  string rate_date = 1;              // FIXME: `date` is not a proto3 type, and this line is missing a `;`
-  // TODO: proto3 has no built-in date/time type — decide what to use instead (same "no native type" problem corridor_id already solved with `string`)
-  repeated int64 rate = 2;
+  string rate_date = 1;      // date type resolved (string, like corridor_id) — TODO: still needs a documented format, e.g. "always YYYY-MM-DD, UTC"
+  repeated int64 rate = 2;   // TODO: this replaced the removed high/low fields with a repeated list of numbers — a `repeated int64` has no field names, so nothing distinguishes "high" from "low" (or which is which) once there's more than one value. Does TransferRate need a named `high` field AND a named `low` field instead?
   enum currency = 4;         // FIXME: `enum` is a keyword, not a type name — a field's type must name an enum you defined (e.g. `Currency currency = 4;`)
 }
 
