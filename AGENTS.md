@@ -65,9 +65,15 @@ specific code line they explain — not as large standalone paragraph blocks.
 Prefer a trailing `// short note` on the line itself, or a one-line comment
 immediately above it, over multi-paragraph explanations.
 
+Exception: broader "how/why does this technology work" learning questions
+(e.g. "what is RPC", "why do enums start at 0") that aren't tied to fixing
+a specific TODO/FIXME in the current draft belong in the chat response, not
+the exercise file. Reserve file comments for clarifications and hints that
+are part of reviewing/unblocking the draft itself.
+
 ### Content publishing workflow
 
-The `content/` workspace uses a **PR-based workflow**:
+The `content/` workspace uses a **PR-based workflow**: 
 - Publishing new essays, journal entries, or significant updates is performed via Pull Requests.
 - GitHub activity serves as a public "feed" / posting mechanism that followers can discover and read into.
 - Agent tasks involving new content drafts should support this PR-centric broadcasting flow.
