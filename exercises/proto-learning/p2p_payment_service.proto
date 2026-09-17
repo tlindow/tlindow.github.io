@@ -53,39 +53,59 @@ syntax = "proto3";
 
 package fintech.p2ppayments.v1;
 
+import "google/protobuf/timestamp.proto";
+import "google/type/timezone.proto";
+
 // Draft your message types, enums, and service below.
 
-message UserAccount {
-  string corridor_id = 1;   // message = class/payload; no native uuid type, string is convention (no import needed)
+message Corridor {
+  google.type.TimeZone time_zone = 1;
+  string initiating_user_id = 2;
+  string receiving_user_id = 3;
+  NetworkType network_type = 4;
+  // TODO: the corridor_id fix landed on TransferRates (the response)
+  // instead of here. `Corridor` is the REQUEST type for both RPCs — a
+  // stable ID needs to live on the message the caller sends, so a lookup
+  // can use either the structured fields above OR just the id.
 }
 
 message TransferRate {
-  string rate_date = 1;      // date type resolved (string, like corridor_id) — TODO: still needs a documented format, e.g. "always YYYY-MM-DD, UTC"
-  repeated int64 rate = 2;   // TODO: this replaced the removed high/low fields with a repeated list of numbers — a `repeated int64` has no field names, so nothing distinguishes "high" from "low" (or which is which) once there's more than one value. Does TransferRate need a named `high` field AND a named `low` field instead?
-  enum currency = 4;         // FIXME: `enum` is a keyword, not a type name — a field's type must name an enum you defined (e.g. `Currency currency = 4;`)
+  google.protobuf.Timestamp rate_date = 1; // response is always in user local time, GetCurrentTransferRate converts between local time and UTC
+  int64 high_rate = 2;
+  int64 low_rate = 3;
+  Currency currency = 4;
+  ErrorCode error = 5;
 }
 
 message TransferRates {
-  tuple repeated TransferRate = 1;  // FIXME: `tuple` is not a proto3 keyword — `repeated` is the whole collection modifier by itself: `repeated TransferRate <field_name> = 1;`
+  repeated TransferRate rates = 1;
+  corridor_id = 2 // FIXME: two issues — (1) missing a type: every field needs `type name = number;`, not just `name = number;`; (2) per the note on `Corridor` above, a corridor_id identifies the REQUEST, not the response — should this field even be here, or on Corridor instead?
+  ErrorCode error = 3;
+  // TODO: still open — does the 3-day window include today, or start
+  // tomorrow? What's guaranteed about `rates` length if fewer than 3
+  // valid days exist?
 }
 
 enum Currency {
-  string region = 1;  // FIXME: enum entries are `NAME = integer_constant;` (e.g. `USD = 1;`), not a typed field like a message has
-  // TODO: define the actual closed set of currency options this needs
+  CURRENCY_TYPE_UNSPECIFIED = 0;
+  USD = 1;
+  CAD = 2;
+}
+
+enum NetworkType {
+  NETWORK_TYPE_UNSPECIFIED = 0;
+  ACH = 1;
+  WIRE = 2;
+}
+
+enum ErrorCode {
+    ERROR_CODE_UNSPECIFIED = 0;
+    NOT_FOUND = 1;
+    INVALID = 2;
+    INACTIVE = 3;
 }
 
 service P2pPaymentService {
-  rpc GetCurrentTransferRate(UserAccount) returns (TransferRate);
-  rpc Get3DayTransferLimitForecast(UserAccount) returns (TransferRates);
-
-  // TODO: does the first day returned = today's date or tomorrow's date (UTC)?
-  // Concrete test: if called at 11:59pm Tuesday, is Tuesday one of the 3
-  // days, or does the window always start Wednesday regardless of call
-  // time? Pick one rule and state it: "the first day returned is always
-  // ___ 's date relative to when the call is made (UTC)."
-
-  // TODO: what happens when fewer than 3 valid days exist (e.g. a brand
-  // new corridor)? int64 has no null (defaults to 0, indistinguishable
-  // from a real $0 rate) — how does a caller tell "no data for this day"
-  // apart from "the rate really is 0"?
+  rpc GetCurrentTransferRate(Corridor) returns (TransferRate);
+  rpc Get3DayTransferLimitForecast(Corridor) returns (TransferRates);
 }
