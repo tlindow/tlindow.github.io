@@ -6,14 +6,6 @@
 // that reports transfer-limit data for a user's account/corridor (the pair
 // of sender + receiver payment rails, e.g. "US bank -> UK bank").
 //
-// GLOSSARY (domain terms used below):
-//   - Corridor: a sender-to-receiver payment path, e.g. "US -> Mexico" or
-//     "US bank -> UK bank". Fees, FX rates, and limits often depend on BOTH
-//     ends of a transfer, not just one account — the corridor is the pair.
-//     (Stands in for "location" from the original weather-service exercise.)
-//   - Rail / network: the payment network a transfer moves over, e.g. ACH,
-//     SWIFT, a card network, or an internal wallet-to-wallet ledger.
-//
 // (Translated from a "weather reporting service" prompt sourced from another
 // LLM chat, which iteratively critiques a submitted design without supplying
 // the fix. Work the design out yourself here; do not accept fixes from
@@ -54,39 +46,47 @@ syntax = "proto3";
 package fintech.p2ppayments.v1;
 
 import "google/protobuf/timestamp.proto";
+import "google/type/date.proto";
 import "google/type/timezone.proto";
-
-// Draft your message types, enums, and service below.
 
 message Corridor {
   google.type.TimeZone time_zone = 1;
-  string initiating_user_id = 2;
-  string receiving_user_id = 3;
-  string corridor_id = 4;
-  NetworkType network_type = 5;
-  // TODO: you mentioned corridor_id could be optional on the request (a
-  // brand-new pair has no established id yet). proto3 has an explicit
-  // `optional` keyword for exactly this — marking a field optional lets
-  // the caller distinguish "not set" from "set to empty string" (plain
-  // `string` fields can't tell those apart, they default to "" either
-  // way). Worth applying here?
+  User initiating_user = 2;
+  User receiving_user = 3;
+  NetworkType network_type = 4;
+  optional string corridor_id = 5;
+}
+
+message User {
+  string id = 1;
+  string institution = 2;
+  string region = 3;
+  string country = 4;
+  string address = 5;
 }
 
 message TransferRate {
-  google.protobuf.Timestamp rate_date = 1; // response is always in user local time, GetCurrentTransferRate converts between local time and UTC
-  int64 high_rate = 2;
-  int64 low_rate = 3;
-  Currency currency = 4;
+  google.type.Date date = 1;
+  int64 rate = 2;
+  Currency currency = 3;
+  string corridor_id = 4;
   ErrorCode error = 5;
 }
 
-message TransferRates {
-  repeated TransferRate rates = 1;
-  string corridor_id = 2 // FIXME: still missing the semicolon at the end of this line. The type/placement reasoning is sound now: this is a fine spot for the response's corridor_id (server assigns/establishes it), separate from the request's optional one.
-  ErrorCode error = 3;
-  // TODO: still open — does the 3-day window include today, or start
-  // tomorrow? What's guaranteed about `rates` length if fewer than 3
-  // valid days exist?
+message TransferLimits {
+  google.type.Date first_day_date = 1; // Starts with today
+  google.type.Date second_day_date = 2;
+  google.type.Date third_day_date = 3; 
+  HighLowLimits first_day_limit = 4;
+  HighLowLimits second_day_limit = 5;
+  HighLowLimits third_day_limit = 6;
+  string corridor_id = 7;
+  ErrorCode error = 8;
+}
+
+message HighLowLimits {
+  int64 high_limit = 1;
+  int64 low_limit = 2;
 }
 
 enum Currency {
@@ -110,5 +110,5 @@ enum ErrorCode {
 
 service P2pPaymentService {
   rpc GetCurrentTransferRate(Corridor) returns (TransferRate);
-  rpc Get3DayTransferLimitForecast(Corridor) returns (TransferRates);
+  rpc Get3DayTransferLimitForecast(Corridor) returns (TransferLimits);
 }
