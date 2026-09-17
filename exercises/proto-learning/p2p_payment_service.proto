@@ -62,11 +62,14 @@ message Corridor {
   google.type.TimeZone time_zone = 1;
   string initiating_user_id = 2;
   string receiving_user_id = 3;
-  NetworkType network_type = 4;
-  // TODO: the corridor_id fix landed on TransferRates (the response)
-  // instead of here. `Corridor` is the REQUEST type for both RPCs — a
-  // stable ID needs to live on the message the caller sends, so a lookup
-  // can use either the structured fields above OR just the id.
+  string corridor_id = 4;
+  NetworkType network_type = 5;
+  // TODO: you mentioned corridor_id could be optional on the request (a
+  // brand-new pair has no established id yet). proto3 has an explicit
+  // `optional` keyword for exactly this — marking a field optional lets
+  // the caller distinguish "not set" from "set to empty string" (plain
+  // `string` fields can't tell those apart, they default to "" either
+  // way). Worth applying here?
 }
 
 message TransferRate {
@@ -79,7 +82,7 @@ message TransferRate {
 
 message TransferRates {
   repeated TransferRate rates = 1;
-  corridor_id = 2 // FIXME: two issues — (1) missing a type: every field needs `type name = number;`, not just `name = number;`; (2) per the note on `Corridor` above, a corridor_id identifies the REQUEST, not the response — should this field even be here, or on Corridor instead?
+  string corridor_id = 2 // FIXME: still missing the semicolon at the end of this line. The type/placement reasoning is sound now: this is a fine spot for the response's corridor_id (server assigns/establishes it), separate from the request's optional one.
   ErrorCode error = 3;
   // TODO: still open — does the 3-day window include today, or start
   // tomorrow? What's guaranteed about `rates` length if fewer than 3
