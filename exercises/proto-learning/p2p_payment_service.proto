@@ -60,9 +60,14 @@ message Corridor {
 message User {
   string id = 1;
   string institution = 2;
-  string region = 3;
-  string country = 4;
-  string address = 5;
+  Location location = 3;
+}
+
+message Location {
+  string id = 1;
+  string region = 2;
+  string country = 3;
+  string city = 4;
 }
 
 message TransferRate {
@@ -74,12 +79,12 @@ message TransferRate {
 }
 
 message TransferLimits {
-  google.type.Date first_day_date = 1; // Starts with today
-  google.type.Date second_day_date = 2;
-  google.type.Date third_day_date = 3; 
-  HighLowLimits first_day_limit = 4;
-  HighLowLimits second_day_limit = 5;
-  HighLowLimits third_day_limit = 6;
+  optional google.type.Date first_day_date = 1; // Starts with today
+  optional google.type.Date second_day_date = 2;
+  optional google.type.Date third_day_date = 3; 
+  optional HighLowLimits first_day_limit = 4;
+  optional HighLowLimits second_day_limit = 5;
+  optional HighLowLimits third_day_limit = 6;
   string corridor_id = 7;
   ErrorCode error = 8;
 }
