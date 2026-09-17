@@ -21,9 +21,59 @@ Planning questions should be concise, synthesis-oriented, and based on the under
 
 When there is tension between written reflections and the current UI, assume the Markdown captures broader intent and use the UI as the current expression of that intent rather than the sole source of truth.
 
+### Formation exercises: two-agent workflow
+
+`exercises/proto-learning/` (and similar IDL-critique-style exercises) follow a
+**two-agent split**, separated by the git push boundary:
+
+1. **Inner-loop agent (pre-push, local, uncommitted work in progress)**
+   - Helps Tyler progress through writing the `.proto`/IDL step by step.
+   - Never writes the fix directly. Reviews Tyler's in-progress draft against
+     open critique points and asks leading questions to close gaps in his own
+     words.
+   - Operates entirely before anything is pushed to GitHub — this is private
+     practice/scratch work, not yet a public artifact.
+
+2. **Outer-loop agent (post-push, translation only)**
+   - Activates once Tyler's draft is pushed/committed to GitHub.
+   - Translates Tyler's code **back into the original exercise's domain and
+     IDL style** (e.g. back into the weather-service wording used by the
+     source LLM chat) so he can copy/paste it there.
+   - Translates *as-is*, including mistakes — it does not fix, correct, or
+     improve Tyler's design during translation. If the draft still has gaps,
+     the translation should faithfully carry those same gaps into the
+     original domain rather than silently resolving them.
+   - Only after producing the faithful translation may it separately note
+     (not fix) which open critique points still look unresolved, if asked.
+
+Do not blend these roles: an inner-loop review must not slip into finishing
+the design, and an outer-loop translation must not slip into fixing it.
+
+Whenever a domain term used in an exercise file (fintech jargon, abbreviations,
+etc.) isn't clear to Tyler, add a short glossary/definition directly in that
+file's comments — don't leave clarifications only in chat. Keep the file the
+single source of truth for anything needed to work the exercise.
+
+Whenever Tyler asks a clarifying question about an exercise (terminology,
+syntax, concepts, "what's the difference between X and Y", hints on how to
+proceed, etc.), write the answer as a comment directly in the relevant
+exercise file rather than as a chat response. Chat replies should stay brief
+and simply point to what was added in the file.
+
+Keep those comments short and placed inline, on or right next to the
+specific code line they explain — not as large standalone paragraph blocks.
+Prefer a trailing `// short note` on the line itself, or a one-line comment
+immediately above it, over multi-paragraph explanations.
+
+Exception: broader "how/why does this technology work" learning questions
+(e.g. "what is RPC", "why do enums start at 0") that aren't tied to fixing
+a specific TODO/FIXME in the current draft belong in the chat response, not
+the exercise file. Reserve file comments for clarifications and hints that
+are part of reviewing/unblocking the draft itself.
+
 ### Content publishing workflow
 
-The `content/` workspace uses a **PR-based workflow**:
+The `content/` workspace uses a **PR-based workflow**: 
 - Publishing new essays, journal entries, or significant updates is performed via Pull Requests.
 - GitHub activity serves as a public "feed" / posting mechanism that followers can discover and read into.
 - Agent tasks involving new content drafts should support this PR-centric broadcasting flow.
