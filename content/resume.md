@@ -57,7 +57,7 @@ I cut operational toil with automation and develop engineers against clear hirin
 *San Francisco, CA (Hybrid) | Sep 2019 – Jul 2021*
 
 - **Merchant checkout integrations:** Promoted L4→L5. Primary technical liaison for 300+ SMB merchants; diagnosed JavaScript, REST API, and webhook defects in checkout / payment-method integrations on Shopify, Magento, WooCommerce, and Salesforce Commerce Cloud.
-- **DevX feedback loop:** Built ETL pipelines towards Snowflake to cluster integration-defect patterns and convert developer feedback into platform fixes that reduced integration churn.
+- **DevX feedback loop:** Built ETL pipelines towards Snowflake to cluster integration-defect patterns and convert developer feedback into platform fixes that reduced integration churn ~20% quarter over quarter.
 
 
 
