@@ -25,7 +25,7 @@ Targeting Engineering Manager / Senior EM in Seattle fintech (payments, platform
 
 *San Diego, CA (Hybrid) | Mar 2026 – Jul 2026*
 
-- Shipped a 0→1 fundraising pitch simulator (React/Next.js)—led discovery through GTM in four months; 10+ product interviews and a 20+ engineer community across SoCal, NYC, and SF.
+- Shipped a 0→1 fundraising pitch simulator (React/Next.js)—28 users logged in, 14 paid ≥$1 (incl. one $9/mo), 92 in-person conversations (5 VCs), and 6 attendees across 2 events; led discovery through GTM in four months.
 
 
 
