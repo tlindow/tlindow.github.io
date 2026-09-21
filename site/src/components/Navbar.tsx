@@ -97,7 +97,7 @@ export default function Navbar({
                 Tyler Lindow
               </span>
               <span className="text-[10px] text-muted font-mono leading-none hidden sm:inline">
-                Engineering Manager — Fintech Platform &amp; 0→1
+                Fintech Product &amp; Engineering
               </span>
             </div>
           </a>

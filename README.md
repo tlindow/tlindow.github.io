@@ -1,6 +1,6 @@
 # Tyler Lindow
 
-**Engineering Manager — Fintech Platform & 0→1 | Ex-Founder | Relocating to Seattle, WA**  
+**Elevating capital-tech**  
 San Diego, CA (Relocating to Seattle, WA) · [tyler.lindow@gmail.com](mailto:tyler.lindow@gmail.com) · [linkedin.com/in/tlindow](https://www.linkedin.com/in/tlindow) · [github.com/tlindow](https://github.com/tlindow)
 
 ---
@@ -68,6 +68,5 @@ npm start
 The working resume stays in Formation. The site links to the public story and does not publish a second resume master.
 
 ### Machine Context & LLM RAG
-- Summary: [`/llms.txt`](site/public/llms.txt)
 - Full Context: [`/llms-full.txt`](site/public/llms-full.txt)
 - MCP Resource: [`/context.json`](site/public/context.json)

@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "name": "tyler-lindow-profile",
   "version": "1.0.0",
-  "description": "Public story for Tyler Lindow. Headline: Engineering Manager — Fintech Platform & 0→1 | Ex-Founder | Relocating to Seattle, WA. The working resume is maintained in Formation.",
+  "description": "Public story for Tyler Lindow. Headline: Elevating capital-tech. The working resume is maintained in Formation.",
   "author": {
     "name": "Tyler Lindow",
     "email": "tyler.lindow@gmail.com",
@@ -10,7 +10,6 @@
     "url": "https://tlindow.github.io"
   },
   "resources": {
-    "llms_summary": "https://tlindow.github.io/llms.txt",
     "llms_full": "https://tlindow.github.io/llms-full.txt",
     "linkedin": "https://www.linkedin.com/in/tlindow",
     "github": "https://github.com/tlindow",

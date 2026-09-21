@@ -1,4 +1,11 @@
-/** Locked Formation Latest Ready copy. Use verbatim; do not paraphrase metrics. */
+/** Public site title. Closest prior hero line to the founder / banking-tech voice. */
+export const SITE_TITLE = "Elevating capital-tech";
+
+/** Niche stays in supporting copy, under the hero line. */
+export const SITE_SUPPORT =
+  "Elevating Developer Fintech — with top of funnel marketing and enterprise B2B portals";
+
+/** Locked Formation Latest Ready copy. Use verbatim on the lean narrative; do not paraphrase metrics. */
 export const HEADLINE =
   "Engineering Manager — Fintech Platform & 0→1 | Ex-Founder | Relocating to Seattle, WA";
 

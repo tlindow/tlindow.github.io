@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Space_Mono, Silkscreen, Fraunces } from "next/font/google";
 import { AnalyticsProvider } from "@/context/AnalyticsProvider";
-import { FORMATION_SUMMARY, HEADLINE } from "@/data/positioning";
+import { SITE_SUPPORT, SITE_TITLE } from "@/data/positioning";
 import "./globals.css";
 
 const inter = Inter({
@@ -33,24 +33,19 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tlindow.github.io"),
-  title: `Tyler Lindow — ${HEADLINE}`,
-  description: FORMATION_SUMMARY,
+  title: `Tyler Lindow — ${SITE_TITLE}`,
+  description: SITE_SUPPORT,
   openGraph: {
-    title: `Tyler Lindow — ${HEADLINE}`,
-    description: FORMATION_SUMMARY,
+    title: `Tyler Lindow — ${SITE_TITLE}`,
+    description: SITE_SUPPORT,
     url: "https://tlindow.github.io",
     siteName: "Tyler Lindow",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: `Tyler Lindow — ${HEADLINE}`,
-    description: FORMATION_SUMMARY,
-  },
-  alternates: {
-    types: {
-      "text/plain": "/llms.txt",
-    },
+    title: `Tyler Lindow — ${SITE_TITLE}`,
+    description: SITE_SUPPORT,
   },
   icons: {
     icon: [
@@ -68,7 +63,7 @@ const jsonLd = {
       "@type": "Person",
       "@id": "https://tlindow.github.io/#person",
       "name": "Tyler Lindow",
-      "jobTitle": HEADLINE,
+      "jobTitle": SITE_TITLE,
       "telephone": "(650) 580-5788",
       "email": "tyler.lindow@gmail.com",
       "address": {
@@ -99,7 +94,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs.txt" />
       </head>
       <body
         className={`${inter.variable} ${spaceMono.variable} ${silkscreen.variable} ${fraunces.variable} font-mono antialiased bg-background text-foreground selection:bg-indigo-light selection:text-indigo-dark`}

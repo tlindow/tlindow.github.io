@@ -32,7 +32,6 @@ const AI_PROMPT_TEMPLATE = `You are an AI assistant helping me learn about Tyler
 • hāpi (Maker): San Diego botanical craft hop elixir brand & mobile ordering PWA — https://www.beginner.work/hapi
 • Keynote Speaking: Featured Keynote "Human Minds & AI Models" at DEVx Network San Diego (April 18, 2026), connecting cognitive science and autonomous AI agent design — Video: https://www.youtube.com/watch?v=STI5pw5F5Lo&t=631s
 • 1:1 Mentoring: Live code reviews, pair programming, and career coaching — https://calendly.com/tylerlindow/elevate
-• Full Reference: https://tlindow.github.io/llms.txt
 
 Please give me an overview of Tyler, his ventures, keynote insights, and how I can collaborate with him.`;
 
@@ -163,7 +162,6 @@ export default function AILauncherModal({
                     <Sparkles size={12} />
                     AI Knowledge Gateway
                   </span>
-                  <span className="text-xs font-mono text-muted">/llms.txt</span>
                 </div>
                 <h3 className="font-serif text-2xl sm:text-3xl text-foreground font-normal tracking-tight">
                   Read Tyler&rsquo;s Story via AI
@@ -390,15 +388,6 @@ export default function AILauncherModal({
                 <div className="mt-4 pt-4 border-t border-border flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-muted">
                   <div className="flex items-center gap-3">
                     <a
-                      href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/llms.txt`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 hover:text-foreground underline underline-offset-2"
-                    >
-                      <FileText size={13} className="text-violet" />
-                      <span>/llms.txt</span>
-                    </a>
-                    <a
                       href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/llms-full.txt`}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -418,7 +407,7 @@ export default function AILauncherModal({
                     </a>
                   </div>
 
-                  <span className="text-[11px] text-muted/80">RAG Ready &bull; llmstxt.org standard</span>
+                  <span className="text-[11px] text-muted/80">Public story context</span>
                 </div>
               </div>
             )}

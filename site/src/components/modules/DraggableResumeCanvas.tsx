@@ -410,15 +410,6 @@ ${resumeContact.phone} | ${resumeContact.email}
           >
             GitHub
           </a>
-          <span>&bull;</span>
-          <a
-            href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/llms.txt`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[#1A73E8] transition-colors"
-          >
-            /llms.txt
-          </a>
         </div>
       </footer>
     </div>

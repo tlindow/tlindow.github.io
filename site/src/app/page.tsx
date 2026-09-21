@@ -15,7 +15,7 @@ import ScrollMorphAvatar, {
   HERO_PIN_SCROLL_DISTANCE,
 } from "@/components/animations/ScrollMorphAvatar";
 import { useAnalytics } from "@/context/AnalyticsProvider";
-import { HEADLINE } from "@/data/positioning";
+import { SITE_SUPPORT } from "@/data/positioning";
 
 export default function Home() {
   const { scrollY } = useScroll();
@@ -225,35 +225,31 @@ export default function Home() {
                 className="w-24 h-24 sm:w-28 sm:h-28 rounded-full shrink-0 relative"
               />
 
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-foreground leading-tight mx-auto max-w-3xl">
-                {HEADLINE}
+              <span className="text-xs sm:text-sm font-mono font-bold text-indigo-dark uppercase tracking-widest block">
+                ex-Affirm, ex-founder
+              </span>
+
+              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-foreground leading-[1.05] mx-auto">
+                <span className="block">Elevating</span>
+                <span className="block">capital-tech</span>
               </h1>
+
+              <div className="pt-2">
+                <p className="text-sm sm:text-base md:text-lg font-mono text-muted mx-auto">
+                  {SITE_SUPPORT}
+                </p>
+              </div>
             </div>
 
-            {/* Primary CTA: Seattle EM / Senior EM. Story stays secondary. */}
-            <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 rounded-xl bg-foreground text-background hover:bg-foreground/90 px-5 py-2.5 text-xs sm:text-sm font-mono font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
-                title="Engineering Manager / Senior EM roles in Seattle fintech"
-              >
-                <span>EM / Senior EM · Seattle</span>
-              </a>
-              <a
-                href="#about"
-                className="inline-flex items-center gap-2 rounded-xl bg-surface hover:bg-surface-alt text-foreground border border-border px-5 py-2.5 text-xs sm:text-sm font-mono font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
-                title="Read the public story"
-              >
-                <span>Read the story</span>
-              </a>
+            <div className="pt-2 flex justify-center">
               <a
                 href={`${basePath}/resume`}
                 onClick={() => logResumeView("hero_cta")}
-                className="inline-flex items-center gap-2 text-xs sm:text-sm font-mono text-muted hover:text-foreground underline underline-offset-4"
-                title="Lean public narrative"
+                className="inline-flex items-center gap-2 rounded-xl bg-surface hover:bg-surface-alt text-foreground border border-border px-5 py-2.5 text-xs sm:text-sm font-mono font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                title="Read Tyler Lindow's resume"
               >
                 <FileText size={15} className="shrink-0" />
-                <span>Lean narrative</span>
+                <span>Read resume</span>
               </a>
             </div>
 

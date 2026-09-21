@@ -20,7 +20,7 @@ export default function Footer() {
               Get in Touch
             </span>
             <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground font-mono">
-              EM / Senior EM · Seattle
+              Let&apos;s talk
             </h3>
             {/* Slot for profile coin when contact section reaches middle of viewport */}
             <div className="flex justify-center items-center py-2 min-h-[72px] sm:min-h-[88px]">
@@ -30,7 +30,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-xs sm:text-sm font-mono text-muted max-w-md mx-auto leading-relaxed">
-              Targeting Engineering Manager / Senior EM roles in Seattle fintech (payments, platform/DevX, partner integrations). Relocating to Seattle, WA.
+              Open to strategic advisory, technical leadership roles, and developer-first enterprise B2B platforms.
             </p>
           </div>
 
@@ -41,7 +41,7 @@ export default function Footer() {
               title="Contact Tyler Lindow"
             >
               <Mail size={15} className="shrink-0" />
-              <span>EM / Senior EM in Seattle</span>
+              <span>Contact me</span>
             </a>
           </div>
         </div>
