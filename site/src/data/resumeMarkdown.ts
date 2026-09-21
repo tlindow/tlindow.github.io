@@ -30,7 +30,7 @@ Targeting Engineering Manager / Senior EM in Seattle fintech (payments, platform
 
 *San Diego, CA (Hybrid) | Mar 2026 – Jul 2026*
 
-- Shipped a 0→1 fundraising pitch simulator (React/Next.js) as founder of Beginner Work Inc.—discovery through GTM in four months; validated with 10+ product interviews and a 20+ engineer community across SoCal, NYC, and SF.
+- Shipped a 0→1 fundraising pitch simulator (React/Next.js)—led discovery through GTM in four months; 10+ product interviews and a 20+ engineer community across SoCal, NYC, and SF.
 
 
 
@@ -38,7 +38,7 @@ Targeting Engineering Manager / Senior EM in Seattle fintech (payments, platform
 
 *San Diego, CA (Remote) | Mar 2025 – Feb 2026*
 
-- **Scope:** Managed 6 software engineers across Product, Design, and Content initiatives; owned affirm.com and Merchant Portal (React, TypeScript) serving SMB/ecommerce-integration merchants, including native onboarding onto Affirm’s payment method via API.
+- **Scope:** Managed 6 software engineers as direct reports, partnering with Product, Design, and Content; owned affirm.com and Merchant Portal (React, TypeScript) serving SMB/ecommerce-integration merchants, including native onboarding onto Affirm’s payment method via API.
 - **Checkout funnel (affirm.com):** Directed a 5-week revamp of affirm.com (~1M monthly viewers)—native customer onboarding funnels and mobile conversion. Attributed **$500K incremental GMV** to that launch in a 3-day pre–Black Friday / Cyber Monday 2025 window.
 - **Merchant Portal reliability:** Raised availability 99.7% → 99.9% in one quarter and unblocked an Intuit launch covering hundreds of thousands of new merchants. Led weekly AI-tooling sessions where the team found and removed unused code paths that threw errant 5xxs and slowed incident diagnosis.
 - **Tradeoff — domain decoupling:** Mediated RFCs and system design across Staff+, Directors, and four merchant-engineering teams; chose to decouple service boundaries and drop an unintended dashboard feature rather than force a database migration. Secured Director sign-off on merchant lifecycle architecture by Dec 2025 as groundwork toward a 99.99% availability target (not yet achieved).
