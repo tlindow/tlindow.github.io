@@ -40,7 +40,7 @@ I cut operational toil with automation and develop engineers against clear hirin
 
 - **Scope:** Managed 6 software engineers across Product, Design, and Content initiatives; owned affirm.com and Merchant Portal (React, TypeScript) serving SMB/ecommerce-integration merchants, including native onboarding onto Affirm’s payment method via API.
 - **Checkout funnel (affirm.com):** Directed a 5-week revamp of affirm.com (~1M monthly viewers)—native customer onboarding funnels and mobile conversion. Attributed **$500K incremental GMV** to that launch in a 3-day pre-BFCM 2025 window.
-- **Velocity Labs → stability:** Recurring weekly Merchant Portal incidents. Ran weekly Velocity Labs so the team used AI tooling to diagnose and clear portal defects faster; availability rose 99.7% → 99.9% in one quarter. Remaining incident load cleared, including unblocking an Intuit launch covering hundreds of thousands of new merchants.
+- **Velocity Labs → stability:** Recurring weekly Merchant Portal incidents. Ran weekly Velocity Labs to squash bugs throwing errant 5xxs—often tied to unused code paths that created false assumptions about how the product worked and sowed confusion during incidents; availability rose 99.7% → 99.9% in one quarter. Remaining incident load cleared, including unblocking an Intuit launch covering hundreds of thousands of new merchants.
 - **Tradeoff — domain decoupling:** Mediated RFCs and system design across Staff+, Directors, and four merchant-engineering teams; chose to decouple service boundaries and drop an unintended dashboard feature rather than force a database migration. Director-signed merchant lifecycle architecture by Dec 2025 as groundwork for 99.99% availability.
 
 
