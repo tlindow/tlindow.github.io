@@ -48,7 +48,8 @@ Ex-founder (Beginner Work Inc., 0→1). Targeting Engineering Manager / Senior E
 - **Promotions:** Weekly 1:1s and monthly career-growth reviews. Promoted a junior engineer to intermediate in ~1 year, then from support into product-building engineering; supported a second engineer’s promotion cycle.
 - **Partner APIs & payments:** Owned technical operations and SLA reliability for strategic merchant accounts ($100M+ GMV) and Affirm’s flagship partner (Amazon, $10B+ GMV)—merchant checkout / confirmation-flow integrations via partner REST APIs and webhooks.
 - **Collaboration — GMV signings:** With Sales Engineers, Technical Writers, and plugin partners, produced availability projections that let account management sign $100M+ GMV merchants.
-- **SLA telemetry & observability:** Architected automated SLA reporting and root-cause summaries (Python, Flask, Snowflake), eliminating 16 hours/month of toil and systemizing 80% of workflows. Merchant-specific outages ranged from 20 minutes to 2 hours; worked with observability to index more merchant IDs, create dashboards, and set alerts so merchant-scoped outages became visible within 5–15 minutes for higher-volume merchants.
+- **SLA telemetry:** Architected automated SLA reporting and root-cause summaries (Python, Flask, Snowflake), eliminating 16 hours/month of toil and systemizing 80% of workflows.
+- **Observability:** Indexed more merchant IDs, built dashboards, and set alerts so merchant-scoped outages became visible within 5–15 minutes for higher-volume merchants (previously 20 minutes–2 hours unnoticed).
 
 
 
