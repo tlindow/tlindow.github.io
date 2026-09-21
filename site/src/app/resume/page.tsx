@@ -7,11 +7,11 @@ import { parsedResume } from "@/data/resumeMarkdown";
 export const metadata: Metadata = {
   title: "Resume — Tyler Lindow (Fintech Engineering Manager)",
   description:
-    "Web-based and printable resume for Tyler Lindow. Engineering Manager — Fintech Platform, DevX & Partner Integrations. Relocating to Seattle. Former Affirm.",
+    "Web-based and printable resume for Tyler Lindow. Engineering Manager — Fintech B2B & Partner Integrations Platform. Relocating to Seattle. Former Affirm.",
   openGraph: {
     title: "Resume — Tyler Lindow (Fintech Engineering Manager)",
     description:
-      "Web-based and printable resume for Tyler Lindow. Engineering Manager — Fintech Platform, DevX & Partner Integrations. Relocating to Seattle. Former Affirm.",
+      "Web-based and printable resume for Tyler Lindow. Engineering Manager — Fintech B2B & Partner Integrations Platform. Relocating to Seattle. Former Affirm.",
     url: "https://tlindow.github.io/resume",
     siteName: "Tyler Lindow",
     type: "profile",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Resume — Tyler Lindow (Fintech Engineering Manager)",
     description:
-      "Web-based and printable resume for Tyler Lindow. Engineering Manager — Fintech Platform, DevX & Partner Integrations. Relocating to Seattle. Former Affirm.",
+      "Web-based and printable resume for Tyler Lindow. Engineering Manager — Fintech B2B & Partner Integrations Platform. Relocating to Seattle. Former Affirm.",
   },
 };
 

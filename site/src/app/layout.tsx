@@ -34,11 +34,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://tlindow.github.io"),
   title: "Tyler Lindow — Fintech Engineering Manager",
   description:
-    "Portfolio & Resume for Tyler Lindow. Engineering Manager — Fintech Platform, DevX & Partner Integrations. Relocating to Seattle. Former Affirm.",
+    "Portfolio & Resume for Tyler Lindow. Engineering Manager — Fintech B2B & Partner Integrations Platform. Relocating to Seattle. Former Affirm.",
   openGraph: {
     title: "Tyler Lindow — Fintech Engineering Manager",
     description:
-      "Portfolio & Resume for Tyler Lindow. Engineering Manager — Fintech Platform, DevX & Partner Integrations. Relocating to Seattle. Former Affirm.",
+      "Portfolio & Resume for Tyler Lindow. Engineering Manager — Fintech B2B & Partner Integrations Platform. Relocating to Seattle. Former Affirm.",
     url: "https://tlindow.github.io",
     siteName: "Tyler Lindow",
     type: "website",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Tyler Lindow — Fintech Engineering Manager",
     description:
-      "Portfolio & Resume for Tyler Lindow. Engineering Manager — Fintech Platform, DevX & Partner Integrations. Relocating to Seattle. Former Affirm.",
+      "Portfolio & Resume for Tyler Lindow. Engineering Manager — Fintech B2B & Partner Integrations Platform. Relocating to Seattle. Former Affirm.",
   },
   alternates: {
     types: {
@@ -70,7 +70,7 @@ const jsonLd = {
       "@type": "Person",
       "@id": "https://tlindow.github.io/#person",
       "name": "Tyler Lindow",
-      "jobTitle": "Engineering Manager — Fintech Platform, DevX & Partner Integrations",
+      "jobTitle": "Engineering Manager — Fintech B2B & Partner Integrations Platform",
       "telephone": "(650) 580-5788",
       "email": "tyler.lindow@gmail.com",
       "address": {

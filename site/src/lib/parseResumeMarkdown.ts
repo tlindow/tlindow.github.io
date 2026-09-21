@@ -32,7 +32,7 @@ export function parseResumeMarkdown(markdownText: string): ParsedResume {
 
   const contact: ContactInfo = {
     name: "Tyler Lindow",
-    title: "Engineering Manager — Fintech Platform, DevX & Partner Integrations",
+    title: "Engineering Manager — Fintech B2B & Partner Integrations Platform",
     subtitle: "B2B SaaS on curiosity-safe, GenAI Rails",
     location: "San Diego, CA",
     relocation: "Relocating to Seattle, WA",
@@ -141,7 +141,10 @@ export function parseResumeMarkdown(markdownText: string): ParsedResume {
         const skillsStr = line.replace(/^\*\*Business.*?\*\*\s*/, "").replace(/\.$/, "");
         businessToolkit = skillsStr.split(",").map((s) => s.trim()).filter(Boolean);
       } else if (line && !line.startsWith("---") && !line.startsWith("#")) {
-        visionText = line;
+        visionText =
+          visionText === defaultSummary.text || !visionText
+            ? line
+            : `${visionText}\n\n${line}`;
       }
     } else if (currentSection === "experience") {
       if (line.startsWith("### ")) {

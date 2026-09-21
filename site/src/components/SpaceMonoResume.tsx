@@ -269,7 +269,7 @@ export default function SpaceMonoResume({ parsedResume }: SpaceMonoResumeProps) 
             custom={1}
           >
             <SectionHeader title={summaryTitle} />
-            <p className="text-xs sm:text-sm text-foreground/85 font-mono leading-loose">
+            <p className="text-xs sm:text-sm text-foreground/85 font-mono leading-loose whitespace-pre-line">
               {vision}
             </p>
           </motion.section>
