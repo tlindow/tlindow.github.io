@@ -32,22 +32,22 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tlindow.github.io"),
-  title: "Tyler Lindow — Fintech Engineering & Product",
+  title: "Tyler Lindow — Elevating Developer Fintech",
   description:
-    "Portfolio & Resume for Tyler Lindow. Fintech Engineering & Product. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
+    "Elevating Developer Fintech. Top-of-funnel marketing and enterprise B2B portals. Beginner and DevX for educational institutions and the developer market.",
   openGraph: {
-    title: "Tyler Lindow — Fintech Engineering & Product",
+    title: "Tyler Lindow — Elevating Developer Fintech",
     description:
-      "Portfolio & Resume for Tyler Lindow. Fintech Engineering & Product. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
+      "Elevating Developer Fintech. Top-of-funnel marketing and enterprise B2B portals. Beginner and DevX for educational institutions and the developer market.",
     url: "https://tlindow.github.io",
     siteName: "Tyler Lindow",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tyler Lindow — Fintech Engineering & Product",
+    title: "Tyler Lindow — Elevating Developer Fintech",
     description:
-      "Portfolio & Resume for Tyler Lindow. Fintech Engineering & Product. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
+      "Elevating Developer Fintech. Top-of-funnel marketing and enterprise B2B portals. Beginner and DevX for educational institutions and the developer market.",
   },
   alternates: {
     types: {
@@ -70,7 +70,7 @@ const jsonLd = {
       "@type": "Person",
       "@id": "https://tlindow.github.io/#person",
       "name": "Tyler Lindow",
-      "jobTitle": "Fintech Engineering & Product",
+      "jobTitle": "Elevating Developer Fintech",
       "telephone": "(650) 580-5788",
       "email": "tyler.lindow@gmail.com",
       "address": {

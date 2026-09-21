@@ -21,28 +21,28 @@ export interface RemoteConfigValues {
 // ----------------------------------------------------------------------
 export const VARIANT_PRESETS: Record<string, RemoteConfigValues> = {
   baseline: {
-    recruit_cta_label: "Recruit Me",
+    recruit_cta_label: "Let's talk",
     recruit_cta_style: "forest_solid",
-    hero_headline_variant: "Fintech Product & Engineering",
-    hero_subtitle_variant: "B2B SaaS on curiosity-safe, GenAI Rails",
+    hero_headline_variant: "Elevating Developer Fintech",
+    hero_subtitle_variant: "Top-of-funnel marketing and enterprise B2B portals",
   },
   action_oriented: {
-    recruit_cta_label: "Deploy Tyler",
+    recruit_cta_label: "Let's talk",
     recruit_cta_style: "pulse_accent",
-    hero_headline_variant: "Fintech Product & Engineering",
-    hero_subtitle_variant: "Software Engineering Manager <> PM · $10B+ Scale",
+    hero_headline_variant: "Elevating Developer Fintech",
+    hero_subtitle_variant: "Marketing as engineering leadership",
   },
   low_friction: {
     recruit_cta_label: "Connect on LinkedIn",
     recruit_cta_style: "sprout_glow",
-    hero_headline_variant: "Fintech Product & Engineering",
-    hero_subtitle_variant: "Building high-leverage developer paved paths & $10B+ partner scale",
+    hero_headline_variant: "Elevating Developer Fintech",
+    hero_subtitle_variant: "Beginner and DevX for the developer market",
   },
   executive_authority: {
-    recruit_cta_label: "Hire Fintech Product-Eng PM",
+    recruit_cta_label: "Strategic advisory",
     recruit_cta_style: "high_contrast",
-    hero_headline_variant: "Fintech Product & Engineering",
-    hero_subtitle_variant: "Directing high-stakes revamps, $10B+ partner telemetry & SRE support",
+    hero_headline_variant: "Elevating Developer Fintech",
+    hero_subtitle_variant: "Open to technical leadership and developer-first enterprise B2B",
   },
 };
 

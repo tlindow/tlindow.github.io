@@ -1,26 +1,25 @@
 import type { Metadata } from "next";
 import { ArrowLeft } from "lucide-react";
-import SpaceMonoResume from "@/components/SpaceMonoResume";
+import CareerNarrative from "@/components/CareerNarrative";
 import Navbar from "@/components/Navbar";
-import { parsedResume } from "@/data/resumeMarkdown";
 
 export const metadata: Metadata = {
-  title: "Resume — Tyler Lindow (Fintech Engineering & Product)",
+  title: "Story — Tyler Lindow (Elevating Developer Fintech)",
   description:
-    "Web-based and printable resume for Tyler Lindow. Fintech Engineering & Product. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
+    "Public story for Tyler Lindow. Elevating Developer Fintech: top-of-funnel marketing, enterprise B2B portals, and beginner/DevX. The working resume is maintained in Formation.",
   openGraph: {
-    title: "Resume — Tyler Lindow (Fintech Engineering & Product)",
+    title: "Story — Tyler Lindow (Elevating Developer Fintech)",
     description:
-      "Web-based and printable resume for Tyler Lindow. Fintech Engineering & Product. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
+      "Public story for Tyler Lindow. Elevating Developer Fintech: top-of-funnel marketing, enterprise B2B portals, and beginner/DevX.",
     url: "https://tlindow.github.io/resume",
     siteName: "Tyler Lindow",
     type: "profile",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Resume — Tyler Lindow (Fintech Engineering & Product)",
+    title: "Story — Tyler Lindow (Elevating Developer Fintech)",
     description:
-      "Web-based and printable resume for Tyler Lindow. Fintech Engineering & Product. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
+      "Public story for Tyler Lindow. Elevating Developer Fintech: top-of-funnel marketing, enterprise B2B portals, and beginner/DevX.",
   },
 };
 
@@ -28,20 +27,18 @@ export default function ResumePageRoute() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-indigo-light selection:text-indigo-dark font-mono print:min-h-0 print:bg-white print:p-0 print:m-0">
+    <div className="min-h-screen bg-background text-foreground selection:bg-indigo-light selection:text-indigo-dark font-mono">
       <Navbar />
-      <div className="pt-20 sm:pt-24 max-w-4xl mx-auto px-4 sm:px-6 pb-4 sm:pb-6 no-print">
+      <div className="pt-20 sm:pt-24 max-w-3xl mx-auto px-4 sm:px-6 pb-4 sm:pb-6">
         <a
-          href={`${basePath}/`}
+          href={`${basePath}/#about`}
           className="group inline-flex items-center gap-2 text-xs font-mono font-medium rounded-full bg-surface hover:bg-surface-alt px-3.5 py-1.5 border border-border hover:border-indigo/40 text-muted hover:text-foreground shadow-2xs transition-all duration-200"
         >
           <ArrowLeft size={13} className="text-indigo-dark transition-transform group-hover:-translate-x-0.5" />
-          <span>Back to Home</span>
+          <span>Back to About</span>
         </a>
       </div>
-      <div className="print:pt-0 print:p-0 print:m-0">
-        <SpaceMonoResume parsedResume={parsedResume} />
-      </div>
+      <CareerNarrative />
     </div>
   );
 }

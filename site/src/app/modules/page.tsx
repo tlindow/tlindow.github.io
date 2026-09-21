@@ -5,22 +5,22 @@ import { GoogleQuadDivider } from "@/components/modules/ModuleCards";
 import { ArrowLeft, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Interactive Resume Deck & Modules — Tyler Lindow",
+  title: "Story deck — Tyler Lindow",
   description:
-    "Google Material Design 3 interactive stackable resume deck and draggable modules for Tyler Lindow. Rearrange, swipe, and explore curated role perspectives across DevRel, Engineering Leadership, and 0-to-1 founding.",
+    "A lean story deck for Elevating Developer Fintech. The working resume is maintained in Formation.",
   openGraph: {
-    title: "Interactive Resume Deck — Tyler Lindow",
+    title: "Story deck — Tyler Lindow",
     description:
-      "Google Material 3 interactive stackable resume cards with real-time reordering and gestures.",
+      "A lean story deck for Elevating Developer Fintech. The working resume is maintained in Formation.",
     url: "https://tlindow.github.io/modules",
     siteName: "Tyler Lindow",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Interactive Resume Deck — Tyler Lindow",
+    title: "Story deck — Tyler Lindow",
     description:
-      "Google Material 3 interactive stackable resume cards with real-time reordering and gestures.",
+      "A lean story deck for Elevating Developer Fintech. The working resume is maintained in Formation.",
   },
 };
 
@@ -36,13 +36,13 @@ export default function ResumeModulesPage() {
               className="inline-flex items-center gap-1.5 text-xs font-mono text-[#5F6368] hover:text-[#1A73E8] transition-colors uppercase tracking-wider font-semibold"
             >
               <ArrowLeft size={13} />
-              <span>Standard Resume</span>
+              <span>Home</span>
             </Link>
             <h1 className="mt-2 text-2xl sm:text-3xl font-bold tracking-tight text-[#202124] font-mono">
-              Resume Card Deck
+              Story deck
             </h1>
             <p className="mt-1 text-xs sm:text-sm text-[#5F6368] font-mono">
-              Google Material 3 stackable cards & draggable modules. Swipe, reorder chapters, or craft a custom narrative.
+              A lean public story. The working resume is maintained in Formation.
             </p>
           </div>
 

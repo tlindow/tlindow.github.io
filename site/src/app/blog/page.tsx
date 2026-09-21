@@ -7,11 +7,11 @@ import { blogPosts } from "@/data/blogPosts";
 export const metadata: Metadata = {
   title: "Blog — Tyler Lindow",
   description:
-    "Reflections on engineering leadership, developer intuition, AI dev tools, and building at scale. By Tyler Lindow (Fintech Product & Engineering).",
+    "Writing on Elevating Developer Fintech: marketing as engineering leadership, product as system architecture, and B2B portals as trust stores.",
   openGraph: {
     title: "Blog — Tyler Lindow",
     description:
-      "Reflections on engineering leadership, developer intuition, AI dev tools, and building at scale. By Tyler Lindow (Fintech Product & Engineering).",
+      "Writing on Elevating Developer Fintech: marketing as engineering leadership, product as system architecture, and B2B portals as trust stores.",
     url: "https://tlindow.github.io/blog",
     siteName: "Tyler Lindow",
     type: "website",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Blog — Tyler Lindow",
     description:
-      "Reflections on engineering leadership, developer intuition, AI dev tools, and building at scale. By Tyler Lindow (Fintech Product & Engineering).",
+      "Writing on Elevating Developer Fintech: marketing as engineering leadership, product as system architecture, and B2B portals as trust stores.",
   },
 };
 
@@ -47,7 +47,7 @@ export default function BlogIndexPage() {
             Blog
           </h1>
           <p className="text-sm sm:text-base text-muted font-mono max-w-xl leading-relaxed">
-            Notes on engineering leadership, developer intuition, and building in the age of agentic software.
+            Marketing as Engineering Leadership, Building Product as System Architecture, and B2B Portals as Trust Stores.
           </p>
         </header>
 

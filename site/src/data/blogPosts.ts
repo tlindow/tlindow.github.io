@@ -39,7 +39,7 @@ export interface BlogPost {
 
 const defaultAuthor = {
   name: "Tyler Lindow",
-  role: "Fintech Product & Engineering",
+    role: "Elevating Developer Fintech",
   avatar: "/IMG_0548.jpeg",
   handle: "@tlindow",
   linkedin: "https://www.linkedin.com/in/tlindow",
@@ -54,7 +54,7 @@ export const blogPosts: BlogPost[] = [
     pillarLabel: "B2B Fintech Case Study",
     title: "Marketing as Engineering Leadership",
     subtitle:
-      "Treating top-of-funnel marketing as a core engineering discipline—leading the affirm.com revamp to unify web and mobile conversion, driving $500K in GMV through perseverance and team focus.",
+      "Treating top-of-funnel marketing as engineering leadership — the affirm.com revamp, where engineering and marketing shared one conversion surface.",
     date: "2026-09-11",
     readTime: "2 min read",
     author: defaultAuthor,
@@ -106,7 +106,7 @@ export const blogPosts: BlogPost[] = [
     pillarLabel: "B2B Fintech Case Study",
     title: "Building Product as System Architecture",
     subtitle:
-      "System architecture, along with any technical debt work, is always an act of building the core product—orchestrating 99.99% availability and MCP-ready intelligent routing.",
+      "System architecture is an act of building the core product — the merchant lifecycle work that keeps the portal able to earn trust.",
     date: "2026-09-11",
     readTime: "3 min read",
     author: defaultAuthor,
@@ -162,7 +162,7 @@ export const blogPosts: BlogPost[] = [
     pillarLabel: "01 Methodical & Empathetic",
     title: "B2B Portals as Trust Stores",
     subtitle:
-      "Transforming legacy merchant portals into resilient trust stores—standing up Velocity Labs to eliminate recurring incidents, sustain 99.9% availability for Intuit scale, and unlock AI-driven agility.",
+      "Merchant portals as trust stores. Velocity Labs gave the team a practice for clearing recurring incidents and keeping the enterprise portal trustworthy.",
     date: "2026-09-11",
     readTime: "3 min read",
     author: defaultAuthor,

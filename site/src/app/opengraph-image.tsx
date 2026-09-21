@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 
 export const dynamic = "force-static";
-export const alt = "Tyler Lindow — Fintech Product & Engineering";
+export const alt = "Tyler Lindow — Elevating Developer Fintech";
 export const size = {
   width: 1200,
   height: 630,
@@ -72,7 +72,7 @@ export default async function Image() {
                 margin: 0,
               }}
             >
-              Fintech Product &amp; Engineering
+              Elevating Developer Fintech
             </p>
           </div>
         </div>

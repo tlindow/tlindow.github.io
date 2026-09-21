@@ -56,7 +56,7 @@ const valuePillars: ValuePillar[] = [
         pretitle: "My work product",
         title: "Marketing as Engineering Leadership",
         description:
-          "Treating top-of-funnel marketing as a core engineering discipline—leading the affirm.com revamp to unify web and mobile conversion, driving $500K in GMV through perseverance and team focus.",
+          "Treating top-of-funnel marketing as engineering leadership — the affirm.com revamp, where engineering, product, and marketing shared one conversion surface.",
         screenshots: [
           {
             src: "/affirm-home.png",
@@ -81,7 +81,7 @@ const valuePillars: ValuePillar[] = [
         pretitle: "My work product",
         title: "Building Product as System Architecture",
         description:
-          "Developing the merchant lifecycle orchestrator at Affirm for 99.99% availability and MCP-ready intelligent routing—proving system architecture is always an act of building the core product.",
+          "The merchant lifecycle work at Affirm: system architecture treated as the product, so the portal can keep earning trust as the surface grows.",
         screenshots: [],
         link: {
           href: "/blog/building-product-as-system-architecture",
@@ -107,7 +107,7 @@ const valuePillars: ValuePillar[] = [
         pretitle: "My work product",
         title: "B2B Portals as Trust Stores",
         description:
-          "Transforming legacy merchant portals into resilient trust stores—standing up Velocity Labs to eliminate recurring incidents, sustain 99.9% availability for Intuit scale, and unlock AI-driven agility.",
+          "Merchant portals as trust stores. Velocity Labs gave the team a way to clear recurring incidents and keep the enterprise portal worthy of the developers and merchants on it.",
         screenshots: [
           {
             src: "/tinker-beginner-work.png",
@@ -126,7 +126,7 @@ const valuePillars: ValuePillar[] = [
         pretitle: "My work product",
         title: "Building Teams as Raising Funds",
         description:
-          "Scaling an engineering team from 1 to 9 at Affirm—aligning intentional career growth, promoting talent across tiers, and cultivating the personal belief and capability to grow the business.",
+          "Building the Affirm team the way you raise a round: intentional career growth, promotions, and a shared belief that the group knows how to grow the business.",
         screenshots: [
           {
             src: "/beginner-card.png",

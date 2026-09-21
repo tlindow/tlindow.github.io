@@ -8,6 +8,7 @@ import {
   TrustedPartnersBar,
   EducationInstitutionsBar,
 } from "@/components/brand/PartnerLogos";
+import About from "@/components/About";
 import WhatYouGet from "@/components/WhatYouGet";
 import Footer from "@/components/Footer";
 import ScrollMorphAvatar, {
@@ -232,23 +233,33 @@ export default function Home() {
                 <span className="block">Developer Fintech</span>
               </h1>
 
-              <div className="pt-2">
+              <div className="pt-2 space-y-2">
                 <p className="text-sm sm:text-base md:text-lg font-mono text-muted mx-auto">
-                  With top of funnel marketing and enterprise B2B portals
+                  Top-of-funnel marketing and enterprise B2B portals
+                </p>
+                <p className="text-xs sm:text-sm font-mono text-muted/90 mx-auto max-w-xl">
+                  Beginner and DevX for educational institutions and the developer market
                 </p>
               </div>
             </div>
 
-            {/* Primary Action Trigger: Resume */}
-            <div className="pt-2 flex justify-center">
+            {/* Primary Action Trigger: public story */}
+            <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
+              <a
+                href="#about"
+                className="inline-flex items-center gap-2 rounded-xl bg-foreground text-background hover:bg-foreground/90 px-5 py-2.5 text-xs sm:text-sm font-mono font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                title="Read the public story"
+              >
+                <span>Read the story</span>
+              </a>
               <a
                 href={`${basePath}/resume`}
                 onClick={() => logResumeView("hero_cta")}
                 className="inline-flex items-center gap-2 rounded-xl bg-surface hover:bg-surface-alt text-foreground border border-border px-5 py-2.5 text-xs sm:text-sm font-mono font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
-                title="Read Tyler Lindow's resume"
+                title="Lean public narrative"
               >
                 <FileText size={15} className="shrink-0" />
-                <span>Read resume</span>
+                <span>Lean narrative</span>
               </a>
             </div>
 
@@ -262,6 +273,8 @@ export default function Home() {
               <EducationInstitutionsBar />
             </div>
           </header>
+
+          <About />
 
           {/* ======================================================= */}
           {/* 2. VALUE PROPOSITION: WHAT YOU GET IF YOU BUY ME       */}
