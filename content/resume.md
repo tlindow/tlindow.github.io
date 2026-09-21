@@ -25,7 +25,7 @@ Targeting Engineering Manager / Senior EM in Seattle fintech (payments, platform
 
 *San Diego, CA (Hybrid) | Mar 2026 – Jul 2026*
 
-- Shipped a 0→1 fundraising pitch simulator (React/Next.js) as founder of Beginner Work Inc.—discovery through GTM in four months; validated with 10+ product interviews and a 20+ engineer community across SoCal, NYC, and SF. Started after Affirm role elimination to deepen craft; closed when self-funded runway ended—now seeking EM / platform roles.
+- Shipped a 0→1 fundraising pitch simulator (React/Next.js) as founder of Beginner Work Inc.—discovery through GTM in four months; validated with 10+ product interviews and a 20+ engineer community across SoCal, NYC, and SF. Started after Affirm role elimination to deepen craft; closed when ready to return as an engineering leader building inside a company again.
 
 
 
