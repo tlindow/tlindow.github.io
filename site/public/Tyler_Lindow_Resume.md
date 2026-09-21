@@ -9,9 +9,9 @@ Relocating to Seattle, WA
 
 ## Summary
 
-Fintech engineering manager with 7+ years at Affirm across Partner Engineering, merchant onboarding, and marketing products—a dual wedge of top-of-funnel (affirm.com) and enterprise B2B portal (Merchant Portal / Partner Engineering) for the 500,000+ merchant portfolio. Scaled developer-support engineering from 1 to 9, protected Amazon ($10B+ GMV) and $100M+ merchant accounts.
+Fintech engineering manager with 7+ years at Affirm across Partner Engineering, merchant onboarding, and marketing products. Owned Merchant Portal and affirm.com for the 500,000+ merchant portfolio. Scaled developer-support engineering from 1 to 9 and protected Amazon ($10B+ GMV) and $100M+ merchant accounts.
 
-I design agent-ready architectures (RPC, HTTP), cut operational toil, and grow engineers against clear hiring and promotion bars. Targeting Engineering Manager / Senior EM / Director roles in Seattle fintech (payments, platform/DevX, partner integrations).
+I cut operational toil and grow engineers against clear hiring and promotion bars. Targeting Engineering Manager / Senior EM / Director roles in Seattle fintech (payments, platform/DevX, partner integrations).
 
 ---
 
@@ -25,7 +25,7 @@ I design agent-ready architectures (RPC, HTTP), cut operational toil, and grow e
 
 *San Diego, CA (Hybrid) | Mar 2026 – Jul 2026*
 
-- **Close-out:** Led discovery, full-stack engineering (React, Next.js), and GTM for a fundraising pitch simulator; 10+ product-testing interviews; 20+ engineers across SoCal, NYC, and SF. Foundership did not produce product-led traction—a handful of users paid $9 for one month. Closed the venture at incorporation because funding cycle was longer than anticipated.
+- **Close-out:** Led discovery, full-stack engineering (React, Next.js), and GTM for a fundraising pitch simulator. Conducted 10+ product-testing interviews. Built a community/network of 20+ engineers across SoCal, NYC, and SF. A handful of users paid $9 for one month. The product did not produce product-led growth traction; closed the venture at incorporation because the funding cycle was longer than anticipated.
 
 
 
@@ -34,8 +34,8 @@ I design agent-ready architectures (RPC, HTTP), cut operational toil, and grow e
 *San Diego, CA (Remote) | Mar 2025 – Feb 2026*
 
 - **Scope:** Managed 6 software engineers across Product, Design, and Content initiatives; owned affirm.com and Merchant Portal (React, TypeScript) serving SMB/ecommerce-integration merchants, including native onboarding onto Affirm’s payment method via API.
-- **Checkout funnel (affirm.com):** Directed a 5-week revamp of affirm.com (~1M monthly viewers)—native customer onboarding funnels and mobile conversion. **$500K incremental GMV** is attributed to that launch in a 3-day pre-BFCM 2025 window.
-- **Legacy incidents → Velocity Labs → stability:** Recurring weekly production incidents on legacy Merchant Portal software. Instituted weekly Velocity Labs so the existing 6 engineers could upskill in AI tooling, own more of the stack, and close incidents more thoroughly—rather than adding headcount. Effect: availability 99.7% → 99.9% in one quarter; remaining incident load cleared, including a blocker to an Intuit launch covering hundreds of thousands of new merchants.
+- **Checkout funnel (affirm.com):** Directed a 5-week revamp of affirm.com (~1M monthly viewers)—native customer onboarding funnels and mobile conversion. Attributed **$500K incremental GMV** to that launch in a 3-day pre-BFCM 2025 window.
+- **Legacy incidents → Velocity Labs → stability:** Recurring weekly production incidents on legacy Merchant Portal software. Instituted weekly Velocity Labs—focused sessions to upskill the existing 6 engineers in AI tooling—so they could own more of the stack and close incidents more thoroughly rather than adding headcount. Effect: availability 99.7% → 99.9% in one quarter; remaining incident load cleared, including a blocker to an Intuit launch covering hundreds of thousands of new merchants.
 - **Tradeoff — domain decoupling:** Mediated RFCs and system design across Staff+, Directors, and four merchant-engineering teams; chose to decouple service boundaries and drop an unintended dashboard feature rather than force a database migration. Director-signed merchant lifecycle architecture by Dec 2025 as groundwork for 99.99% availability.
 
 
@@ -44,16 +44,18 @@ I design agent-ready architectures (RPC, HTTP), cut operational toil, and grow e
 
 *San Diego, CA (Remote) | Jul 2021 – Mar 2025*
 
-- **Hiring, performance, org design:** Promoted L6→L7. Built the developer-support engineering team from 1 to 9 through hiring and absorbing engineers from other teams. Weekly 1:1s and monthly career-growth reviews; promoted a junior engineer to intermediate in ~1 year and later from support into product-building engineering for the entire team (raises and equity grants); supported a second engineer’s promotion cycle. Shifted Tier-1/Tier-2 load to operations so engineers owned platform reliability.
+- **Org design:** Promoted L6→L7. Built the developer-support engineering team from 1 to 9 through hiring and absorbing engineers from other teams. Shifted Tier-1/Tier-2 load to operations so engineers owned platform reliability.
+- **People development:** Weekly 1:1s and monthly career-growth reviews.
+- **Promotions:** Promoted a junior engineer to intermediate in ~1 year, then from support into product-building engineering; supported a second engineer’s promotion cycle.
 - **Partner APIs & payments:** Owned technical operations and SLA reliability for strategic merchant accounts ($100M+ GMV) and Affirm’s flagship partner (Amazon, $10B+ GMV)—merchant checkout / confirmation-flow integrations via partner REST APIs and webhooks.
 - **Collaboration & Triage:** Maintained self-serve merchant onboarding, SDK tooling, and paved-path docs alongside Sales Engineers, Technical Writers, and eCommerce Plugin Products Engineering team; turned integration defects into platform fixes.
-- **SLA telemetry & observability:** Architected automated SLA reporting and root-cause summaries (Python, Flask, Snowflake), eliminating 16 hours/month of toil and systemizing 80% of workflows. Merchant-specific outages sometimes went unnoticed for ~an hour; worked with observability to index a larger number of merchant IDs in metrics, create dashboards, and set alerts.
+- **SLA telemetry & observability:** Architected automated SLA reporting and root-cause summaries (Python, Flask, Snowflake), eliminating 16 hours/month of toil and systemizing 80% of workflows. Merchant-specific outages sometimes went unnoticed for ~1 hour; worked with observability to index a larger number of merchant IDs in metrics, create dashboards, and set alerts, reducing unnoticed outage windows from ~1 hour.
 
 
 
 ### Developer Support Engineer (L4 → L5), Partner Engineering | Affirm
 
-*San Francisco, CA (Hybrid) | Sept 2019 – Jul 2021*
+*San Francisco, CA (Hybrid) | Sep 2019 – Jul 2021*
 
 - **Merchant checkout integrations:** Promoted L4→L5. Primary technical liaison for 300+ SMB merchants; diagnosed JavaScript, REST API, and webhook defects in checkout / payment-method integrations on Shopify, Magento, WooCommerce, and Salesforce Commerce Cloud.
 - **DevX feedback loop:** Built ETL pipelines towards Snowflake to cluster integration-defect patterns and convert developer feedback into platform fixes that reduced integration churn.
@@ -101,6 +103,6 @@ I design agent-ready architectures (RPC, HTTP), cut operational toil, and grow e
 ## Skills & Toolkits
 
 - **Technical Toolkit:** Python, JavaScript, TypeScript, React, Next.js, Node.js, Flask, Snowflake, SQL, ETL Pipelines, REST APIs, Webhooks, CI/CD, Git/GitHub, SRE, LLMs & agentic coding (Claude, Cursor)
-- **Leadership & Management:** Hiring & team scale (1 to 9), performance management & promotions, org design / domain boundaries, RFC & system design mediation (Staff+ / Director), mentorship, Velocity Labs, incident management
-- **B2B onboarding & Operations:** Partner Engineering, merchant checkout integrations (Shopify, Magento, WooCommerce, SFCC), Amazon $10B+ GMV, self-serve onboarding & SDKs, Merchant Portal, SLA telemetry, GMV attribution
+- **Leadership & Management:** Hiring & team scale (1 to 9), performance management & promotions, org design / domain boundaries, RFC & system design mediation (Staff+ / Director), mentorship, incident management
+- **B2B onboarding & Operations:** Partner Engineering, merchant checkout integrations (Shopify, Magento, WooCommerce, SFCC), self-serve onboarding & SDKs, Merchant Portal, SLA telemetry, GMV attribution
 
