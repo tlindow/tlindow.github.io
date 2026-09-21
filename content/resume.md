@@ -21,6 +21,14 @@ Targeting Engineering Manager / Senior EM in Seattle fintech (payments, platform
 
 
 
+### Ex-Founder | Beginner Work Inc.
+
+*San Diego, CA (Hybrid) | Mar 2026 – Jul 2026*
+
+- Founded and shipped a fundraising pitch simulator (React/Next.js) from discovery to GTM — 10+ product interviews and a 20+ engineer community across SoCal, NYC, and SF.
+
+
+
 ### Software Engineering Manager (L7), Merchant Advocacy | Affirm
 
 *San Diego, CA (Remote) | Mar 2025 – Feb 2026*
@@ -40,7 +48,6 @@ Targeting Engineering Manager / Senior EM in Seattle fintech (payments, platform
 - **Promotions:** Weekly 1:1s and monthly career-growth reviews. Promoted a junior engineer to intermediate in ~1 year, then from support into product-building engineering; supported a second engineer’s promotion cycle.
 - **Partner APIs & payments:** Owned technical operations and SLA reliability for strategic merchant accounts ($100M+ GMV) and Affirm’s flagship partner (Amazon, $10B+ GMV)—merchant checkout / confirmation-flow integrations via partner REST APIs and webhooks.
 - **Collaboration — GMV signings:** With Sales Engineers, Technical Writers, and plugin partners, produced availability projections that let account management sign $100M+ GMV merchants.
-- **Triage — same-day ops:** Verified e-commerce plugin workarounds so operations could resolve prior technical issues the same day.
 - **SLA telemetry & observability:** Architected automated SLA reporting and root-cause summaries (Python, Flask, Snowflake), eliminating 16 hours/month of toil and systemizing 80% of workflows. Merchant-specific outages ranged from 20 minutes to 2 hours; worked with observability to index more merchant IDs, create dashboards, and set alerts so merchant-scoped outages became visible within 5–15 minutes for higher-volume merchants.
 
 
@@ -75,14 +82,6 @@ Targeting Engineering Manager / Senior EM in Seattle fintech (payments, platform
 *Mountain View, CA | Mar 2017 – Nov 2018*
 
 - Guided 1,000+ students and volunteers through software logic and physical computing workshops.
-
----
-
-
-
-## Additional
-
-- **Ex-founder, Beginner Work Inc. (Mar–Jul 2026):** Founded and shipped a fundraising pitch simulator (React/Next.js) from discovery to GTM — 10+ product interviews and a 20+ engineer community across SoCal, NYC, and SF.
 
 ---
 
