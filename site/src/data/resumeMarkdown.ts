@@ -14,7 +14,7 @@ Relocating to Seattle, WA
 
 ## Summary
 
-Fintech engineering manager with 7+ years at Affirm across Partner Engineering, merchant onboarding, and marketing products. Owned Merchant Portal and affirm.com for the 500,000+ merchant portfolio. Scaled developer-support engineering from 1 to 9 and protected Amazon ($10B+ GMV) and $100M+ merchant accounts.
+Fintech engineering manager with 7+ years at Affirm across Partner Engineering, merchant onboarding, and marketing products. Owned Merchant Portal and affirm.com for the 500,000+ merchant portfolio. Scaled developer-support engineering from 1 to 9 and owned technical operations and SLA reliability for Amazon ($10B+ GMV) and $100M+ merchant accounts.
 
 Targeting Engineering Manager / Senior EM in Seattle fintech (payments, platform/DevX, partner integrations).
 
@@ -30,8 +30,7 @@ Targeting Engineering Manager / Senior EM in Seattle fintech (payments, platform
 
 *San Diego, CA (Hybrid) | Mar 2026 – Jul 2026*
 
-- Built a fundraising pitch simulator (React/Next.js)—led discovery through GTM; 10+ product interviews and a 20+ engineer community across SoCal, NYC, and SF; early $9/mo paid usage.
-- Closed after incorporation when the funding cycle exceeded the planned window.
+- Founded and shipped a fundraising pitch simulator (React/Next.js) from discovery to GTM — 10+ product interviews and a 20+ engineer community across SoCal, NYC, and SF.
 
 
 
@@ -50,7 +49,7 @@ Targeting Engineering Manager / Senior EM in Seattle fintech (payments, platform
 
 *San Diego, CA (Remote) | Jul 2021 – Mar 2025*
 
-- **Org design:** Promoted L6→L7. Grew developer-support engineering from 1 to 9 via 2 direct hires plus transfers (1 Staff, 1 senior contractor) and absorbed engineers from other teams; owned interview rubrics and early-team hiring decisions. Shifted Tier-1/Tier-2 load to operations so engineers owned platform reliability.
+- **Org design:** Promoted L6→L7. Grew developer-support engineering from 1 to 9; owned interview rubrics and early-team hiring decisions. Shifted Tier-1/Tier-2 load to operations so engineers owned platform reliability.
 - **Promotions:** Weekly 1:1s and monthly career-growth reviews. Promoted a junior engineer to intermediate in ~1 year, then from support into product-building engineering; supported a second engineer’s promotion cycle.
 - **Partner APIs & payments:** Owned technical operations and SLA reliability for strategic merchant accounts ($100M+ GMV) and Affirm’s flagship partner (Amazon, $10B+ GMV)—merchant checkout / confirmation-flow integrations via partner REST APIs and webhooks.
 - **Collaboration — GMV signings:** With SE, TW, and plugin partners, produced availability projections that let account management sign $100M+ GMV merchants.
