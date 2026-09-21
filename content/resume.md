@@ -15,7 +15,7 @@ Fintech engineering manager with 7+ years at Affirm in Partner Engineering, merc
 
 ### Founder | Beginner
 *San Diego, CA (Hybrid) | Mar 2026 – Jul 2026*
-* **0-to-1 product:** Led discovery, full-stack engineering (React, Next.js), and GTM for a fundraising pitch simulator; 40+ founder interviews; initial paying users within 6 weeks; 20+ engineer community across SoCal, NYC, and SF. [TODO: paying-user count / revenue / retention] [TODO: intentional close-out vs pause, Jul 2026]
+* **Close-out:** Led discovery, full-stack engineering (React, Next.js), and GTM for a fundraising pitch simulator; 40+ founder interviews; 20+ engineer community across SoCal, NYC, and SF. Foundership did not produce product-led traction—a handful of users paid $9 for one month. Closed the venture as a learning signal.
 
 ### Software Engineering Manager (L7), Merchant Advocacy | Affirm
 *San Diego, CA (Remote) | Mar 2025 – Feb 2026*
@@ -27,9 +27,9 @@ Fintech engineering manager with 7+ years at Affirm in Partner Engineering, merc
 ### Developer Support Engineering Manager (L6 → L7), Partner Engineering | Affirm
 *San Diego, CA (Remote) | Jul 2021 – Mar 2025*
 * **Hiring, performance, org design:** Promoted L6→L7. Built the developer-support engineering team from 1 to 9 through hiring and absorbing engineers from other teams. Weekly 1:1s and monthly career-growth reviews; promoted a junior engineer to intermediate in ~1 year and later from support into product-building engineering (raises and equity grants); supported a second engineer’s promotion cycle. Shifted Tier-1/Tier-2 load to operations so engineers owned platform reliability.
-* **Partner APIs & payments:** Owned technical operations and SLA reliability for strategic merchant accounts ($100M+ GMV) and Affirm’s flagship partner (Amazon, $10B+ GMV)—merchant checkout / payment-method integrations via partner REST APIs and webhooks. [TODO: confirm] any Travel or Bill Pay-adjacent partner surface vs. checkout/merchant only.
-* **Platform / DevX:** Maintained self-serve merchant onboarding, SDK tooling, and paved-path docs used across thousands of merchants; turned integration defects into platform fixes. [TODO: baseline] for SDK adoption and ticket deflection.
-* **SLA telemetry & MTTR:** Architected automated SLA reporting and root-cause summaries (Python, Flask, Snowflake), eliminating 16 hours/month of toil and systemizing 80% of workflows; real-time dashboards and alert routing cut enterprise-partner MTTR by hours. [TODO: before/after]
+* **Partner APIs & payments:** Owned technical operations and SLA reliability for strategic merchant accounts ($100M+ GMV) and Affirm’s flagship partner (Amazon, $10B+ GMV)—merchant checkout / payment-method integrations via partner REST APIs and webhooks.
+* **Platform / DevX:** Maintained self-serve merchant onboarding, SDK tooling, and paved-path docs; turned integration defects into platform fixes.
+* **SLA telemetry & observability:** Architected automated SLA reporting and root-cause summaries (Python, Flask, Snowflake), eliminating 16 hours/month of toil and systemizing 80% of workflows. Merchant-specific outages sometimes went unnoticed for ~an hour; worked with observability to index a larger number of merchant IDs in metrics, create dashboards, and set alerts.
 
 ### Developer Support Engineer (L4 → L5), Partner Engineering | Affirm
 *San Francisco, CA (Hybrid) | Sept 2019 – Jul 2021*
