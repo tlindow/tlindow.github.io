@@ -25,7 +25,8 @@ Targeting Engineering Manager / Senior EM in Seattle fintech (payments, platform
 
 *San Diego, CA (Hybrid) | Mar 2026 – Jul 2026*
 
-- Built and shipped a fundraising pitch simulator (React/Next.js)—led discovery, engineering, and GTM. Ran 10+ product-testing interviews and grew a 20+ engineer community across SoCal, NYC, and SF. Closed at incorporation when the funding cycle was longer than anticipated; early paid usage at $9/mo validated willingness to pay before close-out.
+- Built a fundraising pitch simulator (React/Next.js)—led discovery through GTM; 10+ product interviews and a 20+ engineer community across SoCal, NYC, and SF; early $9/mo paid usage.
+- Closed after incorporation when the funding cycle exceeded the planned window.
 
 
 
@@ -36,7 +37,7 @@ Targeting Engineering Manager / Senior EM in Seattle fintech (payments, platform
 - **Scope:** Managed 6 software engineers across Product, Design, and Content initiatives; owned affirm.com and Merchant Portal (React, TypeScript) serving SMB/ecommerce-integration merchants, including native onboarding onto Affirm’s payment method via API.
 - **Checkout funnel (affirm.com):** Directed a 5-week revamp of affirm.com (~1M monthly viewers)—native customer onboarding funnels and mobile conversion. Attributed **$500K incremental GMV** to that launch in a 3-day pre-BFCM 2025 window.
 - **Velocity Labs → stability:** Ran weekly Velocity Labs to squash Merchant Portal bugs throwing errant 5xxs from unused code paths; availability rose 99.7% → 99.9% in one quarter, clearing remaining incidents and unblocking an Intuit launch covering hundreds of thousands of new merchants.
-- **Tradeoff — domain decoupling:** Mediated RFCs and system design across Staff+, Directors, and four merchant-engineering teams; chose to decouple service boundaries and drop an unintended dashboard feature rather than force a database migration. Director-signed merchant lifecycle architecture by Dec 2025 as groundwork for 99.99% availability.
+- **Tradeoff — domain decoupling:** Mediated RFCs and system design across Staff+, Directors, and four merchant-engineering teams; chose to decouple service boundaries and drop an unintended dashboard feature rather than force a database migration. Secured Director sign-off on merchant lifecycle architecture by Dec 2025 as groundwork toward a 99.99% availability target (not yet achieved).
 
 
 
@@ -44,7 +45,7 @@ Targeting Engineering Manager / Senior EM in Seattle fintech (payments, platform
 
 *San Diego, CA (Remote) | Jul 2021 – Mar 2025*
 
-- **Org design:** Promoted L6→L7. Built developer-support engineering from 1 to 9 through 2 direct hires, transferring 1 Staff engineer and 1 senior contractor onto the team, and absorbing engineers from other teams; shaped interview rubrics and hiring decisions for early-team hires with my manager. Shifted Tier-1/Tier-2 load to operations so engineers owned platform reliability.
+- **Org design:** Promoted L6→L7. Grew developer-support engineering from 1 to 9 via 2 direct hires plus transfers (1 Staff, 1 senior contractor) and absorbed engineers from other teams; owned interview rubrics and early-team hiring decisions. Shifted Tier-1/Tier-2 load to operations so engineers owned platform reliability.
 - **Promotions:** Weekly 1:1s and monthly career-growth reviews. Promoted a junior engineer to intermediate in ~1 year, then from support into product-building engineering; supported a second engineer’s promotion cycle.
 - **Partner APIs & payments:** Owned technical operations and SLA reliability for strategic merchant accounts ($100M+ GMV) and Affirm’s flagship partner (Amazon, $10B+ GMV)—merchant checkout / confirmation-flow integrations via partner REST APIs and webhooks.
 - **Collaboration — GMV signings:** With SE, TW, and plugin partners, produced availability projections that let account management sign $100M+ GMV merchants.
