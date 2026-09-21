@@ -26,14 +26,6 @@ Targeting Engineering Manager / Senior EM in Seattle fintech (payments, platform
 
 
 
-### Founder, Beginner
-
-*San Diego, CA (Hybrid) | Mar 2026 – Jul 2026*
-
-- Founded and shipped a fundraising pitch simulator (React/Next.js) from discovery to GTM — 10+ product interviews and a 20+ engineer community across SoCal, NYC, and SF.
-
-
-
 ### Software Engineering Manager (L7), Merchant Advocacy | Affirm
 
 *San Diego, CA (Remote) | Mar 2025 – Feb 2026*
@@ -88,6 +80,14 @@ Targeting Engineering Manager / Senior EM in Seattle fintech (payments, platform
 *Mountain View, CA | Mar 2017 – Nov 2018*
 
 - Guided 1,000+ students and volunteers through software logic and physical computing workshops.
+
+---
+
+
+
+## Additional
+
+- **Ex-founder, Beginner (Mar–Jul 2026):** Founded and shipped a fundraising pitch simulator (React/Next.js) from discovery to GTM — 10+ product interviews and a 20+ engineer community across SoCal, NYC, and SF.
 
 ---
 
