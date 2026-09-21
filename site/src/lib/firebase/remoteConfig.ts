@@ -43,7 +43,7 @@ export const VARIANT_PRESETS: Record<string, RemoteConfigValues> = {
     hero_subtitle_variant: "Ex-founder (Beginner Work Inc.)",
   },
   executive_authority: {
-    recruit_cta_label: "Strategic advisory",
+    recruit_cta_label: "EM / Senior EM · Seattle",
     recruit_cta_style: "high_contrast",
     hero_headline_variant:
       "Engineering Manager — Fintech Platform & 0→1 | Ex-Founder | Relocating to Seattle, WA",

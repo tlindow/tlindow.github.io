@@ -230,11 +230,18 @@ export default function Home() {
               </h1>
             </div>
 
-            {/* Primary Action Trigger: public story */}
+            {/* Primary CTA: Seattle EM / Senior EM. Story stays secondary. */}
             <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
               <a
-                href="#about"
+                href="#contact"
                 className="inline-flex items-center gap-2 rounded-xl bg-foreground text-background hover:bg-foreground/90 px-5 py-2.5 text-xs sm:text-sm font-mono font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                title="Engineering Manager / Senior EM roles in Seattle fintech"
+              >
+                <span>EM / Senior EM · Seattle</span>
+              </a>
+              <a
+                href="#about"
+                className="inline-flex items-center gap-2 rounded-xl bg-surface hover:bg-surface-alt text-foreground border border-border px-5 py-2.5 text-xs sm:text-sm font-mono font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
                 title="Read the public story"
               >
                 <span>Read the story</span>
@@ -242,7 +249,7 @@ export default function Home() {
               <a
                 href={`${basePath}/resume`}
                 onClick={() => logResumeView("hero_cta")}
-                className="inline-flex items-center gap-2 rounded-xl bg-surface hover:bg-surface-alt text-foreground border border-border px-5 py-2.5 text-xs sm:text-sm font-mono font-bold shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                className="inline-flex items-center gap-2 text-xs sm:text-sm font-mono text-muted hover:text-foreground underline underline-offset-4"
                 title="Lean public narrative"
               >
                 <FileText size={15} className="shrink-0" />

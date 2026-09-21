@@ -24,7 +24,7 @@ Fintech engineering and product leader with 7+ years of experience scaling high-
 * **Role Scope & Scale:** Managed 6 software engineers with cross-functional leadership across Product, Design, and Content; owned affirm.com and merchant portal infrastructure (React, TypeScript) supporting 500,000+ active merchants, delivering an incremental $500K GMV lift ahead of BFCM 2025.
 * **Top-of-Funnel Revamp & $500K GMV:** Directed 5-week website revamp of affirm.com, unifying engineering and product marketing to launch native customer onboarding funnels and mobile conversion, capturing an incremental **$500K GMV** ahead of BFCM 2025.
 * **Incident Root-Cause & Velocity Labs:** Diagnosed legacy software driving recurring production incidents; instituted weekly "Velocity Lab" working sessions to upskill engineers in AI tooling, empowering the team to solve problems more thoroughly, move faster, own more of the stack, and stabilize the merchant portal at 99.9% uptime.
-* **Domain Architecture & Boundary Mediation:** Mediated technical RFCs and decoupled service boundaries across Staff+ and Director levels as part of a multi-org initiative, aligning merchant systems with the enterprise domain architecture to lay the groundwork for 99.99% availability.
+* **Domain Architecture & Boundary Mediation:** Mediated technical RFCs and decoupled service boundaries across Staff+ and Director levels as part of a multi-org initiative, aligning merchant systems with the enterprise domain architecture as groundwork toward a 99.99% availability target.
 
 ### Developer Support Engineering Manager (L6 → L7), Partner Engineering | Affirm
 *San Diego, CA (Remote) | Jul 2021 – Mar 2025*

@@ -1,10 +1,10 @@
 # Building Product as System Architecture
 
-*In September of 2025, I took the lead to bring more cohesion across the merchant engineering organization at Affirm to develop the merchant lifecycle orchestrator deployable target as part of a multi-year effort to lay the groundwork for 99.99% availability across the application suite.*
+*In September of 2025, I took the lead to bring more cohesion across the merchant engineering organization at Affirm to develop the merchant lifecycle orchestrator deployable target, as groundwork toward a 99.99% availability target.*
 
 ---
 
-By December of 2025, we had not only developed the technical architecture, with sign-off from our senior directors, but we had also laid the groundwork for an MCP-ready implementation of the architecture. This intelligent routing layer would reduce team dependencies and put us in a position to further product-led growth for merchant onboarding.
+By December of 2025, we had developed the technical architecture, with sign-off from our senior directors: groundwork toward a 99.99% availability target. That work reduced team dependencies and put us in a position to further product-led growth for merchant onboarding.
 
 As the engineering manager overseeing this program, I set up working meetings with four separate teams to enable our tech lead to see around architectural corners only the other tech leads would know about (e.g., are we choosing to consolidate this endpoint or will it become deprecated in a future build?). I also set up kickoff and close meetings with upward and peer leadership to say, "Work with us! And if you are too busy, tell us."
 

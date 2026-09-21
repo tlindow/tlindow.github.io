@@ -1,25 +1,11 @@
 # Tyler Lindow — Engineering Manager — Fintech Platform & 0→1 | Ex-Founder | Relocating to Seattle, WA
 
-> https://tlindow.github.io | tyler.lindow@gmail.com | https://www.linkedin.com/in/tlindow | https://github.com/tlindow
+> https://tlindow.github.io/#about | tyler.lindow@gmail.com | https://www.linkedin.com/in/tlindow | https://github.com/tlindow
 
-The working resume is maintained in Formation (Latest Ready). This file repeats the locked summary.
+The working resume is maintained in Formation (Latest Ready). This file is that summary only.
 
 ## Summary
 Fintech engineering manager with 6+ years at Affirm across Partner Engineering, merchant onboarding, and marketing products. Owned Merchant Portal and affirm.com for the 500,000+ merchant portfolio; scaled developer-support engineering from 1 to 9; owned technical operations and SLA reliability for Amazon ($10B+ GMV) and $100M+ merchant accounts. Ex-founder (Beginner Work Inc.). Targeting Engineering Manager / Senior EM roles in Seattle fintech (payments, platform/DevX, partner integrations).
 
-Themes:
-- Marketing as Engineering Leadership
-- Building Product as System Architecture
-- B2B Portals as Trust Stores
-
-## Experience
-- Beginner Work Inc. | Founder | Mar 2026 – Jul 2026 (dates only)
-- Affirm | Software Engineering Manager, Merchant Advocacy | Mar 2025 – Feb 2026
-- Affirm | Developer Support Engineering Manager, Partner Engineering | Jul 2021 – Mar 2025
-- Affirm | Developer Support Engineer, Partner Engineering | Sep 2019 – Jul 2021
-- Galvanize, The Tech Interactive, Computer History Museum — earlier beginner and DevX work inside educational institutions
-
-## Writing
-- https://tlindow.github.io/blog/securing-500k-gmv-win
-- https://tlindow.github.io/blog/building-product-as-system-architecture
-- https://tlindow.github.io/blog/velocity-labs-system-sculpting
+## Targeting
+Engineering Manager / Senior EM roles in Seattle fintech (payments, platform/DevX, partner integrations). Relocating to Seattle, WA.

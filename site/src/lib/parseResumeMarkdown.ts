@@ -262,7 +262,7 @@ export function parseResumeMarkdown(markdownText: string): ParsedResume {
     skillsList: skillsList.length > 0 ? skillsList : [
       { category: "AI & Agentic Systems", skills: "LLMs & RAG, Agentic Coding Frameworks, PyTorch, Antigravity, Jules, Luma, First-Principles GenAI Upskilling." },
       { category: "Languages & Frameworks", skills: "Python, JavaScript, React, Next.js, Node.js, Flask." },
-      { category: "Cloud, Data & SRE", skills: "Snowflake, SQL, ETL Pipelines, SRE Support, Vercel, Git/GitHub, CI/CD, 99.99% Uptime Telemetry." },
+      { category: "Cloud, Data & SRE", skills: "Snowflake, SQL, ETL Pipelines, SRE Support, Vercel, Git/GitHub, CI/CD, SLA telemetry." },
       { category: "Product & GTM Strategy", skills: "Developer Advocacy & Evangelism, Partner Engineering, Enterprise Merchant Integrations ($10B+ Portfolio), GMV Attribution & Revenue Acceleration, GTM Strategy, Developer Paved Paths & Enablement, Cross-Functional Stakeholder Alignment, Voice of the Developer Synthesis, Technical Community Architecture." }
     ],
   };
