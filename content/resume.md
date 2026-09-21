@@ -1,6 +1,6 @@
 # Tyler Lindow
 
-**Engineering Manager — Fintech B2B & Partner Integrations Platform**  
+**Engineering Manager — Fintech B2B & Partner Integrations Platform | Ex-Founder**  
 Relocating to Seattle, WA  
 (650) 580-5788 | [tyler.lindow@gmail.com](mailto:tyler.lindow@gmail.com)  
 [linkedin.com/in/tlindow](https://linkedin.com/in/tlindow) | [github.com/tlindow](https://github.com/tlindow)
@@ -82,7 +82,7 @@ Targeting Engineering Manager / Senior EM in Seattle fintech (payments, platform
 
 ## Additional
 
-- **Ex-founder, Beginner (Mar–Jul 2026):** Founded and shipped a fundraising pitch simulator (React/Next.js) from discovery to GTM — 10+ product interviews and a 20+ engineer community across SoCal, NYC, and SF.
+- **Ex-founder, Beginner Work Inc. (Mar–Jul 2026):** Founded and shipped a fundraising pitch simulator (React/Next.js) from discovery to GTM — 10+ product interviews and a 20+ engineer community across SoCal, NYC, and SF.
 
 ---
 
