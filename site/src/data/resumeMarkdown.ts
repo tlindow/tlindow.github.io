@@ -12,7 +12,7 @@ Relocating to Seattle, WA
 ---
 
 ## Summary
-Fintech engineering manager with 7+ years at Affirm in Partner Engineering, merchant checkout integrations, and platform/DevX. Scaled developer-support engineering from 1 to 9, protected Amazon ($10B+ GMV) and $100M+ merchant accounts, and owned Merchant Portal plus affirm.com infrastructure for 500,000+ merchants—driving $500K incremental GMV. Builds self-serve partner APIs (REST, webhooks, e-commerce SDKs), cuts operational toil, and grows engineers through a hiring and promotion bar. Targeting Engineering Manager / Senior EM / Director roles in Seattle fintech (payments, Bill Pay, Travel, platform/DevX).
+Fintech engineering manager with 7+ years at Affirm in Partner Engineering, merchant checkout integrations, and platform/DevX. Scaled developer-support engineering from 1 to 9, protected Amazon ($10B+ GMV) and $100M+ merchant accounts, and owned Merchant Portal plus affirm.com infrastructure for 500,000+ merchants. Builds self-serve partner APIs (REST, webhooks, e-commerce SDKs), cuts operational toil, and grows engineers through a hiring and promotion bar. Targeting Engineering Manager / Senior EM / Director roles in Seattle fintech (payments, Bill Pay, Travel, platform/DevX).
 
 ---
 
@@ -20,13 +20,13 @@ Fintech engineering manager with 7+ years at Affirm in Partner Engineering, merc
 
 ### Founder | Beginner
 *San Diego, CA (Hybrid) | Mar 2026 – Jul 2026*
-* **0-to-1 product:** Led discovery, full-stack engineering (React, Next.js), and GTM for a fundraising pitch simulator; 40+ founder interviews; paying users within 6 weeks; 20+ engineer community across SoCal, NYC, and SF. [TODO: revenue / retention / close-out]
+* **0-to-1 product:** Led discovery, full-stack engineering (React, Next.js), and GTM for a fundraising pitch simulator; 40+ founder interviews; initial paying users within 6 weeks; 20+ engineer community across SoCal, NYC, and SF. [TODO: paying-user count / revenue / retention] [TODO: intentional close-out vs pause, Jul 2026]
 
 ### Software Engineering Manager (L7), Merchant Advocacy | Affirm
 *San Diego, CA (Remote) | Mar 2025 – Feb 2026*
 * **Scope:** Managed 6 software engineers across Product, Design, and Content; owned affirm.com and Merchant Portal (React, TypeScript) serving 500,000+ merchants, including native onboarding onto Affirm’s payment method.
-* **Checkout funnel & $500K GMV:** Directed a 5-week affirm.com revamp (~1M monthly viewers)—native customer onboarding funnels and mobile conversion—capturing **$500K GMV** in a 3-day pre-BFCM 2025 window.
-* **Reliability & Velocity Labs:** Raised Merchant Portal availability from 99.7% to 99.9% in one quarter by diagnosing legacy incident drivers and running weekly Velocity Labs (AI upskilling of the existing team) rather than adding headcount; cleared weekly production incidents, including a blocker to an Intuit launch covering hundreds of thousands of new merchants.
+* **Checkout funnel (affirm.com):** Directed a 5-week revamp of affirm.com (~1M monthly viewers)—native customer onboarding funnels and mobile conversion. **$500K incremental GMV** is attributed to that launch in a 3-day pre-BFCM 2025 window.
+* **Legacy incidents → Velocity Labs → stability:** Recurring weekly production incidents on legacy Merchant Portal software. Instituted weekly Velocity Labs so the existing 6 engineers could upskill in AI tooling, own more of the stack, and close incidents more thoroughly—rather than adding headcount. Effect: availability 99.7% → 99.9% in one quarter; remaining incident load cleared, including a blocker to an Intuit launch covering hundreds of thousands of new merchants.
 * **Tradeoff — domain decoupling:** Mediated RFCs and system design across Staff+, Directors, and four merchant-engineering teams; chose to decouple service boundaries (and drop a confusing dashboard rather than force a database migration) so availability was not coupled to legacy domains. Director-signed merchant lifecycle architecture by Dec 2025 as groundwork for 99.99% availability.
 
 ### Developer Support Engineering Manager (L6 → L7), Partner Engineering | Affirm
