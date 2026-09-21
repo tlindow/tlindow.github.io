@@ -11,7 +11,7 @@ Relocating to Seattle, WA
 
 Fintech engineering manager with 7+ years at Affirm across Partner Engineering, merchant onboarding, and marketing products. Owned Merchant Portal and affirm.com for the 500,000+ merchant portfolio. Scaled developer-support engineering from 1 to 9 and protected Amazon ($10B+ GMV) and $100M+ merchant accounts.
 
-I cut operational toil with automation and develop engineers against clear hiring and promotion bars. Targeting Engineering Manager / Senior EM in Seattle fintech (payments, platform/DevX, partner integrations).
+Targeting Engineering Manager / Senior EM in Seattle fintech (payments, platform/DevX, partner integrations).
 
 ---
 
@@ -44,7 +44,7 @@ I cut operational toil with automation and develop engineers against clear hirin
 
 *San Diego, CA (Remote) | Jul 2021 – Mar 2025*
 
-- **Org design:** Promoted L6→L7. Built the developer-support engineering team from 1 to 9 through hiring and absorbing engineers from other teams. Shifted Tier-1/Tier-2 load to operations so engineers owned platform reliability.
+- **Org design:** Promoted L6→L7. Built developer-support engineering from 1 to 9 through 2 direct hires, transferring 1 Staff engineer and 1 senior contractor onto the team, and absorbing engineers from other teams; shaped interview rubrics and hiring decisions for early-team hires with my manager. Shifted Tier-1/Tier-2 load to operations so engineers owned platform reliability.
 - **Promotions:** Weekly 1:1s and monthly career-growth reviews. Promoted a junior engineer to intermediate in ~1 year, then from support into product-building engineering; supported a second engineer’s promotion cycle.
 - **Partner APIs & payments:** Owned technical operations and SLA reliability for strategic merchant accounts ($100M+ GMV) and Affirm’s flagship partner (Amazon, $10B+ GMV)—merchant checkout / confirmation-flow integrations via partner REST APIs and webhooks.
 - **Collaboration — GMV signings:** With SE, TW, and plugin partners, produced availability projections that let account management sign $100M+ GMV merchants.
@@ -101,7 +101,7 @@ I cut operational toil with automation and develop engineers against clear hirin
 
 ## Skills & Toolkits
 
-- **Technical Toolkit:** Python, JavaScript, TypeScript, React, Next.js, Node.js, Flask, Snowflake, SQL, ETL Pipelines, REST APIs, Webhooks, CI/CD, Git/GitHub, SRE, LLMs & agentic coding (Claude, Cursor)
+- **Technical Toolkit:** Python, JavaScript, TypeScript, React, Next.js, Node.js, Flask, Snowflake, SQL, ETL Pipelines, REST APIs, Webhooks, CI/CD, Git/GitHub, SLA/SLO telemetry, observability, incident management, LLMs & agentic coding (Claude, Cursor)
 - **Leadership & Management:** Hiring & team scale (1 to 9), performance management & promotions, org design / domain boundaries, RFC & system design mediation (Staff+ / Director), mentorship, incident management
 - **B2B onboarding & Operations:** Partner Engineering, merchant checkout integrations (Shopify, Magento, WooCommerce, SFCC), self-serve onboarding & SDKs, Merchant Portal, SLA telemetry, GMV attribution
 
