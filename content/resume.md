@@ -11,7 +11,7 @@ Relocating to Seattle, WA
 
 Fintech engineering manager with 6+ years at Affirm across Partner Engineering, merchant onboarding, and marketing products. Owned Merchant Portal and affirm.com for the 500,000+ merchant portfolio; scaled developer-support engineering from 1 to 9; owned technical operations and SLA reliability for Amazon ($10B+ GMV) and $100M+ merchant accounts.
 
-Ex-founder (Beginner Work Inc., 0→1). Targeting Engineering Manager / Senior EM in Seattle fintech (payments, platform/DevX, partner integrations).
+Ex-founder (Beginner Work Inc., 0→1)—ready to return to Engineering Manager / Senior EM roles in Seattle fintech (payments, platform/DevX, partner integrations).
 
 ---
 
@@ -24,9 +24,6 @@ Ex-founder (Beginner Work Inc., 0→1). Targeting Engineering Manager / Senior E
 ### Founder | Beginner Work Inc.
 
 *San Diego, CA (Hybrid) | Mar 2026 – Jul 2026*
-
-- Owned 0→1 product, engineering, and GTM for a fundraising pitch simulator (React/Next.js)—led discovery through launch as sole founder over four months; 92 in-person conversations outside family/friends, including 5 VCs.
-
 
 
 ### Software Engineering Manager (L7), Merchant Advocacy | Affirm
