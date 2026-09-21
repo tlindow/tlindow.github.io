@@ -118,6 +118,7 @@ export default function SpaceMonoResume({ parsedResume }: SpaceMonoResumeProps) 
   const summaryTitle = parsedResume?.summaryTitle || "Summary";
   const vision = parsedResume?.visionText || professionalSummary.text;
   const experiences = parsedResume?.experiences || professionalExperience;
+  const additional = parsedResume?.additional || [];
   const education = parsedResume?.education || educationList;
   const skillsList = parsedResume?.skillsList || [
     { category: "AI & Agentic Systems", skills: "LLMs & RAG, Agentic Coding Frameworks, PyTorch, Antigravity, Jules, Luma, First-Principles GenAI Upskilling." },
@@ -269,7 +270,7 @@ export default function SpaceMonoResume({ parsedResume }: SpaceMonoResumeProps) 
             custom={1}
           >
             <SectionHeader title={summaryTitle} />
-            <p className="text-xs sm:text-sm text-foreground/85 font-mono leading-loose">
+            <p className="text-xs sm:text-sm text-foreground/85 font-mono leading-loose whitespace-pre-line">
               {vision}
             </p>
           </motion.section>
@@ -343,14 +344,44 @@ export default function SpaceMonoResume({ parsedResume }: SpaceMonoResumeProps) 
           </motion.section>
 
           {/* ═══════════════════════════════════════════════════════ */}
-          {/* SECTION 3: Education                                    */}
+          {/* SECTION 3: Additional                                   */}
+          {/* ═══════════════════════════════════════════════════════ */}
+          {additional.length > 0 && (
+            <motion.section
+              className="resume-section py-5 border-t border-border/60"
+              variants={sectionVariants}
+              initial="hidden"
+              animate="visible"
+              custom={3}
+            >
+              <SectionHeader title="Additional" />
+              <ul className="space-y-2.5 text-xs sm:text-sm font-mono text-foreground/85">
+                {additional.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-dark mt-1.5 shrink-0" />
+                    <div>
+                      {item.category && (
+                        <strong className="font-bold text-foreground mr-1.5">
+                          {item.category}:
+                        </strong>
+                      )}
+                      <span className="text-foreground/80">{item.text}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </motion.section>
+          )}
+
+          {/* ═══════════════════════════════════════════════════════ */}
+          {/* SECTION 4: Education                                    */}
           {/* ═══════════════════════════════════════════════════════ */}
           <motion.section
             className="resume-section py-5 border-t border-border/60"
             variants={sectionVariants}
             initial="hidden"
             animate="visible"
-            custom={3}
+            custom={4}
           >
             <SectionHeader title="Education" />
             <ul className="space-y-2 text-xs sm:text-sm font-mono text-foreground/85">
@@ -370,7 +401,7 @@ export default function SpaceMonoResume({ parsedResume }: SpaceMonoResumeProps) 
           </motion.section>
 
           {/* ═══════════════════════════════════════════════════════ */}
-          {/* SECTION 4: Skills & Toolkits (Bottom)                   */}
+          {/* SECTION 5: Skills & Toolkits (Bottom)                   */}
           {/* ═══════════════════════════════════════════════════════ */}
           {skillsList.length > 0 && (
             <motion.section
@@ -378,7 +409,7 @@ export default function SpaceMonoResume({ parsedResume }: SpaceMonoResumeProps) 
               variants={sectionVariants}
               initial="hidden"
               animate="visible"
-              custom={4}
+              custom={5}
             >
               <SectionHeader title="Skills & Toolkits" />
               <ul className="space-y-2.5 text-xs sm:text-sm font-mono text-foreground/85">

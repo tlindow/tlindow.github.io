@@ -12,6 +12,11 @@ export interface SkillCategoryItem {
   skills: string;
 }
 
+export interface AdditionalItem {
+  category?: string;
+  text: string;
+}
+
 export interface ParsedResume {
   rawMarkdown: string;
   contact: ContactInfo;
@@ -20,6 +25,7 @@ export interface ParsedResume {
   technicalToolkit: string[];
   businessToolkit: string[];
   experiences: ExperienceItem[];
+  additional: AdditionalItem[];
   education: EducationItem[];
   skillsList: SkillCategoryItem[];
 }
@@ -32,7 +38,7 @@ export function parseResumeMarkdown(markdownText: string): ParsedResume {
 
   const contact: ContactInfo = {
     name: "Tyler Lindow",
-    title: "Fintech Engineering & Product",
+    title: "Engineering Manager — Fintech B2B & Partner Integrations Platform",
     subtitle: "B2B SaaS on curiosity-safe, GenAI Rails",
     location: "San Diego, CA",
     relocation: "Relocating to Seattle, WA",
@@ -50,6 +56,7 @@ export function parseResumeMarkdown(markdownText: string): ParsedResume {
   let technicalToolkit: string[] = [];
   let businessToolkit: string[] = [];
   const experiences: ExperienceItem[] = [];
+  const additional: AdditionalItem[] = [];
   const education: EducationItem[] = [];
   const skillsList: SkillCategoryItem[] = [];
 
@@ -102,6 +109,7 @@ export function parseResumeMarkdown(markdownText: string): ParsedResume {
   // Section parsing
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
+    if (line.startsWith("<!--")) continue;
 
     if (line.startsWith("## Vision") || line.startsWith("## Summary")) {
       currentSection = "vision";
@@ -109,6 +117,13 @@ export function parseResumeMarkdown(markdownText: string): ParsedResume {
       continue;
     } else if (line.startsWith("## Professional Experience") || line.startsWith("## Experience")) {
       currentSection = "experience";
+      continue;
+    } else if (line.startsWith("## Additional")) {
+      if (currentExp && currentExp.company) {
+        experiences.push(currentExp as ExperienceItem);
+        currentExp = null;
+      }
+      currentSection = "additional";
       continue;
     } else if (line.startsWith("## Education")) {
       if (currentExp && currentExp.company) {
@@ -141,7 +156,10 @@ export function parseResumeMarkdown(markdownText: string): ParsedResume {
         const skillsStr = line.replace(/^\*\*Business.*?\*\*\s*/, "").replace(/\.$/, "");
         businessToolkit = skillsStr.split(",").map((s) => s.trim()).filter(Boolean);
       } else if (line && !line.startsWith("---") && !line.startsWith("#")) {
-        visionText = line;
+        visionText =
+          visionText === defaultSummary.text || !visionText
+            ? line
+            : `${visionText}\n\n${line}`;
       }
     } else if (currentSection === "experience") {
       if (line.startsWith("### ")) {
@@ -198,6 +216,19 @@ export function parseResumeMarkdown(markdownText: string): ParsedResume {
           text: text.replace(/\*\*(.*?)\*\*/g, "$1"),
         });
       }
+    } else if (currentSection === "additional") {
+      if (line.startsWith("* ") || line.startsWith("- ")) {
+        const bulletContent = line.replace(/^[\*\-]\s+/, "").trim();
+        const categoryMatch = bulletContent.match(/^\*\*([^*]+?):\*\*\s*(.*)$/);
+        if (categoryMatch) {
+          additional.push({
+            category: categoryMatch[1].trim(),
+            text: categoryMatch[2].trim(),
+          });
+        } else {
+          additional.push({ text: bulletContent });
+        }
+      }
     } else if (currentSection === "education") {
       if (line.startsWith("* ") || line.startsWith("- ")) {
         const eduLine = line.replace(/^[\*\-]\s+/, "").trim();
@@ -239,7 +270,10 @@ export function parseResumeMarkdown(markdownText: string): ParsedResume {
   }
 
   return {
-    rawMarkdown: markdownText,
+    rawMarkdown: markdownText
+      .split("\n")
+      .filter((line) => !line.trim().startsWith("<!--"))
+      .join("\n"),
     contact,
     summaryTitle,
     visionText,
@@ -258,6 +292,7 @@ export function parseResumeMarkdown(markdownText: string): ParsedResume {
       "Technical Community Architecture",
     ],
     experiences: experiences.length > 0 ? experiences : [],
+    additional,
     education: education.length > 0 ? education : [],
     skillsList: skillsList.length > 0 ? skillsList : [
       { category: "AI & Agentic Systems", skills: "LLMs & RAG, Agentic Coding Frameworks, PyTorch, Antigravity, Jules, Luma, First-Principles GenAI Upskilling." },
