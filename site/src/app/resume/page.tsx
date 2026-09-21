@@ -5,22 +5,22 @@ import Navbar from "@/components/Navbar";
 import { parsedResume } from "@/data/resumeMarkdown";
 
 export const metadata: Metadata = {
-  title: "Resume — Tyler Lindow (Fintech Engineering & Product)",
+  title: "Resume — Tyler Lindow (Engineering Manager — Fintech Platform & 0→1)",
   description:
-    "Web-based and printable resume for Tyler Lindow. Fintech Engineering & Product. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
+    "Fintech engineering manager with 6+ years at Affirm across Partner Engineering, merchant onboarding, and marketing products. Ex-founder (Beginner Work Inc.).",
   openGraph: {
-    title: "Resume — Tyler Lindow (Fintech Engineering & Product)",
+    title: "Resume — Tyler Lindow (Engineering Manager — Fintech Platform & 0→1)",
     description:
-      "Web-based and printable resume for Tyler Lindow. Fintech Engineering & Product. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
+      "Fintech engineering manager with 6+ years at Affirm across Partner Engineering, merchant onboarding, and marketing products. Ex-founder (Beginner Work Inc.).",
     url: "https://tlindow.github.io/resume",
     siteName: "Tyler Lindow",
     type: "profile",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Resume — Tyler Lindow (Fintech Engineering & Product)",
+    title: "Resume — Tyler Lindow (Engineering Manager — Fintech Platform & 0→1)",
     description:
-      "Web-based and printable resume for Tyler Lindow. Fintech Engineering & Product. Onboarding $0 – $10B+ GMV enterprises. Former Affirm, Beginner, Galvanize.",
+      "Fintech engineering manager with 6+ years at Affirm across Partner Engineering, merchant onboarding, and marketing products. Ex-founder (Beginner Work Inc.).",
   },
 };
 
