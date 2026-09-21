@@ -7,7 +7,7 @@ Relocating to Seattle, WA
 ---
 
 ## Summary
-Fintech engineering manager with 7+ years at Affirm in Partner Engineering, merchant checkout integrations, and platform/DevX. Scaled developer-support engineering from 1 to 9, protected Amazon ($10B+ GMV) and $100M+ merchant accounts, and owned Merchant Portal plus affirm.com infrastructure for 500,000+ merchants—driving **$500K** incremental GMV. Builds self-serve partner APIs (REST, webhooks, e-commerce SDKs), cuts operational toil, and grows engineers through a hiring and promotion bar. Targeting Engineering Manager / Senior EM / Director roles in Seattle fintech (payments, Bill Pay, Travel, platform/DevX).
+Fintech engineering manager with 7+ years at Affirm in Partner Engineering, merchant checkout integrations, and platform/DevX. Scaled developer-support engineering from 1 to 9, protected Amazon ($10B+ GMV) and $100M+ merchant accounts, and owned Merchant Portal plus affirm.com infrastructure for 500,000+ merchants—driving $500K incremental GMV. Builds self-serve partner APIs (REST, webhooks, e-commerce SDKs), cuts operational toil, and grows engineers through a hiring and promotion bar. Targeting Engineering Manager / Senior EM / Director roles in Seattle fintech (payments, Bill Pay, Travel, platform/DevX).
 
 ---
 
