@@ -82,7 +82,7 @@ Targeting Engineering Manager / Senior EM in Seattle fintech (payments, platform
 
 ## Additional
 
-- **Ex-founder, Beginner Work Inc. (Mar–Jul 2026):** Founded and shipped a fundraising pitch simulator (React/Next.js) from discovery to GTM — 10+ product interviews and a 20+ engineer community across SoCal, NYC, and SF.
+- **Founder, Beginner (Mar–Jul 2026):** Founded and shipped a fundraising pitch simulator (React/Next.js) from discovery to GTM — 10+ product interviews and a 20+ engineer community across SoCal, NYC, and SF.
 
 ---
 
