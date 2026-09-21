@@ -7,11 +7,11 @@ import { ArrowLeft, Sparkles } from "lucide-react";
 export const metadata: Metadata = {
   title: "Story deck — Tyler Lindow",
   description:
-    "A lean story deck for Elevating Developer Fintech. The working resume is maintained in Formation.",
+    "Lean public story for Tyler Lindow. The working resume is maintained in Formation.",
   openGraph: {
     title: "Story deck — Tyler Lindow",
     description:
-      "A lean story deck for Elevating Developer Fintech. The working resume is maintained in Formation.",
+      "Lean public story for Tyler Lindow. The working resume is maintained in Formation.",
     url: "https://tlindow.github.io/modules",
     siteName: "Tyler Lindow",
     type: "website",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Story deck — Tyler Lindow",
     description:
-      "A lean story deck for Elevating Developer Fintech. The working resume is maintained in Formation.",
+      "Lean public story for Tyler Lindow. The working resume is maintained in Formation.",
   },
 };
 

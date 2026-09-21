@@ -1,29 +1,19 @@
-# Tyler Lindow — Elevating Developer Fintech
+# Tyler Lindow — Engineering Manager — Fintech Platform & 0→1 | Ex-Founder | Relocating to Seattle, WA
 
 Public story for https://tlindow.github.io
 
-The working resume is maintained in Formation (Latest Ready). This document points at the live narrative and does not restate a second resume.
+The working resume is maintained in Formation (Latest Ready). The summary below is the locked Formation text.
 
-## Niche
-Elevating Developer Fintech: top-of-funnel marketing and enterprise B2B portals; beginner and DevX for educational institutions and the developer market.
-
-Open to strategic advisory, technical leadership, and developer-first enterprise B2B.
+## Summary
+Fintech engineering manager with 6+ years at Affirm across Partner Engineering, merchant onboarding, and marketing products. Owned Merchant Portal and affirm.com for the 500,000+ merchant portfolio; scaled developer-support engineering from 1 to 9; owned technical operations and SLA reliability for Amazon ($10B+ GMV) and $100M+ merchant accounts. Ex-founder (Beginner Work Inc.). Targeting Engineering Manager / Senior EM roles in Seattle fintech (payments, platform/DevX, partner integrations).
 
 ## Themes
 - Marketing as Engineering Leadership — https://tlindow.github.io/blog/securing-500k-gmv-win
 - Building Product as System Architecture — https://tlindow.github.io/blog/building-product-as-system-architecture
 - B2B Portals as Trust Stores — https://tlindow.github.io/blog/velocity-labs-system-sculpting
 
-## Summary
-Tyler chose company-scale fintech again.
-
-## About
-Affirm was company-scale engineering management. He led the marketing site and the merchant portal. When the business direction shifted, he chose to stay and see the work through. The role was eliminated later.
-
-Beginner was a founder and DevX deep-dive, framed as fintech. He practiced fundraising through writing and met developers at founder-tech events.
-
 ## Experience (lean)
-### Founder | Beginner
+### Founder | Beginner Work Inc.
 Mar 2026 – Jul 2026
 
 ### Software Engineering Manager, Merchant Advocacy | Affirm

@@ -1,3 +1,5 @@
+import { FORMATION_SUMMARY, HEADLINE } from "@/data/positioning";
+
 export interface BulletPoint {
   category?: string;
   text: string;
@@ -66,8 +68,7 @@ export interface ContactInfo {
 
 export const resumeContact: ContactInfo = {
   name: "Tyler Lindow",
-  title: "Elevating Developer Fintech",
-  subtitle: "Top-of-funnel marketing and enterprise B2B portals",
+  title: HEADLINE,
   location: "San Diego, CA",
   relocation: "Relocating to Seattle, WA",
   phone: "(650) 580-5788",
@@ -80,7 +81,7 @@ export const resumeContact: ContactInfo = {
 };
 
 export const professionalSummary = {
-  text: "I chose company-scale fintech again. Open to strategic advisory, technical leadership, and developer-first enterprise B2B.",
+  text: FORMATION_SUMMARY,
   metrics: [
     {
       number: "Marketing",
@@ -207,7 +208,7 @@ export interface EducationEntry {
 export const experiences: ExperienceEntry[] = [
   {
     id: "beginner",
-    company: "Beginner",
+    company: "Beginner Work Inc.",
     role: "Founder",
     locationAndPeriod: "San Diego, CA (Hybrid) | Mar 2026 – Jul 2026",
     bullets: [],
@@ -364,8 +365,7 @@ export const professionalExperience: ExperienceItem[] = experiences.map((e) => {
   };
 });
 
-export const visionText =
-  "Elevating Developer Fintech: top-of-funnel marketing, enterprise B2B portals, and beginner/DevX for educational institutions and the developer market.";
+export const visionText = FORMATION_SUMMARY;
 
 export type ResumeModuleType =
   | "header"
@@ -389,8 +389,7 @@ export const deckSections: Record<string, DeckSectionData> = {
     slideNumber: "01",
     category: "THESIS & VISION",
     headline: "The Developer Opportunity",
-    summary:
-      "Elevating Developer Fintech through top-of-funnel marketing, enterprise B2B portals, and beginner/DevX.",
+    summary: FORMATION_SUMMARY,
     theme: "green",
   },
   "deck-section-venture": {
@@ -398,8 +397,7 @@ export const deckSections: Record<string, DeckSectionData> = {
     slideNumber: "02",
     category: "FOUNDER / DEVX",
     headline: "Beginner, dates only",
-    summary:
-      "Founder, Mar 2026 – Jul 2026. The DevX deep-dive lives in About: fundraising through writing and meeting developers at founder-tech events.",
+    summary: "Founder, Beginner Work Inc. Mar 2026 – Jul 2026.",
     theme: "yellow",
   },
   "deck-section-scale": {

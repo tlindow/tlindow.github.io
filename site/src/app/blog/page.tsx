@@ -7,11 +7,11 @@ import { blogPosts } from "@/data/blogPosts";
 export const metadata: Metadata = {
   title: "Blog — Tyler Lindow",
   description:
-    "Writing on Elevating Developer Fintech: marketing as engineering leadership, product as system architecture, and B2B portals as trust stores.",
+    "Writing from an engineering manager in fintech: marketing as engineering leadership, product as system architecture, and B2B portals as trust stores.",
   openGraph: {
     title: "Blog — Tyler Lindow",
     description:
-      "Writing on Elevating Developer Fintech: marketing as engineering leadership, product as system architecture, and B2B portals as trust stores.",
+      "Writing from an engineering manager in fintech: marketing as engineering leadership, product as system architecture, and B2B portals as trust stores.",
     url: "https://tlindow.github.io/blog",
     siteName: "Tyler Lindow",
     type: "website",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Blog — Tyler Lindow",
     description:
-      "Writing on Elevating Developer Fintech: marketing as engineering leadership, product as system architecture, and B2B portals as trust stores.",
+      "Writing from an engineering manager in fintech: marketing as engineering leadership, product as system architecture, and B2B portals as trust stores.",
   },
 };
 

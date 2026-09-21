@@ -30,7 +30,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-xs sm:text-sm font-mono text-muted max-w-md mx-auto leading-relaxed">
-              Open to strategic advisory, technical leadership roles, and developer-first enterprise B2B platforms.
+              Targeting Engineering Manager / Senior EM roles in Seattle fintech (payments, platform/DevX, partner integrations).
             </p>
           </div>
 

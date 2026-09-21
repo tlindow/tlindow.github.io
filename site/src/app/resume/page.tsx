@@ -2,24 +2,22 @@ import type { Metadata } from "next";
 import { ArrowLeft } from "lucide-react";
 import CareerNarrative from "@/components/CareerNarrative";
 import Navbar from "@/components/Navbar";
+import { FORMATION_SUMMARY, HEADLINE } from "@/data/positioning";
 
 export const metadata: Metadata = {
-  title: "Story — Tyler Lindow (Elevating Developer Fintech)",
-  description:
-    "Public story for Tyler Lindow. Elevating Developer Fintech: top-of-funnel marketing, enterprise B2B portals, and beginner/DevX. The working resume is maintained in Formation.",
+  title: `Story — Tyler Lindow (${HEADLINE})`,
+  description: FORMATION_SUMMARY,
   openGraph: {
-    title: "Story — Tyler Lindow (Elevating Developer Fintech)",
-    description:
-      "Public story for Tyler Lindow. Elevating Developer Fintech: top-of-funnel marketing, enterprise B2B portals, and beginner/DevX.",
+    title: `Story — Tyler Lindow (${HEADLINE})`,
+    description: FORMATION_SUMMARY,
     url: "https://tlindow.github.io/resume",
     siteName: "Tyler Lindow",
     type: "profile",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Story — Tyler Lindow (Elevating Developer Fintech)",
-    description:
-      "Public story for Tyler Lindow. Elevating Developer Fintech: top-of-funnel marketing, enterprise B2B portals, and beginner/DevX.",
+    title: `Story — Tyler Lindow (${HEADLINE})`,
+    description: FORMATION_SUMMARY,
   },
 };
 

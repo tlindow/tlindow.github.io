@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FORMATION_SUMMARY, HEADLINE } from "@/data/positioning";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -63,12 +64,12 @@ export default function CareerNarrative() {
         <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-indigo-dark block">
           Public story
         </span>
-        <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-foreground leading-[1.05]">
-          Elevating Developer Fintech
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-foreground leading-tight">
+          {HEADLINE}
         </h1>
         <p className="text-sm sm:text-base text-muted leading-relaxed max-w-2xl">
-          The working resume is maintained in Formation. This page is the public
-          story on the site: a return summary, lean experience, and the writing.
+          The working resume is maintained in Formation. This page repeats that
+          summary and keeps experience lean.
         </p>
       </header>
 
@@ -77,18 +78,7 @@ export default function CareerNarrative() {
           Summary
         </h2>
         <p className="text-base sm:text-lg text-foreground leading-relaxed">
-          I chose company-scale fintech again. I am open to strategic advisory,
-          technical leadership, and developer-first enterprise B2B — top-of-funnel
-          marketing, enterprise B2B portals, and beginner/DevX for educational
-          institutions and the developer market.
-        </p>
-        <p className="text-sm text-muted leading-relaxed">
-          The longer tone — staying at Affirm when the business direction shifted,
-          and Beginner as a founder/DevX deep-dive — lives in{" "}
-          <a href={`${basePath}/#about`} className="text-indigo-dark underline underline-offset-2">
-            About
-          </a>
-          .
+          {FORMATION_SUMMARY}
         </p>
       </section>
 
@@ -99,7 +89,7 @@ export default function CareerNarrative() {
 
         <div className="space-y-1 border-t border-border/70 pt-6">
           <h3 className="text-lg sm:text-xl font-bold text-foreground">
-            Beginner
+            Beginner Work Inc.
             <span className="text-muted font-normal"> · Founder</span>
           </h3>
           <p className="text-sm text-muted">San Diego, CA · Mar 2026 – Jul 2026</p>

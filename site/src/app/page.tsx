@@ -15,6 +15,7 @@ import ScrollMorphAvatar, {
   HERO_PIN_SCROLL_DISTANCE,
 } from "@/components/animations/ScrollMorphAvatar";
 import { useAnalytics } from "@/context/AnalyticsProvider";
+import { HEADLINE } from "@/data/positioning";
 
 export default function Home() {
   const { scrollY } = useScroll();
@@ -224,23 +225,9 @@ export default function Home() {
                 className="w-24 h-24 sm:w-28 sm:h-28 rounded-full shrink-0 relative"
               />
 
-              <span className="text-xs sm:text-sm font-mono font-bold text-indigo-dark uppercase tracking-widest block">
-                ex-Affirm, ex-founder
-              </span>
-
-              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-foreground leading-[1.05] mx-auto">
-                <span className="block">Elevating</span>
-                <span className="block">Developer Fintech</span>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-foreground leading-tight mx-auto max-w-3xl">
+                {HEADLINE}
               </h1>
-
-              <div className="pt-2 space-y-2">
-                <p className="text-sm sm:text-base md:text-lg font-mono text-muted mx-auto">
-                  Top-of-funnel marketing and enterprise B2B portals
-                </p>
-                <p className="text-xs sm:text-sm font-mono text-muted/90 mx-auto max-w-xl">
-                  Beginner and DevX for educational institutions and the developer market
-                </p>
-              </div>
             </div>
 
             {/* Primary Action Trigger: public story */}

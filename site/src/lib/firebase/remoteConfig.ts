@@ -23,26 +23,32 @@ export const VARIANT_PRESETS: Record<string, RemoteConfigValues> = {
   baseline: {
     recruit_cta_label: "Let's talk",
     recruit_cta_style: "forest_solid",
-    hero_headline_variant: "Elevating Developer Fintech",
-    hero_subtitle_variant: "Top-of-funnel marketing and enterprise B2B portals",
+    hero_headline_variant:
+      "Engineering Manager — Fintech Platform & 0→1 | Ex-Founder | Relocating to Seattle, WA",
+    hero_subtitle_variant:
+      "Targeting Engineering Manager / Senior EM roles in Seattle fintech (payments, platform/DevX, partner integrations).",
   },
   action_oriented: {
     recruit_cta_label: "Let's talk",
     recruit_cta_style: "pulse_accent",
-    hero_headline_variant: "Elevating Developer Fintech",
-    hero_subtitle_variant: "Marketing as engineering leadership",
+    hero_headline_variant:
+      "Engineering Manager — Fintech Platform & 0→1 | Ex-Founder | Relocating to Seattle, WA",
+    hero_subtitle_variant: "Partner Engineering, merchant onboarding, and marketing products",
   },
   low_friction: {
     recruit_cta_label: "Connect on LinkedIn",
     recruit_cta_style: "sprout_glow",
-    hero_headline_variant: "Elevating Developer Fintech",
-    hero_subtitle_variant: "Beginner and DevX for the developer market",
+    hero_headline_variant:
+      "Engineering Manager — Fintech Platform & 0→1 | Ex-Founder | Relocating to Seattle, WA",
+    hero_subtitle_variant: "Ex-founder (Beginner Work Inc.)",
   },
   executive_authority: {
     recruit_cta_label: "Strategic advisory",
     recruit_cta_style: "high_contrast",
-    hero_headline_variant: "Elevating Developer Fintech",
-    hero_subtitle_variant: "Open to technical leadership and developer-first enterprise B2B",
+    hero_headline_variant:
+      "Engineering Manager — Fintech Platform & 0→1 | Ex-Founder | Relocating to Seattle, WA",
+    hero_subtitle_variant:
+      "Targeting Engineering Manager / Senior EM roles in Seattle fintech (payments, platform/DevX, partner integrations).",
   },
 };
 

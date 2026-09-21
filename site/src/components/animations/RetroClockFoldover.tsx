@@ -61,11 +61,11 @@ function FoldoverWord({
 /**
  * RetroClockFoldover Header Component
  * Starts as grayed-out "Software Engineering Manager" and flips ONCE
- * to "Elevating Developer Fintech" via 3D mechanical foldover physics.
+ * to the Formation headline via 3D mechanical foldover physics.
  */
 export default function RetroClockFoldover({
   fromText = "Software Engineering Manager",
-  toText = "Elevating Developer Fintech",
+  toText = "Engineering Manager — Fintech Platform & 0→1",
   flipDelay = 1200,
   className = "",
 }: RetroClockFoldoverProps) {

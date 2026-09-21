@@ -1,7 +1,6 @@
 # Tyler Lindow
 
-**Elevating Developer Fintech**  
-*Top-of-funnel marketing and enterprise B2B portals. Beginner and DevX for educational institutions and the developer market.*  
+**Engineering Manager — Fintech Platform & 0→1 | Ex-Founder | Relocating to Seattle, WA**  
 San Diego, CA (Relocating to Seattle, WA) · [tyler.lindow@gmail.com](mailto:tyler.lindow@gmail.com) · [linkedin.com/in/tlindow](https://www.linkedin.com/in/tlindow) · [github.com/tlindow](https://github.com/tlindow)
 
 ---
@@ -32,10 +31,10 @@ This repository is structured into three clear pillars:
 
 The live narrative is on [tlindow.github.io](https://tlindow.github.io). The working resume is maintained in Formation (Latest Ready).
 
-- **Summary:** Chose company-scale fintech again. Open to strategic advisory, technical leadership, and developer-first enterprise B2B.
+- **Summary:** Fintech engineering manager with 6+ years at Affirm across Partner Engineering, merchant onboarding, and marketing products. Owned Merchant Portal and affirm.com for the 500,000+ merchant portfolio; scaled developer-support engineering from 1 to 9; owned technical operations and SLA reliability for Amazon ($10B+ GMV) and $100M+ merchant accounts. Ex-founder (Beginner Work Inc.). Targeting Engineering Manager / Senior EM roles in Seattle fintech (payments, platform/DevX, partner integrations).
 - **Beginner | Founder** — Mar 2026 – Jul 2026 (dates only on the public narrative).
 - **Affirm** carries the experience: engineering management for top-of-funnel marketing and the enterprise merchant portal, then partner engineering.
-- **About** on the site holds the interview tone: stayed when the business direction shifted; the role was eliminated later. Beginner was a founder/DevX deep-dive framed as fintech.
+- **About** on the site uses that Formation summary verbatim. Beginner stays dates-only on the lean narrative. Affirm carries the experience.
 
 ## Education
 - **Deep Atlas** — Residency, Applied AI and Machine Learning
@@ -46,7 +45,7 @@ The live narrative is on [tlindow.github.io](https://tlindow.github.io). The wor
 
 ## Living Website (`site/`)
 
-The `site/` directory contains the Next.js application powering [tlindow.github.io](https://tlindow.github.io) — the public story for Elevating Developer Fintech.
+The `site/` directory contains the Next.js application powering [tlindow.github.io](https://tlindow.github.io). About uses the Formation summary verbatim. The working resume stays in Formation.
 
 ### Quick Start
 

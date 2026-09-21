@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Space_Mono, Silkscreen, Fraunces } from "next/font/google";
 import { AnalyticsProvider } from "@/context/AnalyticsProvider";
+import { FORMATION_SUMMARY, HEADLINE } from "@/data/positioning";
 import "./globals.css";
 
 const inter = Inter({
@@ -32,22 +33,19 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tlindow.github.io"),
-  title: "Tyler Lindow — Elevating Developer Fintech",
-  description:
-    "Elevating Developer Fintech. Top-of-funnel marketing and enterprise B2B portals. Beginner and DevX for educational institutions and the developer market.",
+  title: `Tyler Lindow — ${HEADLINE}`,
+  description: FORMATION_SUMMARY,
   openGraph: {
-    title: "Tyler Lindow — Elevating Developer Fintech",
-    description:
-      "Elevating Developer Fintech. Top-of-funnel marketing and enterprise B2B portals. Beginner and DevX for educational institutions and the developer market.",
+    title: `Tyler Lindow — ${HEADLINE}`,
+    description: FORMATION_SUMMARY,
     url: "https://tlindow.github.io",
     siteName: "Tyler Lindow",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tyler Lindow — Elevating Developer Fintech",
-    description:
-      "Elevating Developer Fintech. Top-of-funnel marketing and enterprise B2B portals. Beginner and DevX for educational institutions and the developer market.",
+    title: `Tyler Lindow — ${HEADLINE}`,
+    description: FORMATION_SUMMARY,
   },
   alternates: {
     types: {
@@ -70,7 +68,7 @@ const jsonLd = {
       "@type": "Person",
       "@id": "https://tlindow.github.io/#person",
       "name": "Tyler Lindow",
-      "jobTitle": "Elevating Developer Fintech",
+      "jobTitle": HEADLINE,
       "telephone": "(650) 580-5788",
       "email": "tyler.lindow@gmail.com",
       "address": {
