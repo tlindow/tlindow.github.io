@@ -112,7 +112,7 @@ interface SpaceMonoResumeProps {
 export default function SpaceMonoResume({ parsedResume }: SpaceMonoResumeProps) {
   const [copiedMd, setCopiedMd] = useState(false);
   const [revealPhone, setRevealPhone] = useState(false);
-  const { logResumeView, logOutboundClick, trackEvent } = useAnalytics();
+  const { logResumeView, trackEvent } = useAnalytics();
 
   const contact = parsedResume?.contact || resumeContact;
   const summaryTitle = parsedResume?.summaryTitle || "Summary";
@@ -122,7 +122,7 @@ export default function SpaceMonoResume({ parsedResume }: SpaceMonoResumeProps) 
   const skillsList = parsedResume?.skillsList || [
     { category: "AI & Agentic Systems", skills: "LLMs & RAG, Agentic Coding Frameworks, PyTorch, Antigravity, Jules, Luma, First-Principles GenAI Upskilling." },
     { category: "Languages & Frameworks", skills: "Python, JavaScript, React, Next.js, Node.js, Flask." },
-    { category: "Cloud, Data & SRE", skills: "Snowflake, SQL, ETL Pipelines, SRE Support, Vercel, Git/GitHub, CI/CD, 99.99% Uptime Telemetry." },
+    { category: "Cloud, Data & SRE", skills: "Snowflake, SQL, ETL Pipelines, SRE Support, Vercel, Git/GitHub, CI/CD, SLA telemetry." },
     { category: "Product & GTM Strategy", skills: "Developer Advocacy & Evangelism, Partner Engineering, Enterprise Merchant Integrations ($10B+ Portfolio), GMV Attribution & Revenue Acceleration, GTM Strategy, Developer Paved Paths & Enablement, Cross-Functional Stakeholder Alignment, Voice of the Developer Synthesis, Technical Community Architecture." }
   ];
   const rawMarkdown = parsedResume?.rawMarkdown || FALLBACK_RAW_MARKDOWN;
@@ -465,18 +465,6 @@ export default function SpaceMonoResume({ parsedResume }: SpaceMonoResumeProps) 
             className="hover:text-indigo-dark transition-colors"
           >
             GitHub
-          </a>
-          <span>&bull;</span>
-          <a
-            href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/llms.txt`}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() =>
-              logOutboundClick("llms_txt", `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/llms.txt`)
-            }
-            className="hover:text-indigo-dark transition-colors"
-          >
-            /llms.txt
           </a>
         </div>
       </footer>

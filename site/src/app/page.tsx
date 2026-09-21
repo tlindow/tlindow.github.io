@@ -8,12 +8,14 @@ import {
   TrustedPartnersBar,
   EducationInstitutionsBar,
 } from "@/components/brand/PartnerLogos";
+import About from "@/components/About";
 import WhatYouGet from "@/components/WhatYouGet";
 import Footer from "@/components/Footer";
 import ScrollMorphAvatar, {
   HERO_PIN_SCROLL_DISTANCE,
 } from "@/components/animations/ScrollMorphAvatar";
 import { useAnalytics } from "@/context/AnalyticsProvider";
+import { SITE_SUPPORT } from "@/data/positioning";
 
 export default function Home() {
   const { scrollY } = useScroll();
@@ -229,17 +231,16 @@ export default function Home() {
 
               <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-foreground leading-[1.05] mx-auto">
                 <span className="block">Elevating</span>
-                <span className="block">Developer Fintech</span>
+                <span className="block">capital-tech</span>
               </h1>
 
               <div className="pt-2">
                 <p className="text-sm sm:text-base md:text-lg font-mono text-muted mx-auto">
-                  With top of funnel marketing and enterprise B2B portals
+                  {SITE_SUPPORT}
                 </p>
               </div>
             </div>
 
-            {/* Primary Action Trigger: Resume */}
             <div className="pt-2 flex justify-center">
               <a
                 href={`${basePath}/resume`}
@@ -262,6 +263,8 @@ export default function Home() {
               <EducationInstitutionsBar />
             </div>
           </header>
+
+          <About />
 
           {/* ======================================================= */}
           {/* 2. VALUE PROPOSITION: WHAT YOU GET IF YOU BUY ME       */}

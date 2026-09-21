@@ -1,3 +1,5 @@
+import { FORMATION_SUMMARY, HEADLINE } from "@/data/positioning";
+
 export interface BulletPoint {
   category?: string;
   text: string;
@@ -66,8 +68,7 @@ export interface ContactInfo {
 
 export const resumeContact: ContactInfo = {
   name: "Tyler Lindow",
-  title: "Fintech Engineering & Product",
-  subtitle: "B2B SaaS on curiosity-safe, GenAI Rails",
+  title: HEADLINE,
   location: "San Diego, CA",
   relocation: "Relocating to Seattle, WA",
   phone: "(650) 580-5788",
@@ -80,41 +81,32 @@ export const resumeContact: ContactInfo = {
 };
 
 export const professionalSummary = {
-  text: "To elevate the creative and financial position of software developers through education, in-person connection, and creating safe spaces to build business ideas.",
+  text: FORMATION_SUMMARY,
   metrics: [
     {
-      number: "8+",
-      value: "8+",
-      label: "Years Experience",
-      context: "Technical leadership, software engineering & partner enablement",
-      description: "Technical leadership, software engineering & partner enablement",
+      number: "Marketing",
+      value: "Marketing",
+      label: "Top of funnel",
+      context: "Marketing as engineering leadership",
+      description: "Marketing as engineering leadership",
       accent: "text-indigo-dark",
       bg: "bg-indigo-light",
     },
     {
-      number: "$10B+",
-      value: "$10B+",
-      label: "Partner Portfolio",
-      context: "Enterprise integration strategy & developer advocacy",
-      description: "Enterprise integration strategy & developer advocacy",
+      number: "Portals",
+      value: "Portals",
+      label: "Enterprise B2B",
+      context: "B2B portals as trust stores",
+      description: "B2B portals as trust stores",
       accent: "text-sky",
       bg: "bg-sky-light",
     },
     {
-      number: "$500K",
-      value: "$500K",
-      label: "Incremental GMV",
-      context: "Generated via mobile perf optimization during promo windows",
-      description: "Generated via mobile perf optimization during promo windows",
-      accent: "text-sky",
-      bg: "bg-sky-light",
-    },
-    {
-      number: "1 → 6",
-      value: "1 → 6",
-      label: "Team Scale",
-      context: "Scaled developer support into proactive SRE function",
-      description: "Scaled developer support into proactive SRE function",
+      number: "DevX",
+      value: "DevX",
+      label: "Beginner market",
+      context: "Educational institutions and the developer market",
+      description: "Educational institutions and the developer market",
       accent: "text-violet",
       bg: "bg-violet-light",
     },
@@ -184,7 +176,7 @@ export const allToolkitSkills: string[] = [
 export const allBusinessToolkitSkills: string[] = [
   "Developer Advocacy & Evangelism",
   "Partner Engineering",
-  "Enterprise Merchant Integrations ($10B+ Portfolio)",
+  "Enterprise B2B portals",
   "GMV Attribution & Revenue Acceleration",
   "Go-To-Market (GTM) Strategy",
   "Developer Paved Paths & Enablement",
@@ -216,47 +208,24 @@ export interface EducationEntry {
 export const experiences: ExperienceEntry[] = [
   {
     id: "beginner",
-    company: "Beginner",
+    company: "Beginner Work Inc.",
     role: "Founder",
-    locationAndPeriod: "San Diego, CA (Hybrid) | Mar 2026 – Jul 2026 (5 mos)",
-    timelineSubheader: "Product management at Affirm is incorrectly assuming to expand the partnerships side of merchant growth — Affirm will become acquired by Stripe",
-    bullets: [
-      {
-        tag: "Developer Engagement:",
-        text: "Built and launched a progressive web app enabling technical founders to refine pitches and practice fundraising in-person with potential customers. Successfully acquired initial paying users.",
-      },
-      {
-        tag: "Community Architecture:",
-        text: "Established the beginning of a local technical network by hosting targeted events for product-focused tech professionals and engineers in San Diego",
-      },
-      {
-        tag: "Market Advocacy:",
-        text: "Traveled across major tech hubs (NYC, SF) — including weekly trips to LA over a 2-month period — to conduct user research, gather developer feedback, and evangelize the product framework directly with engineers and potential VC investors.",
-      },
-    ],
+    locationAndPeriod: "San Diego, CA (Hybrid) | Mar 2026 – Jul 2026",
+    bullets: [],
   },
   {
     id: "affirm-swe-mgr",
     company: "Affirm",
     role: "Software Engineering Manager (L7), Merchant Advocacy",
-    locationAndPeriod: "San Diego, CA (Remote) | Mar 2025 – Feb 2026 (1 yr)",
-    timelineSubheader: "I ideated that developing a merchant referral program would improve the merchant moat (even with no approved engineering resources)",
+    locationAndPeriod: "San Diego, CA (Remote) | Mar 2025 – Feb 2026",
     bullets: [
       {
-        tag: "Program Orchestration:",
-        text: "Directed a high-pressure, 5-week strategic website revamp (affirm.com), unifying engineering, design, and product content to successfully unlock critical GMV attribution features.",
+        tag: "Top of funnel:",
+        text: "Company-scale engineering management for the affirm.com marketing surface.",
       },
       {
-        tag: "Cross-Functional Performance:",
-        text: "Facilitated engineering trade-offs throughout the revamp to optimize mobile performance, driving an incremental $500K GMV during a pre-Black-Friday/Cyber-Monday (BFCM) 2025 promotional window.",
-      },
-      {
-        tag: "First-Principles GenAI Upskilling:",
-        text: "Spearheaded organizational adoption of LLM code-generation utilities and agentic frameworks via team workshops and one-on-one's, leading to stathe merchant portal at 99.9% uptime and de-risking catostropic failure points ahead of BFCM 2025.",
-      },
-      {
-        tag: "Stakeholder Alignment:",
-        text: "Mediated and resolved complex technical conflicts across Manager, Director, and Staff+ levels by defining timelines and written architectural decisions to unblock a critical platform re-architecture. Platform re-architecture provided better domain seperation, enabling support for 99.99% uptime capabilities",
+        tag: "Merchant portal:",
+        text: "Company-scale engineering management for the enterprise B2B portal developers and merchants trust.",
       },
     ],
   },
@@ -264,20 +233,15 @@ export const experiences: ExperienceEntry[] = [
     id: "affirm-dse-mgr",
     company: "Affirm",
     role: "Developer Support Engineering Manager (L6 → L7), Partner Engineering",
-    locationAndPeriod: "San Diego, CA (Remote) | Jul 2021 – Mar 2025 (3 yrs 9 mos)",
-    timelineSubheader: "I was the backbone of service level agreement reporting and technical root cause summaries with Amazon while leading the developer support engineering team at Affirm",
+    locationAndPeriod: "San Diego, CA (Remote) | Jul 2021 – Mar 2025",
     bullets: [
       {
-        tag: "Engineering Scaling & Operations Distribution:",
-        text: "Hired and scaled the developer support engineering team from 1 to 6 engineers (eventually 9 after re-org), systemized 80% of workflows, and successfully distributed Tier-1 operational load to the operations team to focus engineering bandwidth on platform reliability and root-cause resolution.",
+        tag: "Partner engineering:",
+        text: "Company-scale engineering management for developer support and partner integrations.",
       },
       {
-        tag: "Enterprise SLA Telemetry ($100M+ & $10B+ Amazon GMV):",
-        text: "Architected automated service level agreement (SLA) reporting pipelines and technical root-cause summaries (Python, Flask, Snowflake) for strategic enterprise merchants ($100M+ GMV) and a flagship $10B+ GMV partner (Amazon), eliminating 16 hours of monthly manual overhead and securing 100% executive stakeholder alignment.",
-      },
-      {
-        tag: "Self-Service Merchant Onboarding:",
-        text: "Maintained and scaled self-service onboarding pipelines, SDK integration tooling, and paved-path documentation supporting thousands of active merchants with zero-touch developer integration.",
+        tag: "Trust store:",
+        text: "The enterprise B2B portal and the developers who integrate it.",
       },
     ],
   },
@@ -285,12 +249,11 @@ export const experiences: ExperienceEntry[] = [
     id: "affirm-dse",
     company: "Affirm",
     role: "Developer Support Engineer (L4 → L5), Partner Engineering",
-    locationAndPeriod: "San Francisco, CA (Hybrid) | Sept 2019 – Jul 2021 (1 yr 11 mos)",
-    timelineSubheader: "Resolved over 300 merchant integration issue tickets at the beginning of my time with Affirm",
+    locationAndPeriod: "San Francisco, CA (Hybrid) | Sep 2019 – Jul 2021",
     bullets: [
       {
-        tag: "Technical Translation & Liaison:",
-        text: "Served as the primary technical point of contact for SMB merchants; established the foundation for data-driven developer advocacy by diagnosing B2B integration bugs, developing ETL pipleines for easier ad-hoc analysis of e-commerce platform issue themes, and translating them into actionable platform solutions to reduce partner churn.",
+        tag: "Partner surface:",
+        text: "Developer-facing merchant integration support.",
       },
     ],
   },
@@ -298,57 +261,22 @@ export const experiences: ExperienceEntry[] = [
     id: "galvanize-lead-swe",
     company: "Galvanize Inc",
     role: "Lead Software Engineering Immersive Resident",
-    locationAndPeriod: "San Francisco, CA (Hybrid) | May 2019 – Aug 2019 (4 mos)",
-    bullets: [
-      {
-        tag: "Developer Onboarding:",
-        text: "Mentored a cohort of ~20 incoming Hack Reactor students, guiding them through practical JavaScript application development, Git/GitHub best practices, and foundational developer workflows.",
-      },
-      {
-        tag: "Empathetic Code Review:",
-        text: "Managed multi-repo grading and delivered constructive code reviews, building psychological safety and technical confidence for career transitioners entering the industry.",
-      },
-    ],
+    locationAndPeriod: "San Francisco, CA | May 2019 – Aug 2019",
+    bullets: [],
   },
   {
     id: "tech-interactive",
     company: "The Tech Interactive",
     role: "Gallery Programs Specialist → Experience Development Specialist & Prototyping Studio Coordinator",
-    locationAndPeriod: "San Jose, CA (On-site) | May 2017 – Jan 2019 (1 yr 9 mos)",
-    bullets: [
-      {
-        tag: "Partner Engineering & Curriculum Design:",
-        text: "Partnered directly with Google to design and launch hands-on data literacy workshops (e.g., 'Toy Tops'), introducing data and hardware concepts utilizing mobile accelerometers and sensor APIs.",
-      },
-      {
-        tag: "Cross-Functional Prototyping:",
-        text: "Collaborated with a Staff Engineer and exhibit designers to prototype and run UX-research for a sustainability-focused city exhibit, combining 3D-printed models, graphical projection mapping, and research-backed prompts for musueum guests to engage with. Insights from the research were incorporated into the final exhibit design.",
-      },
-      {
-        tag: "Creative Automation & Community:",
-        text: "Engineered generative digital signage using JavaScript (p5.js) to automate daily workshop scheduling. Awarded the 'Monthly Innovator Award' for spearheading cross-departmental skill-sharing.",
-      },
-    ],
+    locationAndPeriod: "San Jose, CA | May 2017 – Jan 2019",
+    bullets: [],
   },
   {
     id: "computer-history-museum",
     company: "Computer History Museum",
     role: "Workshop Instructor, Education Programs → Design Code Build Instructor",
-    locationAndPeriod: "Mountain View, CA (On-site) | Mar 2017 – Nov 2018 (1 yr 9 mos)",
-    bullets: [
-      {
-        tag: "Community Event Orchestration:",
-        text: "Engaged with event attendees and volunteers for large-scale 'Design Code Build' events, introducing Silicon Valley families and Title I students to software engineering.",
-      },
-      {
-        tag: "Hardware & Software Integration:",
-        text: "Guided diverse groups of students across varying developmental levels through cross-disciplinary engineering exercises, blending physical builds (Rube Goldberg machines) with custom software triggers",
-      },
-      {
-        tag: "Inclusive Technical Storytelling:",
-        text: "Delivered engaging, real-time presentations and guided tours on the history of computing to large groups (10 - 20), dynamically adapting complex concepts based on the room's baseline knowledge and integrating insights from industry veterans in attendance.",
-      },
-    ],
+    locationAndPeriod: "Mountain View, CA | Mar 2017 – Nov 2018",
+    bullets: [],
   },
 ];
 
@@ -437,8 +365,7 @@ export const professionalExperience: ExperienceItem[] = experiences.map((e) => {
   };
 });
 
-export const visionText =
-  "To elevate the creative and financial position of software developers through education, in-person connection, and psychological safety.";
+export const visionText = FORMATION_SUMMARY;
 
 export type ResumeModuleType =
   | "header"
@@ -462,26 +389,24 @@ export const deckSections: Record<string, DeckSectionData> = {
     slideNumber: "01",
     category: "THESIS & VISION",
     headline: "The Developer Opportunity",
-    summary:
-      "Elevating the creative and financial position of software developers through education, in-person connection, and creating safe spaces to build.",
+    summary: FORMATION_SUMMARY,
     theme: "green",
   },
   "deck-section-venture": {
     id: "deck-section-venture",
     slideNumber: "02",
-    category: "0-TO-1 VENTURE & TRACTION",
-    headline: "Product Creation & Early Signal",
-    summary:
-      "Rapid prototyping, progressive web apps, acquiring initial paying users, and multi-city customer discovery (NYC, SF, LA).",
+    category: "FOUNDER / DEVX",
+    headline: "Beginner, dates only",
+    summary: "Founder, Beginner Work Inc. Mar 2026 – Jul 2026.",
     theme: "yellow",
   },
   "deck-section-scale": {
     id: "deck-section-scale",
     slideNumber: "03",
-    category: "SCALE & PLATFORM GOVERNANCE",
-    headline: "Engineering Leadership & $10B+ Scale",
+    category: "COMPANY-SCALE EM",
+    headline: "Affirm carries the experience",
     summary:
-      "Directing high-pressure website revamps (+$500K GMV), scaling SRE support teams 1→6, and securing 99.99% platform reliability.",
+      "Company-scale engineering management for top-of-funnel marketing and the enterprise merchant portal.",
     theme: "blue",
   },
   "deck-section-ecosystem": {
@@ -490,7 +415,7 @@ export const deckSections: Record<string, DeckSectionData> = {
     category: "ECOSYSTEM & ADVOCACY",
     headline: "Developer Relations & Paved Paths",
     summary:
-      "Enterprise merchant advocacy across $10B+ partner portfolios, Google IoT workshops, immersive coding mentorship, and community architecture.",
+      "Developer-facing partner support, then beginner and DevX inside educational institutions.",
     theme: "red",
   },
   "deck-section-foundations": {

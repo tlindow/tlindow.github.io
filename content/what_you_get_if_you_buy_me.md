@@ -41,7 +41,7 @@ Great engineering leaders don't just solve problems; they eliminate classes of p
 
 **Proof in Practice:**
 - 📄 [The Rebuild Intuition: When to Stop Patching Technical Debt and Start Sculpting](./essays/the-rebuild-intuition.md)
-- 📄 [Building Product as System Architecture: Merchant Lifecycle Orchestrator & MCP-Ready Systems](./essays/building-product-as-system-architecture.md)
+- 📄 [Building Product as System Architecture: Merchant Lifecycle Orchestrator](./essays/building-product-as-system-architecture.md)
 
 ---
 

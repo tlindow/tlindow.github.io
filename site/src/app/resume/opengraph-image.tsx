@@ -3,7 +3,8 @@ import fs from "fs";
 import path from "path";
 
 export const dynamic = "force-static";
-export const alt = "Resume — Tyler Lindow (Fintech Engineering & Product)";
+export const alt =
+  "Story — Tyler Lindow (Engineering Manager — Fintech Platform & 0→1 | Ex-Founder | Relocating to Seattle, WA)";
 export const size = {
   width: 1200,
   height: 630,
@@ -55,15 +56,16 @@ export default async function Image() {
           </h1>
           <p
             style={{
-              fontSize: "30px",
-              fontWeight: "700",
-              color: "#4F46E5",
-              fontFamily: "monospace",
-              letterSpacing: "-0.02em",
-              margin: 0,
-            }}
-          >
-            Resume — Fintech Engineering &amp; Product
+                fontSize: "28px",
+                fontWeight: "700",
+                color: "#4F46E5",
+                fontFamily: "monospace",
+                letterSpacing: "-0.02em",
+                margin: 0,
+                lineHeight: 1.25,
+              }}
+            >
+            Engineering Manager — Fintech Platform & 0→1 | Ex-Founder | Relocating to Seattle, WA
           </p>
         </div>
 

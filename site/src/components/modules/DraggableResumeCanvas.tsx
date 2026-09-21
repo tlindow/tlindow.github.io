@@ -184,7 +184,7 @@ ${resumeContact.phone} | ${resumeContact.email}
             <GripVertical size={15} />
           </span>
           <span className="text-[#202124] font-bold text-sm">
-            {deckViewMode === "tied-deck" ? "Google Deck Stack" : "Resume Modules"}
+            {deckViewMode === "tied-deck" ? "Story stack" : "Story modules"}
           </span>
           <span className="text-[#DADCE0] select-none">•</span>
           <span>
@@ -365,10 +365,10 @@ ${resumeContact.phone} | ${resumeContact.email}
             type="button"
             onClick={handlePrint}
             className="inline-flex items-center gap-2 rounded-full bg-[#1A73E8] text-white hover:bg-[#1557B0] active:bg-[#174EA6] px-6 py-3 text-xs sm:text-sm font-mono font-bold shadow-xs transition-all cursor-pointer border border-[#1A73E8] hover:shadow-md active:scale-[0.98]"
-            title="Download or print reordered cards as PDF"
+            title="Print this story"
           >
             <Download size={15} />
-            <span>Download as PDF</span>
+            <span>Print story</span>
           </button>
 
           {/* Secondary Google Outlined Button */}
@@ -376,7 +376,7 @@ ${resumeContact.phone} | ${resumeContact.email}
             type="button"
             onClick={handleCopyMarkdown}
             className="inline-flex items-center gap-1.5 rounded-full bg-[#FFFFFF] hover:bg-[#F1F3F4] text-[#202124] border border-[#DADCE0] px-5 py-3 text-xs font-mono font-medium transition-colors cursor-pointer shadow-2xs"
-            title="Copy dynamically generated Markdown in this exact order"
+            title="Copy this story as markdown"
           >
             {copiedMd ? (
               <>
@@ -386,7 +386,7 @@ ${resumeContact.phone} | ${resumeContact.email}
             ) : (
               <>
                 <Copy size={14} className="text-[#5F6368]" />
-                <span>Copy .md</span>
+                <span>Copy story</span>
               </>
             )}
           </button>
@@ -409,15 +409,6 @@ ${resumeContact.phone} | ${resumeContact.email}
             className="hover:text-[#1A73E8] transition-colors"
           >
             GitHub
-          </a>
-          <span>&bull;</span>
-          <a
-            href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/llms.txt`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[#1A73E8] transition-colors"
-          >
-            /llms.txt
           </a>
         </div>
       </footer>

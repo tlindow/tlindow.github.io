@@ -39,7 +39,7 @@ export interface BlogPost {
 
 const defaultAuthor = {
   name: "Tyler Lindow",
-  role: "Fintech Product & Engineering",
+    role: "Engineering Manager — Fintech Platform & 0→1 | Ex-Founder",
   avatar: "/IMG_0548.jpeg",
   handle: "@tlindow",
   linkedin: "https://www.linkedin.com/in/tlindow",
@@ -54,7 +54,7 @@ export const blogPosts: BlogPost[] = [
     pillarLabel: "B2B Fintech Case Study",
     title: "Marketing as Engineering Leadership",
     subtitle:
-      "Treating top-of-funnel marketing as a core engineering discipline—leading the affirm.com revamp to unify web and mobile conversion, driving $500K in GMV through perseverance and team focus.",
+      "Treating top-of-funnel marketing as engineering leadership — the affirm.com revamp, where engineering and marketing shared one conversion surface.",
     date: "2026-09-11",
     readTime: "2 min read",
     author: defaultAuthor,
@@ -106,7 +106,7 @@ export const blogPosts: BlogPost[] = [
     pillarLabel: "B2B Fintech Case Study",
     title: "Building Product as System Architecture",
     subtitle:
-      "System architecture, along with any technical debt work, is always an act of building the core product—orchestrating 99.99% availability and MCP-ready intelligent routing.",
+      "System architecture is an act of building the core product — the merchant lifecycle work that keeps the portal able to earn trust.",
     date: "2026-09-11",
     readTime: "3 min read",
     author: defaultAuthor,
@@ -114,11 +114,11 @@ export const blogPosts: BlogPost[] = [
       "System Architecture",
       "Product Engineering",
       "Affirm",
-      "MCP",
+      "Merchant Portal",
       "Reliability",
     ],
     summary:
-      "In September of 2025, I took the lead to bring more cohesion across the merchant engineering organization at Affirm to develop the merchant lifecycle orchestrator deployable target as part of a multi-year effort to lay the groundwork for 99.99% availability.",
+      "In September of 2025, I took the lead to bring more cohesion across the merchant engineering organization at Affirm to develop the merchant lifecycle orchestrator deployable target, as groundwork toward a 99.99% availability target.",
     previewText:
       "Building system architecture is too often seen as simply a requirement to appease enterprise customers. System architecture, along with any technical debt work, is always an act of building the core product.",
     slides: [
@@ -132,7 +132,7 @@ export const blogPosts: BlogPost[] = [
         id: 2,
         slideNumber: "02/03",
         quote:
-          "By December of 2025, we had laid the groundwork for an MCP-ready implementation of the architecture to further product-led growth.",
+          "By December of 2025, we had director sign-off on the architecture: groundwork toward a 99.99% availability target.",
       },
       {
         id: 3,
@@ -142,8 +142,8 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     content: [
-      `In September of 2025, I took the lead to bring more cohesion across the merchant engineering organization at Affirm to develop the merchant lifecycle orchestrator deployable target as part of a multi-year effort to lay the groundwork for 99.99% availability across the application suite.`,
-      `By December of 2025, we had not only developed the technical architecture, with sign-off from our senior directors, but we had also laid the groundwork for an MCP-ready implementation of the architecture. This intelligent routing layer would reduce team dependencies and put us in a position to further product-led growth for merchant onboarding.`,
+      `In September of 2025, I took the lead to bring more cohesion across the merchant engineering organization at Affirm to develop the merchant lifecycle orchestrator deployable target, as groundwork toward a 99.99% availability target.`,
+      `By December of 2025, we had developed the technical architecture, with sign-off from our senior directors: groundwork toward a 99.99% availability target. That work reduced team dependencies and put us in a position to further product-led growth for merchant onboarding.`,
       `As the engineering manager overseeing this program, I set up working meetings with four separate teams to enable our tech lead to see around architectural corners only the other tech leads would know about (e.g., are we choosing to consolidate this endpoint or will it become deprecated in a future build?). I also set up kickoff and close meetings with upward and peer leadership to say, "Work with us! And if you are too busy, tell us."`,
       `Building system architecture is too often seen as simply a requirement to appease the high standards of enterprise customers. System architecture, along with any technical debt work, is always an act of building the core product.`,
       `"Are our systems fast enough to get hesitant users to think, 'that was easy' and go tell their friends?"`,
@@ -162,7 +162,7 @@ export const blogPosts: BlogPost[] = [
     pillarLabel: "01 Methodical & Empathetic",
     title: "B2B Portals as Trust Stores",
     subtitle:
-      "Transforming legacy merchant portals into resilient trust stores—standing up Velocity Labs to eliminate recurring incidents, sustain 99.9% availability for Intuit scale, and unlock AI-driven agility.",
+      "Merchant portals as trust stores. Velocity Labs gave the team a practice for clearing recurring incidents and keeping the enterprise portal trustworthy.",
     date: "2026-09-11",
     readTime: "3 min read",
     author: defaultAuthor,
@@ -198,7 +198,7 @@ export const blogPosts: BlogPost[] = [
     ],
     content: [
       `In September of 2025, I implemented Velocity Labs for my team in order to manage new and ongoing production incidents occurring on our legacy platform every week and provide ourselves a chance to develop revenue-driving software for Affirm in the new year.`,
-      `Over the span of that quarter, we achieved 99.9% availability (up from as low as 99.7%) and worked through what must have been 10 production incidents (one of them being a blocker to launch with hundreds of thousands of new merchants with Intuit), all while managing the collaborative effort to revamp the backend architecture of the merchant portal and lay the groundwork for consistently achieving 99.99% availability as part of a multi-year program.`,
+      `Over the span of that quarter, we achieved 99.9% availability (up from as low as 99.7%) and worked through what must have been 10 production incidents (one of them being a blocker to launch with hundreds of thousands of new merchants with Intuit), all while managing the collaborative effort to revamp the backend architecture of the merchant portal and laying groundwork toward a 99.99% availability target.`,
       `Velocity Labs had a simple objective: get engineers on my team developing more with less, and embracing AI-driven development. Coupled with 1:1s with each of my direct reports, we did the work required to work effectively with AI and change our mindsets from "I can't, I'm still fixing this bug" to "I think we can actually get this done in two days." And I did this by going to San Francisco for two weeks, changing my mental model for how AI works under the hood, and learning that AI is about organizational intelligence. The reason we weren't getting as much done before wasn't because we had adopted a brittle legacy system; it was because, organizationally, we did not have a growth mindset.`,
       `Shortly before departing Affirm, I initially gained traction with engineers in the larger org to talk about how we could find new ways to grow the engineering practice using AI. And as part of a company-wide AI Paved Paths week, I started to develop an idea for an application that would allow Affirm to expand its merchant platform for in-store mobile use, managed by merchant users.`,
       `I'll end with this:`,
