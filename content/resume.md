@@ -11,7 +11,7 @@ Relocating to Seattle, WA
 
 Fintech engineering manager with 7+ years at Affirm across Partner Engineering, merchant onboarding, and marketing products. Owned Merchant Portal and affirm.com for the 500,000+ merchant portfolio. Scaled developer-support engineering from 1 to 9 and protected Amazon ($10B+ GMV) and $100M+ merchant accounts.
 
-Cuts operational toil and grows engineers against hiring and promotion bars. Targeting Engineering Manager / Senior EM in Seattle fintech (payments, platform/DevX, partner integrations).
+I cut operational toil with automation and develop engineers against clear hiring and promotion bars. Targeting Engineering Manager / Senior EM in Seattle fintech (payments, platform/DevX, partner integrations).
 
 ---
 
@@ -25,7 +25,7 @@ Cuts operational toil and grows engineers against hiring and promotion bars. Tar
 
 *San Diego, CA (Hybrid) | Mar 2026 – Jul 2026*
 
-- **Close-out:** Led discovery, React/Next.js engineering, and GTM for a fundraising pitch simulator. 10+ product-testing interviews; community/network of 20+ engineers (SoCal, NYC, SF). A handful of users paid $9/mo for one month. Closed at incorporation when the funding cycle was longer than anticipated.
+- **Close-out:** Built and shipped a fundraising pitch simulator (React/Next.js)—led discovery, engineering, and GTM. Ran 10+ product-testing interviews and grew a 20+ engineer community across SoCal, NYC, and SF. Closed at incorporation when the funding cycle was longer than anticipated; early paid usage at $9/mo validated willingness to pay before close-out.
 
 
 
@@ -35,7 +35,7 @@ Cuts operational toil and grows engineers against hiring and promotion bars. Tar
 
 - **Scope:** Managed 6 software engineers across Product, Design, and Content initiatives; owned affirm.com and Merchant Portal (React, TypeScript) serving SMB/ecommerce-integration merchants, including native onboarding onto Affirm’s payment method via API.
 - **Checkout funnel (affirm.com):** Directed a 5-week revamp of affirm.com (~1M monthly viewers)—native customer onboarding funnels and mobile conversion. Attributed **$500K incremental GMV** to that launch in a 3-day pre-BFCM 2025 window.
-- **Velocity Labs → stability:** Recurring weekly Merchant Portal incidents. Instituted weekly Velocity Labs (AI-tooling upskill for the team). Availability 99.7% → 99.9% in one quarter; remaining incident load cleared, including unblocking an Intuit launch covering hundreds of thousands of new merchants.
+- **Velocity Labs → stability:** Recurring weekly Merchant Portal incidents. Ran weekly Velocity Labs so the team used AI tooling to diagnose and clear portal defects faster; availability rose 99.7% → 99.9% in one quarter. Remaining incident load cleared, including unblocking an Intuit launch covering hundreds of thousands of new merchants.
 - **Tradeoff — domain decoupling:** Mediated RFCs and system design across Staff+, Directors, and four merchant-engineering teams; chose to decouple service boundaries and drop an unintended dashboard feature rather than force a database migration. Director-signed merchant lifecycle architecture by Dec 2025 as groundwork for 99.99% availability.
 
 
