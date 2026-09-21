@@ -11,7 +11,6 @@ Relocating to Seattle, WA
 
 Fintech engineering manager with 7+ years at Affirm across Partner Engineering, merchant onboarding, and marketing products. Owned Merchant Portal and affirm.com for the 500,000+ merchant portfolio. Scaled developer-support engineering from 1 to 9 and protected Amazon ($10B+ GMV) and $100M+ merchant accounts.
 
-<!-- TODO(Nova nice): Trim Summary paragraph 2 further  - this looks good to me? Seems already trimmed -->
 Cuts operational toil and grows engineers against hiring and promotion bars. Targeting Engineering Manager / Senior EM in Seattle fintech (payments, platform/DevX, partner integrations).
 
 ---
@@ -26,7 +25,6 @@ Cuts operational toil and grows engineers against hiring and promotion bars. Tar
 
 *San Diego, CA (Hybrid) | Mar 2026 – Jul 2026*
 
-<!-- TODO(Nova): Tighten Founder|Beginner further — shorter, factual, build/learn close-out; keep interviews vs community/network distinct; handful paid $9 one month; intentional close-out. - similar, seems pretty tight already, would be open to exact wording -->
 - **Close-out:** Led discovery, React/Next.js engineering, and GTM for a fundraising pitch simulator. 10+ product-testing interviews; community/network of 20+ engineers (SoCal, NYC, SF). A handful of users paid $9/mo for one month. Closed at incorporation when the funding cycle was longer than anticipated.
 
 
@@ -37,8 +35,7 @@ Cuts operational toil and grows engineers against hiring and promotion bars. Tar
 
 - **Scope:** Managed 6 software engineers across Product, Design, and Content initiatives; owned affirm.com and Merchant Portal (React, TypeScript) serving SMB/ecommerce-integration merchants, including native onboarding onto Affirm’s payment method via API.
 - **Checkout funnel (affirm.com):** Directed a 5-week revamp of affirm.com (~1M monthly viewers)—native customer onboarding funnels and mobile conversion. Attributed **$500K incremental GMV** to that launch in a 3-day pre-BFCM 2025 window.
-<!-- TODO(Nova): Shorten Velocity Labs→stability bullet — keep recurring incidents → Velocity Labs (define in one clause, existing 6 not headcount) → 99.7%→99.9% + Intuit blocker cleared. -->
-- **Velocity Labs → stability:** Recurring weekly Merchant Portal incidents. Instituted weekly Velocity Labs (AI-tooling upskill for the team). Availability 99.7% → 99.9% in one quarter; remaining incident load cleared, including a unblocking an Intuit launch covering hundreds of thousands of new merchants.
+- **Velocity Labs → stability:** Recurring weekly Merchant Portal incidents. Instituted weekly Velocity Labs (AI-tooling upskill for the team). Availability 99.7% → 99.9% in one quarter; remaining incident load cleared, including unblocking an Intuit launch covering hundreds of thousands of new merchants.
 - **Tradeoff — domain decoupling:** Mediated RFCs and system design across Staff+, Directors, and four merchant-engineering teams; chose to decouple service boundaries and drop an unintended dashboard feature rather than force a database migration. Director-signed merchant lifecycle architecture by Dec 2025 as groundwork for 99.99% availability.
 
 
@@ -50,10 +47,8 @@ Cuts operational toil and grows engineers against hiring and promotion bars. Tar
 - **Org design:** Promoted L6→L7. Built the developer-support engineering team from 1 to 9 through hiring and absorbing engineers from other teams. Shifted Tier-1/Tier-2 load to operations so engineers owned platform reliability.
 - **Promotions:** Weekly 1:1s and monthly career-growth reviews. Promoted a junior engineer to intermediate in ~1 year, then from support into product-building engineering; supported a second engineer’s promotion cycle.
 - **Partner APIs & payments:** Owned technical operations and SLA reliability for strategic merchant accounts ($100M+ GMV) and Affirm’s flagship partner (Amazon, $10B+ GMV)—merchant checkout / confirmation-flow integrations via partner REST APIs and webhooks.
-<!-- TODO(Nova nice): Collaboration&Triage — sharpen outcome -->
-- **Collaboration & Triage:** Maintained self-serve merchant onboarding, SDK tooling, and paved-path docs alongside Sales Engineers, Technical Writers, and E-Commerce Plugin Products Engineering; collaboration with the owning teams provided accurate availbility projections for account management teams to sign $100M+ GVM merchant partners and verified e-commerce plugin workarounds so that operations teams could resolve previous technical issues in the same day.
-<!-- TODO(Nova): Observability — NO invented after detection-time. Either waive this Nova nit OR tighten ending without a fake number (e.g. dashboards/alerts made merchant-scoped outages visible sooner). Do not invent MTTR/after minutes. -->
-- **SLA telemetry & observability:** Architected automated SLA reporting and root-cause summaries (Python, Flask, Snowflake), eliminating 16 hours/month of toil and systemizing 80% of workflows. Merchant-specific outages ranged from 20 minutes to 2 hours; worked with observability to index more merchant IDs, create dashboards, and set alerts so merchant-scoped outages became visible with 5 - 15 minutes for higher-volume merchants.
+- **Collaboration & Triage:** Maintained self-serve merchant onboarding, SDK tooling, and paved-path docs with Sales Engineers, Technical Writers, and E-Commerce Plugin Products Engineering. Collaboration with owning teams produced accurate availability projections so account management could sign $100M+ GMV merchant partners, and verified e-commerce plugin workarounds so operations could resolve prior technical issues the same day.
+- **SLA telemetry & observability:** Architected automated SLA reporting and root-cause summaries (Python, Flask, Snowflake), eliminating 16 hours/month of toil and systemizing 80% of workflows. Merchant-specific outages ranged from 20 minutes to 2 hours; worked with observability to index more merchant IDs, create dashboards, and set alerts so merchant-scoped outages became visible within 5–15 minutes for higher-volume merchants.
 
 
 
@@ -94,12 +89,10 @@ Cuts operational toil and grows engineers against hiring and promotion bars. Tar
 
 ## Education
 
-<!-- TODO(Nova nice): Consider consolidating Education lines -->
-- **Deep Atlas** | Applied AI & ML residency *(San Francisco, CA & Remote)*
 - **Northwestern University** | Learning Sciences graduate coursework *(Evanston, IL)*
-- **Olin College of Engineering** | SEER (Summer Engineering Education Research) *(Needham, MA)*
-- **Hack Reactor** | Advanced Software Engineering Immersive *(San Francisco, CA)*
 - **University of California, San Diego** | B.S. NanoEngineering, *Cum Laude* *(La Jolla, CA)*
+- **Software engineering:** Hack Reactor Advanced Software Engineering Immersive; Deep Atlas Applied AI & ML residency
+- Additional: Olin College of Engineering SEER (Summer Engineering Education Research)
 
 ---
 
