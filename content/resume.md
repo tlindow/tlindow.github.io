@@ -25,7 +25,7 @@ Targeting Engineering Manager / Senior EM in Seattle fintech (payments, platform
 
 *San Diego, CA (Hybrid) | Mar 2026 – Jul 2026*
 
-- Shipped a 0→1 fundraising pitch simulator (React/Next.js)—28 users logged in, 14 paid ≥$1 (incl. one $9/mo), 92 in-person conversations (5 VCs), and 6 attendees across 2 events; led discovery through GTM in four months.
+- Shipped and owned a 0→1 fundraising pitch simulator (React/Next.js)—led discovery through GTM in four months. Traction: 28 logged-in users, 14 paid ≥$1 (incl. one $9/mo), 92 in-person conversations (5 VCs), 6 attendees across 2 events.
 
 
 
@@ -44,7 +44,7 @@ Targeting Engineering Manager / Senior EM in Seattle fintech (payments, platform
 
 *San Diego, CA (Remote) | Jul 2021 – Mar 2025*
 
-- **Org design:** Promoted L6→L7. Grew developer-support engineering from 1 to 9; owned interview rubrics and early-team hiring decisions. Shifted Tier-1/Tier-2 load to operations so engineers owned platform reliability.
+- **Org design:** Promoted L6→L7. Grew the developer-support engineering function from 1 to 9 engineers; owned interview rubrics and early-team hiring decisions. Shifted Tier-1/Tier-2 load to operations so engineers owned platform reliability.
 - **Promotions:** Weekly 1:1s and monthly career-growth reviews. Promoted a junior engineer to intermediate in ~1 year, then from support into product-building engineering; supported a second engineer’s promotion cycle.
 - **Partner APIs & payments:** Owned technical operations and SLA reliability for strategic merchant accounts ($100M+ GMV) and Affirm’s flagship partner (Amazon, $10B+ GMV)—merchant checkout / confirmation-flow integrations via partner REST APIs and webhooks.
 - **Collaboration — GMV signings:** With Sales Engineers, Technical Writers, and plugin partners, produced availability projections that let account management sign $100M+ GMV merchants.
