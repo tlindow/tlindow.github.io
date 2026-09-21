@@ -57,6 +57,7 @@ export function parseResumeMarkdown(markdownText: string): ParsedResume {
   let currentExp: Partial<ExperienceItem> | null = null;
 
   // Header parsing (top lines)
+  let sawExplicitLocation = false;
   for (let i = 0; i < Math.min(lines.length, 15); i++) {
     const line = lines[i].trim();
     if (line.startsWith("# ")) {
@@ -94,9 +95,16 @@ export function parseResumeMarkdown(markdownText: string): ParsedResume {
           contact.relocation = part;
         } else if (part.includes(",") || part.toLowerCase().includes("diego") || part.toLowerCase().includes("seattle") || part.toLowerCase().includes("francisco")) {
           contact.location = part;
+          sawExplicitLocation = true;
         }
       }
     }
+  }
+
+  // When the header's only place line is "Relocating to …", show that once.
+  if (!sawExplicitLocation && contact.relocation) {
+    contact.location = contact.relocation;
+    contact.relocation = "";
   }
 
   // Section parsing
