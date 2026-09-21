@@ -35,7 +35,7 @@ Cuts operational toil and grows engineers against hiring and promotion bars. Tar
 
 - **Scope:** Managed 6 software engineers across Product, Design, and Content initiatives; owned affirm.com and Merchant Portal (React, TypeScript) serving SMB/ecommerce-integration merchants, including native onboarding onto Affirm’s payment method via API.
 - **Checkout funnel (affirm.com):** Directed a 5-week revamp of affirm.com (~1M monthly viewers)—native customer onboarding funnels and mobile conversion. Attributed **$500K incremental GMV** to that launch in a 3-day pre-BFCM 2025 window.
-- **Velocity Labs → stability:** Recurring weekly Merchant Portal incidents. Instituted weekly Velocity Labs (AI-tooling upskill for the existing 6, not headcount). Availability 99.7% → 99.9% in one quarter; remaining incident load cleared, including a blocker to an Intuit launch covering hundreds of thousands of new merchants.
+- **Velocity Labs → stability:** Recurring weekly Merchant Portal incidents. Instituted weekly Velocity Labs (AI-tooling upskill for the team). Availability 99.7% → 99.9% in one quarter; remaining incident load cleared, including a unblocking an Intuit launch covering hundreds of thousands of new merchants.
 - **Tradeoff — domain decoupling:** Mediated RFCs and system design across Staff+, Directors, and four merchant-engineering teams; chose to decouple service boundaries and drop an unintended dashboard feature rather than force a database migration. Director-signed merchant lifecycle architecture by Dec 2025 as groundwork for 99.99% availability.
 
 
@@ -47,8 +47,8 @@ Cuts operational toil and grows engineers against hiring and promotion bars. Tar
 - **Org design:** Promoted L6→L7. Built the developer-support engineering team from 1 to 9 through hiring and absorbing engineers from other teams. Shifted Tier-1/Tier-2 load to operations so engineers owned platform reliability.
 - **Promotions:** Weekly 1:1s and monthly career-growth reviews. Promoted a junior engineer to intermediate in ~1 year, then from support into product-building engineering; supported a second engineer’s promotion cycle.
 - **Partner APIs & payments:** Owned technical operations and SLA reliability for strategic merchant accounts ($100M+ GMV) and Affirm’s flagship partner (Amazon, $10B+ GMV)—merchant checkout / confirmation-flow integrations via partner REST APIs and webhooks.
-- **Collaboration & Triage:** Maintained self-serve merchant onboarding, SDK tooling, and paved-path docs alongside Sales Engineers, Technical Writers, and eCommerce Plugin Products Engineering; turned integration defects into platform fixes rather than one-off merchant patches.
-- **SLA telemetry & observability:** Architected automated SLA reporting and root-cause summaries (Python, Flask, Snowflake), eliminating 16 hours/month of toil and systemizing 80% of workflows. Merchant-specific outages sometimes went unnoticed for ~1 hour; worked with observability to index more merchant IDs, create dashboards, and set alerts so merchant-scoped outages became visible sooner.
+- **Collaboration & Triage:** Maintained self-serve merchant onboarding, SDK tooling, and paved-path docs alongside Sales Engineers, Technical Writers, and E-Commerce Plugin Products Engineering; collaboration with the owning teams provided accurate availbility projections for account management teams to sign $100M+ GVM merchant partners and verified e-commerce plugin workarounds so that operations teams could resolve previous technical issues in the same day.
+- **SLA telemetry & observability:** Architected automated SLA reporting and root-cause summaries (Python, Flask, Snowflake), eliminating 16 hours/month of toil and systemizing 80% of workflows. Merchant-specific outages ranged from 20 minutes to 2 hours; worked with observability to index more merchant IDs, create dashboards, and set alerts so merchant-scoped outages became visible with 5 - 15 minutes for higher-volume merchants.
 
 
 

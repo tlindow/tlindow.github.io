@@ -102,6 +102,7 @@ export function parseResumeMarkdown(markdownText: string): ParsedResume {
   // Section parsing
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
+    if (line.startsWith("<!--")) continue;
 
     if (line.startsWith("## Vision") || line.startsWith("## Summary")) {
       currentSection = "vision";
@@ -242,7 +243,10 @@ export function parseResumeMarkdown(markdownText: string): ParsedResume {
   }
 
   return {
-    rawMarkdown: markdownText,
+    rawMarkdown: markdownText
+      .split("\n")
+      .filter((line) => !line.trim().startsWith("<!--"))
+      .join("\n"),
     contact,
     summaryTitle,
     visionText,

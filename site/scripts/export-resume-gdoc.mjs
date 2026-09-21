@@ -197,8 +197,8 @@ function convertToGoogleDocHtml(markdown) {
     const rawLine = lines[i];
     const line = rawLine.trim();
 
-    if (!line) {
-      if (inList) {
+    if (!line || line.startsWith("<!--")) {
+      if (inList && !line) {
         html += `</ul>\n`;
         inList = false;
       }
@@ -424,7 +424,14 @@ async function main() {
   }
 
   fs.writeFileSync(options.outHtml, htmlContent, "utf-8");
-  fs.writeFileSync(options.outMd, markdown, "utf-8");
+  fs.writeFileSync(
+    options.outMd,
+    markdown
+      .split("\n")
+      .filter((line) => !line.trim().startsWith("<!--"))
+      .join("\n"),
+    "utf-8",
+  );
 
   console.log(`✅ Generated HTML Google Doc format: ${options.outHtml}`);
   console.log(`✅ Generated Clean Markdown format:   ${options.outMd}`);
