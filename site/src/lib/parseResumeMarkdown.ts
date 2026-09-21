@@ -32,7 +32,7 @@ export function parseResumeMarkdown(markdownText: string): ParsedResume {
 
   const contact: ContactInfo = {
     name: "Tyler Lindow",
-    title: "Fintech Engineering & Product",
+    title: "Engineering Manager — Fintech Platform, DevX & Partner Integrations",
     subtitle: "B2B SaaS on curiosity-safe, GenAI Rails",
     location: "San Diego, CA",
     relocation: "Relocating to Seattle, WA",
