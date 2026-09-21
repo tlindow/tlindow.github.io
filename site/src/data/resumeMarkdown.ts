@@ -30,7 +30,7 @@ Ex-founder (Beginner Work Inc., 0→1). Targeting Engineering Manager / Senior E
 
 *San Diego, CA (Hybrid) | Mar 2026 – Jul 2026*
 
-- Owned 0→1 product, engineering, and GTM for a fundraising pitch simulator (React/Next.js)—led discovery through launch as sole founder over four months, including paying users.
+- Owned 0→1 product, engineering, and GTM for a fundraising pitch simulator (React/Next.js)—led discovery through launch as sole founder over four months; 28 users logged in.
 
 
 
