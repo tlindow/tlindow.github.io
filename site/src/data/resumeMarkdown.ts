@@ -14,9 +14,9 @@ Relocating to Seattle, WA
 
 ## Summary
 
-Fintech engineering manager with 7+ years at Affirm across Partner Engineering, merchant onboarding, and marketing products. Scaled developer-support engineering from 1 to 9, protected Amazon ($10B+ GMV) and $100M+ merchant accounts, and owned Merchant Portal plus affirm.com infrastructure for the 500,000+ merchant portfolio.  
+Fintech engineering manager with 7+ years at Affirm across Partner Engineering, merchant onboarding, and marketing products—a dual wedge of top-of-funnel (affirm.com / marketing products) and enterprise B2B portals (Merchant Portal / Partner Engineering). Scaled developer-support engineering from 1 to 9, protected Amazon ($10B+ GMV) and $100M+ merchant accounts, and owned Merchant Portal plus affirm.com infrastructure for the 500,000+ merchant portfolio.  
   
-I design agent-ready architectures (RPC, HTTP), cut operational toil, and grows engineers through a hiring and promotion bars. Targeting Engineering Manager / Senior EM / Director roles in Seattle fintech (payments, Bill Pay, Travel, platform/DevX).
+I design agent-ready architectures (RPC, HTTP), cut operational toil, and grow engineers against clear hiring and promotion bars. Targeting Engineering Manager / Senior EM / Director roles in Seattle fintech (payments, platform/DevX, partner integrations).
 
 ---
 
@@ -41,7 +41,7 @@ I design agent-ready architectures (RPC, HTTP), cut operational toil, and grows 
 - **Scope:** Managed 6 software engineers across Product, Design, and Content initiatives; owned affirm.com and Merchant Portal (React, TypeScript) serving 500,000+ merchants, including native onboarding onto Affirm’s payment method.
 - **Checkout funnel (affirm.com):** Directed a 5-week revamp of affirm.com (~1M monthly viewers)—native customer onboarding funnels and mobile conversion. **$500K incremental GMV** is attributed to that launch in a 3-day pre-BFCM 2025 window.
 - **Legacy incidents → Velocity Labs → stability:** Recurring weekly production incidents on legacy Merchant Portal software. Instituted weekly Velocity Labs so the existing 6 engineers could upskill in AI tooling, own more of the stack, and close incidents more thoroughly—rather than adding headcount. Effect: availability 99.7% → 99.9% in one quarter; remaining incident load cleared, including a blocker to an Intuit launch covering hundreds of thousands of new merchants.
-- **Tradeoff — domain decoupling:** Mediated RFCs and system design across Staff+, Directors, and four merchant-engineering teams; chose to decouple service boundaries and drop an unintented dashboard feature rather than force a database migration. Director-signed merchant lifecycle architecture by Dec 2025 as groundwork for 99.99% availability.
+- **Tradeoff — domain decoupling:** Mediated RFCs and system design across Staff+, Directors, and four merchant-engineering teams; chose to decouple service boundaries and drop an unintended dashboard feature rather than force a database migration. Director-signed merchant lifecycle architecture by Dec 2025 as groundwork for 99.99% availability.
 
 
 
