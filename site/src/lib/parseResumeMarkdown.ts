@@ -209,10 +209,17 @@ export function parseResumeMarkdown(markdownText: string): ParsedResume {
     } else if (currentSection === "education") {
       if (line.startsWith("* ") || line.startsWith("- ")) {
         const eduLine = line.replace(/^[\*\-]\s+/, "").trim();
+        // Formation Ready uses three shapes:
+        // **Institution** | degree *(City, ST)*
+        // **Label:** degree
+        // Label: degree
         const instMatch = eduLine.match(/^\*\*([^*]+?)\*\*\s*\|\s*(.*)$/);
-        if (instMatch) {
-          const institution = instMatch[1].trim();
-          let rest = instMatch[2].trim();
+        const labelMatch = eduLine.match(/^\*\*([^*:]+):\*\*\s*(.*)$/);
+        const plainMatch = eduLine.match(/^([^:*]+):\s+(.*)$/);
+        const matched = instMatch || labelMatch || plainMatch;
+        if (matched) {
+          const institution = matched[1].trim();
+          let rest = matched[2].trim();
           let location = "";
 
           const locMatch = rest.match(/\*\((.*?)\)\*/);
@@ -221,9 +228,14 @@ export function parseResumeMarkdown(markdownText: string): ParsedResume {
             rest = rest.replace(/\*\((.*?)\)\*/, "").trim();
           }
 
+          let degree = rest.replace(/\*([^*]+?)\*/g, "$1").replace(/\s{2,}/g, " ").trim();
+          if (location && !degree.includes(location)) {
+            degree = `${degree} (${location})`;
+          }
+
           education.push({
             institution,
-            degree: rest.replace(/\*([^*]+?)\*/g, "$1"),
+            degree,
             location,
           });
         }
