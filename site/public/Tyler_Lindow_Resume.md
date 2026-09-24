@@ -1,7 +1,7 @@
 # Tyler Lindow
 
-**Engineering Manager — Fintech Platform & 0→1 | Ex-Founder**  
-Relocating to Seattle, WA  
+**Engineering Manager | Fintech Platform & 0→1 | Ex-Founder**  
+San Diego, CA | Open to relocation  
 (650) 580-5788 | [tyler.lindow@gmail.com](mailto:tyler.lindow@gmail.com)  
 [linkedin.com/in/tlindow](https://linkedin.com/in/tlindow) | [github.com/tlindow](https://github.com/tlindow)
 
@@ -9,7 +9,7 @@ Relocating to Seattle, WA
 
 ## Summary
 
-Fintech engineering manager with 6+ years at Affirm across Partner Engineering, merchant onboarding, and marketing products. Owned Merchant Portal and affirm.com for the 500,000+ merchant portfolio; scaled developer-support engineering from 1 to 9; owned technical operations and SLA reliability for Amazon ($10B+ GMV) and $100M+ merchant accounts. Ex-founder (Beginner Work Inc.). Targeting Engineering Manager / Senior EM roles in Seattle fintech (payments, platform/DevX, partner integrations).
+Fintech engineering manager with 6+ years at Affirm across Partner Engineering, merchant onboarding, and marketing products. Owned Merchant Portal and affirm.com for the 500,000+ merchant portfolio; scaled developer-support engineering from 1 to 9; owned technical operations and SLA reliability for Amazon ($10B+ GMV) and $100M+ merchant accounts. Ex-founder (Beginner Work Inc.). Targeting Engineering Manager / Senior EM roles in fintech (payments, platform/DevX, partner integrations).
 
 ---
 
