@@ -315,10 +315,19 @@ export const blogPosts: BlogPost[] = [
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
-  if (slug === "building-teams-by-raising-funds") {
-    return blogPosts.find((p) => p.slug === "building-teams-as-raising-funds");
-  }
   return blogPosts.find((p) => p.slug === slug);
+}
+
+export function getAdjacentPosts(slug: string): {
+  previous?: BlogPost;
+  next?: BlogPost;
+} {
+  const index = blogPosts.findIndex((post) => post.slug === slug);
+  if (index < 0) return {};
+  return {
+    previous: index > 0 ? blogPosts[index - 1] : undefined,
+    next: index < blogPosts.length - 1 ? blogPosts[index + 1] : undefined,
+  };
 }
 
 export function getBlogPostByPillar(pillarId: ValuePillarId): BlogPost | undefined {

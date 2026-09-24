@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
-import { blogPosts, getBlogPostBySlug } from "@/data/blogPosts";
+import DecisionBands from "@/components/blog/DecisionBands";
+import { blogPosts, getAdjacentPosts, getBlogPostBySlug } from "@/data/blogPosts";
+import { findRedirectTarget, loadPostFrontMatter } from "@/lib/frontMatter.mjs";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -37,17 +39,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
+  const redirectTarget = findRedirectTarget(slug);
+  if (redirectTarget) {
+    redirect(`/blog/${redirectTarget}`);
+  }
+
   const post = getBlogPostBySlug(slug);
 
   if (!post) {
     notFound();
   }
 
-  const currentIndex = blogPosts.findIndex((p) => p.slug === slug);
-  const nextPost =
-    currentIndex >= 0 && currentIndex < blogPosts.length - 1
-      ? blogPosts[currentIndex + 1]
-      : blogPosts[0];
+  const bands = loadPostFrontMatter(slug);
+  const { previous, next } = getAdjacentPosts(slug);
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-indigo-light selection:text-indigo-dark font-mono flex flex-col justify-between">
@@ -81,6 +85,13 @@ export default async function BlogPostPage({ params }: Props) {
             <span>By {post.author.name}</span>
           </div>
         </header>
+
+        <DecisionBands
+          call={bands.call}
+          impact={bands.impact}
+          steps={bands.steps}
+          belief={bands.belief}
+        />
 
         {/* Full Essay Prose (Zero Box Containers, All Quotes in Purple) */}
         <article className="prose prose-neutral max-w-none font-mono space-y-6 text-foreground/90 leading-relaxed text-sm sm:text-base">
@@ -126,26 +137,34 @@ export default async function BlogPostPage({ params }: Props) {
           })}
         </article>
 
-        {/* Bottom Navigation: Back to Home & Forward to Next Post Title */}
-        <div className="mt-16 pt-8 border-t border-border flex flex-wrap items-center justify-between gap-4 text-xs font-mono">
+        <div className="mt-16 pt-8 border-t border-border flex flex-col gap-6 text-xs font-mono">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+            {previous ? (
+              <Link
+                href={`/blog/${previous.slug}`}
+                className="inline-flex items-start gap-1.5 font-bold text-foreground hover:text-indigo-dark transition-colors group sm:max-w-[46%]"
+              >
+                <ArrowLeft size={14} className="mt-0.5 shrink-0 group-hover:-translate-x-0.5 transition-transform" />
+                <span>{previous.title}</span>
+              </Link>
+            ) : null}
+            {next ? (
+              <Link
+                href={`/blog/${next.slug}`}
+                className="inline-flex items-start gap-1.5 font-bold text-foreground hover:text-indigo-dark transition-colors group sm:max-w-[46%] sm:ml-auto sm:text-right"
+              >
+                <span>{next.title}</span>
+                <ArrowRight size={14} className="mt-0.5 shrink-0 group-hover:translate-x-0.5 transition-transform" />
+              </Link>
+            ) : null}
+          </div>
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 font-bold text-indigo-dark hover:text-indigo-dark/80 transition-colors"
+            className="inline-flex items-center gap-1.5 font-bold text-indigo-dark hover:text-indigo-dark/80 transition-colors w-fit"
           >
             <ArrowLeft size={14} />
             <span>Back to home</span>
           </Link>
-
-          {nextPost && (
-            <Link
-              href={`/blog/${nextPost.slug}`}
-              className="inline-flex items-center gap-1.5 font-bold text-foreground hover:text-indigo-dark transition-colors group text-right ml-auto"
-              title={`Read next: ${nextPost.title}`}
-            >
-              <span>{nextPost.title}</span>
-              <ArrowRight size={14} className="shrink-0 group-hover:translate-x-0.5 transition-transform" />
-            </Link>
-          )}
         </div>
       </main>
     </div>
