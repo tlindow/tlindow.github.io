@@ -8,6 +8,6 @@ impact:
 steps:
   - "Led my engineers through scoping, collaboration, and execution of the affirm.com revamp, working with product, design, and copy."
   - "Built for design continuity between web and our mobile apps."
-  - "Owned the cost. It took intense focus and one too many late nights. I told the team: \"Engineers are important... and even if we are not seen for all of our efforts right now, you know what you accomplished.\""
+  - "Owned the cost. It took intense focus and one too many late nights."
 belief: "Engineering leadership is perseverance, and finding out how I lead under pressure."
 ---

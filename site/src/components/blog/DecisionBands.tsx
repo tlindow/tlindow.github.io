@@ -38,8 +38,8 @@ export default function DecisionBands({
   return (
     <div className="mb-12 space-y-8 font-mono">
       {callText ? (
-        <section aria-label="The Call" className="space-y-3">
-          <p className={labelClass}>The Call</p>
+        <section aria-label="The call" className="space-y-3">
+          <p className={labelClass}>The call</p>
           <blockquote className="border-l-4 border-indigo-dark pl-4 text-lg sm:text-xl font-medium italic leading-snug text-indigo-dark">
             {callText}
           </blockquote>
@@ -47,8 +47,8 @@ export default function DecisionBands({
       ) : null}
 
       {tiles.length > 0 ? (
-        <section aria-label="Impact strip" className="space-y-3">
-          <p className={labelClass}>Impact strip</p>
+        <section aria-label="Impact" className="space-y-3">
+          <p className={labelClass}>Impact</p>
           <div
             className={`grid grid-cols-1 gap-3 ${
               tiles.length >= 3 ? "sm:grid-cols-3" : "sm:grid-cols-2"
@@ -93,6 +93,12 @@ export default function DecisionBands({
           </p>
         </section>
       ) : null}
+
+      <div className="flex items-center gap-3 pt-2">
+        <div className="h-px w-8 shrink-0 bg-foreground/30" aria-hidden="true" />
+        <p className={`${labelClass} shrink-0`}>The full story</p>
+        <div className="h-px min-w-8 flex-1 bg-foreground/30" aria-hidden="true" />
+      </div>
     </div>
   );
 }
