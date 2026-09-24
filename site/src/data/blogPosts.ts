@@ -39,7 +39,7 @@ export interface BlogPost {
 
 const defaultAuthor = {
   name: "Tyler Lindow",
-    role: "Engineering Manager — Fintech Platform & 0→1 | Ex-Founder",
+    role: "Engineering Manager | Fintech Platform & 0→1 | Ex-Founder",
   avatar: "/IMG_0548.jpeg",
   handle: "@tlindow",
   linkedin: "https://www.linkedin.com/in/tlindow",
