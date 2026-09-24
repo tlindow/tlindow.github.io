@@ -32,9 +32,9 @@ export const knowledgeBase: KnowledgeTopic[] = [
       /what is (your|tyler's) background/i,
     ],
     summary:
-      "Tyler is a software developer, builder, and mentor based in San Diego. He transitioned into tech after doing research at the Field Museum in Chicago, where seeing an interactive terminal application sparked his obsession with building for the web.",
+      "Tyler is a software developer, builder, and mentor based in San Diego, open to relocation. He transitioned into tech after doing research at the Field Museum in Chicago, where seeing an interactive terminal application sparked his obsession with building for the web.",
     details: [
-      "Based in sunny San Diego, building modern web applications with TypeScript, React, and Next.js.",
+      "Based in sunny San Diego, open to relocation, building modern web applications with TypeScript, React, and Next.js.",
       "Loves the intersection of technology and creativity — generative art, interactive modules, and developer tooling.",
       "Passionate about AI in software, building in public, mentoring aspiring developers, and sharing lessons learned.",
     ],

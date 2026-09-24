@@ -1,7 +1,7 @@
 # Tyler Lindow
 
 **Elevating capital-tech**  
-San Diego, CA (Relocating to Seattle, WA) · [tyler.lindow@gmail.com](mailto:tyler.lindow@gmail.com) · [linkedin.com/in/tlindow](https://www.linkedin.com/in/tlindow) · [github.com/tlindow](https://github.com/tlindow)
+San Diego, CA (Open to relocation) · [tyler.lindow@gmail.com](mailto:tyler.lindow@gmail.com) · [linkedin.com/in/tlindow](https://www.linkedin.com/in/tlindow) · [github.com/tlindow](https://github.com/tlindow)
 
 ---
 
@@ -31,7 +31,7 @@ This repository is structured into three clear pillars:
 
 The live narrative is on [tlindow.github.io](https://tlindow.github.io). The working resume is maintained in Formation (Latest Ready).
 
-- **Summary:** Fintech engineering manager with 6+ years at Affirm across Partner Engineering, merchant onboarding, and marketing products. Owned Merchant Portal and affirm.com for the 500,000+ merchant portfolio; scaled developer-support engineering from 1 to 9; owned technical operations and SLA reliability for Amazon ($10B+ GMV) and $100M+ merchant accounts. Ex-founder (Beginner Work Inc.). Targeting Engineering Manager / Senior EM roles in Seattle fintech (payments, platform/DevX, partner integrations).
+- **Summary:** Fintech engineering manager with 6+ years at Affirm across Partner Engineering, merchant onboarding, and marketing products. Owned Merchant Portal and affirm.com for the 500,000+ merchant portfolio; scaled developer-support engineering from 1 to 9; owned technical operations and SLA reliability for Amazon ($10B+ GMV) and $100M+ merchant accounts. Ex-founder (Beginner Work Inc.). Targeting Engineering Manager / Senior EM roles in fintech (payments, platform/DevX, partner integrations).
 - **Beginner | Founder** — Mar 2026 – Jul 2026 (dates only on the public narrative).
 - **Affirm** carries the experience: engineering management for top-of-funnel marketing and the enterprise merchant portal, then partner engineering.
 - **About** on the site uses that Formation summary verbatim. Beginner stays dates-only on the lean narrative. Affirm carries the experience.
