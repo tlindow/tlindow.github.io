@@ -7,11 +7,11 @@ import { blogPosts } from "@/data/blogPosts";
 export const metadata: Metadata = {
   title: "Blog — Tyler Lindow",
   description:
-    "Writing from an engineering manager in fintech: Securing a $500K GMV Win, product as system architecture, and Velocity Labs: 99.9% Availability in One Quarter.",
+    "Writing from an engineering manager in fintech: securing a $500K GMV win, product as system architecture, and Velocity Labs.",
   openGraph: {
     title: "Blog — Tyler Lindow",
     description:
-      "Writing from an engineering manager in fintech: Securing a $500K GMV Win, product as system architecture, and Velocity Labs: 99.9% Availability in One Quarter.",
+      "Writing from an engineering manager in fintech: securing a $500K GMV win, product as system architecture, and Velocity Labs.",
     url: "https://tlindow.github.io/blog",
     siteName: "Tyler Lindow",
     type: "website",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Blog — Tyler Lindow",
     description:
-      "Writing from an engineering manager in fintech: Securing a $500K GMV Win, product as system architecture, and Velocity Labs: 99.9% Availability in One Quarter.",
+      "Writing from an engineering manager in fintech: securing a $500K GMV win, product as system architecture, and Velocity Labs.",
   },
 };
 

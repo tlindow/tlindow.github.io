@@ -54,7 +54,7 @@ export const blogPosts: BlogPost[] = [
     pillarLabel: "B2B Fintech Case Study",
     title: "Securing a $500K GMV Win",
     subtitle:
-      "Treating top-of-funnel marketing as engineering leadership — the affirm.com revamp, where engineering and marketing shared one conversion surface.",
+      "How I led my engineers through the affirm.com rebuild, and the additional $500K in GMV we generated in a 3-day pre-Black Friday sale.",
     date: "2026-09-11",
     readTime: "2 min read",
     author: defaultAuthor,
@@ -105,7 +105,7 @@ export const blogPosts: BlogPost[] = [
     pillarLabel: "B2B Fintech Case Study",
     title: "Building Product as System Architecture",
     subtitle:
-      "System architecture is an act of building the core product, the merchant lifecycle work that keeps the portal able to earn trust.",
+      "System architecture is an act of building the core product. This is the merchant lifecycle work that keeps the portal able to earn trust.",
     date: "2026-09-11",
     readTime: "3 min read",
     author: defaultAuthor,
@@ -137,7 +137,7 @@ export const blogPosts: BlogPost[] = [
         id: 3,
         slideNumber: "03/03",
         quote:
-          "It's not a failure to require operational support at a product- and engineering-led company—it's a necessary growth pattern for building a system that feels like a human.",
+          "Requiring operational support at a product- and engineering-led company is a necessary growth pattern for building a system that feels like a human.",
       },
     ],
     content: [
@@ -150,7 +150,7 @@ export const blogPosts: BlogPost[] = [
       `"If we have another incident, will users leave us, or will they leave us because they just didn't understand how valuable the dashboard was to them?"`,
       `In this project, I made a clear decision early on when faced with the option to tell another team to do a database migration or drop a dashboard customers found useful:`,
       `> "Drop the dashboard. The product is causing these users to do more work. And don't migrate the database. The data schemas are correct. I have found a way for our operations teams to provide this dashboard data and provide more holistic support."`,
-      `It's not a failure to require operational support at a product- and engineering-led company—it's a necessary growth pattern for building a system that feels like a human.`,
+      `Requiring operational support at a product- and engineering-led company is a necessary growth pattern for building a system that feels like a human.`,
     ],
   },
   {
@@ -161,7 +161,7 @@ export const blogPosts: BlogPost[] = [
     pillarLabel: "01 Methodical & Empathetic",
     title: "Velocity Labs: 99.9% Availability in One Quarter",
     subtitle:
-      "Merchant portals as trust stores. Velocity Labs gave the team a practice for clearing recurring incidents and keeping the enterprise portal trustworthy.",
+      "Velocity Labs gave my team a practice for working through production incidents on our legacy platform and embracing AI-driven development.",
     date: "2026-09-11",
     readTime: "3 min read",
     author: defaultAuthor,
@@ -198,7 +198,7 @@ export const blogPosts: BlogPost[] = [
     content: [
       `In September of 2025, I implemented Velocity Labs for my team in order to manage new and ongoing production incidents occurring on our legacy platform every week and provide ourselves a chance to develop revenue-driving software for Affirm in the new year.`,
       `Over the span of that quarter, we achieved 99.9% availability (up from as low as 99.7%) and worked through what must have been 10 production incidents (one of them being a blocker to launch with hundreds of thousands of new merchants with Intuit), all while managing the collaborative effort to revamp the backend architecture of the merchant portal.`,
-      `Velocity Labs had a simple objective: get engineers on my team developing more with less, and embracing AI-driven development. Coupled with 1:1s with each of my direct reports, we did the work required to work effectively with AI and change our mindsets from "I can't, I'm still fixing this bug" to "I think we can actually get this done in two days." And I did this by going to San Francisco for two weeks, changing my mental model for how AI works under the hood, and learning that AI is about organizational intelligence. The reason we weren't getting as much done before wasn't because we had adopted a brittle legacy system; it was because, organizationally, we did not have a growth mindset.`,
+      `Velocity Labs had a simple objective: get engineers on my team developing more with less, and embracing AI-driven development. Coupled with 1:1s with each of my direct reports, we did the work required to work effectively with AI and change our mindsets from "I can't, I'm still fixing this bug" to "I think we can actually get this done in two days." And I did this by going to San Francisco for two weeks, changing my mental model for how AI works under the hood, and learning that AI is about organizational intelligence. Even with a brittle legacy system, the reason we weren't getting as much done before was organizational. We did not have a growth mindset.`,
       `Shortly before departing Affirm, I initially gained traction with engineers in the larger org to talk about how we could find new ways to grow the engineering practice using AI. And as part of a company-wide AI Paved Paths week, I started to develop an idea for an application that would allow Affirm to expand its merchant platform for in-store mobile use, managed by merchant users.`,
       `I'll end with this:`,
       `> "The intelligence age is helping us move faster, but the real gains in adopting AI technology will help us unlock products that make it easy to try new things and extend trust with customers."`,
@@ -212,7 +212,7 @@ export const blogPosts: BlogPost[] = [
     pillarLabel: "01 Methodical & Empathetic",
     title: "Building Teams as Raising Funds",
     subtitle:
-      "Raising funds for your position requires an intentional process, building teams by raising the funding potential of individuals and constructing a personal belief to grow the business.",
+      "Raising funds for your position requires an intentional process: building teams by raising the funding potential of individuals and constructing a personal belief to grow the business.",
     date: "2026-09-11",
     readTime: "2 min read",
     author: defaultAuthor,

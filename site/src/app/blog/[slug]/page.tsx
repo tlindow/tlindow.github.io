@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${post.title} — Tyler Lindow`,
+    title: `${post.title} | Tyler Lindow`,
     description: post.summary,
     openGraph: {
       title: post.title,
@@ -152,6 +152,7 @@ export default async function BlogPostPage({ params }: Props) {
               <Link
                 href={`/blog/${next.slug}`}
                 className="inline-flex items-start gap-1.5 font-bold text-foreground hover:text-indigo-dark transition-colors group sm:max-w-[46%] sm:ml-auto sm:text-right"
+                title={`Read next: ${next.title}`}
               >
                 <span>{next.title}</span>
                 <ArrowRight size={14} className="mt-0.5 shrink-0 group-hover:translate-x-0.5 transition-transform" />
