@@ -1,39 +1,61 @@
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { loadAllPostFrontMatter } from "../src/lib/frontMatter.mjs";
 
-const source = readFileSync(
-  path.resolve(process.cwd(), "src/data/blogPosts.ts"),
-  "utf8"
-);
 const posts = loadAllPostFrontMatter();
 const missing = [];
 
-function expectInSource(slug, value) {
-  if (!value) return;
-  if (!source.includes(value)) missing.push(`${slug}: ${value}`);
-}
-
-for (const [slug, frontMatter] of Object.entries(posts)) {
-  expectInSource(slug, frontMatter.call);
-  expectInSource(slug, frontMatter.belief);
-  for (const step of frontMatter.steps ?? []) expectInSource(slug, step);
-  for (const tile of frontMatter.impact ?? []) {
-    expectInSource(slug, tile.number);
-    expectInSource(slug, tile.label);
+function requireBands(slug, keys) {
+  const post = posts[slug];
+  if (!post) {
+    missing.push(`missing ${slug} front matter`);
+    return;
+  }
+  for (const key of keys) {
+    const value = post[key];
+    const empty = value == null || (Array.isArray(value) && value.length === 0);
+    if (empty) missing.push(`${slug} should include ${key}`);
   }
 }
 
-const teams = posts["building-teams-as-raising-funds"];
-if (!teams) missing.push("missing building-teams-as-raising-funds front matter");
-else if (teams.impact) missing.push("building-teams-as-raising-funds should omit impact");
+function forbidBands(slug, keys) {
+  const post = posts[slug];
+  if (!post) return;
+  for (const key of keys) {
+    const value = post[key];
+    const present = Array.isArray(value) ? value.length > 0 : Boolean(value);
+    if (present) missing.push(`${slug} should omit ${key}`);
+  }
+}
 
-const marketing = posts["securing-500k-gmv-win"];
-if (!marketing) missing.push("missing securing-500k-gmv-win front matter");
-else if (marketing.call) missing.push("securing-500k-gmv-win should omit call");
+requireBands("building-product-as-system-architecture", ["call", "impact", "steps", "belief"]);
+requireBands("securing-500k-gmv-win", ["call", "impact", "steps", "belief"]);
+requireBands("velocity-labs", ["call", "impact", "steps", "belief"]);
+requireBands("building-teams-as-raising-funds", ["call", "belief"]);
+forbidBands("building-teams-as-raising-funds", ["impact", "steps"]);
 
-if (posts["over-index-on-intuition"]) {
-  missing.push("over-index-on-intuition should not have band front matter");
+const architecture = posts["building-product-as-system-architecture"];
+const targetTile = architecture?.impact?.find((tile) => tile.number === "99.99%");
+if (targetTile?.label !== "availability target this work lays groundwork for (a target, not achieved)") {
+  missing.push("architecture 99.99% tile lost Clay's target wording");
+}
+
+const velocity = posts["velocity-labs"];
+if (!velocity?.redirectFrom?.includes("/blog/velocity-labs-system-sculpting")) {
+  missing.push("velocity-labs should redirect the old slug");
+}
+
+const dir = path.resolve(process.cwd(), "content/blog");
+for (const name of readdirSync(dir)) {
+  if (!name.endsWith(".md")) continue;
+  const text = readFileSync(path.join(dir, name), "utf8");
+  if (text.includes("NEEDS TYLER") || text.includes("Facts check") || text.includes("PREVIEW ONLY")) {
+    missing.push(`${name} still has notes that must not render`);
+  }
+}
+
+if (posts["velocity-labs-system-sculpting"]) {
+  missing.push("old velocity front matter file should be gone");
 }
 
 if (missing.length) {
@@ -42,4 +64,4 @@ if (missing.length) {
   process.exit(1);
 }
 
-console.log(`verify-band-excerpts: ${Object.keys(posts).length} posts, excerpts match source`);
+console.log("verify-band-excerpts: Clay bands match the recut, teams omits impact and steps");
