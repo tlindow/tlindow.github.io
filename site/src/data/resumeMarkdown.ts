@@ -28,8 +28,8 @@ Fintech engineering manager with 6+ years at Affirm across Partner Engineering, 
 
 *San Diego, CA | Mar 2026 – Jul 2026*
 
-- Built and launched a fundraising pitch simulator (React/Next.js) as sole founder; owned product discovery, architecture, and GTM—validated demand through 92 in-person conversations (including 5 VCs) and 28 early users.
-- Wound down in Jul 2026 rather than raise—personal runway could not cover a full fundraising cycle; returned to Engineering Manager roles.
+- Built and launched a fundraising pitch simulator (React/Next.js) as sole founder; owned product discovery, architecture, and GTM. Validated demand through 92 in-person conversations (including 5 VCs) and 28 early users.
+- Wound down in Jul 2026 rather than raise. Personal runway could not cover a full fundraising cycle; returned to Engineering Manager roles.
 
 ### Software Engineering Manager (L7), Merchant Advocacy | Affirm
 
@@ -39,7 +39,7 @@ Fintech engineering manager with 6+ years at Affirm across Partner Engineering, 
 - **affirm.com revamp:** Led a 5-week cross-functional rebuild of affirm.com (~1M monthly viewers) with Design, Marketing, and Engineering for web/mobile design continuity. Shipped onboarding and mobile conversion paths; generated an additional $500K GMV in a 3-day pre–Black Friday sale. Unlocked fast-follow A/B testing and CMS so marketing and eng could iterate without another full redesign cycle.
 - **Org absorption:** After an engineering manager left, absorbed affirm.com ownership and supporting eng surfaces with no replacement hire; kept Merchant Portal and affirm.com delivery on track with no operational regression.
 - **Merchant Portal reliability:** Raised availability 99.7% → 99.9% in one quarter and unblocked an Intuit launch covering hundreds of thousands of new merchants. Led weekly AI-tooling sessions where the team found and removed unused code paths that threw errant 5xxs and slowed incident diagnosis.
-- **Tradeoff — domain decoupling:** Mediated RFCs and system design across Staff+, Directors, and four merchant-engineering teams; chose to decouple service boundaries and drop an out-of-scope dashboard feature rather than force a database migration. Secured Director sign-off on merchant lifecycle architecture by Dec 2025 as groundwork toward a 99.99% availability target.
+- **Tradeoff (domain decoupling):** Mediated RFCs and system design across Staff+, Directors, and four merchant-engineering teams; chose to decouple service boundaries and drop an out-of-scope dashboard feature rather than force a database migration. Secured Director sign-off on merchant lifecycle architecture by Dec 2025 as groundwork toward a 99.99% availability target.
 
 
 
@@ -49,9 +49,9 @@ Fintech engineering manager with 6+ years at Affirm across Partner Engineering, 
 
 - **Org design:** Grew the developer-support engineering function from 1 to 9 engineers; owned interview rubrics and early-team hiring decisions. Shifted Tier-1/Tier-2 load to operations so engineers owned platform reliability.
 - **Promotions:** Ran weekly 1:1s and monthly career-growth reviews across a 9-engineer team; promoted a junior engineer to intermediate in ~1 year and then into product-building engineering, and supported a second engineer’s promotion cycle.
-- **Partner APIs & payments:** Owned technical operations and SLA reliability for strategic merchant accounts ($100M+ GMV) and Affirm’s flagship partner (Amazon, $10B+ GMV)—merchant checkout / confirmation-flow integrations via partner REST APIs and webhooks.
+- **Partner APIs & payments:** Owned technical operations and SLA reliability for strategic merchant accounts ($100M+ GMV) and Affirm’s flagship partner (Amazon, $10B+ GMV). Merchant checkout / confirmation-flow integrations via partner REST APIs and webhooks.
 - **SLA recovery:** Restored monthly attainment of an internal 99.9% availability target (also our partner commitments) through Mar 2025 after multiple missed months in 2024; shared metrics dashboards with Partner APIs and SRE to coordinate incident response across application code, infrastructure, and communications.
-- **Collaboration — GMV signings:** With Sales Engineers, Technical Writers, and plugin partners, produced availability projections that let account management sign $100M+ GMV merchants.
+- **Collaboration (GMV signings):** With Sales Engineers, Technical Writers, and plugin partners, produced availability projections that let account management sign $100M+ GMV merchants.
 - **SLA telemetry:** Architected automated SLA reporting and root-cause summaries (Python, Flask, Snowflake), eliminating 16 hours/month of toil and automating ~80% of SLA report generation and RCA drafting.
 - **Observability:** Built per-merchant dashboards and alerting that cut detection time for higher-volume merchant-scoped outages to under 5 minutes (previously 20 minutes–2 hours unnoticed).
 
