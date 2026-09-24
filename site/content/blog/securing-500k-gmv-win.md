@@ -9,5 +9,5 @@ steps:
   - "Led my engineers through scoping, collaboration, and execution of the affirm.com revamp, working with product, design, and copy."
   - "Built for design continuity between web and our mobile apps."
   - "Owned the cost. It took intense focus and one too many late nights."
-belief: "Engineering leadership is perseverance, and finding out how I lead under pressure."
+belief: "Engineering leadership is perseverance, and finding out how we lead each other under pressure."
 ---
