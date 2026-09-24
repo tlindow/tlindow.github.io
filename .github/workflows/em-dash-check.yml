@@ -25,9 +25,9 @@ jobs:
         working-directory: ./site
         run: npm run build
 
-      - name: Confirm band excerpts are copied from post text
+      - name: Verify bands render from front matter
         working-directory: ./site
-        run: node scripts/verify-band-excerpts.mjs
+        run: npm run check:bands
 
       - name: Report em dashes in built HTML
         working-directory: ./site
