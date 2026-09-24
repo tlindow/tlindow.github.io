@@ -4,7 +4,7 @@ import path from "path";
 
 export const dynamic = "force-static";
 export const alt =
-  "Story — Tyler Lindow (Engineering Manager — Fintech Platform & 0→1 | Ex-Founder | Relocating to Seattle, WA)";
+  "Story: Tyler Lindow (Engineering Manager | Fintech Platform & 0→1 | Ex-Founder)";
 export const size = {
   width: 1200,
   height: 630,
@@ -65,7 +65,7 @@ export default async function Image() {
                 lineHeight: 1.25,
               }}
             >
-            Engineering Manager — Fintech Platform & 0→1 | Ex-Founder | Relocating to Seattle, WA
+            Engineering Manager | Fintech Platform & 0→1 | Ex-Founder
           </p>
         </div>
 

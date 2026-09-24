@@ -24,8 +24,9 @@ import { useAnalytics } from "@/context/AnalyticsProvider";
 import type { ParsedResume } from "@/lib/parseResumeMarkdown";
 
 const FALLBACK_RAW_MARKDOWN = `# Tyler Lindow
-**Fintech Product & Engineering**
-San Diego, CA | (650) 580-5788 | tyler.lindow@gmail.com
+**Engineering Manager | Fintech Platform & 0→1 | Ex-Founder**
+San Diego, CA | Open to relocation
+(650) 580-5788 | tyler.lindow@gmail.com
 [linkedin.com/in/tlindow](https://linkedin.com/in/tlindow) | [github.com/tlindow](https://github.com/tlindow)
 
 ---
@@ -42,26 +43,26 @@ To elevate the creative and financial position of software developers through ed
 ## Professional Experience
 
 ### Beginner | Founder, Developer Relations
-*San Diego, CA (Hybrid) | Mar 2026 – Jul 2026 (5 mos)*
+*San Diego, CA | Mar 2026 – Jul 2026 (5 mos)*
 * **Developer Engagement:** Built and launched a progressive web app enabling technical founders to refine pitches and practice fundraising in-person with potential customers, successfully acquiring initial paying users.
 * **Community Architecture:** Established a local technical network by hosting targeted networking events for product-focused tech professionals and engineers in the San Diego ecosystem.
 * **Market Advocacy:** Traveled across major tech hubs (NYC, SF)—including weekly trips to LA over a 2-month period—to conduct user research, gather developer feedback, and evangelize the product framework directly to target audiences.
 
 ### Affirm | Software Engineering Manager (L7), Merchant Advocacy
-*San Francisco, CA (Remote) | Mar 2025 – Feb 2026*
+*San Diego, CA (Remote) | Mar 2025 – Feb 2026*
 * **Program Orchestration:** Directed a high-pressure, 5-week strategic website revamp (affirm.com), unifying engineering, design, and product content to successfully unlock critical GMV attribution features.
 * **Cross-Functional Performance:** Facilitated engineering trade-offs throughout the revamp to optimize mobile performance, driving an incremental **$500K GMV** during key promotional windows.
 * **First-Principles GenAI Upskilling:** Spearheaded organizational adoption of LLM code-generation utilities and agentic frameworks via a constructionist, "learning-by-doing" pedagogy. Overcame engineer skepticism to accelerate high-risk project deliverables ahead of Black Friday/Cyber Monday deadlines.
 * **Stakeholder Alignment:** Mediated and resolved complex technical conflicts across Manager, Director, and Staff+ levels to unblock a critical platform re-architecture and secure final technical sign-off.
 
 ### Affirm | Developer Support Engineering Manager (L6/L7), Partner Engineering
-*San Francisco, CA (Remote) | Jul 2021 – Mar 2025*
+*San Diego, CA (Remote) | Jul 2021 – Mar 2025*
 * **Developer Empathy & SRE Transition:** Transformed a global support operation into a proactive development and SRE support function, systemizing 80% of operational workflows and scaling the team from 1 to 6 engineers to protect high-volume GMV.
 * **Voice of the Developer:** Advocated for enterprise merchant needs across a **$10B+** strategic partner portfolio, synthesizing integration bugs into systemic root causes. Translated developer friction into the language of revenue to secure product prioritization.
 * **Data-Driven Advocacy:** Developed a full-stack reporting and analytics suite (Python, Flask, Snowflake) removing 16 hours of manual overhead monthly and shifting to a proactive integration strategy.
 
 ### Affirm | Developer Support Engineer (L4/L5), Partner Engineering
-*San Francisco, CA (Remote) | Sept 2019 – Jul 2021*
+*San Francisco, CA (Hybrid) | Sept 2019 – Jul 2021*
 * **Technical Translation & Liaison:** Served as the primary technical point of contact for enterprise merchants; established the foundation for data-driven developer advocacy by diagnosing B2B integration bugs and translating them into actionable platform solutions to eliminate partner churn.
 
 ### Galvanize Inc | Lead Software Engineering Immersive Resident

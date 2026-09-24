@@ -70,7 +70,7 @@ export const resumeContact: ContactInfo = {
   name: "Tyler Lindow",
   title: HEADLINE,
   location: "San Diego, CA",
-  relocation: "Relocating to Seattle, WA",
+  relocation: "Open to relocation",
   phone: "(650) 580-5788",
   phoneObscured: "(650) •••-••••",
   email: "tyler.lindow@gmail.com",
@@ -210,7 +210,7 @@ export const experiences: ExperienceEntry[] = [
     id: "beginner",
     company: "Beginner Work Inc.",
     role: "Founder",
-    locationAndPeriod: "San Diego, CA (Hybrid) | Mar 2026 – Jul 2026",
+    locationAndPeriod: "San Diego, CA | Mar 2026 – Jul 2026",
     bullets: [],
   },
   {

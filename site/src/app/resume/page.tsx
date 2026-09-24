@@ -5,11 +5,11 @@ import Navbar from "@/components/Navbar";
 import { parsedResume } from "@/data/resumeMarkdown";
 
 export const metadata: Metadata = {
-  title: "Resume — Tyler Lindow (Engineering Manager — Fintech Platform & 0→1)",
+  title: "Resume | Tyler Lindow (Engineering Manager | Fintech Platform & 0→1 | Ex-Founder)",
   description:
     "Fintech engineering manager with 6+ years at Affirm across Partner Engineering, merchant onboarding, and marketing products. Ex-founder (Beginner Work Inc.).",
   openGraph: {
-    title: "Resume — Tyler Lindow (Engineering Manager — Fintech Platform & 0→1)",
+    title: "Resume | Tyler Lindow (Engineering Manager | Fintech Platform & 0→1 | Ex-Founder)",
     description:
       "Fintech engineering manager with 6+ years at Affirm across Partner Engineering, merchant onboarding, and marketing products. Ex-founder (Beginner Work Inc.).",
     url: "https://tlindow.github.io/resume",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Resume — Tyler Lindow (Engineering Manager — Fintech Platform & 0→1)",
+    title: "Resume | Tyler Lindow (Engineering Manager | Fintech Platform & 0→1 | Ex-Founder)",
     description:
       "Fintech engineering manager with 6+ years at Affirm across Partner Engineering, merchant onboarding, and marketing products. Ex-founder (Beginner Work Inc.).",
   },

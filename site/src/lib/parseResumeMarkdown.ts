@@ -35,7 +35,7 @@ export function parseResumeMarkdown(markdownText: string): ParsedResume {
     title: "Fintech Engineering & Product",
     subtitle: "B2B SaaS on curiosity-safe, GenAI Rails",
     location: "San Diego, CA",
-    relocation: "Relocating to Seattle, WA",
+    relocation: "Open to relocation",
     phone: "(650) 580-5788",
     phoneObscured: "(650) •••-••••",
     email: "tyler.lindow@gmail.com",

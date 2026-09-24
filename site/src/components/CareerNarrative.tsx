@@ -6,19 +6,19 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const affirmRoles = [
   {
     role: "Software Engineering Manager, Merchant Advocacy",
-    when: "San Diego, CA · Mar 2025 – Feb 2026",
+    when: "San Diego, CA (Remote) · Mar 2025 – Feb 2026",
     detail:
       "Company-scale engineering management for top-of-funnel marketing on affirm.com and the enterprise merchant portal.",
   },
   {
     role: "Developer Support Engineering Manager, Partner Engineering",
-    when: "San Diego, CA · Jul 2021 – Mar 2025",
+    when: "San Diego, CA (Remote) · Jul 2021 – Mar 2025",
     detail:
       "Company-scale engineering management for developer support and partner integrations — the enterprise B2B portal and the developers who integrate it.",
   },
   {
     role: "Developer Support Engineer, Partner Engineering",
-    when: "San Francisco, CA · Sep 2019 – Jul 2021",
+    when: "San Francisco, CA (Hybrid) · Sep 2019 – Jul 2021",
     detail:
       "Developer-facing merchant integration support on the partner surface.",
   },
