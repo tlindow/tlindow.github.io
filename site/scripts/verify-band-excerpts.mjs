@@ -28,6 +28,10 @@ const teams = posts["building-teams-as-raising-funds"];
 if (!teams) missing.push("missing building-teams-as-raising-funds front matter");
 else if (teams.impact) missing.push("building-teams-as-raising-funds should omit impact");
 
+const marketing = posts["securing-500k-gmv-win"];
+if (!marketing) missing.push("missing securing-500k-gmv-win front matter");
+else if (marketing.call) missing.push("securing-500k-gmv-win should omit call");
+
 if (posts["over-index-on-intuition"]) {
   missing.push("over-index-on-intuition should not have band front matter");
 }
