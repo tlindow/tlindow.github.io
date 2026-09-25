@@ -42,7 +42,6 @@ jobs:
 
       - name: Report em dashes in built HTML
         working-directory: ./site
-        continue-on-error: true
         run: node scripts/check-em-dashes.mjs
 
       - name: Setup GitHub Pages

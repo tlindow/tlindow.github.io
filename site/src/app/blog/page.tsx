@@ -5,11 +5,11 @@ import Navbar from "@/components/Navbar";
 import { blogPosts } from "@/data/blogPosts";
 
 export const metadata: Metadata = {
-  title: "Blog — Tyler Lindow",
+  title: "Blog: Tyler Lindow",
   description:
     "Writing from an engineering manager in fintech: securing a $500K GMV win, product as system architecture, and Velocity Labs.",
   openGraph: {
-    title: "Blog — Tyler Lindow",
+    title: "Blog: Tyler Lindow",
     description:
       "Writing from an engineering manager in fintech: securing a $500K GMV win, product as system architecture, and Velocity Labs.",
     url: "https://tlindow.github.io/blog",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog — Tyler Lindow",
+    title: "Blog: Tyler Lindow",
     description:
       "Writing from an engineering manager in fintech: securing a $500K GMV win, product as system architecture, and Velocity Labs.",
   },
