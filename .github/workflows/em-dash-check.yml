@@ -25,9 +25,9 @@ jobs:
         working-directory: ./site
         run: npm run build
 
-      - name: Verify bands render from front matter
+      - name: Verify labeled paragraphs
         working-directory: ./site
-        run: npm run check:bands
+        run: npm run check:labels
 
       - name: Report em dashes in built HTML
         working-directory: ./site

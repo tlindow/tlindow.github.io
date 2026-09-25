@@ -6,7 +6,7 @@
     "dev": "node scripts/sync-resume-data.mjs && (node scripts/watch-resume.mjs & next dev)",
     "build": "node scripts/sync-resume-data.mjs && next build && node scripts/write-redirects.mjs",
     "check:em-dashes": "node scripts/check-em-dashes.mjs",
-    "check:bands": "node scripts/verify-band-excerpts.mjs",
+    "check:labels": "node scripts/verify-labeled-paragraphs.mjs",
     "start": "next start",
     "lint": "eslint",
     "remove-bg": "node scripts/remove-bg.mjs",

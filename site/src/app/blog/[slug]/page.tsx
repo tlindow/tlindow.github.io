@@ -3,9 +3,9 @@ import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
-import DecisionBands from "@/components/blog/DecisionBands";
+import LabeledBody from "@/components/blog/LabeledBody";
 import { blogPosts, getAdjacentPosts, getBlogPostBySlug } from "@/data/blogPosts";
-import { findRedirectTarget, loadPostFrontMatter } from "@/lib/frontMatter.mjs";
+import { findRedirectTarget, loadRenderedParagraphs } from "@/lib/frontMatter.mjs";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -50,7 +50,7 @@ export default async function BlogPostPage({ params }: Props) {
     notFound();
   }
 
-  const bands = loadPostFrontMatter(slug);
+  const paragraphs = loadRenderedParagraphs(slug);
   const { previous, next } = getAdjacentPosts(slug);
 
   return (
@@ -86,14 +86,9 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         </header>
 
-        <DecisionBands
-          call={bands.call}
-          impact={bands.impact}
-          steps={bands.steps}
-          belief={bands.belief}
-        />
-
-        {/* Full Essay Prose (Zero Box Containers, All Quotes in Purple) */}
+        {paragraphs.length > 0 ? (
+          <LabeledBody paragraphs={paragraphs} />
+        ) : (
         <article className="prose prose-neutral max-w-none font-mono space-y-6 text-foreground/90 leading-relaxed text-sm sm:text-base">
           {post.content.map((paragraph, index) => {
             const isBlockquote = paragraph.startsWith("> ");
@@ -136,6 +131,7 @@ export default async function BlogPostPage({ params }: Props) {
             );
           })}
         </article>
+        )}
 
         <div className="mt-16 pt-8 border-t border-border flex flex-col gap-6 text-xs font-mono">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">

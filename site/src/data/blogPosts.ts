@@ -34,7 +34,7 @@ export interface BlogPost {
   summary: string;
   previewText?: string;
   slides: SlideData[];
-  content: string[]; // Markdown/paragraph blocks
+  content: string[]; // Fallback body. The four case studies live in site/content/blog.
 }
 
 const defaultAuthor = {
@@ -88,11 +88,7 @@ export const blogPosts: BlogPost[] = [
           "Remind each other that engineering will forever be a human pursuit.",
       },
     ],
-    content: [
-      `In October of 2025, we revamped the affirm.com marketing website in order to create design continuity between web and mobile apps and drive more conversion for the ~1M monthly viewers of the site.`,
-      `And what I told my team at the end of all of the scoping, collaboration, and execution alongside the immense work of product, design, and copy was:`,
-      `“Engineers are important... and even if we are not seen for all of our efforts right now, you know what you accomplished.”`,
-    ],
+    content: [],
   },
   {
     id: "building-product-as-system-architecture",
@@ -137,17 +133,7 @@ export const blogPosts: BlogPost[] = [
           "Requiring operational support at a product- and engineering-led company is a necessary growth pattern for building a system that feels like a human.",
       },
     ],
-    content: [
-      `In September of 2025, I took the lead to bring more cohesion across the merchant engineering organization at Affirm to develop the merchant lifecycle orchestrator deployable target, as groundwork toward a 99.99% availability target.`,
-      `That work reduced team dependencies and put us in a position to further product-led growth for merchant onboarding.`,
-      `Building system architecture is too often seen as simply a requirement to appease the high standards of enterprise customers.`,
-      `“Are our systems fast enough to get hesitant users to think, 'that was easy' and go tell their friends?”`,
-      `“By reducing confusion about data discrepancies in our system, will we grow the bottom line?”`,
-      `“If we have another incident, will users leave us, or will they leave us because they just didn't understand how valuable the dashboard was to them?”`,
-      `In this project, I made a clear decision early on when faced with the option to tell another team to do a database migration or drop a dashboard customers found useful:`,
-      `“Drop the dashboard. The product is causing these users to do more work. And don't migrate the database. The data schemas are correct. I have found a way for our operations teams to provide this dashboard data and provide more holistic support.”`,
-      `Requiring operational support at a product- and engineering-led company is a necessary growth pattern for building a system that feels like a human.`,
-    ],
+    content: [],
   },
   {
     id: "velocity-labs",
@@ -191,13 +177,7 @@ export const blogPosts: BlogPost[] = [
           "The intelligence age is helping us move faster, but the real gains in adopting AI technology will help us unlock products that make it easy to try new things and extend trust with customers.",
       },
     ],
-    content: [
-      `In September of 2025, I implemented Velocity Labs for my team in order to manage new and ongoing production incidents occurring on our legacy platform every week and provide ourselves a chance to develop revenue-driving software for Affirm in the new year.`,
-      `Even with a brittle legacy system, the reason we weren't getting as much done before was organizational. We did not have a growth mindset.`,
-      `Shortly before departing Affirm, I initially gained traction with engineers in the larger org to talk about how we could find new ways to grow the engineering practice using AI. And as part of a company-wide AI Paved Paths week, I started to develop an idea for an application that would allow Affirm to expand its merchant platform for in-store mobile use, managed by merchant users.`,
-      `I'll end with this:`,
-      `“The intelligence age is helping us move faster, but the real gains in adopting AI technology will help us unlock products that make it easy to try new things and extend trust with customers.”`,
-    ],
+    content: [],
   },
   {
     id: "building-teams-as-raising-funds",
@@ -241,12 +221,7 @@ export const blogPosts: BlogPost[] = [
           'Building a team, just like promoting someone, requires constructing a personal belief that "I know how to grow this business."',
       },
     ],
-    content: [
-      `During my first years as an engineering manager in 2022, I promoted a junior engineer to an intermediate position in about 1 year.`,
-      `And through the span of my time managing this person, they received multiple raises and equity grants for their ability to get critical projects over the line and build the organizational intelligence of the team while doing it.`,
-      `In one particular check-in with this person, I asked, “What do you see yourself doing in five years?” And their answer was “I'd like to become a manager.” I said, “Tell me how.”`,
-      `This work of building teams by raising the funding potential of an individual doesn't happen by mistake, and it also does not happen quickly. Raising funds for your position requires an intentional process, and one that is not taken for granted. A goal and a gift.`,
-    ],
+    content: [],
   },
   {
     id: "over-index-on-intuition",
