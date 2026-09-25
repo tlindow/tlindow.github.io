@@ -1,12 +1,28 @@
-import { readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseLabeledMarkdown, renderLabeledParagraphs, LABELS } from "../src/lib/frontMatter.mjs";
 
+// over-index-on-intuition stays unlabeled until Tyler decides what happens to that post.
+const UNLABELED_ALLOWED = ["over-index-on-intuition"];
+
 const here = path.dirname(fileURLToPath(import.meta.url));
 const dir = path.join(here, "../content/blog");
+const postsPath = path.join(here, "../src/data/blogPosts.ts");
 const files = readdirSync(dir).filter((name) => name.endsWith(".md")).sort();
 const failures = [];
+const postSlugs = [...readFileSync(postsPath, "utf8").matchAll(/slug:\s*"([^"]+)"/g)].map(
+  (match) => match[1]
+);
+
+for (const slug of postSlugs) {
+  const hasLabeledFile = existsSync(path.join(dir, `${slug}.md`));
+  if (!hasLabeledFile && !UNLABELED_ALLOWED.includes(slug)) {
+    failures.push(
+      `${slug}: no labeled file in site/content/blog and not on the unlabeled allow list`
+    );
+  }
+}
 
 if (files.length === 0) {
   failures.push("no post bodies found in site/content/blog");
@@ -34,6 +50,7 @@ if (failures.length) {
 
 console.log("label check: pass");
 console.log(`Allowed labels: ${LABELS.join(", ")}`);
+console.log(`Unlabeled allow list: ${UNLABELED_ALLOWED.join(", ")}`);
 for (const name of files) {
   const slug = name.slice(0, -3);
   const { paragraphs } = parseLabeledMarkdown(readFileSync(path.join(dir, name), "utf8"));
