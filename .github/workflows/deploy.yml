@@ -40,6 +40,10 @@ jobs:
         working-directory: ./site
         run: npm run build
 
+      - name: Report em dashes in built HTML
+        working-directory: ./site
+        run: node scripts/check-em-dashes.mjs
+
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
 
